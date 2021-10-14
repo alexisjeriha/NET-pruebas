@@ -40,12 +40,12 @@ namespace BusinessEntities
             set { _Apellido = value; }
         }
 
-        private String _Email;
+        private String _EMail;
 
-        public String Email
+        public String EMail
         {
-            get { return _Email; }
-            set { _Email = value; }
+            get { return _EMail; }
+            set { _EMail = value; }
         }
 
         private bool _Habilitado;
