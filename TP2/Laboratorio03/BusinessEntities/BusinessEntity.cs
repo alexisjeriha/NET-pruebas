@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessEntities
+namespace Business.Entities
 {
     public class BusinessEntity
     {
         public BusinessEntity()
         {
-            this.State = States.New;
+            State = States.New;
         }
 
         private int _ID;

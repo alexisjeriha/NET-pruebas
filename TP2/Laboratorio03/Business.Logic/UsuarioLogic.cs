@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BusinessEntities;
+using Business.Entities;
 using Data.Database;
+
 namespace Business.Logic
 {
     public class UsuarioLogic : BusinessLogic
     {
-        public UsuarioAdapter UsuarioData { get; set; }
+        private UsuarioAdapter UsuarioData;
         public UsuarioLogic()
         {
-            UsuarioAdapter ua = new UsuarioAdapter();
+            UsuarioData = new UsuarioAdapter();
         }
 
         public List<Usuario> GetAll()
