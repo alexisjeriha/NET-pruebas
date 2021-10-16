@@ -10,6 +10,9 @@ namespace Data.Database
 {
     public class UsuarioAdapter : Adapter
     {
+        private static List<Usuario> Usuarios;
+
+     /*
         #region DatosEnMemoria
         // Esta región solo se usa en esta etapa donde los datos se mantienen en memoria.
         // Al modificar este proyecto para que acceda a la base de datos esta será eliminada
@@ -60,11 +63,33 @@ namespace Data.Database
                 return _Usuarios;
             }
         }
-        #endregion
+        #endregion 
+        */ // Datos en memoria
 
         public List<Usuario> GetAll()
         {
-            return new List<Usuario>(Usuarios);
+            List<Usuario> usuarios = new List<Usuario>();
+            OpenConnection();
+            SqlCommand cmdUsuarios = new SqlCommand("select * from usuarios",SqlConn);
+            SqlDataReader drUsuarios = cmdUsuarios.ExecuteReader();
+
+            while (drUsuarios.Read())
+            {
+                Usuario usr = new Usuario();
+
+                usr.ID = (int)drUsuarios["id_usuario"];
+                usr.NombreUsuario = (string)drUsuarios["nombre_usuario"];
+                usr.Clave = (string)drUsuarios["clave"];
+                usr.Habilitado = (bool)drUsuarios["habilitado"];
+                usr.Nombre = (string)drUsuarios["nombre"];
+                usr.Apellido = (string)drUsuarios["apellido"];
+                usr.EMail = (string)drUsuarios["email"];
+
+                usuarios.Add(usr);
+
+            }
+            CloseConnection();
+            return usuarios;
         }
 
         public Usuario GetOne(int ID)

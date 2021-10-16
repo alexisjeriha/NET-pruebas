@@ -9,16 +9,16 @@ namespace Data.Database
     public class Adapter
     {
         //Clave por defecto a utlizar para la cadena de conexion
-        const string consKeyDefaultCnnString = "ConnStringLocal";
+        const string consKeyDefaultCnnString = "ConnStringExpress";
 
         public SqlConnection SqlConn { get; set; }
 
-        //private SqlConnection sqlConnection = new SqlConnection("ConnectionString;");
 
         protected void OpenConnection()
         {
 
-            String conn = ConfigurationManager.ConnectionStrings[consKeyDefaultCnnString].ConnectionString;
+            string sCnn = ConfigurationManager.ConnectionStrings[consKeyDefaultCnnString].ConnectionString;
+            SqlConn = new SqlConnection(sCnn);
             SqlConn.Open();
         }
 
@@ -33,5 +33,12 @@ namespace Data.Database
         {
             throw new Exception("Metodo no implementado");
         }
+
+
+
+
     }
+
+
 }
+

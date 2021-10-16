@@ -100,7 +100,7 @@ namespace UI.Desktop
                 return false;
             }
         }
-        public override bool Validar() //FALTA VALIDAR EMAIL
+        public override bool Validar()
         {
             bool EsValido = true;
             foreach (Control oControls in this.Controls)
