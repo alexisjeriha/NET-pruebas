@@ -41,16 +41,16 @@ namespace UI.Desktop
             switch (Modo)
             {
                 case ModoForm.Alta:
-                    this.btnAceptar.Text = "Guardar";
+                    btnAceptar.Text = "Guardar";
                     break;
                 case ModoForm.Modificacion:
-                    this.btnAceptar.Text = "Guardar";
+                    btnAceptar.Text = "Guardar";
                     break;
                 case ModoForm.Baja:
-                    this.btnAceptar.Text = "Eliminar";
+                    btnAceptar.Text = "Eliminar";
                     break;
                 case ModoForm.Consulta:
-                    this.btnAceptar.Text = "Aceptar";
+                    btnAceptar.Text = "Aceptar";
                     break;
             }
         }
@@ -103,35 +103,28 @@ namespace UI.Desktop
         public override bool Validar()
         {
             bool EsValido = true;
-            foreach (Control oControls in this.Controls)
+            foreach (Control oControls in Controls)
             {
-                if (oControls is TextBox && oControls.Text == System.String.Empty && oControls != this.txtID)
+                if (oControls is TextBox && oControls.Text == String.Empty && oControls != txtID)
                 {
                     EsValido = false;
                     break;
                 }
             }
             if (EsValido == false)
-                this.Notificar("Todos los campos son obligatorios", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            if (this.txtClave.Text != this.txtConfirmarClave.Text)
+                Notificar("Todos los campos son obligatorios", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (txtClave.Text != txtConfirmarClave.Text)
             {
                 EsValido = false;
-                this.Notificar("La clave no coincide con la confirmacion de la misma", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Notificar("La clave no coincide con la confirmacion de la misma", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if (this.txtClave.Text.Length < 8)
+            if (txtClave.Text.Length < 8)
             {
                 EsValido = false;
-                this.Notificar("La clave debe tener al menos 8 caracteres", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Notificar("La clave debe tener al menos 8 caracteres", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if (!IsEmailValid(this.txtEMail.ToString()))
-            {
-                Notificar("El email no es valido",
-                      MessageBoxButtons.OK, MessageBoxIcon.Error);
-                EsValido = false;
-            }
-
+            
             return EsValido;
-
         }
 
         private void btnAceptar_Click(object sender, System.EventArgs e)
