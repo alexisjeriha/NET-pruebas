@@ -18,7 +18,7 @@ namespace UI.Web
                 LoadGrid();
             }
         }
-        
+
         UsuarioLogic _logic;
         private UsuarioLogic Logic
         {
@@ -37,24 +37,175 @@ namespace UI.Web
             gridView.DataBind();
 
         }
-        protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void LoadForm(int id)
         {
-            //Funcionalidad futura ?
+            Entity = Logic.GetOne(id);
+            nombreTextBox.Text = Entity.Nombre;
+            apellidoTextBox.Text = Entity.Apellido;
+            emailTextBox.Text = Entity.EMail;
+            habilitadoCheckBox.Checked = Entity.Habilitado;
+            nombreUsuarioTextBox.Text = Entity.NombreUsuario;
         }
 
-        protected void editarLinkButton_Click(object sender, EventArgs e)
+        private void EnableForm(bool enable)
         {
-            //Funcionalidad futura ?
+            nombreTextBox.Enabled = enable;
+            apellidoTextBox.Enabled = enable;
+            emailTextBox.Enabled = enable;
+            nombreUsuarioTextBox.Enabled = enable;
+            claveTextBox.Visible = enable;
+            claveLabel.Visible = enable;
+            repetirClaveTextBox.Visible = enable;
+            repetirClaveLabel.Visible = enable;
+        }
+
+        private void ClearForm()
+        {
+            nombreTextBox.Text = string.Empty;
+            apellidoTextBox.Text = string.Empty;
+            emailTextBox.Text = string.Empty;
+            habilitadoCheckBox.Checked = false;
+            nombreUsuarioTextBox.Text = string.Empty;
+        }
+
+        private void LoadEntity(Usuario usuario)
+        {
+            usuario.Nombre = nombreTextBox.Text;
+            usuario.Apellido = apellidoTextBox.Text;
+            usuario.EMail = emailTextBox.Text;
+            usuario.NombreUsuario = nombreUsuarioTextBox.Text;
+            usuario.Clave = claveTextBox.Text;
+            usuario.Habilitado = habilitadoCheckBox.Checked;
+        }
+
+        private void SaveEntity(Usuario usuario)
+        {
+            Logic.Save(usuario);
+        }
+
+        private void DeleteEntity(int id)
+        {
+            Logic.Delete(id);
+        }
+
+
+        #region Event Handlers
+        protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SelectedID = (int)gridView.SelectedValue;
         }
 
         protected void eliminarLinkButton_Click(object sender, EventArgs e)
         {
-            //Funcionalidad futura ?
+            if (IsEntitySelected)
+            {
+                formPanel.Visible = true;
+                FormMode = FormModes.Baja;
+                EnableForm(false);
+                LoadForm(SelectedID);
+            }
+        }
+
+        protected void editarLinkButton_Click(object sender, EventArgs e)
+        {
+            if (IsEntitySelected)
+            {
+                formPanel.Visible = true;
+                FormMode = FormModes.Modificacion;
+                LoadForm(SelectedID);
+            }
+        }
+
+        // No se si la funcionalidad estaba asociada a este boton ya que en el enunciado refería 
+        // a aceptarLinkButton_Click
+        protected void aceptarLinkButton_Click(object sender, EventArgs e)
+        {
+            switch(FormMode)
+                {
+
+                case FormModes.Alta:
+            // Duda modificación punto 39
+            Entity = new Usuario();
+                Entity.ID = SelectedID;
+                Entity.State = BusinessEntity.States.Modified;
+                LoadEntity(Entity);
+                SaveEntity(Entity);
+                LoadGrid();
+                break;
+
+                case FormModes.Baja:
+                    DeleteEntity(SelectedID);
+                    LoadGrid();
+                    break;
+                case FormModes.Modificacion:
+                    Entity = new Usuario();
+                    Entity.ID = SelectedID;
+                    Entity.State = BusinessEntity.States.Modified;
+                    LoadEntity(Entity);
+                    SaveEntity(Entity);
+                    LoadGrid();
+                    break;
+                default:
+                    break;
+            }
+            formPanel.Visible = false;
         }
 
         protected void nuevoLinkButton_Click(object sender, EventArgs e)
         {
-            //Funcionalidad futura ?
+            formPanel.Visible = true;
+            FormMode = FormModes.Alta;
+            ClearForm();
+            EnableForm(true);
         }
+
+        protected void cancelarLinkButton_Click(object sender, EventArgs e)
+        {
+            // Chequear que no sea necesaria funcionalidad extra.
+            LoadGrid();
+        }
+
+
+        #endregion
+
+        #region Properties
+
+        private Usuario Entity
+        {
+            get;
+            set;
+        }
+        private int SelectedID
+        {
+            get
+            {
+                if (ViewState["SelectedID"] != null) { return (int)ViewState["SelectedID"]; }
+                else { return 0; }
+            }
+            set
+            {
+                ViewState["SelectedID"] = value;
+            }
+        }
+
+        private bool IsEntitySelected
+        {
+            get { return (SelectedID != 0); }
+        }
+        public enum FormModes
+        {
+            Alta,
+            Baja,
+            Modificacion
+        }
+
+        public FormModes FormMode
+        {
+            get { return (FormModes)ViewState["FormMode"]; }
+            set { ViewState["FormMode"] = value; }
+        }
+
+        #endregion
     }
 }
