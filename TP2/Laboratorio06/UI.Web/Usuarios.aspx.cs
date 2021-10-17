@@ -101,6 +101,7 @@ namespace UI.Web
             if (IsEntitySelected)
             {
                 formPanel.Visible = true;
+                gridConfirmPanel.Visible = true; // Agregado
                 FormMode = FormModes.Baja;
                 EnableForm(false);
                 LoadForm(SelectedID);
@@ -112,6 +113,7 @@ namespace UI.Web
             if (IsEntitySelected)
             {
                 formPanel.Visible = true;
+                gridConfirmPanel.Visible = true; // Agregado
                 FormMode = FormModes.Modificacion;
                 LoadForm(SelectedID);
             }
@@ -150,11 +152,14 @@ namespace UI.Web
                     break;
             }
             formPanel.Visible = false;
+            gridConfirmPanel.Visible = false; // Agregado
+
         }
 
         protected void nuevoLinkButton_Click(object sender, EventArgs e)
         {
             formPanel.Visible = true;
+            gridConfirmPanel.Visible = false;
             FormMode = FormModes.Alta;
             ClearForm();
             EnableForm(true);
@@ -164,6 +169,8 @@ namespace UI.Web
         {
             // Chequear que no sea necesaria funcionalidad extra.
             LoadGrid();
+            formPanel.Visible = false;
+            gridConfirmPanel.Visible = false; // Agregado
         }
 
 
