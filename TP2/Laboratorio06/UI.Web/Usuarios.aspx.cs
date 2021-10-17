@@ -114,6 +114,7 @@ namespace UI.Web
             {
                 formPanel.Visible = true;
                 gridConfirmPanel.Visible = true; // Agregado
+                gridActionsPanel.Visible = false;// Agregado
                 FormMode = FormModes.Modificacion;
                 LoadForm(SelectedID);
             }
@@ -153,16 +154,8 @@ namespace UI.Web
             }
             formPanel.Visible = false;
             gridConfirmPanel.Visible = false; // Agregado
+            gridActionsPanel.Visible = true; // Agregado
 
-        }
-
-        protected void nuevoLinkButton_Click(object sender, EventArgs e)
-        {
-            formPanel.Visible = true;
-            gridConfirmPanel.Visible = false;
-            FormMode = FormModes.Alta;
-            ClearForm();
-            EnableForm(true);
         }
 
         protected void cancelarLinkButton_Click(object sender, EventArgs e)
@@ -171,8 +164,18 @@ namespace UI.Web
             LoadGrid();
             formPanel.Visible = false;
             gridConfirmPanel.Visible = false; // Agregado
+            gridActionsPanel.Visible = true; // Agregado
         }
 
+        protected void nuevoLinkButton_Click(object sender, EventArgs e)
+        {
+            formPanel.Visible = true;
+            gridConfirmPanel.Visible = true; // Agregado
+            gridActionsPanel.Visible = false; // Agregado
+            FormMode = FormModes.Alta;
+            ClearForm();
+            EnableForm(true);
+        }
 
         #endregion
 
