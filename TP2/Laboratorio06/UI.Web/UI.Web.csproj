@@ -85,7 +85,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Themes\Theme\Default.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Usuarios.aspx" />
