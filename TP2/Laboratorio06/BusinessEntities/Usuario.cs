@@ -8,6 +8,10 @@ namespace Business.Entities
 {
     public class Usuario : BusinessEntity
     {
+        // Persona asociada al usuario
+        public Persona Persona { get; set; }
+
+        // Datos Particulares del usuario
         public String NombreUsuario { get; set; }
 
         public String Clave { get; set; }
