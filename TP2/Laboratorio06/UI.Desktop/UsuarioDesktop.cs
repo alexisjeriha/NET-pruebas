@@ -12,7 +12,6 @@ namespace UI.Desktop
             InitializeComponent();
         }
 
-        public Usuario UsuarioActual { get; set; }
 
         public UsuarioDesktop(ModoForm modo) : this()
         {
@@ -25,8 +24,6 @@ namespace UI.Desktop
 
             UsuarioActual = new UsuarioLogic().GetOne(ID);
             MapearDeDatos();
-
-
 
         }
         public override void MapearDeDatos()
@@ -123,7 +120,7 @@ namespace UI.Desktop
                 EsValido = false;
                 Notificar("La clave debe tener al menos 8 caracteres", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
             return EsValido;
         }
 
@@ -141,5 +138,6 @@ namespace UI.Desktop
         {
             Close();
         }
+        public Usuario UsuarioActual { get; set; }
     }
 }

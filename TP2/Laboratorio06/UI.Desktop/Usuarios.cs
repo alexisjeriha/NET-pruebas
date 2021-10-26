@@ -47,24 +47,24 @@ namespace UI.Desktop
 
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            UsuarioDesktop formUsuario = new UsuarioDesktop(ApplicationForm.ModoForm.Alta);
-            formUsuario.ShowDialog();
+            UsuarioDesktop formUsuarioDesktop = new UsuarioDesktop(ApplicationForm.ModoForm.Alta);
+            formUsuarioDesktop.ShowDialog();
             Listar();
         }
 
         private void tsbEditar_Click(object sender, EventArgs e)
         {
             int ID = ((Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
-            UsuarioDesktop formUsuario = new UsuarioDesktop(ID, ApplicationForm.ModoForm.Modificacion);
-            formUsuario.ShowDialog();
+            UsuarioDesktop formUsuarioDesktop = new UsuarioDesktop(ID, ApplicationForm.ModoForm.Modificacion);
+            formUsuarioDesktop.ShowDialog();
             Listar();
         }
 
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
             int ID = ((Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
-            UsuarioDesktop formUsuario = new UsuarioDesktop(ID, ApplicationForm.ModoForm.Baja);
-            formUsuario.ShowDialog();
+            UsuarioDesktop formUsuarioDesktop = new UsuarioDesktop(ID, ApplicationForm.ModoForm.Baja);
+            formUsuarioDesktop.ShowDialog();
             Listar();
         }
     }
