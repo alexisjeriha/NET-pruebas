@@ -35,5 +35,10 @@ namespace Business.Logic
         {
             UsuarioData.Save(usr);
         }
+        public Usuario GetUsuarioYClave(string nombreUsuario)
+        {
+            return UsuarioData.GetUsuarioYClave(nombreUsuario);
+
+        }
     }
 }

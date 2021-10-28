@@ -189,5 +189,45 @@ namespace Data.Database
         }
 
 
+        public Usuario GetUsuarioYClave(string nombreUsuario)
+        {
+            Usuario usr = new Usuario();
+
+            try
+            {
+                OpenConnection();
+
+                SqlCommand cmd = new SqlCommand("select * from usuarios where nombre_usuario = @nombre_usuario", SqlConn);
+                cmd.Parameters.Add("@nombre_usuario", SqlDbType.VarChar).Value = nombreUsuario;
+
+                SqlDataReader drUsuarios = cmd.ExecuteReader();
+
+                if (drUsuarios.Read())
+                {
+                    usr.ID = (int)drUsuarios["id_usuario"];
+                    usr.NombreUsuario = (string)drUsuarios["nombre_usuario"];
+                    usr.Clave = (string)drUsuarios["clave"];
+                    usr.Habilitado = (bool)drUsuarios["habilitado"];
+                    usr.Nombre = (string)drUsuarios["nombre"];
+                    usr.Apellido = (string)drUsuarios["apellido"];
+                    usr.EMail = (string)drUsuarios["email"];
+                }
+                drUsuarios.Close();
+            }
+            
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos de usuario", Ex);
+                throw ExcepcionManejada;
+            }
+
+            finally
+            {
+                CloseConnection();
+            }
+            return usr;
+        }
+
+
     }
 }
