@@ -119,7 +119,7 @@ namespace UI.Desktop.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::UI.Desktop.Properties.Resources.academiaxd;
             this.CancelButton = this.btnSalir;
             this.ClientSize = new System.Drawing.Size(519, 229);
             this.Controls.Add(this.btnSalir);

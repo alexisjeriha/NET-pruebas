@@ -146,7 +146,7 @@ namespace Data.Database
                 OpenConnection();
                 SqlCommand cmdSave = new SqlCommand(
                 "insert into usuarios (nombre_usuario, clave,habilitado, nombre, apellido, email) " +
-                "values (@nombre_usuario, @clave, @hábilitado, @nombre, @apellido, @email) " +
+                "values (@nombre_usuario, @clave, @habilitado, @nombre, @apellido, @email) " +
                 "select @@identity", SqlConn); //esta línea es para recuperar el ID que asignó el sql automáticamente
                 cmdSave.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
                 cmdSave.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = usuario.Clave;
