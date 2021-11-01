@@ -7,8 +7,8 @@
     <ProjectGuid>{197F05B5-E070-4061-87D4-7BC9A172C4C0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BusinessEntities</RootNamespace>
-    <AssemblyName>BusinessEntities</AssemblyName>
+    <RootNamespace>Business.Entities</RootNamespace>
+    <AssemblyName>Business.Entities</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -42,8 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessEntity.cs" />
+    <Compile Include="Especialidad.cs" />
     <Compile Include="ModuloUsuario.cs" />
     <Compile Include="Modulo.cs" />
+    <Compile Include="Persona.cs" />
+    <Compile Include="Plan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
