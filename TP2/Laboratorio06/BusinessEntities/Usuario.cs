@@ -20,10 +20,5 @@ namespace Business.Entities
 
         public bool Habilitado { get; set; }
 
-
-
-
-
-
     }
 }

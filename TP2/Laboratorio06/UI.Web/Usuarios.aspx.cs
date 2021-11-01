@@ -100,7 +100,7 @@ namespace UI.Web
         {
             if (IsEntitySelected)
             {
-                formPanel.Visible = true;
+                formPanel.Visible = false;
                 gridConfirmPanel.Visible = true; // Agregado
                 FormMode = FormModes.Baja;
                 EnableForm(false);
@@ -117,6 +117,8 @@ namespace UI.Web
                 gridActionsPanel.Visible = false;// Agregado
                 FormMode = FormModes.Modificacion;
                 LoadForm(SelectedID);
+                EnableForm(true);
+
             }
         }
 
@@ -129,9 +131,8 @@ namespace UI.Web
 
                 case FormModes.Alta:
             // Duda modificación punto 39
-            Entity = new Usuario();
-                Entity.ID = SelectedID;
-                Entity.State = BusinessEntity.States.Modified;
+                Entity = new Usuario();
+                Entity.State = BusinessEntity.States.New;
                 LoadEntity(Entity);
                 SaveEntity(Entity);
                 LoadGrid();
