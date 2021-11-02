@@ -1,7 +1,6 @@
+using Business.Entities;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using Business.Entities;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -71,7 +70,7 @@ namespace Data.Database
                 }
                 drUsuarios.Close(); // ?
             }
-            catch(Exception)
+            catch (Exception)
             {
                 Exception ExcepcionManejada = new Exception("Error al recuperar datos de usuario");
                 throw ExcepcionManejada;
@@ -214,7 +213,7 @@ namespace Data.Database
                 }
                 drUsuarios.Close();
             }
-            
+
             catch (Exception Ex)
             {
                 Exception ExcepcionManejada = new Exception("Error al recuperar datos de usuario", Ex);

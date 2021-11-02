@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Business.Entities;
 using Business.Logic;
-using Business.Entities;
+using System;
+using System.Windows.Forms;
 using UI.Desktop.Forms.Forms_Especialidades;
 
 namespace UI.Desktop.Forms.Forms_Especialdades
@@ -18,7 +11,7 @@ namespace UI.Desktop.Forms.Forms_Especialdades
         public Especialidades()
         {
             InitializeComponent();
-            this.dgvEspecialidades.AutoGenerateColumns = false;
+            dgvEspecialidades.AutoGenerateColumns = false;
 
         }
         public void Listar()
@@ -31,43 +24,47 @@ namespace UI.Desktop.Forms.Forms_Especialdades
             Listar();
         }
 
-        private void btnActualizar_Click(object sender, EventArgs e)
-        {
-            Listar();
-        }
+
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            Listar();
+        }
+
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            
-            EspecialidadesForm formEsp = new EspecialidadesForm(ApplicationForm.ModoForm.Alta);
+
+            EspecialidadDesktop formEsp = new EspecialidadDesktop(ApplicationForm.ModoForm.Alta);
             formEsp.ShowDialog();
             Listar();
-            
+
+        }
+
+        
+
+        private void tsbEliminar_Click(object sender, EventArgs e)
+        {
+
+            int ID = ((Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).Id;
+            EspecialidadDesktop formEsp = new EspecialidadDesktop(ID, ApplicationForm.ModoForm.Baja);
+            formEsp.ShowDialog();
+            Listar();
+
         }
 
         private void tsbEditar_Click(object sender, EventArgs e)
         {
-            
-            int ID = ((Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).Id;
-            EspecialidadesForm formEsp = new EspecialidadesForm(ID, ApplicationForm.ModoForm.Modificacion);
-            formEsp.ShowDialog();
-            Listar();
-            
-        }
 
-        private void tsbEliminar_Click(object sender, EventArgs e)
-        {
-            
-            int ID = ((Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).Id;
-            EspecialidadesForm formEsp = new EspecialidadesForm(ID, ApplicationForm.ModoForm.Baja);
+            int ID = ((Especialidad)dgvEspecialidades.SelectedRows[0].DataBoundItem).Id;
+            EspecialidadDesktop formEsp = new EspecialidadDesktop(ID, ApplicationForm.ModoForm.Modificacion);
             formEsp.ShowDialog();
             Listar();
-            
+
         }
     }
 }

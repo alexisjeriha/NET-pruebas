@@ -1,11 +1,8 @@
-﻿using System;
+﻿using Business.Entities;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Business.Entities;
 
 
 
@@ -13,8 +10,8 @@ namespace Data.Database
 {
     public class EspecialidadAdapter : Adapter
     {
-        
-         
+
+
         public List<Especialidad> GetAll()
         {
             List<Especialidad> especialidades = new List<Especialidad>();
@@ -48,7 +45,6 @@ namespace Data.Database
             return especialidades;
         }
 
-        
         public Especialidad GetOne(int ID)
         {
             Especialidad esp = new Especialidad();
@@ -67,7 +63,7 @@ namespace Data.Database
                 }
                 drEspecialidades.Close(); // ?
             }
-            catch(Exception)
+            catch (Exception)
             {
                 Exception ExcepcionManejada = new Exception("Error al recuperar datos de la especialidad");
                 throw ExcepcionManejada;
@@ -78,7 +74,6 @@ namespace Data.Database
             }
             return esp;
         }
-
 
         public void Delete(int ID)
         {
@@ -102,26 +97,26 @@ namespace Data.Database
             {
                 CloseConnection();
             }
+            //Especialidades.Remove(GetOne(ID));
         }
-                
 
-        protected void Update(Especialidad especialidad)
+        protected void Update(Especialidad esp)
         {
             try
             {
                 OpenConnection();
                 SqlCommand cmdSave = new SqlCommand(
-                "UPDATE especialidades SET desc_especialidad = @Descripcion" +
+                "UPDATE especialidades SET desc_especialidad = @desc_esp " +
                 "WHERE id_especialidad=@id", SqlConn);
-                cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = especialidad.Id;
-                cmdSave.Parameters.Add("@descripcion", SqlDbType.VarChar, 50).Value = especialidad.Descripcion;
+                cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = esp.Id;
+                cmdSave.Parameters.Add("@desc_esp", SqlDbType.VarChar, 50).Value = esp.Descripcion;
                 cmdSave.ExecuteNonQuery();
             }
 
             catch (Exception Ex)
             {
                 Exception ExcepcionManejada =
-                new Exception("Error al modificar datos de la especialdad", Ex);
+                new Exception("Error al modificar datos de la especialidad", Ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -130,19 +125,18 @@ namespace Data.Database
             }
         }
 
-
-        protected void Insert(Especialidad especialidad)
+        protected void Insert(Especialidad esp)
         {
             try
             {
                 OpenConnection();
                 SqlCommand cmdSave = new SqlCommand(
-                "insert into especialidades (id_especialdad, desc_especialdad) " +
-                "values (@id, @descripcion) " +
+                "insert into especialidades (desc_especialidad) " +
+                "values (@desc_esp) " +
                 "select @@identity", SqlConn); //esta línea es para recuperar el ID que asignó el sql automáticamente
-
-                cmdSave.Parameters.Add("@descripcion", SqlDbType.VarChar, 50).Value = especialidad.Descripcion;
-                especialidad.Id = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar()); //así se obtiene el ID que asignó al BD automáticamente
+                cmdSave.Parameters.Add("@desc_esp", SqlDbType.VarChar, 50).Value = esp.Descripcion;
+                esp.Id = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
+                //así se obtiene el ID que asignó al BD automáticamente
             }
             catch (Exception Ex)
             {
@@ -155,26 +149,24 @@ namespace Data.Database
                 CloseConnection();
             }
         }
-
-        
-        public void Save(Especialidad especialidad)
+        public void Save(Especialidad esp)
         {
 
-            if (especialidad.State == BusinessEntity.States.Deleted)
+            if (esp.State == BusinessEntity.States.Deleted)
             {
-                Delete(especialidad.Id);
+                Delete(esp.Id);
             }
 
-            else if (especialidad.State == BusinessEntity.States.New)
+            else if (esp.State == BusinessEntity.States.New)
             {
-                Insert(especialidad);
+                Insert(esp);
 
             }
-            else if (especialidad.State == BusinessEntity.States.Modified)
+            else if (esp.State == BusinessEntity.States.Modified)
             {
-                Update(especialidad);
+                Update(esp);
             }
-            especialidad.State = BusinessEntity.States.Unmodified;
+            esp.State = BusinessEntity.States.Unmodified;
         }
 
     }
