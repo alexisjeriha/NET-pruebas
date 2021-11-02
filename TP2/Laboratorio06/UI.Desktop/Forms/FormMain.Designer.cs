@@ -31,7 +31,7 @@ namespace UI.Desktop.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnEspecialidades = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnPlan = new System.Windows.Forms.Button();
@@ -51,8 +51,19 @@ namespace UI.Desktop.Forms
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // btnEspecialidades
             // 
+            this.btnEspecialidades.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(160)))), ((int)(((byte)(237)))));
+            this.btnEspecialidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEspecialidades.ForeColor = System.Drawing.Color.White;
+            this.btnEspecialidades.Location = new System.Drawing.Point(396, 119);
+            this.btnEspecialidades.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEspecialidades.Name = "btnEspecialidades";
+            this.btnEspecialidades.Size = new System.Drawing.Size(168, 65);
+            this.btnEspecialidades.TabIndex = 3;
+            this.btnEspecialidades.Text = "Especialidades";
+            this.btnEspecialidades.UseVisualStyleBackColor = false;
+            this.btnEspecialidades.Click += new System.EventHandler(this.btnEspecialidades_Click);
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(160)))), ((int)(((byte)(237)))));
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.White;
@@ -96,6 +107,16 @@ namespace UI.Desktop.Forms
             // 
             // btnPlan
             // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(160)))), ((int)(((byte)(237)))));
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(487, 15);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(168, 65);
+            this.button3.TabIndex = 7;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = false;
             this.btnPlan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(160)))), ((int)(((byte)(237)))));
             this.btnPlan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlan.ForeColor = System.Drawing.Color.White;
@@ -131,7 +152,7 @@ namespace UI.Desktop.Forms
             this.ClientSize = new System.Drawing.Size(692, 282);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnEspecialidades);
             this.Controls.Add(this.btnUsuarios);
             this.Controls.Add(this.btnPlan);
             this.Controls.Add(this.button2);
@@ -150,7 +171,7 @@ namespace UI.Desktop.Forms
         #endregion
 
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnEspecialidades;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.Button btnPlan;

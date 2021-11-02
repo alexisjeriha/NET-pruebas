@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Business.Logic;
+using System;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using Business.Entities;
-using Business.Logic;
 
 namespace UI.Web
 {
@@ -126,17 +122,17 @@ namespace UI.Web
         // a aceptarLinkButton_Click
         protected void aceptarLinkButton_Click(object sender, EventArgs e)
         {
-            switch(FormMode)
-                {
+            switch (FormMode)
+            {
 
                 case FormModes.Alta:
-            // Duda modificación punto 39
-                Entity = new Usuario();
-                Entity.State = BusinessEntity.States.New;
-                LoadEntity(Entity);
-                SaveEntity(Entity);
-                LoadGrid();
-                break;
+                    // Duda modificación punto 39
+                    Entity = new Usuario();
+                    Entity.State = BusinessEntity.States.New;
+                    LoadEntity(Entity);
+                    SaveEntity(Entity);
+                    LoadGrid();
+                    break;
 
                 case FormModes.Baja:
                     DeleteEntity(SelectedID);

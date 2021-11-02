@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Console;
-using Business.Entities;
+﻿using Business.Entities;
 using Business.Logic;
+using System;
+using static System.Console;
 
 namespace UI.Consola
 {
@@ -233,7 +229,7 @@ namespace UI.Consola
             Console.WriteLine("\t\tEmail: {0}", usr.EMail);
             Console.WriteLine("\t\tHabilitado: {0}", usr.Habilitado);
             Console.WriteLine();
-          
+
         }
 
     }

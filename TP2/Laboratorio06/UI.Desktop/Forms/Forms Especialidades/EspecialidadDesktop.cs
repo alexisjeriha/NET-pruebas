@@ -1,39 +1,42 @@
-﻿using Business.Entities;
-using Business.Logic;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using Business.Entities;
+using Business.Logic;
 
-namespace UI.Desktop
+namespace UI.Desktop.Forms.Forms_Especialidades
 {
-    public partial class UsuarioDesktop : ApplicationForm
+    public partial class EspecialidadDesktop : ApplicationForm
     {
-        public UsuarioDesktop()
+        public EspecialidadDesktop()
         {
             InitializeComponent();
         }
 
-        public Usuario UsuarioActual { get; set; }
+        public Especialidad EspecialidadActual { get; set; }
 
-        public UsuarioDesktop(ModoForm modo) : this()
+        public EspecialidadDesktop(ModoForm modo) : this()
         {
             Modo = modo;
         }
 
-        public UsuarioDesktop(int ID, ModoForm modo) : this()
+        public EspecialidadDesktop(int ID, ModoForm modo) : this()
         {
             Modo = modo;
 
-            UsuarioActual = new UsuarioLogic().GetOne(ID);
+            EspecialidadActual = new EspecialidadLogic().GetOne(ID);
             MapearDeDatos();
         }
         public override void MapearDeDatos()
         {
-            txtID.Text = UsuarioActual.ID.ToString();
-            chkHabilitado.Checked = UsuarioActual.Habilitado;
-            txtNombre.Text = UsuarioActual.Nombre;
-            txtApellido.Text = UsuarioActual.Apellido;
-            txtUsuario.Text = UsuarioActual.NombreUsuario;
-            txtEMail.Text = UsuarioActual.EMail;
+            txtID.Text = EspecialidadActual.Id.ToString();
+            txtDescripcion.Text = EspecialidadActual.Descripcion;
 
             switch (Modo)
             {
@@ -57,33 +60,28 @@ namespace UI.Desktop
             switch (Modo)
             {
                 case ModoForm.Alta:
-                    UsuarioActual = new Usuario { State = BusinessEntity.States.New };
+                    EspecialidadActual = new Especialidad { State = BusinessEntity.States.New };
                     break;
                 case ModoForm.Baja:
-                    UsuarioActual.State = BusinessEntity.States.Deleted;
+                    EspecialidadActual.State = BusinessEntity.States.Deleted;
                     break;
                 case ModoForm.Modificacion:
-                    UsuarioActual.State = BusinessEntity.States.Modified;
+                    EspecialidadActual.State = BusinessEntity.States.Modified;
                     break;
                 case ModoForm.Consulta:
-                    UsuarioActual.State = BusinessEntity.States.Unmodified;
+                    EspecialidadActual.State = BusinessEntity.States.Unmodified;
                     break;
 
             }
 
-            if (Modo == ModoForm.Modificacion) { UsuarioActual.ID = int.Parse(txtID.Text); }
-            UsuarioActual.Habilitado = chkHabilitado.Checked;
-            UsuarioActual.Nombre = txtNombre.Text;
-            UsuarioActual.Apellido = txtApellido.Text;
-            UsuarioActual.Clave = txtClave.Text;
-            UsuarioActual.EMail = txtEMail.Text;
-            UsuarioActual.NombreUsuario = txtUsuario.Text;
+            if (Modo == ModoForm.Modificacion) { EspecialidadActual.ID = int.Parse(txtID.Text); }
+            EspecialidadActual.Descripcion = txtDescripcion.Text;
 
         }
         public override void GuardarCambios()
         {
             MapearADatos();
-            new UsuarioLogic().Save(UsuarioActual);
+            new EspecialidadLogic().Save(EspecialidadActual);
         }
         public bool IsEmailValid(string emailaddress)
         {
@@ -110,19 +108,13 @@ namespace UI.Desktop
             }
             if (EsValido == false)
                 Notificar("Todos los campos son obligatorios", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            if (txtClave.Text != txtConfirmarClave.Text)
-            {
-                EsValido = false;
-                Notificar("La clave no coincide con la confirmacion de la misma", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            if (txtClave.Text.Length < 8)
-            {
-                EsValido = false;
-                Notificar("La clave debe tener al menos 8 caracteres", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
 
             return EsValido;
         }
+
+        
+
+        
 
         private void btnAceptar_Click(object sender, System.EventArgs e)
         {
@@ -140,3 +132,4 @@ namespace UI.Desktop
         }
     }
 }
+

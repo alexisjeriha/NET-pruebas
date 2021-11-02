@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.Desktop.Forms.Forms_Especialdades;
 using UI.Desktop.FormsPlan;
 
 namespace UI.Desktop.Forms
@@ -29,7 +23,6 @@ namespace UI.Desktop.Forms
             }
         }
 
-
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -38,6 +31,12 @@ namespace UI.Desktop.Forms
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
             Usuarios grilla = new Usuarios();
+            grilla.ShowDialog();
+        }
+
+        private void btnEspecialidades_Click(object sender, EventArgs e)
+        {
+            Especialidades grilla = new Especialidades();
             grilla.ShowDialog();
         }
 
