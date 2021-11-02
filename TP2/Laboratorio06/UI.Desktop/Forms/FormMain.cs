@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.Desktop.FormsPlan;
 
 namespace UI.Desktop.Forms
 {
@@ -40,6 +41,10 @@ namespace UI.Desktop.Forms
             grilla.ShowDialog();
         }
 
-
+        private void btnPlan_Click(object sender, EventArgs e)
+        {
+            Planes grillaplanes = new Planes();
+            grillaplanes.ShowDialog();
+        }
     }
 }

@@ -40,10 +40,6 @@ namespace UI.Desktop
             Close();
         }
 
-        private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
@@ -67,5 +63,6 @@ namespace UI.Desktop
             formUsuario.ShowDialog();
             Listar();
         }
+
     }
 }
