@@ -76,7 +76,7 @@ namespace UI.Desktop
             this.tlUsuariosDesktop.Controls.Add(this.btnCancelar, 3, 4);
             this.tlUsuariosDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlUsuariosDesktop.Location = new System.Drawing.Point(0, 0);
-            this.tlUsuariosDesktop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tlUsuariosDesktop.Margin = new System.Windows.Forms.Padding(2);
             this.tlUsuariosDesktop.Name = "tlUsuariosDesktop";
             this.tlUsuariosDesktop.RowCount = 5;
             this.tlUsuariosDesktop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -91,7 +91,7 @@ namespace UI.Desktop
             // 
             this.txtConfirmarClave.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtConfirmarClave.Location = new System.Drawing.Point(460, 131);
-            this.txtConfirmarClave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtConfirmarClave.Margin = new System.Windows.Forms.Padding(2);
             this.txtConfirmarClave.Name = "txtConfirmarClave";
             this.txtConfirmarClave.Size = new System.Drawing.Size(189, 20);
             this.txtConfirmarClave.TabIndex = 15;
@@ -100,7 +100,7 @@ namespace UI.Desktop
             // 
             this.txtClave.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtClave.Location = new System.Drawing.Point(132, 131);
-            this.txtClave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtClave.Margin = new System.Windows.Forms.Padding(2);
             this.txtClave.Name = "txtClave";
             this.txtClave.Size = new System.Drawing.Size(187, 20);
             this.txtClave.TabIndex = 14;
@@ -120,7 +120,7 @@ namespace UI.Desktop
             // 
             this.txtUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtUsuario.Location = new System.Drawing.Point(460, 88);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(189, 20);
             this.txtUsuario.TabIndex = 11;
@@ -129,7 +129,7 @@ namespace UI.Desktop
             // 
             this.txtEMail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtEMail.Location = new System.Drawing.Point(132, 88);
-            this.txtEMail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEMail.Margin = new System.Windows.Forms.Padding(2);
             this.txtEMail.Name = "txtEMail";
             this.txtEMail.Size = new System.Drawing.Size(187, 20);
             this.txtEMail.TabIndex = 10;
@@ -138,7 +138,7 @@ namespace UI.Desktop
             // 
             this.txtApellido.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtApellido.Location = new System.Drawing.Point(460, 45);
-            this.txtApellido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(2);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(189, 20);
             this.txtApellido.TabIndex = 9;
@@ -147,7 +147,7 @@ namespace UI.Desktop
             // 
             this.txtNombre.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtNombre.Location = new System.Drawing.Point(132, 45);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(187, 20);
             this.txtNombre.TabIndex = 8;
@@ -212,7 +212,7 @@ namespace UI.Desktop
             this.chkHabilitado.AutoSize = true;
             this.chkHabilitado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkHabilitado.Location = new System.Drawing.Point(323, 2);
-            this.chkHabilitado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkHabilitado.Margin = new System.Windows.Forms.Padding(2);
             this.chkHabilitado.Name = "chkHabilitado";
             this.chkHabilitado.Size = new System.Drawing.Size(99, 24);
             this.chkHabilitado.TabIndex = 5;
@@ -223,7 +223,7 @@ namespace UI.Desktop
             // 
             this.txtID.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtID.Location = new System.Drawing.Point(132, 2);
-            this.txtID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtID.Margin = new System.Windows.Forms.Padding(2);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(76, 20);
@@ -247,7 +247,7 @@ namespace UI.Desktop
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnAceptar.Location = new System.Drawing.Point(366, 174);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(90, 32);
             this.btnAceptar.TabIndex = 16;
@@ -262,7 +262,7 @@ namespace UI.Desktop
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnCancelar.Location = new System.Drawing.Point(559, 174);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(90, 32);
             this.btnCancelar.TabIndex = 17;
