@@ -31,10 +31,10 @@ namespace UI.Desktop.Forms.Forms_Especialdades
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Especialidades));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.dgvEspecialidades = new System.Windows.Forms.DataGridView();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
+            this.dgvEspecialidades = new System.Windows.Forms.DataGridView();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.ColunmID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,20 +54,6 @@ namespace UI.Desktop.Forms.Forms_Especialdades
             this.toolStrip1.Size = new System.Drawing.Size(373, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // dgvEspecialidades
-            // 
-            this.dgvEspecialidades.AllowUserToAddRows = false;
-            this.dgvEspecialidades.AllowUserToDeleteRows = false;
-            this.dgvEspecialidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEspecialidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColunmID,
-            this.ColunmDesc});
-            this.dgvEspecialidades.Location = new System.Drawing.Point(0, 28);
-            this.dgvEspecialidades.Name = "dgvEspecialidades";
-            this.dgvEspecialidades.ReadOnly = true;
-            this.dgvEspecialidades.Size = new System.Drawing.Size(373, 202);
-            this.dgvEspecialidades.TabIndex = 1;
             // 
             // tsbNuevo
             // 
@@ -99,6 +85,20 @@ namespace UI.Desktop.Forms.Forms_Especialdades
             this.tsbEliminar.Text = "toolStripButton3";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
+            // dgvEspecialidades
+            // 
+            this.dgvEspecialidades.AllowUserToAddRows = false;
+            this.dgvEspecialidades.AllowUserToDeleteRows = false;
+            this.dgvEspecialidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEspecialidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColunmID,
+            this.ColunmDesc});
+            this.dgvEspecialidades.Location = new System.Drawing.Point(0, 28);
+            this.dgvEspecialidades.Name = "dgvEspecialidades";
+            this.dgvEspecialidades.ReadOnly = true;
+            this.dgvEspecialidades.Size = new System.Drawing.Size(373, 202);
+            this.dgvEspecialidades.TabIndex = 1;
+            // 
             // btnSalir
             // 
             this.btnSalir.Location = new System.Drawing.Point(278, 236);
@@ -122,7 +122,7 @@ namespace UI.Desktop.Forms.Forms_Especialdades
             // ColunmID
             // 
             this.ColunmID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColunmID.DataPropertyName = "esp_id";
+            this.ColunmID.DataPropertyName = "Id";
             this.ColunmID.HeaderText = "ID";
             this.ColunmID.MinimumWidth = 6;
             this.ColunmID.Name = "ColunmID";
@@ -131,7 +131,7 @@ namespace UI.Desktop.Forms.Forms_Especialdades
             // ColunmDesc
             // 
             this.ColunmDesc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColunmDesc.DataPropertyName = "esp_desc";
+            this.ColunmDesc.DataPropertyName = "Descripcion";
             this.ColunmDesc.HeaderText = "Descipción";
             this.ColunmDesc.Name = "ColunmDesc";
             this.ColunmDesc.ReadOnly = true;
