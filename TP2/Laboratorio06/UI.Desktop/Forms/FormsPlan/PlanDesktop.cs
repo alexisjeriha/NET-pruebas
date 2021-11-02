@@ -67,7 +67,7 @@ namespace UI.Desktop.FormsPlan
         }
         public override void MapearDeDatos()
         {
-            //txtIDplan.Text = PlanActual.ID.ToString();
+            txtIDplan.Text = PlanActual.Id.ToString();
             txtDesc.Text = PlanActual.Descripcion;
             cmbIDEsp.SelectedValue = PlanActual.Especialidad.Id;
 
@@ -108,7 +108,7 @@ namespace UI.Desktop.FormsPlan
             {
                 if (Modo == ModoForm.Modificacion)
                 {
-                    PlanActual.Id = Convert.ToInt32(txtIDplan.Text);
+                    PlanActual.Id = int.Parse(txtIDplan.Text);
                 }
                 PlanActual.Descripcion = txtDesc.Text;
                 PlanActual.Especialidad.Id = Convert.ToInt32(cmbIDEsp.SelectedValue);

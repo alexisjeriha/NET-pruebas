@@ -46,16 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormsPlan\PlanDesktop.cs">
+    <Compile Include="Forms\FormsPlan\PlanDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormsPlan\PlanDesktop.Designer.cs">
+    <Compile Include="Forms\FormsPlan\PlanDesktop.Designer.cs">
       <DependentUpon>PlanDesktop.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormsPlan\Planes.cs">
+    <Compile Include="Forms\FormsPlan\Planes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormsPlan\Planes.Designer.cs">
+    <Compile Include="Forms\FormsPlan\Planes.Designer.cs">
       <DependentUpon>Planes.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ApplicationForm.cs">
@@ -102,10 +102,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormsPlan\PlanDesktop.resx">
+    <EmbeddedResource Include="Forms\FormsPlan\PlanDesktop.resx">
       <DependentUpon>PlanDesktop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormsPlan\Planes.resx">
+    <EmbeddedResource Include="Forms\FormsPlan\Planes.resx">
       <DependentUpon>Planes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ApplicationForm.resx">
