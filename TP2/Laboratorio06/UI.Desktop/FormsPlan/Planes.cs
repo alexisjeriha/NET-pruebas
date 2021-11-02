@@ -41,9 +41,9 @@ namespace UI.Desktop.FormsPlan
 
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            PlanDesktop PlanDesktop = new PlanDesktop(ApplicationForm.ModoForm.Alta);
+          /*PlanDesktop PlanDesktop = new PlanDesktop(ApplicationForm.ModoForm.Alta);
             PlanDesktop.ShowDialog();
-            Listar();
+            Listar();*/
         }
     }
 }
