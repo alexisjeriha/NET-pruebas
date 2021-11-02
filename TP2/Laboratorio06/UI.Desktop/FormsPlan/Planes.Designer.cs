@@ -98,10 +98,12 @@ namespace UI.Desktop.FormsPlan
             this.tlPlanes.SetColumnSpan(this.dgvPlanes, 2);
             this.dgvPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPlanes.Location = new System.Drawing.Point(3, 3);
+            this.dgvPlanes.MultiSelect = false;
             this.dgvPlanes.Name = "dgvPlanes";
             this.dgvPlanes.ReadOnly = true;
             this.dgvPlanes.RowHeadersWidth = 51;
             this.dgvPlanes.RowTemplate.Height = 24;
+            this.dgvPlanes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPlanes.Size = new System.Drawing.Size(983, 375);
             this.dgvPlanes.TabIndex = 0;
             // 
@@ -136,7 +138,7 @@ namespace UI.Desktop.FormsPlan
             this.tsbEliminar});
             this.tsPlanes.Location = new System.Drawing.Point(4, 0);
             this.tsPlanes.Name = "tsPlanes";
-            this.tsPlanes.Size = new System.Drawing.Size(139, 27);
+            this.tsPlanes.Size = new System.Drawing.Size(100, 27);
             this.tsPlanes.TabIndex = 0;
             // 
             // tsbNuevo
@@ -157,6 +159,7 @@ namespace UI.Desktop.FormsPlan
             this.tsbEditar.Name = "tsbEditar";
             this.tsbEditar.Size = new System.Drawing.Size(29, 24);
             this.tsbEditar.Text = "toolStripButton2";
+            this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
             // 
             // tsbEliminar
             // 
@@ -166,6 +169,7 @@ namespace UI.Desktop.FormsPlan
             this.tsbEliminar.Name = "tsbEliminar";
             this.tsbEliminar.Size = new System.Drawing.Size(29, 24);
             this.tsbEliminar.Text = "toolStripButton3";
+            this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
             // ID
             // 
@@ -187,7 +191,7 @@ namespace UI.Desktop.FormsPlan
             // 
             // ID_esp
             // 
-            this.ID_esp.DataPropertyName = "Especialidad";
+            this.ID_esp.DataPropertyName = "IDespecialidad";
             this.ID_esp.HeaderText = "ID Especialidad";
             this.ID_esp.MinimumWidth = 6;
             this.ID_esp.Name = "ID_esp";

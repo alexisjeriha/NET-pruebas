@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormsPlan\PlanDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsPlan\PlanDesktop.Designer.cs">
+      <DependentUpon>PlanDesktop.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormsPlan\Planes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormsPlan\PlanDesktop.resx">
+      <DependentUpon>PlanDesktop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormsPlan\Planes.resx">
       <DependentUpon>Planes.cs</DependentUpon>
     </EmbeddedResource>

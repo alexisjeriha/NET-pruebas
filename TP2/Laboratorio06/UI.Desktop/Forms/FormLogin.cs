@@ -27,11 +27,11 @@ namespace UI.Desktop
                     DialogResult = DialogResult.OK;
                 }
 
-                /*else
+                else
                 {
                     MessageBox.Show("Usuario y/o contraseña incorrectos", "Error"
                         , MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }*/
+                }
             }
 
             catch (Exception)

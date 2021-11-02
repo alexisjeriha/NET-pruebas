@@ -74,7 +74,10 @@ namespace UI.Desktop.Forms.Forms_Especialidades
 
             }
 
-            if (Modo == ModoForm.Modificacion) { EspecialidadActual.ID = int.Parse(txtID.Text); }
+            if (Modo == ModoForm.Modificacion) 
+            { 
+                EspecialidadActual.ID = int.Parse(txtID.Text); 
+            }
             EspecialidadActual.Descripcion = txtDescripcion.Text;
 
         }

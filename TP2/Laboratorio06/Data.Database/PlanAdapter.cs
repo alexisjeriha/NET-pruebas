@@ -151,8 +151,8 @@ namespace Data.Database
             {
                 OpenConnection();
                 SqlCommand cmdInsert = new SqlCommand(
-                "insert into planes(desc_plan,id_especialidad) " +
-                "values(@desc,@idEsp) " +
+                "insert into planes(desc_plan, id_especialidad) " +
+                "values(@desc, @idEsp) " +
                 "select @@identity", SqlConn);
                 cmdInsert.Parameters.Add("@desc", SqlDbType.VarChar, 50).Value = plan.Descripcion;
                 cmdInsert.Parameters.Add("@idEsp", SqlDbType.Int).Value = plan.Especialidad.Id;
@@ -160,8 +160,7 @@ namespace Data.Database
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada =
-                    new Exception("Error al crear un nuevo Plan", Ex);
+                Exception ExcepcionManejada = new Exception("Error al crear un nuevo Plan", Ex);
                 throw ExcepcionManejada;
             }
             finally

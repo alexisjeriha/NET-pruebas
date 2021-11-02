@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Business.Entities;
+using Business.Logic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,8 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Business.Logic;
-using Business.Entities;
 
 namespace UI.Desktop.FormsPlan
 {
@@ -17,12 +17,12 @@ namespace UI.Desktop.FormsPlan
         public PlanDesktop()
         {
             InitializeComponent();
-        }
-
+        }        
         private void PlanDesktop_Load(object sender, EventArgs e)
         {
 
         }
+
         Plan planActual;
 
         public Plan PlanActual
@@ -30,11 +30,10 @@ namespace UI.Desktop.FormsPlan
             get { return planActual; }
             set { planActual = value; }
         }
-
         public PlanDesktop(ModoForm modo) : this()
         {
             Modo = modo;
-            fillCbx();
+            fillCmb();
         }
 
         public PlanDesktop(int ID, ModoForm modo) : this()
@@ -44,7 +43,7 @@ namespace UI.Desktop.FormsPlan
             try
             {
                 PlanActual = planLogic.GetOne(ID);
-                fillCbx();
+                fillCmb();
                 MapearDeDatos();
             }
             catch (Exception ex)
@@ -52,69 +51,67 @@ namespace UI.Desktop.FormsPlan
                 Notificar("Error", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void fillCbx()
+        private void fillCmb()
         {
             try
             {
                 EspecialidadLogic EspecialidadNegocio = new EspecialidadLogic();
-                cbxEspecialidad.DataSource = EspecialidadNegocio.GetAll();
-                cbxEspecialidad.DisplayMember = "Descripcion";
-                cbxEspecialidad.ValueMember = "ID";
-                cbxEspecialidad.SelectedIndex = -1;
+                cmbIDEsp.DataSource = EspecialidadNegocio.GetAll();
+                cmbIDEsp.ValueMember = "ID";
+                cmbIDEsp.SelectedIndex = -1;
             }
             catch (Exception ex)
             {
                 Notificar("Error", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         public override void MapearDeDatos()
         {
-            txtID.Text = PlanActual.ID.ToString();
-            txtDescripcion.Text = PlanActual.Descripcion;
-            cbxEspecialidad.SelectedValue = PlanActual.Especialidad.ID;
+            //txtIDplan.Text = PlanActual.ID.ToString();
+            txtDesc.Text = PlanActual.Descripcion;
+            cmbIDEsp.SelectedValue = PlanActual.Especialidad.Id;
 
             switch (Modo)
             {
+                case ModoForm.Alta:
+                    btnAceptar.Text = "Guardar";
+                    break;
+                case ModoForm.Modificacion:
+                    btnAceptar.Text = "Guardar";
+                    break;
                 case ModoForm.Baja:
                     btnAceptar.Text = "Eliminar";
                     break;
                 case ModoForm.Consulta:
                     btnAceptar.Text = "Aceptar";
                     break;
-                default:
-                    btnAceptar.Text = "Guardar";
-                    break;
             }
         }
-
         public override void MapearADatos()
         {
             switch (Modo)
             {
-                case ModoForm.Baja:
-                    PlanActual.State = Plan.States.Deleted;
-                    break;
-                case ModoForm.Consulta:
-                    PlanActual.State = Plan.States.Unmodified;
-                    break;
                 case ModoForm.Alta:
-                    PlanActual = new Plan();
-                    PlanActual.State = Plan.States.New;
+                    PlanActual = new Plan { State = BusinessEntity.States.New };
+                    break;
+                case ModoForm.Baja:
+                    PlanActual.State = BusinessEntity.States.Deleted;
                     break;
                 case ModoForm.Modificacion:
-                    PlanActual.State = Plan.States.Modified;
+                    PlanActual.State = BusinessEntity.States.Modified;
+                    break;
+                case ModoForm.Consulta:
+                    PlanActual.State = BusinessEntity.States.Unmodified;
                     break;
             }
             if (Modo == ModoForm.Alta || Modo == ModoForm.Modificacion)
             {
                 if (Modo == ModoForm.Modificacion)
                 {
-                    PlanActual.ID = Convert.ToInt32(txtID.Text);
+                    PlanActual.Id = Convert.ToInt32(txtIDplan.Text);
                 }
-                PlanActual.Descripcion = txtDescripcion.Text;
-                PlanActual.Especialidad.ID = Convert.ToInt32(cbxEspecialidad.SelectedValue);
+                PlanActual.Descripcion = txtDesc.Text;
+                PlanActual.Especialidad.Id = Convert.ToInt32(cmbIDEsp.SelectedValue);
             }
         }
 
@@ -122,46 +119,45 @@ namespace UI.Desktop.FormsPlan
         {
             try
             {
-                MapearADatos();
+                this.MapearADatos();
                 PlanLogic planLogic = new PlanLogic();
-                if (Modo != ModoForm.Alta || !planLogic.ExistePlan(PlanActual.Descripcion, PlanActual.Especialidad.ID))
+                if (Modo != ModoForm.Alta || !planLogic.ExistePlan(PlanActual.Descripcion, PlanActual.Especialidad.Id))
                 {
                     planLogic.Save(PlanActual);
                 }
-                else Notificar("Ya existe este Plan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else this.Notificar("Ya existe este Plan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                Notificar("Error", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Notificar("Error", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         public override bool Validar()
         {
             Boolean valido = true;
-            if (txtDescripcion.Text == String.Empty || cbxEspecialidad.SelectedItem == null)
+            if (this.txtDesc.Text == String.Empty || this.cmbIDEsp.SelectedItem == null)
             {
                 valido = false;
-                Notificar("Todos los campos son obligatorios", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Notificar("Todos los campos son obligatorios", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return valido;
         }
 
+
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             if (Validar())
             {
-                GuardarCambios();
-                Close();
+                this.GuardarCambios();
+                this.Close();
             }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
         }
-
-
     }
 }
