@@ -70,6 +70,12 @@
     <Compile Include="Forms\Forms Especialidades\Especialidades.Designer.cs">
       <DependentUpon>Especialidades.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Forms Especialidades\EspecialidadesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Forms Especialidades\EspecialidadesForm.Designer.cs">
+      <DependentUpon>EspecialidadesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UsuarioDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Forms Especialidades\Especialidades.resx">
       <DependentUpon>Especialidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Forms Especialidades\EspecialidadesForm.resx">
+      <DependentUpon>EspecialidadesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UsuarioDesktop.resx">
       <DependentUpon>UsuarioDesktop.cs</DependentUpon>

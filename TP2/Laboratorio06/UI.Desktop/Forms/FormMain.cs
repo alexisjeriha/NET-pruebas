@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.Desktop.Forms.Forms_Especialdades;
 
 namespace UI.Desktop.Forms
 {
@@ -28,7 +29,6 @@ namespace UI.Desktop.Forms
             }
         }
 
-
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -40,6 +40,11 @@ namespace UI.Desktop.Forms
             grilla.ShowDialog();
         }
 
+        private void btnEspecialidades_Click(object sender, EventArgs e)
+        {
+            Especialidades grilla = new Especialidades();
+            grilla.ShowDialog();
+        }
 
     }
 }

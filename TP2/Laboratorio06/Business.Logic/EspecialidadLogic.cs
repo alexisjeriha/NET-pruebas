@@ -8,7 +8,7 @@ using Data.Database;
 
 namespace Business.Logic
 {
-    class EspecialidadLogic:BusinessLogic
+    public class EspecialidadLogic:BusinessLogic
     {
         private EspecialidadAdapter EspecialidadData;
         public EspecialidadLogic()

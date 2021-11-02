@@ -31,16 +31,16 @@ namespace UI.Desktop.Forms.Forms_Especialdades
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Especialidades));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.dgvEntidades = new System.Windows.Forms.DataGridView();
+            this.dgvEspecialidades = new System.Windows.Forms.DataGridView();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
-            this.ColunmID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColunmDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
+            this.ColunmID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColunmDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEntidades)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEspecialidades)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -55,19 +55,19 @@ namespace UI.Desktop.Forms.Forms_Especialdades
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // dgvEntidades
+            // dgvEspecialidades
             // 
-            this.dgvEntidades.AllowUserToAddRows = false;
-            this.dgvEntidades.AllowUserToDeleteRows = false;
-            this.dgvEntidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEntidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvEspecialidades.AllowUserToAddRows = false;
+            this.dgvEspecialidades.AllowUserToDeleteRows = false;
+            this.dgvEspecialidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEspecialidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColunmID,
             this.ColunmDesc});
-            this.dgvEntidades.Location = new System.Drawing.Point(0, 28);
-            this.dgvEntidades.Name = "dgvEntidades";
-            this.dgvEntidades.ReadOnly = true;
-            this.dgvEntidades.Size = new System.Drawing.Size(373, 202);
-            this.dgvEntidades.TabIndex = 1;
+            this.dgvEspecialidades.Location = new System.Drawing.Point(0, 28);
+            this.dgvEspecialidades.Name = "dgvEspecialidades";
+            this.dgvEspecialidades.ReadOnly = true;
+            this.dgvEspecialidades.Size = new System.Drawing.Size(373, 202);
+            this.dgvEspecialidades.TabIndex = 1;
             // 
             // tsbNuevo
             // 
@@ -77,6 +77,7 @@ namespace UI.Desktop.Forms.Forms_Especialdades
             this.tsbNuevo.Name = "tsbNuevo";
             this.tsbNuevo.Size = new System.Drawing.Size(23, 22);
             this.tsbNuevo.Text = "toolStripButton1";
+            this.tsbNuevo.Click += new System.EventHandler(this.tsbNuevo_Click);
             // 
             // tsbEditar
             // 
@@ -86,6 +87,7 @@ namespace UI.Desktop.Forms.Forms_Especialdades
             this.tsbEditar.Name = "tsbEditar";
             this.tsbEditar.Size = new System.Drawing.Size(23, 22);
             this.tsbEditar.Text = "toolStripButton2";
+            this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
             // 
             // tsbEliminar
             // 
@@ -95,21 +97,7 @@ namespace UI.Desktop.Forms.Forms_Especialdades
             this.tsbEliminar.Name = "tsbEliminar";
             this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
             this.tsbEliminar.Text = "toolStripButton3";
-            // 
-            // ColunmID
-            // 
-            this.ColunmID.DataPropertyName = "ent_id";
-            this.ColunmID.HeaderText = "ID";
-            this.ColunmID.MinimumWidth = 6;
-            this.ColunmID.Name = "ColunmID";
-            this.ColunmID.ReadOnly = true;
-            // 
-            // ColunmDesc
-            // 
-            this.ColunmDesc.DataPropertyName = "ent_desc";
-            this.ColunmDesc.HeaderText = "Descipción";
-            this.ColunmDesc.Name = "ColunmDesc";
-            this.ColunmDesc.ReadOnly = true;
+            this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
             // btnSalir
             // 
@@ -119,6 +107,7 @@ namespace UI.Desktop.Forms.Forms_Especialdades
             this.btnSalir.TabIndex = 2;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnActualizar
             // 
@@ -128,6 +117,24 @@ namespace UI.Desktop.Forms.Forms_Especialdades
             this.btnActualizar.TabIndex = 3;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
+            // ColunmID
+            // 
+            this.ColunmID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColunmID.DataPropertyName = "esp_id";
+            this.ColunmID.HeaderText = "ID";
+            this.ColunmID.MinimumWidth = 6;
+            this.ColunmID.Name = "ColunmID";
+            this.ColunmID.ReadOnly = true;
+            // 
+            // ColunmDesc
+            // 
+            this.ColunmDesc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColunmDesc.DataPropertyName = "esp_desc";
+            this.ColunmDesc.HeaderText = "Descipción";
+            this.ColunmDesc.Name = "ColunmDesc";
+            this.ColunmDesc.ReadOnly = true;
             // 
             // Especialidades
             // 
@@ -136,14 +143,14 @@ namespace UI.Desktop.Forms.Forms_Especialdades
             this.ClientSize = new System.Drawing.Size(373, 264);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.dgvEntidades);
+            this.Controls.Add(this.dgvEspecialidades);
             this.Controls.Add(this.toolStrip1);
             this.Name = "Especialidades";
             this.Text = "Especialidades";
             this.Load += new System.EventHandler(this.Especialidades_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEntidades)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEspecialidades)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,13 +159,13 @@ namespace UI.Desktop.Forms.Forms_Especialdades
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.DataGridView dgvEntidades;
+        private System.Windows.Forms.DataGridView dgvEspecialidades;
         private System.Windows.Forms.ToolStripButton tsbNuevo;
         private System.Windows.Forms.ToolStripButton tsbEditar;
         private System.Windows.Forms.ToolStripButton tsbEliminar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColunmID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColunmDesc;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColunmID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColunmDesc;
     }
 }

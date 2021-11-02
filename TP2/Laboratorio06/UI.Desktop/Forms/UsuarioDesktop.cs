@@ -25,9 +25,6 @@ namespace UI.Desktop
 
             UsuarioActual = new UsuarioLogic().GetOne(ID);
             MapearDeDatos();
-
-
-
         }
         public override void MapearDeDatos()
         {
