@@ -58,6 +58,7 @@ namespace UI.Desktop.FormsPlan
                 EspecialidadLogic EspecialidadNegocio = new EspecialidadLogic();
                 cmbIDEsp.DataSource = EspecialidadNegocio.GetAll();
                 cmbIDEsp.ValueMember = "ID";
+                cmbIDEsp.DisplayMember = "Descripcion";
                 cmbIDEsp.SelectedIndex = -1;
             }
             catch (Exception ex)

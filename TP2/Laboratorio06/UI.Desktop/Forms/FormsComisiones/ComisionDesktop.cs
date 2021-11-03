@@ -57,6 +57,7 @@ namespace UI.Desktop.Forms.FormsComisiones
                 PlanLogic planNegocio = new PlanLogic();
                 cbIdPlan.DataSource = planNegocio.GetAll();
                 cbIdPlan.ValueMember = "ID";
+                cbIdPlan.DisplayMember = "Descripcion";
                 cbIdPlan.SelectedIndex = -1;
             }
             catch (Exception ex)
