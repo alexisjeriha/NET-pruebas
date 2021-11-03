@@ -24,9 +24,9 @@ namespace Business.Logic
             return ComisionData.GetOne(ID);
         }
 
-        public bool Existe(int idPlan)
+        public bool Existe(int idPlan, string desc, int anio)
         {
-            return ComisionData.ExisteComision(idPlan);
+            return ComisionData.ExisteComision(idPlan, desc, anio);
         }
 
         public List<Comision> GetAll()

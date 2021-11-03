@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace Data.Database
 {
-    public class ComisionAdapter:Adapter
+    public class ComisionAdapter : Adapter
     {
         public List<Comision> GetAll()
         {
@@ -95,25 +95,29 @@ namespace Data.Database
             return com;
         }
 
-        public bool ExisteComision(int id)
+        public bool ExisteComision(int idplan, string desc, int anio)
         {
-            bool existeComision;
+            bool existePlan;
             try
             {
                 OpenConnection();
-                existeComision = Convert.ToBoolean(GetOne(id));
+                SqlCommand cmdExistePlan = new SqlCommand("select * from comisiones where desc_comision=@desc and anio_especialidad=@anio and id_plan=@idplan", SqlConn);
+                cmdExistePlan.Parameters.Add("@desc", SqlDbType.VarChar, 50).Value = desc;
+                cmdExistePlan.Parameters.Add("@anio", SqlDbType.Int).Value = anio;
+                cmdExistePlan.Parameters.Add("@idplan", SqlDbType.Int).Value = idplan;
+                existePlan = Convert.ToBoolean(cmdExistePlan.ExecuteScalar());
             }
             catch (Exception Ex)
             {
                 Exception ExcepcionManejada =
-                    new Exception("Error al validar la existencia de la comision", Ex);
+                    new Exception("Error al validar la existencia de la Comision", Ex);
                 throw ExcepcionManejada;
             }
             finally
             {
                 CloseConnection();
             }
-            return existeComision;
+            return existePlan;
         }
 
         public void Delete(int ID)
@@ -143,13 +147,14 @@ namespace Data.Database
             {
                 OpenConnection();
                 SqlCommand cmdUpdate = new SqlCommand(
-                    "UPDATE comisiones SET desc_comision = @desc, anio_especialidad = @anio" +
-                    "WHERE id_persona=@id and id_plan=@idplan", SqlConn);
+                    "UPDATE comisiones SET desc_comision=@desc, anio_especialidad=@anio " +
+                    "WHERE id_comision=@id and id_plan=@idplan", SqlConn);
 
                 cmdUpdate.Parameters.Add("@id", SqlDbType.Int).Value = com.IdComision;
                 cmdUpdate.Parameters.Add("@desc", SqlDbType.VarChar, 50).Value = com.DescComision;
                 cmdUpdate.Parameters.Add("@anio", SqlDbType.Int).Value = com.AnioEspecialidad;
                 cmdUpdate.Parameters.Add("@idplan", SqlDbType.Int).Value = com.Plan.Id;
+                //cmdUpdate.Parameters.Add("@planid", SqlDbType.Int).Value = com.Plan.Id;
                 cmdUpdate.ExecuteNonQuery();
             }
             catch (Exception Ex)

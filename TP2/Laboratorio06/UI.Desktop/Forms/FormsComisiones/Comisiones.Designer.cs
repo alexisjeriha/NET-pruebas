@@ -31,11 +31,11 @@ namespace UI.Desktop.Forms.FormsComisiones
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Comisiones));
             this.tscComisiones = new System.Windows.Forms.ToolStripContainer();
-            this.tsComisiones = new System.Windows.Forms.ToolStrip();
             this.tlComisiones = new System.Windows.Forms.TableLayoutPanel();
             this.dgvComisiones = new System.Windows.Forms.DataGridView();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.tsComisiones = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
@@ -46,9 +46,9 @@ namespace UI.Desktop.Forms.FormsComisiones
             this.tscComisiones.ContentPanel.SuspendLayout();
             this.tscComisiones.TopToolStripPanel.SuspendLayout();
             this.tscComisiones.SuspendLayout();
-            this.tsComisiones.SuspendLayout();
             this.tlComisiones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComisiones)).BeginInit();
+            this.tsComisiones.SuspendLayout();
             this.SuspendLayout();
             // 
             // tscComisiones
@@ -68,18 +68,6 @@ namespace UI.Desktop.Forms.FormsComisiones
             // tscComisiones.TopToolStripPanel
             // 
             this.tscComisiones.TopToolStripPanel.Controls.Add(this.tsComisiones);
-            // 
-            // tsComisiones
-            // 
-            this.tsComisiones.Dock = System.Windows.Forms.DockStyle.None;
-            this.tsComisiones.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbNuevo,
-            this.tsbEditar,
-            this.tsbEliminar});
-            this.tsComisiones.Location = new System.Drawing.Point(3, 0);
-            this.tsComisiones.Name = "tsComisiones";
-            this.tsComisiones.Size = new System.Drawing.Size(81, 25);
-            this.tsComisiones.TabIndex = 0;
             // 
             // tlComisiones
             // 
@@ -139,6 +127,18 @@ namespace UI.Desktop.Forms.FormsComisiones
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // tsComisiones
+            // 
+            this.tsComisiones.Dock = System.Windows.Forms.DockStyle.None;
+            this.tsComisiones.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbNuevo,
+            this.tsbEditar,
+            this.tsbEliminar});
+            this.tsComisiones.Location = new System.Drawing.Point(3, 0);
+            this.tsComisiones.Name = "tsComisiones";
+            this.tsComisiones.Size = new System.Drawing.Size(81, 25);
+            this.tsComisiones.TabIndex = 0;
+            // 
             // tsbNuevo
             // 
             this.tsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -196,7 +196,7 @@ namespace UI.Desktop.Forms.FormsComisiones
             // Plan
             // 
             this.Plan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Plan.DataPropertyName = "DescPlan";
+            this.Plan.DataPropertyName = "IdPlan";
             this.Plan.HeaderText = "Plan";
             this.Plan.Name = "Plan";
             this.Plan.ReadOnly = true;
@@ -215,10 +215,10 @@ namespace UI.Desktop.Forms.FormsComisiones
             this.tscComisiones.TopToolStripPanel.PerformLayout();
             this.tscComisiones.ResumeLayout(false);
             this.tscComisiones.PerformLayout();
-            this.tsComisiones.ResumeLayout(false);
-            this.tsComisiones.PerformLayout();
             this.tlComisiones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvComisiones)).EndInit();
+            this.tsComisiones.ResumeLayout(false);
+            this.tsComisiones.PerformLayout();
             this.ResumeLayout(false);
 
         }

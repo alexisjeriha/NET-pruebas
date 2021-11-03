@@ -41,16 +41,16 @@ namespace UI.Desktop.Forms.FormsComisiones
 
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            /*
+            
             ComisionDesktop ComisionDesktop = new ComisionDesktop(ApplicationForm.ModoForm.Alta);
             ComisionDesktop.ShowDialog();
             Listar();
-            */
+            
         }
 
         private void tsbEditar_Click(object sender, EventArgs e)
         {
-            /*
+            
             if (dgvComisiones.SelectedRows != null)
             {
                 int ID = ((Comision)dgvComisiones.SelectedRows[0].DataBoundItem).IdComision;
@@ -58,12 +58,12 @@ namespace UI.Desktop.Forms.FormsComisiones
                 formComision.ShowDialog();
                 Listar();
             }
-            */
+            
         }
 
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
-            /*
+            
             var rta = MessageBox.Show("¿Esta seguro que desea eliminar la Comision seleccionada?", "Atencion", MessageBoxButtons.YesNo);
             if (rta == DialogResult.Yes)
             {
@@ -79,7 +79,6 @@ namespace UI.Desktop.Forms.FormsComisiones
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            */
         }
     }
 }

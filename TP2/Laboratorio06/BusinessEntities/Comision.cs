@@ -11,7 +11,7 @@ namespace Business.Entities
         private Plan plan;
         public Comision()
         {
-
+            Plan = new Plan();
         }
         public int IdComision { get; set; }
         public string DescComision { get; set; }
