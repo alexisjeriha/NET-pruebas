@@ -143,7 +143,7 @@ namespace Data.Database
             {
                 OpenConnection();
                 SqlCommand cmdUpdate = new SqlCommand(
-                    "UPDATE planes SET nombre = @nom, apellido = @ape, direccion = @dir, email = @email " +
+                    "UPDATE personas SET nombre = @nom, apellido = @ape, direccion = @dir, email = @email " +
                     "telefono = @tel, fecha_nac = @fecnac, legajo = @leg, tipo_persona = tipo " +
                     "WHERE id_persona=@id and id_plan=@idplan", SqlConn);
 

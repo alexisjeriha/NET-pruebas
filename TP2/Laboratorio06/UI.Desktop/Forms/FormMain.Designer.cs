@@ -35,7 +35,7 @@ namespace UI.Desktop.Forms
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnPlan = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnComisiones = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button2
@@ -105,17 +105,18 @@ namespace UI.Desktop.Forms
             this.btnPlan.UseVisualStyleBackColor = false;
             this.btnPlan.Click += new System.EventHandler(this.btnPlan_Click);
             // 
-            // button5
+            // btnComisiones
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(160)))), ((int)(((byte)(237)))));
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(98, 97);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(126, 53);
-            this.button5.TabIndex = 8;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnComisiones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(160)))), ((int)(((byte)(237)))));
+            this.btnComisiones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComisiones.ForeColor = System.Drawing.Color.White;
+            this.btnComisiones.Location = new System.Drawing.Point(98, 97);
+            this.btnComisiones.Name = "btnComisiones";
+            this.btnComisiones.Size = new System.Drawing.Size(126, 53);
+            this.btnComisiones.TabIndex = 8;
+            this.btnComisiones.Text = "Comisiones";
+            this.btnComisiones.UseVisualStyleBackColor = false;
+            this.btnComisiones.Click += new System.EventHandler(this.btnComisiones_Click);
             // 
             // FormMain
             // 
@@ -126,7 +127,7 @@ namespace UI.Desktop.Forms
             this.CancelButton = this.btnSalir;
             this.ClientSize = new System.Drawing.Size(519, 229);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btnComisiones);
             this.Controls.Add(this.btnEspecialidades);
             this.Controls.Add(this.btnUsuarios);
             this.Controls.Add(this.btnPlan);
@@ -149,6 +150,6 @@ namespace UI.Desktop.Forms
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.Button btnPlan;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnComisiones;
     }
 }
