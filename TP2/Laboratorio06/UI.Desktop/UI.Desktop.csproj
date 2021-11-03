@@ -114,6 +114,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\FormsPersonas\PersonaDesktop.resx">
+      <DependentUpon>PersonaDesktop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormsPersonas\Personas.resx">
       <DependentUpon>Personas.cs</DependentUpon>
     </EmbeddedResource>

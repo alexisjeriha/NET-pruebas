@@ -33,15 +33,16 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.tcPersonas = new System.Windows.Forms.ToolStripContainer();
             this.tlPersonas = new System.Windows.Forms.TableLayoutPanel();
             this.dgvPersonas = new System.Windows.Forms.DataGridView();
-            this.tsPersonas = new System.Windows.Forms.ToolStrip();
-            this.tbAgregar = new System.Windows.Forms.ToolStripButton();
-            this.tbEditar = new System.Windows.Forms.ToolStripButton();
-            this.tbEliminar = new System.Windows.Forms.ToolStripButton();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
+            this.tsPersonas = new System.Windows.Forms.ToolStrip();
+            this.tsbAgregar = new System.Windows.Forms.ToolStripButton();
+            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
+            this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.IdPers = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombrePersona = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ApellidoPersona = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EmailPersona = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TelefonoPersona = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,11 +94,14 @@ namespace UI.Desktop.Forms.FormsPersonas
             // 
             // dgvPersonas
             // 
+            this.dgvPersonas.AllowUserToAddRows = false;
+            this.dgvPersonas.AllowUserToDeleteRows = false;
             this.dgvPersonas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPersonas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdPers,
             this.NombrePersona,
             this.ApellidoPersona,
+            this.Direccion,
             this.EmailPersona,
             this.TelefonoPersona,
             this.FechaNacimiento,
@@ -107,48 +111,12 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.tlPersonas.SetColumnSpan(this.dgvPersonas, 2);
             this.dgvPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPersonas.Location = new System.Drawing.Point(3, 3);
+            this.dgvPersonas.MultiSelect = false;
             this.dgvPersonas.Name = "dgvPersonas";
+            this.dgvPersonas.ReadOnly = true;
+            this.dgvPersonas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPersonas.Size = new System.Drawing.Size(942, 490);
             this.dgvPersonas.TabIndex = 0;
-            // 
-            // tsPersonas
-            // 
-            this.tsPersonas.Dock = System.Windows.Forms.DockStyle.None;
-            this.tsPersonas.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tbAgregar,
-            this.tbEditar,
-            this.tbEliminar});
-            this.tsPersonas.Location = new System.Drawing.Point(3, 0);
-            this.tsPersonas.Name = "tsPersonas";
-            this.tsPersonas.Size = new System.Drawing.Size(81, 25);
-            this.tsPersonas.TabIndex = 0;
-            // 
-            // tbAgregar
-            // 
-            this.tbAgregar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tbAgregar.Image = ((System.Drawing.Image)(resources.GetObject("tbAgregar.Image")));
-            this.tbAgregar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tbAgregar.Name = "tbAgregar";
-            this.tbAgregar.Size = new System.Drawing.Size(23, 22);
-            this.tbAgregar.Text = "Agregar Persona";
-            // 
-            // tbEditar
-            // 
-            this.tbEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tbEditar.Image = ((System.Drawing.Image)(resources.GetObject("tbEditar.Image")));
-            this.tbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tbEditar.Name = "tbEditar";
-            this.tbEditar.Size = new System.Drawing.Size(23, 22);
-            this.tbEditar.Text = "Editar Persona";
-            // 
-            // tbEliminar
-            // 
-            this.tbEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tbEliminar.Image = ((System.Drawing.Image)(resources.GetObject("tbEliminar.Image")));
-            this.tbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tbEliminar.Name = "tbEliminar";
-            this.tbEliminar.Size = new System.Drawing.Size(23, 22);
-            this.tbEliminar.Text = "Eliminar Persona";
             // 
             // btnSalir
             // 
@@ -172,12 +140,55 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
+            // tsPersonas
+            // 
+            this.tsPersonas.Dock = System.Windows.Forms.DockStyle.None;
+            this.tsPersonas.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbAgregar,
+            this.tsbEditar,
+            this.tsbEliminar});
+            this.tsPersonas.Location = new System.Drawing.Point(3, 0);
+            this.tsPersonas.Name = "tsPersonas";
+            this.tsPersonas.Size = new System.Drawing.Size(81, 25);
+            this.tsPersonas.TabIndex = 0;
+            // 
+            // tsbAgregar
+            // 
+            this.tsbAgregar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbAgregar.Image = ((System.Drawing.Image)(resources.GetObject("tsbAgregar.Image")));
+            this.tsbAgregar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAgregar.Name = "tsbAgregar";
+            this.tsbAgregar.Size = new System.Drawing.Size(23, 22);
+            this.tsbAgregar.Text = "Agregar Persona";
+            this.tsbAgregar.Click += new System.EventHandler(this.tsbAgregar_Click);
+            // 
+            // tsbEditar
+            // 
+            this.tsbEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbEditar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEditar.Image")));
+            this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEditar.Name = "tsbEditar";
+            this.tsbEditar.Size = new System.Drawing.Size(23, 22);
+            this.tsbEditar.Text = "Editar Persona";
+            this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
+            // 
+            // tsbEliminar
+            // 
+            this.tsbEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbEliminar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEliminar.Image")));
+            this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEliminar.Name = "tsbEliminar";
+            this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
+            this.tsbEliminar.Text = "Eliminar Persona";
+            this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
+            // 
             // IdPers
             // 
             this.IdPers.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.IdPers.DataPropertyName = "IdPersona";
             this.IdPers.HeaderText = "ID";
             this.IdPers.Name = "IdPers";
+            this.IdPers.ReadOnly = true;
             // 
             // NombrePersona
             // 
@@ -185,6 +196,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.NombrePersona.DataPropertyName = "Nombre";
             this.NombrePersona.HeaderText = "Nombre";
             this.NombrePersona.Name = "NombrePersona";
+            this.NombrePersona.ReadOnly = true;
             // 
             // ApellidoPersona
             // 
@@ -192,6 +204,14 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.ApellidoPersona.DataPropertyName = "Apellido";
             this.ApellidoPersona.HeaderText = "Apellido";
             this.ApellidoPersona.Name = "ApellidoPersona";
+            this.ApellidoPersona.ReadOnly = true;
+            // 
+            // Direccion
+            // 
+            this.Direccion.DataPropertyName = "Direccion";
+            this.Direccion.HeaderText = "Direccion";
+            this.Direccion.Name = "Direccion";
+            this.Direccion.ReadOnly = true;
             // 
             // EmailPersona
             // 
@@ -265,14 +285,15 @@ namespace UI.Desktop.Forms.FormsPersonas
         private System.Windows.Forms.TableLayoutPanel tlPersonas;
         private System.Windows.Forms.DataGridView dgvPersonas;
         private System.Windows.Forms.ToolStrip tsPersonas;
-        private System.Windows.Forms.ToolStripButton tbAgregar;
-        private System.Windows.Forms.ToolStripButton tbEditar;
-        private System.Windows.Forms.ToolStripButton tbEliminar;
+        private System.Windows.Forms.ToolStripButton tsbAgregar;
+        private System.Windows.Forms.ToolStripButton tsbEditar;
+        private System.Windows.Forms.ToolStripButton tsbEliminar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdPers;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombrePersona;
         private System.Windows.Forms.DataGridViewTextBoxColumn ApellidoPersona;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn EmailPersona;
         private System.Windows.Forms.DataGridViewTextBoxColumn TelefonoPersona;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaNacimiento;

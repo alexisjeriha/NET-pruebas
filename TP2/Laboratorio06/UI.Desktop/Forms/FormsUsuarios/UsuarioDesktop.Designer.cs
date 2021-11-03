@@ -279,6 +279,7 @@ namespace UI.Desktop
             this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(651, 208);
             this.Controls.Add(this.tlUsuariosDesktop);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "UsuarioDesktop";
             this.Text = "UsuarioDesktop";
             this.tlUsuariosDesktop.ResumeLayout(false);

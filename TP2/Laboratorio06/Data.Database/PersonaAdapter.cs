@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Data.Database
 {
-    public class PersonaAdapter:Adapter
+    public class PersonaAdapter : Adapter
     {
         public List<Persona> GetAll()
         {
@@ -33,6 +33,7 @@ namespace Data.Database
                     per.FechaNacimiento = (DateTime)drPersonas["fecha_nac"];
                     per.Legajo = (int)drPersonas["legajo"];
                     per.Tipo = (int)drPersonas["tipo_persona"];
+                    per.Direccion = (string)drPersonas["direccion"];
 
                     Plan plan = new Plan();
                     plan.Id = (int)drPersonas["id_plan"];
@@ -58,6 +59,7 @@ namespace Data.Database
 
         public Persona GetOne(int ID)
         {
+
             Persona per = new Persona();
 
             try
@@ -94,13 +96,27 @@ namespace Data.Database
             return per;
         }
 
-        public bool ExistePersona(int id)
+        public bool ExistePersona(Persona per)
         {
             bool existePersona;
+
+
             try
             {
                 OpenConnection();
-                existePersona = Convert.ToBoolean(GetOne(id));
+                SqlCommand cmdExistePersona = new SqlCommand("select * from personas where nombre=@nom " +
+                    " and apellido=@ape and direccion = @dir and email = @email and telefono = @tel and fecha_nac = @fecnac" +
+                    " and legajo = @leg and tipo_persona = @tipo and id_plan = @idplan", SqlConn);
+                cmdExistePersona.Parameters.Add("@nom", SqlDbType.VarChar, 50).Value = per.Nombre;
+                cmdExistePersona.Parameters.Add("@ape", SqlDbType.VarChar, 50).Value = per.Apellido;
+                cmdExistePersona.Parameters.Add("@dir", SqlDbType.VarChar, 50).Value = per.Direccion;
+                cmdExistePersona.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = per.Email;
+                cmdExistePersona.Parameters.Add("@tel", SqlDbType.VarChar, 50).Value = per.Telefono;
+                cmdExistePersona.Parameters.Add("@fecnac", SqlDbType.DateTime).Value = per.FechaNacimiento;
+                cmdExistePersona.Parameters.Add("@leg", SqlDbType.Int).Value = per.Legajo;
+                cmdExistePersona.Parameters.Add("@tipo", SqlDbType.Int).Value = per.Tipo;
+                cmdExistePersona.Parameters.Add("@idplan", SqlDbType.Int).Value = per.Plan.Id;
+                existePersona = Convert.ToBoolean(cmdExistePersona.ExecuteScalar());
             }
             catch (Exception Ex)
             {
@@ -108,10 +124,7 @@ namespace Data.Database
                     new Exception("Error al validar la existencia de la persona", Ex);
                 throw ExcepcionManejada;
             }
-            finally
-            {
-                CloseConnection();
-            }
+
             return existePersona;
         }
 
@@ -143,8 +156,8 @@ namespace Data.Database
             {
                 OpenConnection();
                 SqlCommand cmdUpdate = new SqlCommand(
-                    "UPDATE planes SET nombre = @nom, apellido = @ape, direccion = @dir, email = @email " +
-                    "telefono = @tel, fecha_nac = @fecnac, legajo = @leg, tipo_persona = tipo " +
+                    "UPDATE personas SET nombre = @nom, apellido = @ape, direccion = @dir, email = @email " +
+                    ",telefono = @tel, fecha_nac = @fecnac, legajo = @leg, tipo_persona = @tipo " +
                     "WHERE id_persona=@id and id_plan=@idplan", SqlConn);
 
 
@@ -177,20 +190,22 @@ namespace Data.Database
             try
             {
                 OpenConnection();
-                SqlCommand cmdSave = new SqlCommand(
-                    "insert into personas (nombre, apellido, direccion, email, telefono, fecha_nac, legajo, tipo_persona)" +
-                    "values (@nom, @ape, @dir, @email, @tel, @fecnac, @leg, @tipo)" +
+                SqlCommand cmdInsert = new SqlCommand(
+                    "insert into personas (nombre, apellido, direccion, email, telefono, fecha_nac, legajo, tipo_persona, id_plan)" +
+                    "values (@nom, @ape, @dir, @email, @tel, @fecnac, @leg, @tipo, @idplan)" +
                     "select @@identity", SqlConn);
 
-                cmdSave.Parameters.Add("@nom", SqlDbType.VarChar, 50).Value = per.Nombre;
-                cmdSave.Parameters.Add("@ape", SqlDbType.VarChar, 50).Value = per.Apellido;
-                cmdSave.Parameters.Add("@dir", SqlDbType.VarChar, 50).Value = per.Direccion;
-                cmdSave.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = per.Email;
-                cmdSave.Parameters.Add("@tel", SqlDbType.VarChar, 50).Value = per.Telefono;
-                cmdSave.Parameters.Add("@fecnac", SqlDbType.DateTime).Value = per.FechaNacimiento;
-                cmdSave.Parameters.Add("@leg", SqlDbType.Int).Value = per.Legajo;
-                cmdSave.Parameters.Add("@tipo", SqlDbType.Int).Value = per.Tipo;
-                per.IdPersona = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
+                cmdInsert.Parameters.Add("@nom", SqlDbType.VarChar, 50).Value = per.Nombre;
+                cmdInsert.Parameters.Add("@ape", SqlDbType.VarChar, 50).Value = per.Apellido;
+                cmdInsert.Parameters.Add("@dir", SqlDbType.VarChar, 50).Value = per.Direccion;
+                cmdInsert.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = per.Email;
+                cmdInsert.Parameters.Add("@tel", SqlDbType.VarChar, 50).Value = per.Telefono;
+                cmdInsert.Parameters.Add("@fecnac", SqlDbType.DateTime).Value = per.FechaNacimiento;
+                cmdInsert.Parameters.Add("@leg", SqlDbType.Int).Value = per.Legajo;
+                cmdInsert.Parameters.Add("@tipo", SqlDbType.Int).Value = per.Tipo;
+                cmdInsert.Parameters.Add("@idplan", SqlDbType.Int).Value = per.Plan.Id;
+                per.IdPersona = Decimal.ToInt32((decimal)cmdInsert.ExecuteScalar());
+
             }
             catch (Exception Ex)
             {
