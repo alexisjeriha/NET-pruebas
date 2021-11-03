@@ -24,6 +24,9 @@ namespace Business.Entities
         //Plan asociado a la persona
         public Plan Plan { get; set; }
 
-
+        public int IDPlan
+        {
+            get { return Plan.Id; }
+        }
     }
 }

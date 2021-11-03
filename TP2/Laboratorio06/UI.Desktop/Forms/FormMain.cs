@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using UI.Desktop.Forms.Forms_Especialdades;
+using UI.Desktop.Forms.FormsPersonas;
 using UI.Desktop.FormsPlan;
 
 namespace UI.Desktop.Forms
@@ -44,6 +45,13 @@ namespace UI.Desktop.Forms
         {
             Planes grillaplanes = new Planes();
             grillaplanes.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Personas formpersona = new Personas();
+
+            formpersona.ShowDialog();
         }
     }
 }

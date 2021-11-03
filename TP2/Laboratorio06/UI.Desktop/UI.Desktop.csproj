@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\FormsPersonas\PersonaDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormsPersonas\PersonaDesktop.Designer.cs">
+      <DependentUpon>PersonaDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormsPersonas\Personas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormsPersonas\Personas.Designer.cs">
+      <DependentUpon>Personas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormsPlan\PlanDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,32 +88,35 @@
     <Compile Include="Forms\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Forms Especialidades\EspecialidadDesktop.cs">
+    <Compile Include="Forms\FormsEspecialidades\EspecialidadDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Forms Especialidades\EspecialidadDesktop.Designer.cs">
+    <Compile Include="Forms\FormsEspecialidades\EspecialidadDesktop.Designer.cs">
       <DependentUpon>EspecialidadDesktop.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Forms Especialidades\Especialidades.cs">
+    <Compile Include="Forms\FormsEspecialidades\Especialidades.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Forms Especialidades\Especialidades.Designer.cs">
+    <Compile Include="Forms\FormsEspecialidades\Especialidades.Designer.cs">
       <DependentUpon>Especialidades.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\UsuarioDesktop.cs">
+    <Compile Include="Forms\FormsUsuarios\UsuarioDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\UsuarioDesktop.Designer.cs">
+    <Compile Include="Forms\FormsUsuarios\UsuarioDesktop.Designer.cs">
       <DependentUpon>UsuarioDesktop.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Usuarios.cs">
+    <Compile Include="Forms\FormsUsuarios\Usuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Usuarios.Designer.cs">
+    <Compile Include="Forms\FormsUsuarios\Usuarios.Designer.cs">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\FormsPersonas\Personas.resx">
+      <DependentUpon>Personas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormsPlan\PlanDesktop.resx">
       <DependentUpon>PlanDesktop.cs</DependentUpon>
     </EmbeddedResource>
@@ -117,16 +132,16 @@
     <EmbeddedResource Include="Forms\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Forms Especialidades\EspecialidadDesktop.resx">
+    <EmbeddedResource Include="Forms\FormsEspecialidades\EspecialidadDesktop.resx">
       <DependentUpon>EspecialidadDesktop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Forms Especialidades\Especialidades.resx">
+    <EmbeddedResource Include="Forms\FormsEspecialidades\Especialidades.resx">
       <DependentUpon>Especialidades.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\UsuarioDesktop.resx">
+    <EmbeddedResource Include="Forms\FormsUsuarios\UsuarioDesktop.resx">
       <DependentUpon>UsuarioDesktop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Usuarios.resx">
+    <EmbeddedResource Include="Forms\FormsUsuarios\Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -164,6 +179,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\academiaxd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Forms\FormsMaterias\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

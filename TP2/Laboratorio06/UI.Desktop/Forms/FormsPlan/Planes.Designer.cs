@@ -57,11 +57,11 @@ namespace UI.Desktop.FormsPlan
             // tcPlanes.ContentPanel
             // 
             this.tcPlanes.ContentPanel.Controls.Add(this.tlPlanes);
-            this.tcPlanes.ContentPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tcPlanes.ContentPanel.Margin = new System.Windows.Forms.Padding(2);
             this.tcPlanes.ContentPanel.Size = new System.Drawing.Size(742, 339);
             this.tcPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcPlanes.Location = new System.Drawing.Point(0, 0);
-            this.tcPlanes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tcPlanes.Margin = new System.Windows.Forms.Padding(2);
             this.tcPlanes.Name = "tcPlanes";
             this.tcPlanes.Size = new System.Drawing.Size(742, 366);
             this.tcPlanes.TabIndex = 0;
@@ -81,7 +81,7 @@ namespace UI.Desktop.FormsPlan
             this.tlPlanes.Controls.Add(this.btnActualizar, 0, 1);
             this.tlPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlPlanes.Location = new System.Drawing.Point(0, 0);
-            this.tlPlanes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tlPlanes.Margin = new System.Windows.Forms.Padding(2);
             this.tlPlanes.Name = "tlPlanes";
             this.tlPlanes.RowCount = 2;
             this.tlPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -101,7 +101,7 @@ namespace UI.Desktop.FormsPlan
             this.tlPlanes.SetColumnSpan(this.dgvPlanes, 2);
             this.dgvPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPlanes.Location = new System.Drawing.Point(2, 2);
-            this.dgvPlanes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvPlanes.Margin = new System.Windows.Forms.Padding(2);
             this.dgvPlanes.MultiSelect = false;
             this.dgvPlanes.Name = "dgvPlanes";
             this.dgvPlanes.ReadOnly = true;
@@ -141,7 +141,7 @@ namespace UI.Desktop.FormsPlan
             // btnSalir
             // 
             this.btnSalir.Location = new System.Drawing.Point(649, 308);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(2);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(91, 29);
             this.btnSalir.TabIndex = 2;
@@ -153,7 +153,7 @@ namespace UI.Desktop.FormsPlan
             // 
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnActualizar.Location = new System.Drawing.Point(554, 308);
-            this.btnActualizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(2);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(91, 29);
             this.btnActualizar.TabIndex = 1;
@@ -171,7 +171,7 @@ namespace UI.Desktop.FormsPlan
             this.tsbEliminar});
             this.tsPlanes.Location = new System.Drawing.Point(4, 0);
             this.tsPlanes.Name = "tsPlanes";
-            this.tsPlanes.Size = new System.Drawing.Size(115, 27);
+            this.tsPlanes.Size = new System.Drawing.Size(84, 27);
             this.tsPlanes.TabIndex = 0;
             // 
             // tsbNuevo
@@ -210,7 +210,7 @@ namespace UI.Desktop.FormsPlan
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(742, 366);
             this.Controls.Add(this.tcPlanes);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Planes";
             this.Text = "Planes";
             this.Load += new System.EventHandler(this.Planes_Load);
