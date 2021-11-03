@@ -12,6 +12,9 @@ namespace Business.Entities
 
         // Datos particulares de la persona
         public int IdPersona { get; set; }
+        public String Nombre { get; set; }
+        public String Apellido { get; set; }
+        public String Email { get; set; }
         public String Direccion { get; set; }
         public String Telefono { get; set; }
         public DateTime FechaNacimiento { get; set; }
