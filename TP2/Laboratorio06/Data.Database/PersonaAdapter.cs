@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Data.Database
 {
-    class PersonaAdapter:Adapter
+    public class PersonaAdapter:Adapter
     {
         public List<Persona> GetAll()
         {
@@ -94,28 +94,25 @@ namespace Data.Database
             return per;
         }
 
-        public bool ExistePersona(string desc, int idEsp)
+        public bool ExistePersona(int id)
         {
-            bool existePlan;
+            bool existePersona;
             try
             {
                 OpenConnection();
-                SqlCommand cmdExistePersona = new SqlCommand("select * from personas where desc_plan=@desc and id_especialidad=@idEsp", SqlConn);
-                cmdExistePersona.Parameters.Add("@desc", SqlDbType.VarChar, 50).Value = desc;
-                cmdExistePersona.Parameters.Add("@idEsp", SqlDbType.Int).Value = idEsp;
-                existePlan = Convert.ToBoolean(cmdExistePersona.ExecuteScalar());
+                existePersona = Convert.ToBoolean(GetOne(id));
             }
             catch (Exception Ex)
             {
                 Exception ExcepcionManejada =
-                    new Exception("Error al validar la existencia del Plan", Ex);
+                    new Exception("Error al validar la existencia de la persona", Ex);
                 throw ExcepcionManejada;
             }
             finally
             {
                 CloseConnection();
             }
-            return existePlan;
+            return existePersona;
         }
 
         public void Delete(int ID)
@@ -173,6 +170,57 @@ namespace Data.Database
             {
                 CloseConnection();
             }
+        }
+
+        protected void Insert(Persona per)
+        {
+            try
+            {
+                OpenConnection();
+                SqlCommand cmdSave = new SqlCommand(
+                    "insert into personas (nombre, apellido, direccion, email, telefono, fecha_nac, legajo, tipo_persona)" +
+                    "values (@nom, @ape, @dir, @email, @tel, @fecnac, @leg, @tipo)" +
+                    "select @@identity", SqlConn);
+
+                cmdSave.Parameters.Add("@nom", SqlDbType.VarChar, 50).Value = per.Nombre;
+                cmdSave.Parameters.Add("@ape", SqlDbType.VarChar, 50).Value = per.Apellido;
+                cmdSave.Parameters.Add("@dir", SqlDbType.VarChar, 50).Value = per.Direccion;
+                cmdSave.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = per.Email;
+                cmdSave.Parameters.Add("@tel", SqlDbType.VarChar, 50).Value = per.Telefono;
+                cmdSave.Parameters.Add("@fecnac", SqlDbType.DateTime).Value = per.FechaNacimiento;
+                cmdSave.Parameters.Add("@leg", SqlDbType.Int).Value = per.Legajo;
+                cmdSave.Parameters.Add("@tipo", SqlDbType.Int).Value = per.Tipo;
+                per.IdPersona = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                new Exception("Error al crear persona", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
+
+        public void Save(Persona per)
+        {
+            if (per.State == BusinessEntity.States.Deleted)
+            {
+                Delete(per.IdPersona);
+            }
+
+            else if (per.State == BusinessEntity.States.New)
+            {
+                Insert(per);
+            }
+
+            else if (per.State == BusinessEntity.States.Modified)
+            {
+                Update(per);
+            }
+            per.State = BusinessEntity.States.Unmodified;
         }
 
     }
