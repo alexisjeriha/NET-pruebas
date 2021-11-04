@@ -131,6 +131,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormsComisiones\Comisiones.resx">
       <DependentUpon>Comisiones.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormsPersonas\PersonaDesktop.resx">
+      <DependentUpon>PersonaDesktop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormsPersonas\Personas.resx">
       <DependentUpon>Personas.cs</DependentUpon>

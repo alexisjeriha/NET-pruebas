@@ -115,7 +115,7 @@
             this.lblIdEsp.Location = new System.Drawing.Point(10, 123);
             this.lblIdEsp.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblIdEsp.Name = "lblIdEsp";
-            this.lblIdEsp.Size = new System.Drawing.Size(67, 13);
+            this.lblIdEsp.Size = new System.Drawing.Size(81, 13);
             this.lblIdEsp.TabIndex = 2;
             this.lblIdEsp.Text = "Especialidad";
             // 
@@ -166,10 +166,10 @@
             // btnCancelar
             // 
             this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCancelar.Location = new System.Drawing.Point(212, 161);
+            this.btnCancelar.Location = new System.Drawing.Point(208, 161);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(56, 19);
+            this.btnCancelar.Size = new System.Drawing.Size(64, 19);
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;

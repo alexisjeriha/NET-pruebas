@@ -33,9 +33,14 @@ namespace Business.Logic
             return PersonaData.GetOne(id);
         }
 
-        public bool ExistePersona(int id)
+        public bool ExistePersona(Persona per)
         {
-            return PersonaData.ExistePersona(id);
+            return PersonaData.ExistePersona(per);
+        }
+
+        public void Update(Persona per)
+        {
+            PersonaData.Update(per);
         }
 
         public void Save(Persona per)

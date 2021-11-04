@@ -1,4 +1,5 @@
-﻿using Business.Logic;
+﻿using Business.Entities;
+using Business.Logic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,6 +39,44 @@ namespace UI.Desktop.Forms.FormsPersonas
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             Listar();
+        }
+
+        private void tsbAgregar_Click(object sender, EventArgs e)
+        {
+            PersonaDesktop personaDesktop = new PersonaDesktop(ApplicationForm.ModoForm.Alta);
+            personaDesktop.ShowDialog();
+            Listar();
+        }
+
+        private void tsbEditar_Click(object sender, EventArgs e)
+        {
+            if (dgvPersonas.SelectedRows != null)
+            {
+                int ID = ((Persona)dgvPersonas.SelectedRows[0].DataBoundItem).ID;
+                PersonaDesktop formPersona = new PersonaDesktop(ID, ApplicationForm.ModoForm.Modificacion);
+                formPersona.ShowDialog();
+
+                Listar();
+            }
+        }
+
+        private void tsbEliminar_Click(object sender, EventArgs e)
+        {
+            var rta = MessageBox.Show("¿Esta seguro que desea eliminar el Plan seleccionado?", "Atencion", MessageBoxButtons.YesNo);
+            if (rta == DialogResult.Yes)
+            {
+                try
+                {
+                    int ID = ((Persona)dgvPersonas.SelectedRows[0].DataBoundItem).IdPersona;
+                    PersonaDesktop formPer = new PersonaDesktop(ID, ApplicationForm.ModoForm.Baja);
+                    formPer.ShowDialog();
+                    Listar();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
