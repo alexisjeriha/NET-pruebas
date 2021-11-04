@@ -1,6 +1,6 @@
-﻿using Business.Entities;
+﻿using System;
+using Business.Entities;
 using Business.Logic;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,39 +10,38 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UI.Desktop.FormsPlan
+namespace UI.Desktop.Forms.FormsMaterias
 {
-    public partial class PlanDesktop : ApplicationForm
+    public partial class MateriaDesktop : ApplicationForm
     {
-        public PlanDesktop()
+        public MateriaDesktop()
         {
             InitializeComponent();
-        }        
-        private void PlanDesktop_Load(object sender, EventArgs e)
+        }
+
+        private void MateriaDesktop_Load(object sender, EventArgs e)
         {
 
         }
+        Materia materiaActual;
 
-        Plan planActual;
-
-        public Plan PlanActual
+        public Materia MateriaActual
         {
-            get { return planActual; }
-            set { planActual = value; }
+            get { return materiaActual; }
+            set { materiaActual = value; }
         }
-        public PlanDesktop(ModoForm modo) : this()
+        public MateriaDesktop(ModoForm modo) : this()
         {
             Modo = modo;
             fillCmb();
         }
-
-        public PlanDesktop(int ID, ModoForm modo) : this()
+        public MateriaDesktop(int ID, ModoForm modo) : this()
         {
             Modo = modo;
-            PlanLogic planLogic = new PlanLogic();
+            MateriaLogic MateriaLogic = new MateriaLogic();
             try
             {
-                PlanActual = planLogic.GetOne(ID);
+                MateriaActual = MateriaLogic.GetOne(ID);
                 fillCmb();
                 MapearDeDatos();
             }
@@ -55,11 +54,11 @@ namespace UI.Desktop.FormsPlan
         {
             try
             {
-                EspecialidadLogic EspecialidadNegocio = new EspecialidadLogic();
-                cmbIDEsp.DataSource = EspecialidadNegocio.GetAll();
-                cmbIDEsp.ValueMember = "ID";
-                cmbIDEsp.DisplayMember = "Descripcion";
-                cmbIDEsp.SelectedIndex = -1;
+                MateriaLogic MateriaNegocio = new MateriaLogic();
+                cmbIDPlan.DataSource = MateriaNegocio.GetAll();
+                cmbIDPlan.ValueMember = "ID";
+                cmbIDPlan.DisplayMember = "Descripcion";
+                cmbIDPlan.SelectedIndex = -1;
             }
             catch (Exception ex)
             {
@@ -68,9 +67,11 @@ namespace UI.Desktop.FormsPlan
         }
         public override void MapearDeDatos()
         {
-            txtIDplan.Text = PlanActual.Id.ToString();
-            txtDesc.Text = PlanActual.Descripcion;
-            cmbIDEsp.SelectedValue = PlanActual.Especialidad.Id;
+            txtIDEsp.Text = MateriaActual.ID.ToString();
+            txtDesc.Text = MateriaActual.Descripcion;
+            txtHSSem.Text = MateriaActual.HSSemanales.ToString();
+            txtHSTot.Text = MateriaActual.HSTotales.ToString();
+            cmbIDPlan.SelectedValue = MateriaActual.Plan.Id;
 
             switch (Modo)
             {
@@ -93,26 +94,28 @@ namespace UI.Desktop.FormsPlan
             switch (Modo)
             {
                 case ModoForm.Alta:
-                    PlanActual = new Plan { State = BusinessEntity.States.New };
+                    MateriaActual = new Materia { State = BusinessEntity.States.New };
                     break;
                 case ModoForm.Baja:
-                    PlanActual.State = BusinessEntity.States.Deleted;
+                    MateriaActual.State = BusinessEntity.States.Deleted;
                     break;
                 case ModoForm.Modificacion:
-                    PlanActual.State = BusinessEntity.States.Modified;
+                    MateriaActual.State = BusinessEntity.States.Modified;
                     break;
                 case ModoForm.Consulta:
-                    PlanActual.State = BusinessEntity.States.Unmodified;
+                    MateriaActual.State = BusinessEntity.States.Unmodified;
                     break;
             }
             if (Modo == ModoForm.Alta || Modo == ModoForm.Modificacion)
             {
                 if (Modo == ModoForm.Modificacion)
                 {
-                    PlanActual.Id = int.Parse(txtIDplan.Text);
+                    MateriaActual.ID = int.Parse(txtIDEsp.Text);
                 }
-                PlanActual.Descripcion = txtDesc.Text;
-                PlanActual.Especialidad.Id = Convert.ToInt32(cmbIDEsp.SelectedValue);
+                MateriaActual.Descripcion = txtDesc.Text;
+                MateriaActual.HSSemanales = int.Parse(txtHSSem.Text);
+                MateriaActual.HSTotales = int.Parse(txtHSTot.Text);
+                MateriaActual.Plan.Id = Convert.ToInt32(cmbIDPlan.SelectedValue);
             }
         }
 
@@ -121,10 +124,10 @@ namespace UI.Desktop.FormsPlan
             try
             {
                 MapearADatos();
-                PlanLogic planLogic = new PlanLogic();
-                if (Modo != ModoForm.Alta || !planLogic.ExistePlan(PlanActual.Descripcion, PlanActual.Especialidad.Id))
+                MateriaLogic MateriaLogic = new MateriaLogic();
+                if (Modo != ModoForm.Alta || !MateriaLogic.Existe(MateriaActual.Plan.Id, MateriaActual.Descripcion))
                 {
-                    planLogic.Save(PlanActual);
+                    MateriaLogic.Save(MateriaActual);
                 }
                 else Notificar("Ya existe este Plan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -133,20 +136,17 @@ namespace UI.Desktop.FormsPlan
                 Notificar("Error", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         public override bool Validar()
         {
-            Boolean valido = true;
-            if (txtDesc.Text == String.Empty || cmbIDEsp.SelectedItem == null)
-            {
-                valido = false;
+            Boolean EsValido = true;
+            if (cmbIDPlan.SelectedItem == null)
+                EsValido = false;
+            if (txtDesc.Text == String.Empty || txtHSSem.Text == String.Empty || txtHSTot.Text == String.Empty)
+                EsValido = false;
+            if (EsValido == false)
                 Notificar("Todos los campos son obligatorios", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            return valido;
+            return EsValido;
         }
-
-
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             if (Validar())

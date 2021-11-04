@@ -13,7 +13,7 @@ namespace Business.Entities
 
         public Materia()
         {
-            plan = new Plan();
+            Plan = new Plan();
         }
 
         public string Descripcion { get; set; }
@@ -26,14 +26,18 @@ namespace Business.Entities
             set { plan = value; }
         }
 
-        public string DescPlan
+        /*public string DescPlan
         {
             get { return Plan.Descripcion; }
+        }*/
+        public int IDPlan
+        {
+            get { return Plan.Id; }
         }
 
-        public string DescEspecialidad
+        /*public string DescEspecialidad
         {
             get { return Plan.Especialidad.Descripcion; }
-        }
+        }*/
     }
 }

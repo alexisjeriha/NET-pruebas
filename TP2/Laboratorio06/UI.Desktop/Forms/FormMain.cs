@@ -51,13 +51,18 @@ namespace UI.Desktop.Forms
         private void button2_Click(object sender, EventArgs e)
         {
             Personas formpersona = new Personas();
-
             formpersona.ShowDialog();
         }
 
         private void btnComisiones_Click(object sender, EventArgs e)
         {
             Comisiones grilla = new Comisiones();
+            grilla.ShowDialog();
+        }
+
+        private void btnMaterias_Click(object sender, EventArgs e)
+        {
+            Materias grilla = new Materias();
             grilla.ShowDialog();
         }
     }
