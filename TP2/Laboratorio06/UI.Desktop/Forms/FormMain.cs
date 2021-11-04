@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using UI.Desktop.Forms.Forms_Especialdades;
+using UI.Desktop.Forms.FormsComisiones;
 using UI.Desktop.Forms.FormsPersonas;
 using UI.Desktop.FormsPlan;
 
@@ -52,6 +53,12 @@ namespace UI.Desktop.Forms
             Personas formpersona = new Personas();
 
             formpersona.ShowDialog();
+        }
+
+        private void btnComisiones_Click(object sender, EventArgs e)
+        {
+            Comisiones grilla = new Comisiones();
+            grilla.ShowDialog();
         }
     }
 }

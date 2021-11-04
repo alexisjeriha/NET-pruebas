@@ -117,7 +117,7 @@
             this.lblIdEsp.Name = "lblIdEsp";
             this.lblIdEsp.Size = new System.Drawing.Size(81, 13);
             this.lblIdEsp.TabIndex = 2;
-            this.lblIdEsp.Text = "ID Especialidad";
+            this.lblIdEsp.Text = "Especialidad";
             // 
             // txtIDplan
             // 
