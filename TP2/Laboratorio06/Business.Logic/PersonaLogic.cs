@@ -38,6 +38,11 @@ namespace Business.Logic
             return PersonaData.ExistePersona(per);
         }
 
+        public void Update(Persona per)
+        {
+            PersonaData.Update(per);
+        }
+
         public void Save(Persona per)
         {
             PersonaData.Save(per);

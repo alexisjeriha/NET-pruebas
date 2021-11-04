@@ -79,6 +79,7 @@ namespace Data.Database
                     per.FechaNacimiento = (DateTime)drPersonas["fecha_nac"];
                     per.Legajo = (int)drPersonas["legajo"];
                     per.Tipo = (int)drPersonas["tipo_persona"];
+                    per.Direccion = (string)drPersonas["telefono"];
                     per.Plan.Id = (int)drPersonas["id_plan"]; 
                 }
                 drPersonas.Close();
@@ -150,15 +151,15 @@ namespace Data.Database
 
 
         }
-        protected void Update(Persona per)
+        public void Update(Persona per)
         {
             try
             {
                 OpenConnection();
                 SqlCommand cmdUpdate = new SqlCommand(
-                    "UPDATE personas SET nombre = @nom, apellido = @ape, direccion = @dir, email = @email " +
-                    ",telefono = @tel, fecha_nac = @fecnac, legajo = @leg, tipo_persona = @tipo " +
-                    "WHERE id_persona=@id and id_plan=@idplan", SqlConn);
+                    "UPDATE personas SET nombre = @nom, apellido = @ape, direccion = @dir, email = @email, " +
+                    "telefono = @tel, fecha_nac = @fecnac, legajo = @leg, tipo_persona = @tipo, id_plan=@idplan " +
+                    "WHERE id_persona=@id", SqlConn);
 
 
                 cmdUpdate.Parameters.Add("@id", SqlDbType.Int).Value = per.IdPersona;

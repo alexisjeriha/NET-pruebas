@@ -52,7 +52,7 @@ namespace UI.Desktop.Forms.FormsPersonas
         {
             if (dgvPersonas.SelectedRows != null)
             {
-                int ID = ((Persona)dgvPersonas.SelectedRows[0].DataBoundItem).IdPersona;
+                int ID = ((Persona)dgvPersonas.SelectedRows[0].DataBoundItem).ID;
                 PersonaDesktop formPersona = new PersonaDesktop(ID, ApplicationForm.ModoForm.Modificacion);
                 formPersona.ShowDialog();
 
