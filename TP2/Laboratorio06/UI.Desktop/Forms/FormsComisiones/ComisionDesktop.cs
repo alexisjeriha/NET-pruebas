@@ -10,39 +10,38 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UI.Desktop.FormsPlan
+namespace UI.Desktop.Forms.FormsComisiones
 {
-    public partial class PlanDesktop : ApplicationForm
+    public partial class ComisionDesktop : ApplicationForm
     {
-        public PlanDesktop()
+        public ComisionDesktop()
         {
             InitializeComponent();
-        }        
-        private void PlanDesktop_Load(object sender, EventArgs e)
+        }
+
+        private void ComisionDesktop_Load(object sender, EventArgs e)
         {
 
         }
 
-        Plan planActual;
-
-        public Plan PlanActual
+        Comision comisionActual;
+        public Comision ComisionActual
         {
-            get { return planActual; }
-            set { planActual = value; }
+            get { return comisionActual; }
+            set { comisionActual = value; }
         }
-        public PlanDesktop(ModoForm modo) : this()
+        public ComisionDesktop(ModoForm modo) : this()
         {
             Modo = modo;
             fillCmb();
         }
-
-        public PlanDesktop(int ID, ModoForm modo) : this()
+        public ComisionDesktop(int ID, ModoForm modo) : this()
         {
             Modo = modo;
-            PlanLogic planLogic = new PlanLogic();
+            ComisionLogic comisionLogic = new ComisionLogic();
             try
             {
-                PlanActual = planLogic.GetOne(ID);
+                ComisionActual = comisionLogic.GetOne(ID);
                 fillCmb();
                 MapearDeDatos();
             }
@@ -55,11 +54,11 @@ namespace UI.Desktop.FormsPlan
         {
             try
             {
-                EspecialidadLogic EspecialidadNegocio = new EspecialidadLogic();
-                cmbIDEsp.DataSource = EspecialidadNegocio.GetAll();
-                cmbIDEsp.ValueMember = "ID";
-                cmbIDEsp.DisplayMember = "Descripcion";
-                cmbIDEsp.SelectedIndex = -1;
+                PlanLogic planNegocio = new PlanLogic();
+                cbIdPlan.DataSource = planNegocio.GetAll();
+                cbIdPlan.ValueMember = "ID";
+                cbIdPlan.DisplayMember = "Descripcion";
+                cbIdPlan.SelectedIndex = -1;
             }
             catch (Exception ex)
             {
@@ -68,9 +67,10 @@ namespace UI.Desktop.FormsPlan
         }
         public override void MapearDeDatos()
         {
-            txtIDplan.Text = PlanActual.Id.ToString();
-            txtDesc.Text = PlanActual.Descripcion;
-            cmbIDEsp.SelectedValue = PlanActual.Especialidad.Id;
+            txtIdComision.Text = ComisionActual.IdComision.ToString();
+            txtDescComision.Text = ComisionActual.DescComision;
+            txtAnio.Text = ComisionActual.AnioEspecialidad.ToString();
+            cbIdPlan.SelectedValue = ComisionActual.Plan.Id;
 
             switch (Modo)
             {
@@ -88,45 +88,46 @@ namespace UI.Desktop.FormsPlan
                     break;
             }
         }
+
         public override void MapearADatos()
         {
             switch (Modo)
             {
                 case ModoForm.Alta:
-                    PlanActual = new Plan { State = BusinessEntity.States.New };
+                    ComisionActual = new Comision { State = BusinessEntity.States.New };
                     break;
                 case ModoForm.Baja:
-                    PlanActual.State = BusinessEntity.States.Deleted;
+                    ComisionActual.State = BusinessEntity.States.Deleted;
                     break;
                 case ModoForm.Modificacion:
-                    PlanActual.State = BusinessEntity.States.Modified;
+                    ComisionActual.State = BusinessEntity.States.Modified;
                     break;
                 case ModoForm.Consulta:
-                    PlanActual.State = BusinessEntity.States.Unmodified;
+                    ComisionActual.State = BusinessEntity.States.Unmodified;
                     break;
             }
             if (Modo == ModoForm.Alta || Modo == ModoForm.Modificacion)
             {
                 if (Modo == ModoForm.Modificacion)
                 {
-                    PlanActual.Id = int.Parse(txtIDplan.Text);
+                    ComisionActual.IdComision = int.Parse(txtIdComision.Text);
                 }
-                PlanActual.Descripcion = txtDesc.Text;
-                PlanActual.Especialidad.Id = Convert.ToInt32(cmbIDEsp.SelectedValue);
+                ComisionActual.DescComision = txtDescComision.Text;
+                ComisionActual.AnioEspecialidad = int.Parse(txtAnio.Text);
+                ComisionActual.Plan.Id = Convert.ToInt32(cbIdPlan.SelectedValue);
             }
         }
-
         public override void GuardarCambios()
         {
             try
             {
                 MapearADatos();
-                PlanLogic planLogic = new PlanLogic();
-                if (Modo != ModoForm.Alta || !planLogic.ExistePlan(PlanActual.Descripcion, PlanActual.Especialidad.Id))
+                ComisionLogic comisionLogic = new ComisionLogic();
+                if (Modo != ModoForm.Alta || !comisionLogic.Existe(ComisionActual.IdComision, ComisionActual.DescComision, ComisionActual.AnioEspecialidad))
                 {
-                    planLogic.Save(PlanActual);
+                    comisionLogic.Save(ComisionActual);
                 }
-                else Notificar("Ya existe este Plan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else Notificar("Ya existe esta Comision", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
@@ -137,7 +138,7 @@ namespace UI.Desktop.FormsPlan
         public override bool Validar()
         {
             Boolean valido = true;
-            if (txtDesc.Text == String.Empty || cmbIDEsp.SelectedItem == null)
+            if (txtDescComision.Text == String.Empty || txtAnio.Text == String.Empty || cbIdPlan.SelectedItem == null)
             {
                 valido = false;
                 Notificar("Todos los campos son obligatorios", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -145,8 +146,6 @@ namespace UI.Desktop.FormsPlan
 
             return valido;
         }
-
-
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             if (Validar())
@@ -155,8 +154,7 @@ namespace UI.Desktop.FormsPlan
                 Close();
             }
         }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             Close();
         }

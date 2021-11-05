@@ -127,7 +127,7 @@ namespace Data.Database
             try
             {
                 OpenConnection();
-                SqlCommand cmdUpdate = new SqlCommand("UPDATE planes SET desc_plan=@desc WHERE id_plan=@id and id_especialidad=@idEsp", SqlConn);
+                SqlCommand cmdUpdate = new SqlCommand("UPDATE planes SET desc_plan=@desc, id_especialidad=@idEsp WHERE id_plan=@id", SqlConn);
                 cmdUpdate.Parameters.Add("@id", SqlDbType.Int).Value = plan.Id;
                 cmdUpdate.Parameters.Add("@desc", SqlDbType.VarChar, 50).Value = plan.Descripcion;
                 cmdUpdate.Parameters.Add("@idEsp", SqlDbType.Int).Value = plan.Especialidad.Id;

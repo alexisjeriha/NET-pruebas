@@ -6,38 +6,35 @@ using System.Threading.Tasks;
 
 namespace Business.Entities
 {
-    public class Materia : BusinessEntity
+    public class Comision: BusinessEntity
     {
-
         private Plan plan;
-
-        public Materia()
+        public Comision()
         {
             Plan = new Plan();
         }
-
-        public string Descripcion { get; set; }
-        public int HSSemanales { get; set; }
-        public int HSTotales { get; set; }
-
+        public int IdComision { get; set; }
+        public string DescComision { get; set; }
+        public int AnioEspecialidad { get; set; }
         public Plan Plan
         {
             get { return plan; }
             set { plan = value; }
         }
-
-        /*public string DescPlan
-        {
-            get { return Plan.Descripcion; }
-        }*/
-        public int IDPlan
+        public int IdPlan
         {
             get { return Plan.Id; }
         }
 
-        /*public string DescEspecialidad
+        //Duda si lo siguiente es necesario
+        public string DescPlan
+        {
+            get { return Plan.Descripcion; }
+        }
+
+        public string DescEspecialidad
         {
             get { return Plan.Especialidad.Descripcion; }
-        }*/
+        }
     }
 }

@@ -61,12 +61,12 @@ namespace UI.Desktop
             // 
             this.tcUsuarios.ContentPanel.Controls.Add(this.tlUsuarios);
             this.tcUsuarios.ContentPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tcUsuarios.ContentPanel.Size = new System.Drawing.Size(1200, 399);
+            this.tcUsuarios.ContentPanel.Size = new System.Drawing.Size(1200, 410);
             this.tcUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcUsuarios.Location = new System.Drawing.Point(0, 0);
             this.tcUsuarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tcUsuarios.Name = "tcUsuarios";
-            this.tcUsuarios.Size = new System.Drawing.Size(1200, 426);
+            this.tcUsuarios.Size = new System.Drawing.Size(1200, 437);
             this.tcUsuarios.TabIndex = 0;
             this.tcUsuarios.Text = "toolStripContainer1";
             // 
@@ -89,7 +89,7 @@ namespace UI.Desktop
             this.tlUsuarios.RowCount = 2;
             this.tlUsuarios.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlUsuarios.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlUsuarios.Size = new System.Drawing.Size(1200, 399);
+            this.tlUsuarios.Size = new System.Drawing.Size(1200, 410);
             this.tlUsuarios.TabIndex = 0;
             // 
             // dgvUsuarios
@@ -123,7 +123,7 @@ namespace UI.Desktop
             this.dgvUsuarios.RowHeadersWidth = 51;
             this.dgvUsuarios.RowTemplate.Height = 24;
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsuarios.Size = new System.Drawing.Size(1194, 355);
+            this.dgvUsuarios.Size = new System.Drawing.Size(1194, 366);
             this.dgvUsuarios.TabIndex = 0;
             // 
             // id
@@ -186,7 +186,7 @@ namespace UI.Desktop
             this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(160)))), ((int)(((byte)(237)))));
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnActualizar.Location = new System.Drawing.Point(955, 361);
+            this.btnActualizar.Location = new System.Drawing.Point(949, 372);
             this.btnActualizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(121, 36);
@@ -201,10 +201,10 @@ namespace UI.Desktop
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSalir.Location = new System.Drawing.Point(1082, 361);
+            this.btnSalir.Location = new System.Drawing.Point(1076, 372);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(115, 36);
+            this.btnSalir.Size = new System.Drawing.Size(121, 36);
             this.btnSalir.TabIndex = 2;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
@@ -259,7 +259,7 @@ namespace UI.Desktop
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnSalir;
-            this.ClientSize = new System.Drawing.Size(1200, 426);
+            this.ClientSize = new System.Drawing.Size(1200, 437);
             this.Controls.Add(this.tcUsuarios);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Usuarios";

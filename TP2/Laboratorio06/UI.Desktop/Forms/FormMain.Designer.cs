@@ -35,7 +35,8 @@ namespace UI.Desktop.Forms
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnPlan = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnComisiones = new System.Windows.Forms.Button();
+            this.btnMaterias = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button2
@@ -43,9 +44,10 @@ namespace UI.Desktop.Forms
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(160)))), ((int)(((byte)(237)))));
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(194, 12);
+            this.button2.Location = new System.Drawing.Point(259, 15);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(126, 53);
+            this.button2.Size = new System.Drawing.Size(168, 65);
             this.button2.TabIndex = 1;
             this.button2.Text = "Personas";
             this.button2.UseVisualStyleBackColor = false;
@@ -56,9 +58,10 @@ namespace UI.Desktop.Forms
             this.btnEspecialidades.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(160)))), ((int)(((byte)(237)))));
             this.btnEspecialidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEspecialidades.ForeColor = System.Drawing.Color.White;
-            this.btnEspecialidades.Location = new System.Drawing.Point(297, 97);
+            this.btnEspecialidades.Location = new System.Drawing.Point(487, 119);
+            this.btnEspecialidades.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEspecialidades.Name = "btnEspecialidades";
-            this.btnEspecialidades.Size = new System.Drawing.Size(126, 53);
+            this.btnEspecialidades.Size = new System.Drawing.Size(168, 65);
             this.btnEspecialidades.TabIndex = 3;
             this.btnEspecialidades.Text = "Especialidades";
             this.btnEspecialidades.UseVisualStyleBackColor = false;
@@ -70,9 +73,10 @@ namespace UI.Desktop.Forms
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSalir.Location = new System.Drawing.Point(18, 179);
+            this.btnSalir.Location = new System.Drawing.Point(24, 220);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(489, 31);
+            this.btnSalir.Size = new System.Drawing.Size(652, 38);
             this.btnSalir.TabIndex = 5;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
@@ -84,9 +88,10 @@ namespace UI.Desktop.Forms
             this.btnUsuarios.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuarios.ForeColor = System.Drawing.Color.White;
-            this.btnUsuarios.Location = new System.Drawing.Point(18, 12);
+            this.btnUsuarios.Location = new System.Drawing.Point(24, 15);
+            this.btnUsuarios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUsuarios.Name = "btnUsuarios";
-            this.btnUsuarios.Size = new System.Drawing.Size(126, 53);
+            this.btnUsuarios.Size = new System.Drawing.Size(168, 65);
             this.btnUsuarios.TabIndex = 6;
             this.btnUsuarios.Text = "Usuarios";
             this.btnUsuarios.UseVisualStyleBackColor = false;
@@ -97,42 +102,61 @@ namespace UI.Desktop.Forms
             this.btnPlan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(160)))), ((int)(((byte)(237)))));
             this.btnPlan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlan.ForeColor = System.Drawing.Color.White;
-            this.btnPlan.Location = new System.Drawing.Point(365, 12);
+            this.btnPlan.Location = new System.Drawing.Point(487, 15);
+            this.btnPlan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPlan.Name = "btnPlan";
-            this.btnPlan.Size = new System.Drawing.Size(126, 53);
+            this.btnPlan.Size = new System.Drawing.Size(168, 65);
             this.btnPlan.TabIndex = 7;
             this.btnPlan.Text = "Planes";
             this.btnPlan.UseVisualStyleBackColor = false;
             this.btnPlan.Click += new System.EventHandler(this.btnPlan_Click);
             // 
-            // button5
+            // btnComisiones
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(160)))), ((int)(((byte)(237)))));
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(98, 97);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(126, 53);
-            this.button5.TabIndex = 8;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnComisiones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(160)))), ((int)(((byte)(237)))));
+            this.btnComisiones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComisiones.ForeColor = System.Drawing.Color.White;
+            this.btnComisiones.Location = new System.Drawing.Point(24, 119);
+            this.btnComisiones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnComisiones.Name = "btnComisiones";
+            this.btnComisiones.Size = new System.Drawing.Size(168, 65);
+            this.btnComisiones.TabIndex = 8;
+            this.btnComisiones.Text = "Comisiones";
+            this.btnComisiones.UseVisualStyleBackColor = false;
+            this.btnComisiones.Click += new System.EventHandler(this.btnComisiones_Click);
+            // 
+            // btnMaterias
+            // 
+            this.btnMaterias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(160)))), ((int)(((byte)(237)))));
+            this.btnMaterias.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMaterias.ForeColor = System.Drawing.Color.White;
+            this.btnMaterias.Location = new System.Drawing.Point(259, 119);
+            this.btnMaterias.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMaterias.Name = "btnMaterias";
+            this.btnMaterias.Size = new System.Drawing.Size(168, 65);
+            this.btnMaterias.TabIndex = 9;
+            this.btnMaterias.Text = "Materias";
+            this.btnMaterias.UseVisualStyleBackColor = false;
+            this.btnMaterias.Click += new System.EventHandler(this.btnMaterias_Click);
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackgroundImage = global::UI.Desktop.Properties.Resources.academiaxd;
             this.CancelButton = this.btnSalir;
-            this.ClientSize = new System.Drawing.Size(519, 229);
+            this.ClientSize = new System.Drawing.Size(692, 282);
+            this.Controls.Add(this.btnMaterias);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btnComisiones);
             this.Controls.Add(this.btnEspecialidades);
             this.Controls.Add(this.btnUsuarios);
             this.Controls.Add(this.btnPlan);
             this.Controls.Add(this.button2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -149,6 +173,7 @@ namespace UI.Desktop.Forms
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.Button btnPlan;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnComisiones;
+        private System.Windows.Forms.Button btnMaterias;
     }
 }

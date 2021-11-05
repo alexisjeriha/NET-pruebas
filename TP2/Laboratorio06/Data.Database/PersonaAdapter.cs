@@ -71,7 +71,7 @@ namespace Data.Database
 
                 if (drPersonas.Read())
                 {
-                    per.ID = (int)drPersonas["id_persona"];
+                    per.IdPersona = (int)drPersonas["id_persona"];
                     per.Nombre = (string)drPersonas["nombre"];
                     per.Apellido = (string)drPersonas["apellido"];
                     per.Email = (string)drPersonas["email"];
@@ -157,11 +157,9 @@ namespace Data.Database
             {
                 OpenConnection();
                 SqlCommand cmdUpdate = new SqlCommand(
-                    "UPDATE personas SET nombre = @nom, apellido = @ape, direccion = @dir, email = @email, " +
-                    "telefono = @tel, fecha_nac = @fecnac, legajo = @leg, tipo_persona = @tipo, id_plan=@idplan " +
-                    "WHERE id_persona=@id", SqlConn);
-
-
+                 "UPDATE personas SET nombre = @nom, apellido = @ape, direccion = @dir, email = @email, " +
+                 "telefono = @tel, fecha_nac = @fecnac, legajo = @leg, tipo_persona = @tipo, id_plan=@idplan " +
+                 "WHERE id_persona=@id", SqlConn);
                 cmdUpdate.Parameters.Add("@id", SqlDbType.Int).Value = per.IdPersona;
                 cmdUpdate.Parameters.Add("@nom", SqlDbType.VarChar, 50).Value = per.Nombre;
                 cmdUpdate.Parameters.Add("@ape", SqlDbType.VarChar, 50).Value = per.Apellido;
