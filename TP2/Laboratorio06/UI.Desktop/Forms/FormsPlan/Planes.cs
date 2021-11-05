@@ -69,5 +69,12 @@ namespace UI.Desktop.FormsPlan
                 }
             }
         }
+
+        private void tsReporte_Click(object sender, EventArgs e)
+        {
+            ReportePlanes plarep = new ReportePlanes();
+            plarep.ShowDialog();
+            //Listar();
+        }
     }
 }

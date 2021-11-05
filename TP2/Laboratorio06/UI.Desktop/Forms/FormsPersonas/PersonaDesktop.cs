@@ -107,7 +107,7 @@ namespace UI.Desktop.Forms.FormsPersonas
                 {
                     PersonaActual.IdPersona = int.Parse(txtID.Text);
                 }
-
+                
                 PersonaActual.Nombre = txtNombre.Text;
                 PersonaActual.Apellido = txtApellido.Text;
                 PersonaActual.Direccion = txtDireccion.Text;
