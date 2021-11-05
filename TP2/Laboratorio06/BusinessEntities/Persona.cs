@@ -4,7 +4,7 @@ namespace Business.Entities
 {
     public class Persona : BusinessEntity
     {
-
+        private Plan plan;
         public Persona()
         {
             Plan = new Plan();
@@ -22,7 +22,11 @@ namespace Business.Entities
         public int Tipo { get; set; }
 
         //Plan asociado a la persona
-        public Plan Plan { get; set; }
+        public Plan Plan
+        {
+            get { return plan; }
+            set { plan = value; }
+        }
 
         public int IDPlan
         {

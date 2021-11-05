@@ -71,7 +71,7 @@ namespace Data.Database
 
                 if (drPersonas.Read())
                 {
-                    per.ID = (int)drPersonas["id_persona"];
+                    per.IdPersona = (int)drPersonas["id_persona"];
                     per.Nombre = (string)drPersonas["nombre"];
                     per.Apellido = (string)drPersonas["apellido"];
                     per.Email = (string)drPersonas["email"];
