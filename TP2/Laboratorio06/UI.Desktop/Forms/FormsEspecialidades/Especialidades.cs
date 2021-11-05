@@ -49,12 +49,17 @@ namespace UI.Desktop.Forms.Forms_Especialdades
 
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
-
-            int ID = ((Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).Id;
-            EspecialidadDesktop formEsp = new EspecialidadDesktop(ID, ApplicationForm.ModoForm.Baja);
-            formEsp.ShowDialog();
+            try
+            {
+                int ID = ((Especialidad)dgvEspecialidades.SelectedRows[0].DataBoundItem).Id;
+                EspecialidadDesktop formEsp = new EspecialidadDesktop(ID, ApplicationForm.ModoForm.Baja);
+                formEsp.ShowDialog();
+                
+            }
+            catch (Exception) {
+                MessageBox.Show("La especialidad seleccionada contiene uno o mas planes asociados. Para proceder, compruebe que no haya datos asocidados","Error al eliminar");
+            }
             Listar();
-
         }
 
         private void tsbEditar_Click(object sender, EventArgs e)

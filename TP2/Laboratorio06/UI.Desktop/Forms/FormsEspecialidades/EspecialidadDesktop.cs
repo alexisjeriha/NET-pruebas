@@ -133,6 +133,11 @@ namespace UI.Desktop.Forms.Forms_Especialidades
         {
             Close();
         }
+
+        private void EspecialidadDesktop_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

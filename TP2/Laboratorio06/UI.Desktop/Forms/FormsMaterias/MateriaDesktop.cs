@@ -54,8 +54,8 @@ namespace UI.Desktop.Forms.FormsMaterias
         {
             try
             {
-                MateriaLogic MateriaNegocio = new MateriaLogic();
-                cmbIDPlan.DataSource = MateriaNegocio.GetAll();
+                PlanLogic PlanNegocio = new PlanLogic();
+                cmbIDPlan.DataSource = PlanNegocio.GetAll();
                 cmbIDPlan.ValueMember = "ID";
                 cmbIDPlan.DisplayMember = "Descripcion";
                 cmbIDPlan.SelectedIndex = -1;
