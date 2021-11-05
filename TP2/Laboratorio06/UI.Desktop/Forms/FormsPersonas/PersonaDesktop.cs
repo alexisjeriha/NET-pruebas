@@ -127,7 +127,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             {
                 MapearADatos();
                 PersonaLogic personaLogic = new PersonaLogic();
-                if (Modo != ModoForm.Alta /*|| !personaLogic.ExistePersona(PersonaActual)*/)
+                if (Modo != ModoForm.Alta || !personaLogic.ExistePersona(PersonaActual))
                 {
                     personaLogic.Save(PersonaActual);
                 }
@@ -159,11 +159,11 @@ namespace UI.Desktop.Forms.FormsPersonas
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-           // if (Validar())
-           // {
+            if (Validar())
+            {
                 GuardarCambios();
                 Close();
-            //}
+            }
         }
     }
 }
