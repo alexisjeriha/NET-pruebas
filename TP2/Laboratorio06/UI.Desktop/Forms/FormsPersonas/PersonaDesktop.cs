@@ -54,7 +54,7 @@ namespace UI.Desktop.Forms.FormsPersonas
 
         public override void MapearDeDatos()
         {
-            txtID.Text = PersonaActual.ID.ToString();
+            txtID.Text = PersonaActual.IdPersona.ToString();
             txtNombre.Text = PersonaActual.Nombre;
             txtApellido.Text = PersonaActual.Apellido;
             txtDireccion.Text = PersonaActual.Direccion;
@@ -105,19 +105,9 @@ namespace UI.Desktop.Forms.FormsPersonas
             { 
                 if(Modo == ModoForm.Modificacion)
                 {
-                    PersonaActual.ID = int.Parse(txtID.Text);
-                    PersonaActual.Nombre = txtNombre.Text;
-                    PersonaActual.Apellido = txtApellido.Text;
-                    PersonaActual.Direccion = txtDireccion.Text;
-                    PersonaActual.Email = txtEmail.Text;
-                    PersonaActual.Legajo = int.Parse(txtLegajo.Text);
-                    PersonaActual.Tipo = int.Parse(txtTipo.Text);
-                    PersonaActual.FechaNacimiento = dtNac.Value;
-                    PersonaActual.Telefono = txtTelefono.Text;
-                    PersonaActual.Plan.Id = Convert.ToInt32(cbIdPlan.SelectedValue);
+                    PersonaActual.IdPersona = int.Parse(txtID.Text);
                 }
-
-               /* PersonaActual.Nombre = txtNombre.Text;
+                PersonaActual.Nombre = txtNombre.Text;
                 PersonaActual.Apellido = txtApellido.Text;
                 PersonaActual.Direccion = txtDireccion.Text;
                 PersonaActual.Email = txtEmail.Text;
@@ -125,7 +115,7 @@ namespace UI.Desktop.Forms.FormsPersonas
                 PersonaActual.Tipo = int.Parse(txtTipo.Text);
                 PersonaActual.FechaNacimiento = dtNac.Value;
                 PersonaActual.Telefono = txtTelefono.Text;
-                PersonaActual.Plan.Id = Convert.ToInt32(cbIdPlan.SelectedValue);*/
+                PersonaActual.Plan.Id = Convert.ToInt32(cbIdPlan.SelectedValue);
             }
         }
 
@@ -135,7 +125,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             {
                 MapearADatos();
                 PersonaLogic personaLogic = new PersonaLogic();
-                if (Modo != ModoForm.Alta /*|| !personaLogic.ExistePersona(PersonaActual)*/)
+                if (Modo != ModoForm.Alta || !personaLogic.ExistePersona(PersonaActual))
                 {
                     personaLogic.Save(PersonaActual);
                 }
