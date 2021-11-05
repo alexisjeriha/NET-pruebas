@@ -54,7 +54,7 @@ namespace UI.Desktop.Forms.FormsPersonas
 
         public override void MapearDeDatos()
         {
-            txtID.Text = PersonaActual.ID.ToString();
+            txtID.Text = PersonaActual.IdPersona.ToString();
             txtNombre.Text = PersonaActual.Nombre;
             txtApellido.Text = PersonaActual.Apellido;
             txtDireccion.Text = PersonaActual.Direccion;
@@ -62,7 +62,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             txtTelefono.Text = PersonaActual.Telefono;
             txtLegajo.Text = PersonaActual.Legajo.ToString();
             txtTipo.Text = PersonaActual.Tipo.ToString();
-            dtNac.Value = PersonaActual.FechaNacimiento;
+            dtNac.Value = PersonaActual.FechaNacimiento;                      
             cbIdPlan.SelectedValue = PersonaActual.Plan.Id;
 
             switch (Modo)
@@ -105,27 +105,19 @@ namespace UI.Desktop.Forms.FormsPersonas
             { 
                 if(Modo == ModoForm.Modificacion)
                 {
-                    PersonaActual.ID = int.Parse(txtID.Text);
-                    PersonaActual.Nombre = txtNombre.Text;
-                    PersonaActual.Apellido = txtApellido.Text;
-                    PersonaActual.Direccion = txtDireccion.Text;
-                    PersonaActual.Email = txtEmail.Text;
-                    PersonaActual.Legajo = int.Parse(txtLegajo.Text);
-                    PersonaActual.Tipo = int.Parse(txtTipo.Text);
-                    PersonaActual.FechaNacimiento = dtNac.Value;
-                    PersonaActual.Telefono = txtTelefono.Text;
-                    PersonaActual.Plan.Id = Convert.ToInt32(cbIdPlan.SelectedValue);
+                    PersonaActual.IdPersona = int.Parse(txtID.Text);
                 }
 
-               /* PersonaActual.Nombre = txtNombre.Text;
+                PersonaActual.Nombre = txtNombre.Text;
                 PersonaActual.Apellido = txtApellido.Text;
                 PersonaActual.Direccion = txtDireccion.Text;
                 PersonaActual.Email = txtEmail.Text;
                 PersonaActual.Legajo = int.Parse(txtLegajo.Text);
                 PersonaActual.Tipo = int.Parse(txtTipo.Text);
                 PersonaActual.FechaNacimiento = dtNac.Value;
+                
                 PersonaActual.Telefono = txtTelefono.Text;
-                PersonaActual.Plan.Id = Convert.ToInt32(cbIdPlan.SelectedValue);*/
+                PersonaActual.Plan.Id = Convert.ToInt32(cbIdPlan.SelectedValue);
             }
         }
 
@@ -167,11 +159,11 @@ namespace UI.Desktop.Forms.FormsPersonas
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (Validar())
-            {
+           // if (Validar())
+           // {
                 GuardarCambios();
                 Close();
-            }
+            //}
         }
     }
 }
