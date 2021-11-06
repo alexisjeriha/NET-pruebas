@@ -64,46 +64,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\FormsComisiones\ComisionDesktop.cs">
+    <Compile Include="Forms\Comisiones\ComisionDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormsComisiones\ComisionDesktop.Designer.cs">
+    <Compile Include="Forms\Comisiones\ComisionDesktop.Designer.cs">
       <DependentUpon>ComisionDesktop.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormsComisiones\Comisiones.cs">
+    <Compile Include="Forms\Comisiones\Comisiones.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormsComisiones\Comisiones.Designer.cs">
+    <Compile Include="Forms\Comisiones\Comisiones.Designer.cs">
       <DependentUpon>Comisiones.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormsMaterias\MateriaDesktop.cs">
+    <Compile Include="Forms\Materias\MateriaDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormsMaterias\MateriaDesktop.Designer.cs">
+    <Compile Include="Forms\Materias\MateriaDesktop.Designer.cs">
       <DependentUpon>MateriaDesktop.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormsPersonas\PersonaDesktop.cs">
+    <Compile Include="Forms\Personas\PersonaDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormsPersonas\PersonaDesktop.Designer.cs">
+    <Compile Include="Forms\Personas\PersonaDesktop.Designer.cs">
       <DependentUpon>PersonaDesktop.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormsPersonas\Personas.cs">
+    <Compile Include="Forms\Personas\Personas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormsPersonas\Personas.Designer.cs">
+    <Compile Include="Forms\Personas\Personas.Designer.cs">
       <DependentUpon>Personas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormsPlan\PlanDesktop.cs">
+    <Compile Include="Forms\Plan\PlanDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormsPlan\PlanDesktop.Designer.cs">
+    <Compile Include="Forms\Plan\PlanDesktop.Designer.cs">
       <DependentUpon>PlanDesktop.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormsPlan\Planes.cs">
+    <Compile Include="Forms\Plan\Planes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormsPlan\Planes.Designer.cs">
+    <Compile Include="Forms\Plan\Planes.Designer.cs">
       <DependentUpon>Planes.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ApplicationForm.cs">
@@ -124,34 +124,34 @@
     <Compile Include="Forms\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormsEspecialidades\EspecialidadDesktop.cs">
+    <Compile Include="Forms\Especialidades\EspecialidadDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormsEspecialidades\EspecialidadDesktop.Designer.cs">
+    <Compile Include="Forms\Especialidades\EspecialidadDesktop.Designer.cs">
       <DependentUpon>EspecialidadDesktop.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormsEspecialidades\Especialidades.cs">
+    <Compile Include="Forms\Especialidades\Especialidades.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormsEspecialidades\Especialidades.Designer.cs">
+    <Compile Include="Forms\Especialidades\Especialidades.Designer.cs">
       <DependentUpon>Especialidades.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormsUsuarios\UsuarioDesktop.cs">
+    <Compile Include="Forms\Usuarios\UsuarioDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormsUsuarios\UsuarioDesktop.Designer.cs">
+    <Compile Include="Forms\Usuarios\UsuarioDesktop.Designer.cs">
       <DependentUpon>UsuarioDesktop.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormsUsuarios\Usuarios.cs">
+    <Compile Include="Forms\Usuarios\Usuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormsUsuarios\Usuarios.Designer.cs">
+    <Compile Include="Forms\Usuarios\Usuarios.Designer.cs">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormsMaterias\Materias.cs">
+    <Compile Include="Forms\Materias\Materias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormsMaterias\Materias.Designer.cs">
+    <Compile Include="Forms\Materias\Materias.Designer.cs">
       <DependentUpon>Materias.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -163,28 +163,28 @@
       <DependentUpon>ReportePlanes.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <EmbeddedResource Include="Forms\FormsComisiones\ComisionDesktop.resx">
+    <EmbeddedResource Include="Forms\Comisiones\ComisionDesktop.resx">
       <DependentUpon>ComisionDesktop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormsComisiones\Comisiones.resx">
+    <EmbeddedResource Include="Forms\Comisiones\Comisiones.resx">
       <DependentUpon>Comisiones.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormsMaterias\MateriaDesktop.resx">
+    <EmbeddedResource Include="Forms\Materias\MateriaDesktop.resx">
       <DependentUpon>MateriaDesktop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormsMaterias\Materias.resx">
+    <EmbeddedResource Include="Forms\Materias\Materias.resx">
       <DependentUpon>Materias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormsPersonas\PersonaDesktop.resx">
+    <EmbeddedResource Include="Forms\Personas\PersonaDesktop.resx">
       <DependentUpon>PersonaDesktop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormsPersonas\Personas.resx">
+    <EmbeddedResource Include="Forms\Personas\Personas.resx">
       <DependentUpon>Personas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormsPlan\PlanDesktop.resx">
+    <EmbeddedResource Include="Forms\Plan\PlanDesktop.resx">
       <DependentUpon>PlanDesktop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormsPlan\Planes.resx">
+    <EmbeddedResource Include="Forms\Plan\Planes.resx">
       <DependentUpon>Planes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ApplicationForm.resx">
@@ -196,16 +196,16 @@
     <EmbeddedResource Include="Forms\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormsEspecialidades\EspecialidadDesktop.resx">
+    <EmbeddedResource Include="Forms\Especialidades\EspecialidadDesktop.resx">
       <DependentUpon>EspecialidadDesktop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormsEspecialidades\Especialidades.resx">
+    <EmbeddedResource Include="Forms\Especialidades\Especialidades.resx">
       <DependentUpon>Especialidades.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormsUsuarios\UsuarioDesktop.resx">
+    <EmbeddedResource Include="Forms\Usuarios\UsuarioDesktop.resx">
       <DependentUpon>UsuarioDesktop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormsUsuarios\Usuarios.resx">
+    <EmbeddedResource Include="Forms\Usuarios\Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

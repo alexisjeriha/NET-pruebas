@@ -141,6 +141,7 @@ namespace UI.Desktop.FormsPlan
             // 
             // btnSalir
             // 
+            this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.Location = new System.Drawing.Point(865, 385);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSalir.Name = "btnSalir";
@@ -173,7 +174,7 @@ namespace UI.Desktop.FormsPlan
             this.tsReporte});
             this.tsPlanes.Location = new System.Drawing.Point(4, 0);
             this.tsPlanes.Name = "tsPlanes";
-            this.tsPlanes.Size = new System.Drawing.Size(168, 27);
+            this.tsPlanes.Size = new System.Drawing.Size(129, 27);
             this.tsPlanes.TabIndex = 0;
             // 
             // tsbNuevo
@@ -218,8 +219,10 @@ namespace UI.Desktop.FormsPlan
             // 
             // Planes
             // 
+            this.AcceptButton = this.btnActualizar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnSalir;
             this.ClientSize = new System.Drawing.Size(989, 450);
             this.Controls.Add(this.tcPlanes);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

@@ -25,7 +25,7 @@ namespace UI.Desktop
             List<Plan> planes = logic.GetAll();
 
             ReportDataSource rds = new ReportDataSource("ReportePaises", planes);
-            rvPlanes.LocalReport.ReportPath = @"C:\Users\luis_\Downloads\tp2\TP2\Laboratorio06\UI.Desktop\ReportPlanes.rdlc";
+            rvPlanes.LocalReport.ReportPath = @"D:\Users\ajeri\Source\Repos\NET-pruebas\TP2\Laboratorio06\UI.Desktop\ReportPlanes.rdlc";
             rvPlanes.LocalReport.DataSources.Clear();
             rvPlanes.LocalReport.DataSources.Add(rds);
             rvPlanes.RefreshReport();

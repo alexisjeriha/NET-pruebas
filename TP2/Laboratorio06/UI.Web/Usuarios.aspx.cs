@@ -122,11 +122,11 @@ namespace UI.Web
         // a aceptarLinkButton_Click
         protected void aceptarLinkButton_Click(object sender, EventArgs e)
         {
+           
             switch (FormMode)
             {
 
                 case FormModes.Alta:
-                    // Duda modificación punto 39
                     Entity = new Usuario();
                     Entity.State = BusinessEntity.States.New;
                     LoadEntity(Entity);
@@ -157,11 +157,10 @@ namespace UI.Web
 
         protected void cancelarLinkButton_Click(object sender, EventArgs e)
         {
-            // Chequear que no sea necesaria funcionalidad extra.
             LoadGrid();
             formPanel.Visible = false;
-            gridConfirmPanel.Visible = false; // Agregado
-            gridActionsPanel.Visible = true; // Agregado
+            gridConfirmPanel.Visible = false; 
+            gridActionsPanel.Visible = true; 
         }
 
         protected void nuevoLinkButton_Click(object sender, EventArgs e)
@@ -214,5 +213,6 @@ namespace UI.Web
         }
 
         #endregion
+
     }
 }
