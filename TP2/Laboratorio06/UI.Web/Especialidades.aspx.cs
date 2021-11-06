@@ -19,23 +19,6 @@ namespace UI.Web
             }
         }
 
-        private void LoadGrid()
-        {
-            gridView.DataSource = Logic.GetAll();
-            gridView.DataBind();
-
-        }
-
-        private void LoadForm(int ID)
-        {
-            Entity = Logic.GetOne(ID);
-            descripcionTextBox.Text = Entity.Descripcion;
-        }
-        protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SelectedID = (int)gridView.SelectedValue;
-        }
-
         EspecialidadLogic _logic;
         private EspecialidadLogic Logic
         {
@@ -46,6 +29,62 @@ namespace UI.Web
                     _logic = new EspecialidadLogic();
                 }
                 return _logic;
+            }
+        }
+        private void LoadGrid()
+        {
+            gridView.DataSource = Logic.GetAll();
+            gridView.DataBind();
+
+        }
+
+        private void LoadForm(int id)
+        {
+            Entity = Logic.GetOne(id);
+            descripcionTextBox.Text = Entity.Descripcion;
+        }
+
+        private void EnableForm(bool enable)
+        {
+            descripcionTextBox.Enabled = enable;
+        }
+
+        private void ClearForm()
+        {
+            descripcionTextBox.Text = string.Empty;
+        }
+
+        private void LoadEntity(Especialidad especialidad)
+        {
+            especialidad.Descripcion = descripcionTextBox.Text;
+        }
+
+        private void SaveEntity(Especialidad especialidad)
+        {
+            Logic.Save(especialidad);
+        }
+
+        private void DeleteEntity(int id)
+        {
+            Logic.Delete(id);
+        }
+
+
+        #region Event Handlers
+        protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SelectedID = (int)gridView.SelectedValue;
+        }
+
+        protected void eliminarLinkButton_Click(object sender, EventArgs e)
+        {
+            if (IsEntitySelected)
+            {
+                formPanel.Visible = false;
+                gridConfirmPanel.Visible = true; 
+                FormMode = FormModes.Baja;
+                EnableForm(false);
+                LoadForm(SelectedID);
             }
         }
 
@@ -65,6 +104,7 @@ namespace UI.Web
 
         protected void aceptarLinkButton_Click(object sender, EventArgs e)
         {
+
             switch (FormMode)
             {
 
@@ -92,31 +132,9 @@ namespace UI.Web
                     break;
             }
             formPanel.Visible = false;
-            gridConfirmPanel.Visible = false; // Agregado
-            gridActionsPanel.Visible = true; // Agregado
+            gridConfirmPanel.Visible = false; 
+            gridActionsPanel.Visible = true; 
 
-        }
-
-        protected void eliminarLinkButton_Click(object sender, EventArgs e)
-        {
-            if (IsEntitySelected)
-            {
-                formPanel.Visible = false;
-                gridConfirmPanel.Visible = true; // Agregado
-                FormMode = FormModes.Baja;
-                EnableForm(false);
-                LoadForm(SelectedID);
-            }
-        }
-
-        protected void nuevoLinkButton_Click(object sender, EventArgs e)
-        {
-            formPanel.Visible = true;
-            gridConfirmPanel.Visible = true; // Agregado
-            gridActionsPanel.Visible = false; // Agregado
-            FormMode = FormModes.Alta;
-            ClearForm();
-            EnableForm(true);
         }
 
         protected void cancelarLinkButton_Click(object sender, EventArgs e)
@@ -127,34 +145,25 @@ namespace UI.Web
             gridActionsPanel.Visible = true;
         }
 
-        private void EnableForm(bool enable)
+        protected void nuevoLinkButton_Click(object sender, EventArgs e)
         {
-            descripcionTextBox.Enabled = enable;
-          
-        }
-        private void ClearForm()
-        {
-            descripcionTextBox.Text = string.Empty;
-        }
-
-        private void LoadEntity(Especialidad especialidad)
-        {
-            especialidad.Descripcion = descripcionTextBox.Text;
-
+            formPanel.Visible = true;
+            gridConfirmPanel.Visible = true; 
+            gridActionsPanel.Visible = false; 
+            FormMode = FormModes.Alta;
+            ClearForm();
+            EnableForm(true);
         }
 
-        private void SaveEntity(Especialidad especialidad)
-        {
-            Logic.Save(especialidad);
-        }
-
-        private void DeleteEntity(int id)
-        {
-            Logic.Delete(id);
-        }
+        #endregion
 
         #region Properties
-        private Especialidad Entity { get; set; }
+
+        private Especialidad Entity
+        {
+            get;
+            set;
+        }
         private int SelectedID
         {
             get
@@ -184,6 +193,7 @@ namespace UI.Web
             get { return (FormModes)ViewState["FormMode"]; }
             set { ViewState["FormMode"] = value; }
         }
-#endregion
+
+        #endregion
     }
 }
