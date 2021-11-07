@@ -4,12 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Business.Entities;
 using Business.Logic;
+using Business.Entities;
 
 namespace UI.Web
 {
-    public partial class Especialidades : Page
+    public partial class Planes : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,20 +19,21 @@ namespace UI.Web
             }
         }
 
-        EspecialidadLogic _logic;
-        private EspecialidadLogic Logic
+        PlanLogic _logic;
+        private PlanLogic Logic
         {
             get
             {
                 if (_logic == null)
                 {
-                    _logic = new EspecialidadLogic();
+                    _logic = new PlanLogic();
                 }
                 return _logic;
             }
         }
         private void LoadGrid()
         {
+            
             gridView.DataSource = Logic.GetAll();
             gridView.DataBind();
 
@@ -42,26 +43,42 @@ namespace UI.Web
         {
             Entity = Logic.GetOne(id);
             descripcionTextBox.Text = Entity.Descripcion;
+
         }
 
+        private void DDLEspecialidadesLoad()
+        {
+                EspecialidadLogic el = new EspecialidadLogic();
+                DropDownListEspecialidades.DataSource = el.GetAll();
+                DropDownListEspecialidades.DataTextField = "Descripcion";
+                DropDownListEspecialidades.DataValueField = "ID";
+                DropDownListEspecialidades.DataBind();
+                ListItem init = new ListItem();
+                init.Text = "--Seleccionar Especialidad--";
+                init.Value = "-1";
+                DropDownListEspecialidades.Items.Add(init);
+                DropDownListEspecialidades.SelectedValue = "-1";
+        }
         private void EnableForm(bool enable)
         {
             descripcionTextBox.Enabled = enable;
+            DropDownListEspecialidades.Enabled = enable;
         }
 
         private void ClearForm()
         {
             descripcionTextBox.Text = string.Empty;
+
         }
 
-        private void LoadEntity(Especialidad especialidad)
+        private void LoadEntity(Plan plan)
         {
-            especialidad.Descripcion = descripcionTextBox.Text;
+            plan.Descripcion = descripcionTextBox.Text;
+            plan.Especialidad.Id = Convert.ToInt32(DropDownListEspecialidades.SelectedItem.Value); //Checkear
         }
-
-        private void SaveEntity(Especialidad especialidad)
+        private void SaveEntity(Plan plan)
         {
-            Logic.Save(especialidad);
+            Logic.Save(plan);
         }
 
         private void DeleteEntity(int id)
@@ -81,7 +98,7 @@ namespace UI.Web
             if (IsEntitySelected)
             {
                 formPanel.Visible = false;
-                gridConfirmPanel.Visible = true; 
+                gridConfirmPanel.Visible = true; // Agregado
                 FormMode = FormModes.Baja;
                 EnableForm(false);
                 LoadForm(SelectedID);
@@ -92,16 +109,16 @@ namespace UI.Web
         {
             if (IsEntitySelected)
             {
+                DDLEspecialidadesLoad();
                 formPanel.Visible = true;
-                gridConfirmPanel.Visible = true; 
-                gridActionsPanel.Visible = false;
+                gridConfirmPanel.Visible = true; // Agregado
+                gridActionsPanel.Visible = false;// Agregado
                 FormMode = FormModes.Modificacion;
                 LoadForm(SelectedID);
                 EnableForm(true);
 
             }
         }
-
         protected void aceptarLinkButton_Click(object sender, EventArgs e)
         {
 
@@ -109,7 +126,7 @@ namespace UI.Web
             {
 
                 case FormModes.Alta:
-                    Entity = new Especialidad();
+                    Entity = new Plan();
                     Entity.State = BusinessEntity.States.New;
                     LoadEntity(Entity);
                     SaveEntity(Entity);
@@ -121,7 +138,7 @@ namespace UI.Web
                     LoadGrid();
                     break;
                 case FormModes.Modificacion:
-                    Entity = new Especialidad();
+                    Entity = new Plan();
                     Entity.Id = SelectedID;
                     Entity.State = BusinessEntity.States.Modified;
                     LoadEntity(Entity);
@@ -147,8 +164,9 @@ namespace UI.Web
 
         protected void nuevoLinkButton_Click(object sender, EventArgs e)
         {
+            DDLEspecialidadesLoad();
             formPanel.Visible = true;
-            gridConfirmPanel.Visible = true; 
+            gridConfirmPanel.Visible = true;
             gridActionsPanel.Visible = false; 
             FormMode = FormModes.Alta;
             ClearForm();
@@ -159,7 +177,7 @@ namespace UI.Web
 
         #region Properties
 
-        private Especialidad Entity
+        private Plan Entity
         {
             get;
             set;
