@@ -139,7 +139,7 @@
     </Compile>
     <Compile Include="Personas.aspx.designer.cs">
       <DependentUpon>Personas.aspx</DependentUpon>
-
+    </Compile>
     <Compile Include="LogIn.aspx.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
