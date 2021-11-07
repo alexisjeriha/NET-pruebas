@@ -47,5 +47,10 @@ namespace UI.Desktop
             MessageBox.Show("Es Ud.un usuario muy descuidado, haga memoria", "Olvidé mi contraseña",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
