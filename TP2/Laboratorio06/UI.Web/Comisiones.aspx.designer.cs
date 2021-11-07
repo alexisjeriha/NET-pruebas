@@ -11,7 +11,7 @@ namespace UI.Web
 {
 
 
-    public partial class Planes
+    public partial class Comisiones
     {
 
         /// <summary>
@@ -69,22 +69,49 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqDescripcion;
 
         /// <summary>
-        /// Control DropDownListEspecialidades.
+        /// Control anioEspecialidadLabel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListEspecialidades;
+        protected global::System.Web.UI.WebControls.Label anioEspecialidadLabel;
 
         /// <summary>
-        /// Control rqEspecialidad.
+        /// Control anioEspecialidadTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqEspecialidad;
+        protected global::System.Web.UI.WebControls.TextBox anioEspecialidadTextBox;
+
+        /// <summary>
+        /// Control rqAnioEspecialidad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqAnioEspecialidad;
+
+        /// <summary>
+        /// Control DropDownListPlanes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListPlanes;
+
+        /// <summary>
+        /// Control Req_ID.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Req_ID;
 
         /// <summary>
         /// Control gridActionsPanel.

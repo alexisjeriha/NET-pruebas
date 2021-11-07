@@ -1,18 +1,19 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Planes.aspx.cs" Inherits="UI.Web.Planes" %>
-<asp:Content ID="ContentPlanes" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
-    <div class="col" style="margin-top: 50px">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Comisiones.aspx.cs" Inherits="UI.Web.Comisiones" %>
+<asp:Content ID="ContentComisiones" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
+    <div class="col">
         <div class="row">
-            <h2>Planes</h2>
+            <h2>Comisiones</h2>
         </div>
         <div class="row">
             <div class="col">
                 <asp:Panel ID="gridPanel" runat="server">
 
-                    <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="false" DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White" CssClass="table table-striped">
+                    <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="false" DataKeyNames="IdComision" OnSelectedIndexChanged="gridView_SelectedIndexChanged" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White" CssClass="table table-striped">
                         <Columns>
-                            <asp:BoundField DataField="ID" HeaderText="ID" />
-                            <asp:BoundField DataField="Descripcion" HeaderText="Descripción" />
-                            <asp:BoundField DataField="IDespecialidad" HeaderText="Especialidad" />
+                            <asp:BoundField DataField="IdComision" HeaderText="ID" />
+                            <asp:BoundField DataField="DescComision" HeaderText="Descripción" />
+                            <asp:BoundField DataField="AnioEspecialidad" HeaderText="Año Especialidad" />
+                            <asp:BoundField DataField="IdPlan" HeaderText="ID Plan" />
                             <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
                         </Columns>
                         <HeaderStyle BackColor="#CF7500" BorderColor="Black" Font-Bold="True" ForeColor="White" />
@@ -25,19 +26,25 @@
                 <div class="row">
                     <asp:Panel ID="formPanel" Visible="false" runat="server">
                         <div class="row">
-                            <asp:Label ID="descripcionLabel" runat="server" Text="Descripcion: "></asp:Label>
+                            <asp:Label ID="descripcionLabel" runat="server" Text="Descripción: "></asp:Label>
                             <asp:TextBox ID="descripcionTextBox" runat="server" Width="300px"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="rqDescripcion" runat="server" ControlToValidate="descripcionTextBox" ErrorMessage="* La descripción no puede estar vacía" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="rqDescripcion" runat="server" ControlToValidate="descripcionTextBox" ErrorMessage="* El nombre no puede estar vacío" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+
+                        </div>
+                        <div class="row">
+                            <asp:Label ID="anioEspecialidadLabel" runat="server" Text="Año Especialidad: "></asp:Label>
+                            <asp:TextBox ID="anioEspecialidadTextBox" runat="server" Width="300px"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rqAnioEspecialidad" runat="server" ControlToValidate="anioEspecialidadTextBox" ErrorMessage="* El apellido no puede estar vacío" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                         </div>
                         <div>
-                            <asp:DropDownList ID="DropDownListEspecialidades" runat="server" DataValueField="Id" DataTextField="Descripcion">
+                            <asp:DropDownList ID="DropDownListPlanes" runat="server" DataValueField="Id" DataTextField="Descripcion">
                             </asp:DropDownList>
                             <br />
-                            <asp:RequiredFieldValidator InitialValue="-1" ID="rqEspecialidad"  runat="server" ControlToValidate="DropDownListEspecialidades" ErrorMessage="* Debe seleccionar una especialidad" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator InitialValue="-1" ID="Req_ID"  runat="server" ControlToValidate="DropDownListPlanes" ErrorMessage="* Debe seleccionar un plan" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                         </div>
+
                     </asp:Panel>
                 </div>
-                
                 <br />
                 <div class="row">
                 </div>
