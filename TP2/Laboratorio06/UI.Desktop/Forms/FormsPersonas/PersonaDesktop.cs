@@ -62,7 +62,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             txtTelefono.Text = PersonaActual.Telefono;
             txtLegajo.Text = PersonaActual.Legajo.ToString();
             txtTipo.Text = PersonaActual.Tipo.ToString();
-            dtNac.Value = PersonaActual.FechaNacimiento;
+            dtNac.Value = PersonaActual.FechaNacimiento;                      
             cbIdPlan.SelectedValue = PersonaActual.Plan.Id;
 
             switch (Modo)
@@ -107,6 +107,7 @@ namespace UI.Desktop.Forms.FormsPersonas
                 {
                     PersonaActual.IdPersona = int.Parse(txtID.Text);
                 }
+                
                 PersonaActual.Nombre = txtNombre.Text;
                 PersonaActual.Apellido = txtApellido.Text;
                 PersonaActual.Direccion = txtDireccion.Text;
@@ -114,6 +115,7 @@ namespace UI.Desktop.Forms.FormsPersonas
                 PersonaActual.Legajo = int.Parse(txtLegajo.Text);
                 PersonaActual.Tipo = int.Parse(txtTipo.Text);
                 PersonaActual.FechaNacimiento = dtNac.Value;
+                
                 PersonaActual.Telefono = txtTelefono.Text;
                 PersonaActual.Plan.Id = Convert.ToInt32(cbIdPlan.SelectedValue);
             }

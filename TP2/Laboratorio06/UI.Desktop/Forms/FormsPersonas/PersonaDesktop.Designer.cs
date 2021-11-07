@@ -288,6 +288,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(640, 290);
             this.Controls.Add(this.tlPersonaDesktop);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "PersonaDesktop";
             this.Text = "PersonaDesktop";
             this.tlPersonaDesktop.ResumeLayout(false);
