@@ -49,7 +49,7 @@
                         <div>
                             <asp:DropDownList ID="DropDownListPlanes" runat="server" DataValueField="Id" DataTextField="Descripcion">
                             </asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="rqPlan" runat="server" ControlToValidate="DropDownListPlanes" ErrorMessage="* Seleccione el Plan" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator InitialValue="-1" ID="rqPlan" runat="server" ControlToValidate="DropDownListPlanes" ErrorMessage="* Seleccione el Plan" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                         </div>
                     </asp:Panel>
                 </div>
