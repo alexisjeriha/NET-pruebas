@@ -65,7 +65,7 @@
             this.tlPlanDesktop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.432703F));
             this.tlPlanDesktop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.30353F));
             this.tlPlanDesktop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.26377F));
-            this.tlPlanDesktop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125F));
+            this.tlPlanDesktop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 127F));
             this.tlPlanDesktop.Controls.Add(this.lblIDplan, 1, 0);
             this.tlPlanDesktop.Controls.Add(this.lblDescPlan, 1, 1);
             this.tlPlanDesktop.Controls.Add(this.lblIdEsp, 1, 2);
@@ -142,7 +142,7 @@
             this.cmbIDEsp.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tlPlanDesktop.SetColumnSpan(this.cmbIDEsp, 2);
             this.cmbIDEsp.FormattingEnabled = true;
-            this.cmbIDEsp.Location = new System.Drawing.Point(132, 148);
+            this.cmbIDEsp.Location = new System.Drawing.Point(132, 147);
             this.cmbIDEsp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbIDEsp.Name = "cmbIDEsp";
             this.cmbIDEsp.Size = new System.Drawing.Size(245, 24);
@@ -151,7 +151,7 @@
             // btnAceptar
             // 
             this.btnAceptar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAceptar.Location = new System.Drawing.Point(149, 199);
+            this.btnAceptar.Location = new System.Drawing.Point(147, 199);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(85, 23);
@@ -164,7 +164,7 @@
             // 
             this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(277, 199);
+            this.btnCancelar.Location = new System.Drawing.Point(276, 199);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(85, 23);

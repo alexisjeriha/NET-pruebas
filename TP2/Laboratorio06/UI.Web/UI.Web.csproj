@@ -88,6 +88,7 @@
     <Content Include="App_Themes\Theme\Default.css" />
     <Content Include="Default.aspx" />
     <Content Include="Especialidades.aspx" />
+    <Content Include="Planes.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Usuarios.aspx" />
     <Content Include="Web.config" />
@@ -106,6 +107,13 @@
     </Compile>
     <Compile Include="Especialidades.aspx.designer.cs">
       <DependentUpon>Especialidades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Planes.aspx.cs">
+      <DependentUpon>Planes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Planes.aspx.designer.cs">
+      <DependentUpon>Planes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
