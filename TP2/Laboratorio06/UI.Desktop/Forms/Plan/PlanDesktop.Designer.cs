@@ -50,7 +50,7 @@
             // 
             this.tcPlanDesktop.ContentPanel.Controls.Add(this.tlPlanDesktop);
             this.tcPlanDesktop.ContentPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tcPlanDesktop.ContentPanel.Size = new System.Drawing.Size(383, 254);
+            this.tcPlanDesktop.ContentPanel.Size = new System.Drawing.Size(383, 229);
             this.tcPlanDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcPlanDesktop.Location = new System.Drawing.Point(0, 0);
             this.tcPlanDesktop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -65,7 +65,7 @@
             this.tlPlanDesktop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.432703F));
             this.tlPlanDesktop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.30353F));
             this.tlPlanDesktop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.26377F));
-            this.tlPlanDesktop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 124F));
+            this.tlPlanDesktop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 127F));
             this.tlPlanDesktop.Controls.Add(this.lblIDplan, 1, 0);
             this.tlPlanDesktop.Controls.Add(this.lblDescPlan, 1, 1);
             this.tlPlanDesktop.Controls.Add(this.lblIdEsp, 1, 2);
@@ -83,14 +83,14 @@
             this.tlPlanDesktop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.2669F));
             this.tlPlanDesktop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.2669F));
             this.tlPlanDesktop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.19931F));
-            this.tlPlanDesktop.Size = new System.Drawing.Size(383, 254);
+            this.tlPlanDesktop.Size = new System.Drawing.Size(383, 229);
             this.tlPlanDesktop.TabIndex = 0;
             // 
             // lblIDplan
             // 
             this.lblIDplan.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblIDplan.AutoSize = true;
-            this.lblIDplan.Location = new System.Drawing.Point(14, 27);
+            this.lblIDplan.Location = new System.Drawing.Point(14, 23);
             this.lblIDplan.Name = "lblIDplan";
             this.lblIDplan.Size = new System.Drawing.Size(53, 17);
             this.lblIDplan.TabIndex = 0;
@@ -100,7 +100,7 @@
             // 
             this.lblDescPlan.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblDescPlan.AutoSize = true;
-            this.lblDescPlan.Location = new System.Drawing.Point(14, 89);
+            this.lblDescPlan.Location = new System.Drawing.Point(14, 79);
             this.lblDescPlan.Name = "lblDescPlan";
             this.lblDescPlan.Size = new System.Drawing.Size(86, 34);
             this.lblDescPlan.TabIndex = 1;
@@ -110,7 +110,7 @@
             // 
             this.lblIdEsp.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblIdEsp.AutoSize = true;
-            this.lblIdEsp.Location = new System.Drawing.Point(14, 169);
+            this.lblIdEsp.Location = new System.Drawing.Point(14, 151);
             this.lblIdEsp.Name = "lblIdEsp";
             this.lblIdEsp.Size = new System.Drawing.Size(88, 17);
             this.lblIdEsp.TabIndex = 2;
@@ -120,7 +120,7 @@
             // 
             this.txtIDplan.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tlPlanDesktop.SetColumnSpan(this.txtIDplan, 2);
-            this.txtIDplan.Location = new System.Drawing.Point(131, 24);
+            this.txtIDplan.Location = new System.Drawing.Point(130, 21);
             this.txtIDplan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtIDplan.Name = "txtIDplan";
             this.txtIDplan.ReadOnly = true;
@@ -131,7 +131,7 @@
             // 
             this.txtDesc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tlPlanDesktop.SetColumnSpan(this.txtDesc, 2);
-            this.txtDesc.Location = new System.Drawing.Point(131, 95);
+            this.txtDesc.Location = new System.Drawing.Point(130, 85);
             this.txtDesc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(249, 22);
@@ -142,7 +142,7 @@
             this.cmbIDEsp.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tlPlanDesktop.SetColumnSpan(this.cmbIDEsp, 2);
             this.cmbIDEsp.FormattingEnabled = true;
-            this.cmbIDEsp.Location = new System.Drawing.Point(133, 165);
+            this.cmbIDEsp.Location = new System.Drawing.Point(132, 147);
             this.cmbIDEsp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbIDEsp.Name = "cmbIDEsp";
             this.cmbIDEsp.Size = new System.Drawing.Size(245, 24);
@@ -151,7 +151,7 @@
             // btnAceptar
             // 
             this.btnAceptar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAceptar.Location = new System.Drawing.Point(150, 222);
+            this.btnAceptar.Location = new System.Drawing.Point(147, 199);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(85, 23);
@@ -163,7 +163,8 @@
             // btnCancelar
             // 
             this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCancelar.Location = new System.Drawing.Point(278, 222);
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Location = new System.Drawing.Point(276, 199);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(85, 23);
@@ -174,11 +175,13 @@
             // 
             // PlanDesktop
             // 
+            this.AcceptButton = this.btnAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(383, 254);
             this.Controls.Add(this.tcPlanDesktop);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PlanDesktop";
             this.Text = "PlanDesktop";
             this.Load += new System.EventHandler(this.PlanDesktop_Load);

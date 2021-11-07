@@ -63,11 +63,13 @@ namespace UI.Desktop.Forms.FormsPersonas
             // tcPersonas.ContentPanel
             // 
             this.tcPersonas.ContentPanel.Controls.Add(this.tlPersonas);
-            this.tcPersonas.ContentPanel.Size = new System.Drawing.Size(948, 540);
+            this.tcPersonas.ContentPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tcPersonas.ContentPanel.Size = new System.Drawing.Size(1264, 668);
             this.tcPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcPersonas.Location = new System.Drawing.Point(0, 0);
+            this.tcPersonas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tcPersonas.Name = "tcPersonas";
-            this.tcPersonas.Size = new System.Drawing.Size(948, 565);
+            this.tcPersonas.Size = new System.Drawing.Size(1264, 695);
             this.tcPersonas.TabIndex = 0;
             this.tcPersonas.Text = "toolStripContainer1";
             // 
@@ -79,17 +81,18 @@ namespace UI.Desktop.Forms.FormsPersonas
             // 
             this.tlPersonas.ColumnCount = 2;
             this.tlPersonas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlPersonas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 103F));
+            this.tlPersonas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
             this.tlPersonas.Controls.Add(this.dgvPersonas, 0, 0);
             this.tlPersonas.Controls.Add(this.btnSalir, 1, 1);
             this.tlPersonas.Controls.Add(this.btnActualizar, 0, 1);
             this.tlPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlPersonas.Location = new System.Drawing.Point(0, 0);
+            this.tlPersonas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tlPersonas.Name = "tlPersonas";
             this.tlPersonas.RowCount = 2;
             this.tlPersonas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.85185F));
             this.tlPersonas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.148149F));
-            this.tlPersonas.Size = new System.Drawing.Size(948, 540);
+            this.tlPersonas.Size = new System.Drawing.Size(1264, 668);
             this.tlPersonas.TabIndex = 0;
             // 
             // dgvPersonas
@@ -110,12 +113,14 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.IDPlan});
             this.tlPersonas.SetColumnSpan(this.dgvPersonas, 2);
             this.dgvPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvPersonas.Location = new System.Drawing.Point(3, 3);
+            this.dgvPersonas.Location = new System.Drawing.Point(4, 4);
+            this.dgvPersonas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvPersonas.MultiSelect = false;
             this.dgvPersonas.Name = "dgvPersonas";
             this.dgvPersonas.ReadOnly = true;
+            this.dgvPersonas.RowHeadersWidth = 51;
             this.dgvPersonas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPersonas.Size = new System.Drawing.Size(942, 490);
+            this.dgvPersonas.Size = new System.Drawing.Size(1256, 605);
             this.dgvPersonas.TabIndex = 0;
             // 
             // IdPers
@@ -123,6 +128,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.IdPers.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.IdPers.DataPropertyName = "IdPersona";
             this.IdPers.HeaderText = "ID";
+            this.IdPers.MinimumWidth = 6;
             this.IdPers.Name = "IdPers";
             this.IdPers.ReadOnly = true;
             // 
@@ -131,6 +137,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.NombrePersona.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.NombrePersona.DataPropertyName = "Nombre";
             this.NombrePersona.HeaderText = "Nombre";
+            this.NombrePersona.MinimumWidth = 6;
             this.NombrePersona.Name = "NombrePersona";
             this.NombrePersona.ReadOnly = true;
             // 
@@ -139,6 +146,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.ApellidoPersona.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ApellidoPersona.DataPropertyName = "Apellido";
             this.ApellidoPersona.HeaderText = "Apellido";
+            this.ApellidoPersona.MinimumWidth = 6;
             this.ApellidoPersona.Name = "ApellidoPersona";
             this.ApellidoPersona.ReadOnly = true;
             // 
@@ -146,14 +154,17 @@ namespace UI.Desktop.Forms.FormsPersonas
             // 
             this.Direccion.DataPropertyName = "Direccion";
             this.Direccion.HeaderText = "Direccion";
+            this.Direccion.MinimumWidth = 6;
             this.Direccion.Name = "Direccion";
             this.Direccion.ReadOnly = true;
+            this.Direccion.Width = 125;
             // 
             // EmailPersona
             // 
             this.EmailPersona.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.EmailPersona.DataPropertyName = "Email";
             this.EmailPersona.HeaderText = "Email";
+            this.EmailPersona.MinimumWidth = 6;
             this.EmailPersona.Name = "EmailPersona";
             this.EmailPersona.ReadOnly = true;
             // 
@@ -161,43 +172,55 @@ namespace UI.Desktop.Forms.FormsPersonas
             // 
             this.TelefonoPersona.DataPropertyName = "Telefono";
             this.TelefonoPersona.HeaderText = "Telefono";
+            this.TelefonoPersona.MinimumWidth = 6;
             this.TelefonoPersona.Name = "TelefonoPersona";
             this.TelefonoPersona.ReadOnly = true;
+            this.TelefonoPersona.Width = 125;
             // 
             // FechaNacimiento
             // 
             this.FechaNacimiento.DataPropertyName = "FechaNacimiento";
             this.FechaNacimiento.HeaderText = "Fecha de nacimiento";
+            this.FechaNacimiento.MinimumWidth = 6;
             this.FechaNacimiento.Name = "FechaNacimiento";
             this.FechaNacimiento.ReadOnly = true;
+            this.FechaNacimiento.Width = 125;
             // 
             // LegajoPersona
             // 
             this.LegajoPersona.DataPropertyName = "Legajo";
             this.LegajoPersona.HeaderText = "Legajo";
+            this.LegajoPersona.MinimumWidth = 6;
             this.LegajoPersona.Name = "LegajoPersona";
             this.LegajoPersona.ReadOnly = true;
+            this.LegajoPersona.Width = 125;
             // 
             // TipoPersona
             // 
             this.TipoPersona.DataPropertyName = "Tipo";
             this.TipoPersona.HeaderText = "Tipo";
+            this.TipoPersona.MinimumWidth = 6;
             this.TipoPersona.Name = "TipoPersona";
             this.TipoPersona.ReadOnly = true;
+            this.TipoPersona.Width = 125;
             // 
             // IDPlan
             // 
             this.IDPlan.DataPropertyName = "IDPlan";
             this.IDPlan.HeaderText = "ID Plan";
+            this.IDPlan.MinimumWidth = 6;
             this.IDPlan.Name = "IDPlan";
             this.IDPlan.ReadOnly = true;
+            this.IDPlan.Width = 125;
             // 
             // btnSalir
             // 
             this.btnSalir.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSalir.Location = new System.Drawing.Point(851, 503);
+            this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnSalir.Location = new System.Drawing.Point(1135, 622);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(91, 29);
+            this.btnSalir.Size = new System.Drawing.Size(121, 36);
             this.btnSalir.TabIndex = 1;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -206,9 +229,10 @@ namespace UI.Desktop.Forms.FormsPersonas
             // btnActualizar
             // 
             this.btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnActualizar.Location = new System.Drawing.Point(751, 503);
+            this.btnActualizar.Location = new System.Drawing.Point(1002, 622);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(91, 29);
+            this.btnActualizar.Size = new System.Drawing.Size(121, 36);
             this.btnActualizar.TabIndex = 2;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
@@ -217,13 +241,14 @@ namespace UI.Desktop.Forms.FormsPersonas
             // tsPersonas
             // 
             this.tsPersonas.Dock = System.Windows.Forms.DockStyle.None;
+            this.tsPersonas.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.tsPersonas.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbAgregar,
             this.tsbEditar,
             this.tsbEliminar});
-            this.tsPersonas.Location = new System.Drawing.Point(3, 0);
+            this.tsPersonas.Location = new System.Drawing.Point(4, 0);
             this.tsPersonas.Name = "tsPersonas";
-            this.tsPersonas.Size = new System.Drawing.Size(81, 25);
+            this.tsPersonas.Size = new System.Drawing.Size(100, 27);
             this.tsPersonas.TabIndex = 0;
             // 
             // tsbAgregar
@@ -232,7 +257,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.tsbAgregar.Image = ((System.Drawing.Image)(resources.GetObject("tsbAgregar.Image")));
             this.tsbAgregar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAgregar.Name = "tsbAgregar";
-            this.tsbAgregar.Size = new System.Drawing.Size(23, 22);
+            this.tsbAgregar.Size = new System.Drawing.Size(29, 24);
             this.tsbAgregar.Text = "Agregar Persona";
             this.tsbAgregar.Click += new System.EventHandler(this.tsbAgregar_Click);
             // 
@@ -242,7 +267,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.tsbEditar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEditar.Image")));
             this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEditar.Name = "tsbEditar";
-            this.tsbEditar.Size = new System.Drawing.Size(23, 22);
+            this.tsbEditar.Size = new System.Drawing.Size(29, 24);
             this.tsbEditar.Text = "Editar Persona";
             this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
             // 
@@ -252,17 +277,20 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.tsbEliminar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEliminar.Image")));
             this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEliminar.Name = "tsbEliminar";
-            this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
+            this.tsbEliminar.Size = new System.Drawing.Size(29, 24);
             this.tsbEliminar.Text = "Eliminar Persona";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
             // Personas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AcceptButton = this.btnActualizar;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(948, 565);
+            this.CancelButton = this.btnSalir;
+            this.ClientSize = new System.Drawing.Size(1264, 695);
             this.Controls.Add(this.tcPersonas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Personas";
             this.Text = "Personas";
             this.Load += new System.EventHandler(this.Personas_Load);

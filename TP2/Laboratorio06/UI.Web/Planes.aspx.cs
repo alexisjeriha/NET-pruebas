@@ -1,11 +1,15 @@
-﻿using Business.Logic;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.UI;
+using System.Web.UI.WebControls;
+using Business.Logic;
 using Business.Entities;
 
 namespace UI.Web
 {
-    public partial class Usuarios : Page
+    public partial class Planes : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -15,20 +19,21 @@ namespace UI.Web
             }
         }
 
-        UsuarioLogic _logic;
-        private UsuarioLogic Logic
+        PlanLogic _logic;
+        private PlanLogic Logic
         {
             get
             {
                 if (_logic == null)
                 {
-                    _logic = new UsuarioLogic();
+                    _logic = new PlanLogic();
                 }
                 return _logic;
             }
         }
         private void LoadGrid()
         {
+            
             gridView.DataSource = Logic.GetAll();
             gridView.DataBind();
 
@@ -37,47 +42,43 @@ namespace UI.Web
         private void LoadForm(int id)
         {
             Entity = Logic.GetOne(id);
-            nombreTextBox.Text = Entity.Nombre;
-            apellidoTextBox.Text = Entity.Apellido;
-            emailTextBox.Text = Entity.EMail;
-            habilitadoCheckBox.Checked = Entity.Habilitado;
-            nombreUsuarioTextBox.Text = Entity.NombreUsuario;
+            descripcionTextBox.Text = Entity.Descripcion;
+
         }
 
+        private void DDLEspecialidadesLoad()
+        {
+                EspecialidadLogic el = new EspecialidadLogic();
+                DropDownListEspecialidades.DataSource = el.GetAll();
+                DropDownListEspecialidades.DataTextField = "Descripcion";
+                DropDownListEspecialidades.DataValueField = "ID";
+                DropDownListEspecialidades.DataBind();
+                ListItem init = new ListItem();
+                init.Text = "--Seleccionar Especialidad--";
+                init.Value = "-1";
+                DropDownListEspecialidades.Items.Add(init);
+                DropDownListEspecialidades.SelectedValue = "-1";
+        }
         private void EnableForm(bool enable)
         {
-            nombreTextBox.Enabled = enable;
-            apellidoTextBox.Enabled = enable;
-            emailTextBox.Enabled = enable;
-            nombreUsuarioTextBox.Enabled = enable;
-            claveTextBox.Visible = enable;
-            claveLabel.Visible = enable;
-            repetirClaveTextBox.Visible = enable;
-            repetirClaveLabel.Visible = enable;
+            descripcionTextBox.Enabled = enable;
+            DropDownListEspecialidades.Enabled = enable;
         }
 
         private void ClearForm()
         {
-            nombreTextBox.Text = string.Empty;
-            apellidoTextBox.Text = string.Empty;
-            emailTextBox.Text = string.Empty;
-            habilitadoCheckBox.Checked = false;
-            nombreUsuarioTextBox.Text = string.Empty;
+            descripcionTextBox.Text = string.Empty;
+
         }
 
-        private void LoadEntity(Usuario usuario)
+        private void LoadEntity(Plan plan)
         {
-            usuario.Nombre = nombreTextBox.Text;
-            usuario.Apellido = apellidoTextBox.Text;
-            usuario.EMail = emailTextBox.Text;
-            usuario.NombreUsuario = nombreUsuarioTextBox.Text;
-            usuario.Clave = claveTextBox.Text;
-            usuario.Habilitado = habilitadoCheckBox.Checked;
+            plan.Descripcion = descripcionTextBox.Text;
+            plan.Especialidad.Id = Convert.ToInt32(DropDownListEspecialidades.SelectedItem.Value); //Checkear
         }
-
-        private void SaveEntity(Usuario usuario)
+        private void SaveEntity(Plan plan)
         {
-            Logic.Save(usuario);
+            Logic.Save(plan);
         }
 
         private void DeleteEntity(int id)
@@ -108,6 +109,7 @@ namespace UI.Web
         {
             if (IsEntitySelected)
             {
+                DDLEspecialidadesLoad();
                 formPanel.Visible = true;
                 gridConfirmPanel.Visible = true; // Agregado
                 gridActionsPanel.Visible = false;// Agregado
@@ -117,17 +119,14 @@ namespace UI.Web
 
             }
         }
-
-        // No se si la funcionalidad estaba asociada a este boton ya que en el enunciado refería 
-        // a aceptarLinkButton_Click
         protected void aceptarLinkButton_Click(object sender, EventArgs e)
         {
-           
+
             switch (FormMode)
             {
 
                 case FormModes.Alta:
-                    Entity = new Usuario();
+                    Entity = new Plan();
                     Entity.State = BusinessEntity.States.New;
                     LoadEntity(Entity);
                     SaveEntity(Entity);
@@ -139,8 +138,8 @@ namespace UI.Web
                     LoadGrid();
                     break;
                 case FormModes.Modificacion:
-                    Entity = new Usuario();
-                    Entity.ID = SelectedID;
+                    Entity = new Plan();
+                    Entity.Id = SelectedID;
                     Entity.State = BusinessEntity.States.Modified;
                     LoadEntity(Entity);
                     SaveEntity(Entity);
@@ -150,8 +149,8 @@ namespace UI.Web
                     break;
             }
             formPanel.Visible = false;
-            gridConfirmPanel.Visible = false; // Agregado
-            gridActionsPanel.Visible = true; // Agregado
+            gridConfirmPanel.Visible = false; 
+            gridActionsPanel.Visible = true; 
 
         }
 
@@ -159,15 +158,16 @@ namespace UI.Web
         {
             LoadGrid();
             formPanel.Visible = false;
-            gridConfirmPanel.Visible = false; 
-            gridActionsPanel.Visible = true; 
+            gridConfirmPanel.Visible = false;
+            gridActionsPanel.Visible = true;
         }
 
         protected void nuevoLinkButton_Click(object sender, EventArgs e)
         {
+            DDLEspecialidadesLoad();
             formPanel.Visible = true;
-            gridConfirmPanel.Visible = true; // Agregado
-            gridActionsPanel.Visible = false; // Agregado
+            gridConfirmPanel.Visible = true;
+            gridActionsPanel.Visible = false; 
             FormMode = FormModes.Alta;
             ClearForm();
             EnableForm(true);
@@ -177,7 +177,7 @@ namespace UI.Web
 
         #region Properties
 
-        private Usuario Entity
+        private Plan Entity
         {
             get;
             set;
@@ -213,6 +213,5 @@ namespace UI.Web
         }
 
         #endregion
-
     }
 }

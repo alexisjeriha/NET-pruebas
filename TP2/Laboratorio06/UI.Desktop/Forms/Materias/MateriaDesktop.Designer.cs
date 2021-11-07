@@ -143,6 +143,7 @@ namespace UI.Desktop.Forms.FormsMaterias
             // btnCancelar
             // 
             this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Location = new System.Drawing.Point(289, 369);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(85, 23);
@@ -193,7 +194,7 @@ namespace UI.Desktop.Forms.FormsMaterias
             this.cmbIDPlan.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tableLayoutPanel1.SetColumnSpan(this.cmbIDPlan, 2);
             this.cmbIDPlan.FormattingEnabled = true;
-            this.cmbIDPlan.Location = new System.Drawing.Point(137, 312);
+            this.cmbIDPlan.Location = new System.Drawing.Point(137, 311);
             this.cmbIDPlan.Name = "cmbIDPlan";
             this.cmbIDPlan.Size = new System.Drawing.Size(258, 24);
             this.cmbIDPlan.TabIndex = 11;
@@ -206,8 +207,10 @@ namespace UI.Desktop.Forms.FormsMaterias
             // 
             // MateriaDesktop
             // 
+            this.AcceptButton = this.btnAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(398, 401);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "MateriaDesktop";
