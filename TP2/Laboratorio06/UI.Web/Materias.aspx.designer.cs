@@ -11,7 +11,7 @@ namespace UI.Web
 {
 
 
-    public partial class Planes
+    public partial class Materias
     {
 
         /// <summary>
@@ -69,31 +69,85 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqDescripcion;
 
         /// <summary>
-        /// especialidadLabel control.
+        /// hssemanalesLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label especialidadLabel;
+        protected global::System.Web.UI.WebControls.Label hssemanalesLabel;
 
         /// <summary>
-        /// DropDownListEspecialidades control.
+        /// hssemanalesTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListEspecialidades;
+        protected global::System.Web.UI.WebControls.TextBox hssemanalesTextBox;
 
         /// <summary>
-        /// rqEspecialidad control.
+        /// rqHSSemanales control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqEspecialidad;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqHSSemanales;
+
+        /// <summary>
+        /// hstotalesLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label hstotalesLabel;
+
+        /// <summary>
+        /// hstotalesTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox hstotalesTextBox;
+
+        /// <summary>
+        /// rqHSTotales control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqHSTotales;
+
+        /// <summary>
+        /// planLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label planLabel;
+
+        /// <summary>
+        /// DropDownListPlanes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListPlanes;
+
+        /// <summary>
+        /// rqPlan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqPlan;
 
         /// <summary>
         /// gridActionsPanel control.

@@ -5,6 +5,7 @@
 		<siteMapNode url="~/Especialidades.aspx" title="Especialidades"  description="ABM de Especialidades" />
 		<siteMapNode url="~/Planes.aspx" title="Planes"  description="ABM de Planes" />
 		<siteMapNode url="~/Personas.aspx" title="Personas"  description="ABM de Personas" />
+		<siteMapNode url="~/Materias.aspx" title="Materias"  description="ABM de Materias" />
 
 	</siteMapNode>
 </siteMap>
