@@ -3,7 +3,7 @@
 <asp:Content ID="ContentUsuarios" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
 
     <div class="col">
-        <div class="row">
+        <div class="row" style="margin-top:50px">
             <h2>Usuarios</h2>
         </div>
         <div class="row">

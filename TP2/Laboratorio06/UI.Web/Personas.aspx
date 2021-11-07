@@ -78,7 +78,8 @@
             </asp:Panel>
         </div>
         </div>
-        <asp:DropDownList ID="iDPlanDropDownList" runat="server">
+        <asp:DropDownList ID="iDPlanDropDownList" runat="server"  DataValueField="IDPlan" DataTextField="ID Plan">
+
         </asp:DropDownList>
         <br />
     </form>
