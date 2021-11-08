@@ -55,7 +55,7 @@ namespace UI.Desktop.Forms.Forms_Especialdades
             // tcEspecialidades.ContentPanel
             // 
             this.tcEspecialidades.ContentPanel.Controls.Add(this.tlEspecialidades);
-            this.tcEspecialidades.ContentPanel.Size = new System.Drawing.Size(521, 354);
+            this.tcEspecialidades.ContentPanel.Size = new System.Drawing.Size(521, 350);
             this.tcEspecialidades.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcEspecialidades.Location = new System.Drawing.Point(0, 0);
             this.tcEspecialidades.Name = "tcEspecialidades";
@@ -81,7 +81,7 @@ namespace UI.Desktop.Forms.Forms_Especialdades
             this.tlEspecialidades.RowCount = 2;
             this.tlEspecialidades.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlEspecialidades.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlEspecialidades.Size = new System.Drawing.Size(521, 354);
+            this.tlEspecialidades.Size = new System.Drawing.Size(521, 350);
             this.tlEspecialidades.TabIndex = 0;
             // 
             // dgvEspecialidades
@@ -101,12 +101,12 @@ namespace UI.Desktop.Forms.Forms_Especialdades
             this.dgvEspecialidades.RowHeadersWidth = 51;
             this.dgvEspecialidades.RowTemplate.Height = 24;
             this.dgvEspecialidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEspecialidades.Size = new System.Drawing.Size(515, 309);
+            this.dgvEspecialidades.Size = new System.Drawing.Size(515, 302);
             this.dgvEspecialidades.TabIndex = 0;
             // 
             // id
             // 
-            this.id.DataPropertyName = "Id";
+            this.id.DataPropertyName = "ID";
             this.id.HeaderText = "ID";
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
@@ -125,13 +125,14 @@ namespace UI.Desktop.Forms.Forms_Especialdades
             // btnActualizar
             // 
             this.btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnActualizar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(160)))), ((int)(((byte)(237)))));
             this.btnActualizar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             this.btnActualizar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnActualizar.Location = new System.Drawing.Point(224, 318);
+            this.btnActualizar.Location = new System.Drawing.Point(270, 311);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(145, 33);
+            this.btnActualizar.Size = new System.Drawing.Size(121, 36);
             this.btnActualizar.TabIndex = 1;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = false;
@@ -139,13 +140,13 @@ namespace UI.Desktop.Forms.Forms_Especialdades
             // 
             // btnSalir
             // 
-            this.btnSalir.BackColor = System.Drawing.Color.Crimson;
+            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             this.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSalir.Location = new System.Drawing.Point(375, 318);
+            this.btnSalir.Location = new System.Drawing.Point(397, 311);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(143, 33);
+            this.btnSalir.Size = new System.Drawing.Size(121, 36);
             this.btnSalir.TabIndex = 2;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
@@ -161,7 +162,7 @@ namespace UI.Desktop.Forms.Forms_Especialdades
             this.tsbEliminar});
             this.tsEspecialidades.Location = new System.Drawing.Point(4, 0);
             this.tsEspecialidades.Name = "tsEspecialidades";
-            this.tsEspecialidades.Size = new System.Drawing.Size(100, 27);
+            this.tsEspecialidades.Size = new System.Drawing.Size(139, 27);
             this.tsEspecialidades.TabIndex = 0;
             // 
             // tsbNuevo

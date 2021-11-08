@@ -25,7 +25,7 @@ namespace Data.Database
                 {
                     Especialidad esp = new Especialidad();
 
-                    esp.Id = (int)drEspecialidades["id_especialidad"];
+                    esp.ID = (int)drEspecialidades["id_especialidad"];
                     esp.Descripcion = (string)drEspecialidades["desc_especialidad"];
 
                     especialidades.Add(esp);
@@ -58,7 +58,7 @@ namespace Data.Database
                 SqlDataReader drEspecialidades = cmdEspecialidades.ExecuteReader();
                 if (drEspecialidades.Read())
                 {
-                    esp.Id = (int)drEspecialidades["id_especialidad"];
+                    esp.ID = (int)drEspecialidades["id_especialidad"];
                     esp.Descripcion = (string)drEspecialidades["desc_especialidad"];
                 }
                 drEspecialidades.Close(); // ?
@@ -108,7 +108,7 @@ namespace Data.Database
                 SqlCommand cmdSave = new SqlCommand(
                 "UPDATE especialidades SET desc_especialidad = @desc_esp " +
                 "WHERE id_especialidad=@id", SqlConn);
-                cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = esp.Id;
+                cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = esp.ID;
                 cmdSave.Parameters.Add("@desc_esp", SqlDbType.VarChar, 50).Value = esp.Descripcion;
                 cmdSave.ExecuteNonQuery();
             }
@@ -135,7 +135,7 @@ namespace Data.Database
                 "values (@desc_esp) " +
                 "select @@identity", SqlConn); //esta línea es para recuperar el ID que asignó el sql automáticamente
                 cmdSave.Parameters.Add("@desc_esp", SqlDbType.VarChar, 50).Value = esp.Descripcion;
-                esp.Id = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
+                esp.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
                 //así se obtiene el ID que asignó al BD automáticamente
             }
             catch (Exception Ex)
@@ -154,7 +154,7 @@ namespace Data.Database
 
             if (esp.State == BusinessEntity.States.Deleted)
             {
-                Delete(esp.Id);
+                Delete(esp.ID);
             }
 
             else if (esp.State == BusinessEntity.States.New)

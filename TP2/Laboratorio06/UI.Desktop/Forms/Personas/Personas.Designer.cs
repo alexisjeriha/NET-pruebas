@@ -63,11 +63,11 @@ namespace UI.Desktop.Forms.FormsPersonas
             // tcPersonas.ContentPanel
             // 
             this.tcPersonas.ContentPanel.Controls.Add(this.tlPersonas);
-            this.tcPersonas.ContentPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tcPersonas.ContentPanel.Margin = new System.Windows.Forms.Padding(4);
             this.tcPersonas.ContentPanel.Size = new System.Drawing.Size(1264, 668);
             this.tcPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcPersonas.Location = new System.Drawing.Point(0, 0);
-            this.tcPersonas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tcPersonas.Margin = new System.Windows.Forms.Padding(4);
             this.tcPersonas.Name = "tcPersonas";
             this.tcPersonas.Size = new System.Drawing.Size(1264, 695);
             this.tcPersonas.TabIndex = 0;
@@ -81,17 +81,17 @@ namespace UI.Desktop.Forms.FormsPersonas
             // 
             this.tlPersonas.ColumnCount = 2;
             this.tlPersonas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlPersonas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
+            this.tlPersonas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlPersonas.Controls.Add(this.dgvPersonas, 0, 0);
             this.tlPersonas.Controls.Add(this.btnSalir, 1, 1);
             this.tlPersonas.Controls.Add(this.btnActualizar, 0, 1);
             this.tlPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlPersonas.Location = new System.Drawing.Point(0, 0);
-            this.tlPersonas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tlPersonas.Margin = new System.Windows.Forms.Padding(4);
             this.tlPersonas.Name = "tlPersonas";
             this.tlPersonas.RowCount = 2;
-            this.tlPersonas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.85185F));
-            this.tlPersonas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.148149F));
+            this.tlPersonas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlPersonas.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlPersonas.Size = new System.Drawing.Size(1264, 668);
             this.tlPersonas.TabIndex = 0;
             // 
@@ -114,19 +114,19 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.tlPersonas.SetColumnSpan(this.dgvPersonas, 2);
             this.dgvPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPersonas.Location = new System.Drawing.Point(4, 4);
-            this.dgvPersonas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvPersonas.Margin = new System.Windows.Forms.Padding(4);
             this.dgvPersonas.MultiSelect = false;
             this.dgvPersonas.Name = "dgvPersonas";
             this.dgvPersonas.ReadOnly = true;
             this.dgvPersonas.RowHeadersWidth = 51;
             this.dgvPersonas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPersonas.Size = new System.Drawing.Size(1256, 605);
+            this.dgvPersonas.Size = new System.Drawing.Size(1256, 616);
             this.dgvPersonas.TabIndex = 0;
             // 
             // IdPers
             // 
             this.IdPers.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.IdPers.DataPropertyName = "IdPersona";
+            this.IdPers.DataPropertyName = "ID";
             this.IdPers.HeaderText = "ID";
             this.IdPers.MinimumWidth = 6;
             this.IdPers.Name = "IdPers";
@@ -216,26 +216,32 @@ namespace UI.Desktop.Forms.FormsPersonas
             // btnSalir
             // 
             this.btnSalir.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnSalir.Location = new System.Drawing.Point(1135, 622);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSalir.Location = new System.Drawing.Point(1139, 628);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(121, 36);
             this.btnSalir.TabIndex = 1;
             this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnActualizar
             // 
             this.btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnActualizar.Location = new System.Drawing.Point(1002, 622);
-            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(160)))), ((int)(((byte)(237)))));
+            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnActualizar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnActualizar.Location = new System.Drawing.Point(1010, 628);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(121, 36);
             this.btnActualizar.TabIndex = 2;
             this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // tsPersonas
@@ -290,7 +296,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.ClientSize = new System.Drawing.Size(1264, 695);
             this.Controls.Add(this.tcPersonas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Personas";
             this.Text = "Personas";
             this.Load += new System.EventHandler(this.Personas_Load);

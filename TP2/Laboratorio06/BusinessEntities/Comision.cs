@@ -13,7 +13,7 @@ namespace Business.Entities
         {
             Plan = new Plan();
         }
-        public int IdComision { get; set; }
+        //public int ID { get; set; }
         public string DescComision { get; set; }
         public int AnioEspecialidad { get; set; }
         public Plan Plan
@@ -23,7 +23,7 @@ namespace Business.Entities
         }
         public int IdPlan
         {
-            get { return Plan.Id; }
+            get { return Plan.ID; }
         }
 
         //Duda si lo siguiente es necesario

@@ -11,7 +11,7 @@ namespace Business.Entities
         }
 
         // Datos particulares de la persona
-        public int IdPersona { get; set; }
+        //public int ID { get; set; }
         public String Nombre { get; set; }
         public String Apellido { get; set; }
         public String Email { get; set; }
@@ -30,7 +30,7 @@ namespace Business.Entities
 
         public int IDPlan
         {
-            get { return Plan.Id; }
+            get { return Plan.ID; }
         }
     }
 }

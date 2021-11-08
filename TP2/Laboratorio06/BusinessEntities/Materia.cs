@@ -26,18 +26,14 @@ namespace Business.Entities
             set { plan = value; }
         }
 
-        /*public string DescPlan
-        {
-            get { return Plan.Descripcion; }
-        }*/
         public int IDPlan
         {
-            get { return Plan.Id; }
+            get { return Plan.ID; }
         }
 
-        /*public string DescEspecialidad
+        public string DescPlan
         {
-            get { return Plan.Especialidad.Descripcion; }
-        }*/
+            get { return Plan.Descripcion; }
+        }
     }
 }

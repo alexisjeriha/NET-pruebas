@@ -61,9 +61,9 @@ namespace UI.Desktop.FormsPlan
         }
         public override void MapearDeDatos()
         {
-            txtIDplan.Text = PlanActual.Id.ToString();
+            txtIDplan.Text = PlanActual.ID.ToString();
             txtDesc.Text = PlanActual.Descripcion;
-            cmbIDEsp.SelectedValue = PlanActual.Especialidad.Id;
+            cmbIDEsp.SelectedValue = PlanActual.Especialidad.ID;
 
             switch (Modo)
             {
@@ -102,10 +102,10 @@ namespace UI.Desktop.FormsPlan
             {
                 if (Modo == ModoForm.Modificacion)
                 {
-                    PlanActual.Id = int.Parse(txtIDplan.Text);
+                    PlanActual.ID = int.Parse(txtIDplan.Text);
                 }
                 PlanActual.Descripcion = txtDesc.Text;
-                PlanActual.Especialidad.Id = Convert.ToInt32(cmbIDEsp.SelectedValue);
+                PlanActual.Especialidad.ID = Convert.ToInt32(cmbIDEsp.SelectedValue);
             }
         }
 
@@ -115,7 +115,7 @@ namespace UI.Desktop.FormsPlan
             {
                 MapearADatos();
                 PlanLogic planLogic = new PlanLogic();
-                if (Modo != ModoForm.Alta || !planLogic.ExistePlan(PlanActual.Descripcion, PlanActual.Especialidad.Id))
+                if (Modo != ModoForm.Alta || !planLogic.ExistePlan(PlanActual.Descripcion, PlanActual.Especialidad.ID))
                 {
                     planLogic.Save(PlanActual);
                 }

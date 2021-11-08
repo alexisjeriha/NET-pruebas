@@ -25,7 +25,7 @@ namespace Data.Database
                 {
                     Persona per = new Persona();
 
-                    per.IdPersona = (int)drPersonas["id_persona"];
+                    per.ID = (int)drPersonas["id_persona"];
                     per.Nombre = (string)drPersonas["nombre"];
                     per.Apellido = (string)drPersonas["apellido"];
                     per.Email = (string)drPersonas["email"];
@@ -36,7 +36,7 @@ namespace Data.Database
                     per.Direccion = (string)drPersonas["direccion"];
 
                     Plan plan = new Plan();
-                    plan.Id = (int)drPersonas["id_plan"];
+                    plan.ID = (int)drPersonas["id_plan"];
                     per.Plan = plan;
 
                     personas.Add(per);
@@ -71,7 +71,7 @@ namespace Data.Database
 
                 if (drPersonas.Read())
                 {
-                    per.IdPersona = (int)drPersonas["id_persona"];
+                    per.ID = (int)drPersonas["id_persona"];
                     per.Nombre = (string)drPersonas["nombre"];
                     per.Apellido = (string)drPersonas["apellido"];
                     per.Email = (string)drPersonas["email"];
@@ -80,7 +80,7 @@ namespace Data.Database
                     per.Legajo = (int)drPersonas["legajo"];
                     per.Tipo = (int)drPersonas["tipo_persona"];
                     per.Direccion = (string)drPersonas["telefono"];
-                    per.Plan.Id = (int)drPersonas["id_plan"]; 
+                    per.Plan.ID = (int)drPersonas["id_plan"]; 
                 }
                 drPersonas.Close();
             }
@@ -116,7 +116,7 @@ namespace Data.Database
                 cmdExistePersona.Parameters.Add("@fecnac", SqlDbType.DateTime).Value = per.FechaNacimiento;
                 cmdExistePersona.Parameters.Add("@leg", SqlDbType.Int).Value = per.Legajo;
                 cmdExistePersona.Parameters.Add("@tipo", SqlDbType.Int).Value = per.Tipo;
-                cmdExistePersona.Parameters.Add("@idplan", SqlDbType.Int).Value = per.Plan.Id;
+                cmdExistePersona.Parameters.Add("@idplan", SqlDbType.Int).Value = per.Plan.ID;
                 existePersona = Convert.ToBoolean(cmdExistePersona.ExecuteScalar());
             }
             catch (Exception Ex)
@@ -160,7 +160,7 @@ namespace Data.Database
                  "UPDATE personas SET nombre = @nom, apellido = @ape, direccion = @dir, email = @email, " +
                  "telefono = @tel, fecha_nac = @fecnac, legajo = @leg, tipo_persona = @tipo, id_plan=@idplan " +
                  "WHERE id_persona=@id", SqlConn);
-                cmdUpdate.Parameters.Add("@id", SqlDbType.Int).Value = per.IdPersona;
+                cmdUpdate.Parameters.Add("@id", SqlDbType.Int).Value = per.ID;
                 cmdUpdate.Parameters.Add("@nom", SqlDbType.VarChar, 50).Value = per.Nombre;
                 cmdUpdate.Parameters.Add("@ape", SqlDbType.VarChar, 50).Value = per.Apellido;
                 cmdUpdate.Parameters.Add("@dir", SqlDbType.VarChar, 50).Value = per.Direccion;
@@ -169,7 +169,7 @@ namespace Data.Database
                 cmdUpdate.Parameters.Add("@fecnac", SqlDbType.DateTime).Value = per.FechaNacimiento;
                 cmdUpdate.Parameters.Add("@leg", SqlDbType.Int).Value = per.Legajo;
                 cmdUpdate.Parameters.Add("@tipo", SqlDbType.Int).Value = per.Tipo;
-                cmdUpdate.Parameters.Add("@idplan", SqlDbType.Int).Value = per.Plan.Id;
+                cmdUpdate.Parameters.Add("@idplan", SqlDbType.Int).Value = per.Plan.ID;
                 cmdUpdate.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -202,8 +202,8 @@ namespace Data.Database
                 cmdInsert.Parameters.Add("@fecnac", SqlDbType.DateTime).Value = per.FechaNacimiento;
                 cmdInsert.Parameters.Add("@leg", SqlDbType.Int).Value = per.Legajo;
                 cmdInsert.Parameters.Add("@tipo", SqlDbType.Int).Value = per.Tipo;
-                cmdInsert.Parameters.Add("@idplan", SqlDbType.Int).Value = per.Plan.Id;
-                per.IdPersona = Decimal.ToInt32((decimal)cmdInsert.ExecuteScalar());
+                cmdInsert.Parameters.Add("@idplan", SqlDbType.Int).Value = per.Plan.ID;
+                per.ID = Decimal.ToInt32((decimal)cmdInsert.ExecuteScalar());
 
             }
             catch (Exception Ex)
@@ -222,7 +222,7 @@ namespace Data.Database
         {
             if (per.State == BusinessEntity.States.Deleted)
             {
-                Delete(per.IdPersona);
+                Delete(per.ID);
             }
 
             else if (per.State == BusinessEntity.States.New)

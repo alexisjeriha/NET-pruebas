@@ -44,7 +44,7 @@ namespace UI.Desktop.FormsPlan
         {
             if (dgvPlanes.SelectedRows != null)
             {
-                int ID = ((Plan)dgvPlanes.SelectedRows[0].DataBoundItem).Id;
+                int ID = ((Plan)dgvPlanes.SelectedRows[0].DataBoundItem).ID;
                 PlanDesktop formPlan = new PlanDesktop(ID, ApplicationForm.ModoForm.Modificacion);
                 formPlan.ShowDialog();
                 Listar();
@@ -58,7 +58,7 @@ namespace UI.Desktop.FormsPlan
             {
                 try
                 {
-                        int ID = ((Plan)dgvPlanes.SelectedRows[0].DataBoundItem).Id;
+                        int ID = ((Plan)dgvPlanes.SelectedRows[0].DataBoundItem).ID;
                         PlanDesktop formEsp = new PlanDesktop(ID, ApplicationForm.ModoForm.Baja);
                         formEsp.ShowDialog();
                         Listar();

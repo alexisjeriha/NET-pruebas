@@ -29,11 +29,11 @@ namespace Data.Database
                     mat.HSTotales = (int)drMaterias["hs_totales"];
 
                     Plan pla = new Plan();
-                    pla.Id = (int)drMaterias["id_plan"];
+                    pla.ID = (int)drMaterias["id_plan"];
                     pla.Descripcion = (string)drMaterias["desc_plan"];
 
                     Especialidad esp = new Especialidad();
-                    esp.Id = (int)drMaterias["id_especialidad"];
+                    esp.ID = (int)drMaterias["id_especialidad"];
                     esp.Descripcion = (string)drMaterias["desc_especialidad"];
 
                     pla.Especialidad = esp;
@@ -73,11 +73,11 @@ namespace Data.Database
                     mat.HSTotales = (int)drMaterias["hs_totales"];
 
                     Plan pla = new Plan();
-                    pla.Id = (int)drMaterias["id_plan"];
+                    pla.ID = (int)drMaterias["id_plan"];
                     pla.Descripcion = (string)drMaterias["desc_plan"];
 
                     Especialidad esp = new Especialidad();
-                    esp.Id = (int)drMaterias["id_especialidad"];
+                    esp.ID = (int)drMaterias["id_especialidad"];
                     esp.Descripcion = (string)drMaterias["desc_especialidad"];
 
                     pla.Especialidad = esp;
@@ -158,7 +158,7 @@ namespace Data.Database
                 cmdUpdate.Parameters.Add("@desc", SqlDbType.VarChar, 50).Value = mat.Descripcion;
                 cmdUpdate.Parameters.Add("@hsSem", SqlDbType.Int).Value = mat.HSSemanales;
                 cmdUpdate.Parameters.Add("@hsTot", SqlDbType.Int).Value = mat.HSTotales;
-                cmdUpdate.Parameters.Add("@idPlan", SqlDbType.Int).Value = mat.Plan.Id;
+                cmdUpdate.Parameters.Add("@idPlan", SqlDbType.Int).Value = mat.Plan.ID;
                 cmdUpdate.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -186,7 +186,7 @@ namespace Data.Database
                 cmdInsert.Parameters.Add("@desc", SqlDbType.VarChar, 50).Value = mat.Descripcion;
                 cmdInsert.Parameters.Add("@hsSem", SqlDbType.Int).Value = mat.HSSemanales;
                 cmdInsert.Parameters.Add("@hsTot", SqlDbType.Int).Value = mat.HSTotales;
-                cmdInsert.Parameters.Add("@idPlan", SqlDbType.Int).Value = mat.Plan.Id;
+                cmdInsert.Parameters.Add("@idPlan", SqlDbType.Int).Value = mat.Plan.ID;
                 mat.ID = Decimal.ToInt32((decimal)cmdInsert.ExecuteScalar());
             }
             catch (Exception Ex)
@@ -239,7 +239,7 @@ namespace Data.Database
                     mat.HSTotales = (int)drMaterias["hs_totales"];
 
                     Plan pla = new Plan();
-                    pla.Id = (int)drMaterias["id_plan"];
+                    pla.ID = (int)drMaterias["id_plan"];
                     mat.Plan = pla;
                     materias.Add(mat);
                 }

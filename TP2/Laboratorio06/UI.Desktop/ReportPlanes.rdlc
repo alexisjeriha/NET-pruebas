@@ -17,6 +17,10 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
+        <Field Name="DescEspecialidad">
+          <DataField>DescEspecialidad</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="Descripcion">
           <DataField>Descripcion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -24,10 +28,6 @@
         <Field Name="Especialidad">
           <DataField>Especialidad</DataField>
           <rd:TypeName>Business.Entities.Especialidad</rd:TypeName>
-        </Field>
-        <Field Name="Id">
-          <DataField>Id</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="ID">
           <DataField>ID</DataField>
@@ -57,13 +57,13 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>4.91568cm</Width>
+                  <Width>6.19441cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.91568cm</Width>
+                  <Width>6.19441cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.91568cm</Width>
+                  <Width>5.91656cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -80,7 +80,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>ID plan</Value>
-                                  <Style />
+                                  <Style>
+                                    <Color>White</Color>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -94,7 +96,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>Silver</BackgroundColor>
+                            <BackgroundColor>Blue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -113,7 +115,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>Descripcion del plan</Value>
-                                  <Style />
+                                  <Style>
+                                    <Color>White</Color>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -127,7 +131,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>Silver</BackgroundColor>
+                            <BackgroundColor>Blue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -138,15 +142,17 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox5">
+                        <Textbox Name="Textbox2">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>ID especialidad</Value>
-                                  <Style />
+                                  <Value>Especialidad</Value>
+                                  <Style>
+                                    <Color>White</Color>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -154,13 +160,13 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox5</rd:DefaultName>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>Silver</BackgroundColor>
+                            <BackgroundColor>Blue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -183,7 +189,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Id.Value</Value>
+                                  <Value>=Fields!ID.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -240,14 +246,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="IDespecialidad">
+                        <Textbox Name="DescEspecialidad">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!IDespecialidad.Value</Value>
+                                  <Value>=Fields!DescEspecialidad.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -256,7 +262,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>IDespecialidad</rd:DefaultName>
+                          <rd:DefaultName>DescEspecialidad</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -293,9 +299,9 @@
             </TablixRowHierarchy>
             <DataSetName>ReportePaises</DataSetName>
             <Top>0.75353cm</Top>
-            <Left>1.05833cm</Left>
+            <Left>1.29117cm</Left>
             <Height>1.4cm</Height>
-            <Width>14.74703cm</Width>
+            <Width>18.30537cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -311,32 +317,32 @@
                 <ChartMember>
                   <Group Name="Chart1_CategoryGroup">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!IDespecialidad.Value</GroupExpression>
+                      <GroupExpression>=Fields!DescEspecialidad.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!IDespecialidad.Value</Value>
+                      <Value>=Fields!DescEspecialidad.Value</Value>
                     </SortExpression>
                   </SortExpressions>
-                  <Label>=Fields!IDespecialidad.Value</Label>
+                  <Label>=Fields!DescEspecialidad.Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartCategoryHierarchy>
             <ChartSeriesHierarchy>
               <ChartMembers>
                 <ChartMember>
-                  <Label>Id</Label>
+                  <Label>ID</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartSeriesHierarchy>
             <ChartData>
               <ChartSeriesCollection>
-                <ChartSeries Name="Id">
+                <ChartSeries Name="ID">
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=Count(Fields!Id.Value)</Y>
+                        <Y>=Sum(Fields!ID.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
@@ -651,7 +657,7 @@
             </ChartNoDataMessage>
             <DataSetName>ReportePaises</DataSetName>
             <Top>3.5687cm</Top>
-            <Left>4.69053cm</Left>
+            <Left>6.17998cm</Left>
             <Height>5cm</Height>
             <Width>7.5cm</Width>
             <ZIndex>1</ZIndex>
@@ -666,9 +672,16 @@
           </Chart>
         </ReportItems>
         <Height>3.90684in</Height>
-        <Style />
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <RightBorder>
+            <Width>1pt</Width>
+          </RightBorder>
+        </Style>
       </Body>
-      <Width>7.13092in</Width>
+      <Width>8.10684in</Width>
       <Page>
         <PageHeader>
           <Height>2.45533cm</Height>
@@ -682,10 +695,10 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Reporte de Planes carita fachera facherita</Value>
+                      <Value>Reporte de planes</Value>
                       <Style>
-                        <FontFamily>Comic Sans MS</FontFamily>
-                        <FontSize>20pt</FontSize>
+                        <FontFamily>Microsoft Sans Serif</FontFamily>
+                        <FontSize>30pt</FontSize>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -695,9 +708,74 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>0.7112cm</Top>
-              <Height>1.1715cm</Height>
-              <Width>17.0542cm</Width>
+              <Top>0.83227cm</Top>
+              <Height>1.44667cm</Height>
+              <Width>20.59137cm</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox5">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Globals!ExecutionTime</Value>
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox5</rd:DefaultName>
+              <Left>15.53021cm</Left>
+              <Height>0.83227cm</Height>
+              <Width>5.06117cm</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox6">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Globals!PageNumber</Value>
+                      <Style />
+                    </TextRun>
+                    <TextRun>
+                      <Value>/</Value>
+                      <Style />
+                    </TextRun>
+                    <TextRun>
+                      <Value>=Globals!TotalPages</Value>
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox6</rd:DefaultName>
+              <Height>0.83227cm</Height>
+              <Width>5.56917cm</Width>
+              <ZIndex>2</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
