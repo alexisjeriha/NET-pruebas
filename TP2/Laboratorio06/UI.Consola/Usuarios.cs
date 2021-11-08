@@ -88,7 +88,7 @@ namespace UI.Consola
                     MostrarDatos(usr);
                 }
             }
-            catch (FormatException fe)
+            catch (FormatException)
             {
                 WriteLine();
                 WriteLine("La ID ingresada debe ser un número entero");
@@ -113,7 +113,7 @@ namespace UI.Consola
                 int ID = int.Parse(Console.ReadLine());
                 MostrarDatos(UsuarioNegocio.GetOne(ID));
             }
-            catch (FormatException fe)
+            catch (FormatException)
             {
                 Console.WriteLine();
                 Console.WriteLine("La ID ingresada debe ser un número entero");
@@ -178,7 +178,7 @@ namespace UI.Consola
                 UsuarioNegocio.Save(usr);
 
             }
-            catch (FormatException fe)
+            catch (FormatException)
             {
                 WriteLine();
                 WriteLine("La ID ingresada debe ser un número entero");
@@ -203,7 +203,7 @@ namespace UI.Consola
                 int ID = int.Parse(ReadLine());
                 UsuarioNegocio.Delete(ID);
             }
-            catch (FormatException fe)
+            catch (FormatException)
             {
                 WriteLine();
                 WriteLine("La ID ingresada debe ser un número entero");

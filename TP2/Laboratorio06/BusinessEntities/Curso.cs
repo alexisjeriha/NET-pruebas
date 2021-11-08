@@ -8,33 +8,40 @@ namespace Business.Entities
 {
     public class Curso : BusinessEntity
     {
+        private string descripcion;
         private Materia materia;
-        private Comision comision;
-        public int AnioCalendario { get; set; }
-        public int Cupo { get; set; }
+        private Comision comision;        
         public Curso()
         {
             materia = new Materia();
             comision = new Comision();
         }
+        public int AnioCalendario { get; set; }
+        public int Cupo { get; set; }
 
+        public string Descripcion
+        {
+            get { return descripcion; }
+            set { descripcion = value; }
+        }
         public Comision Comision
         {
             get { return comision; }
             set { comision = value; }
         }
-        public string DescComision
-        {
-            get { return comision.DescComision; }
-        }
+
         public Materia Materia
         {
             get { return materia; }
             set { materia = value; }
+        }       
+        public string DescComision
+        {
+            get { return comision.DescComision; }
         }
         public string DescMateria
         {
-            get { return materia.Descripcion; }
+            get { return Materia.Descripcion; }
         }
     }
 }

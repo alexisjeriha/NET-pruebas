@@ -8,15 +8,18 @@ namespace UI.Desktop.Forms.FormsPersonas
 
     public partial class PersonaDesktop : ApplicationForm
     {
+
         public PersonaDesktop()
         {
             InitializeComponent();
         }
-    class ComboItem
-    {
-        public int IDTipo { get; set; }
-        public string Tipo { get; set; }
-    }
+
+        class ComboItem
+        {
+            public int IDTipo { get; set; }
+            public string Tipo { get; set; }
+        }
+
         public Persona PersonaActual { get; set; }
 
         public PersonaDesktop(ModoForm modo) : this()
@@ -43,8 +46,6 @@ namespace UI.Desktop.Forms.FormsPersonas
                 cbIdPlan.DisplayMember = "Descripcion";
                 cbIdPlan.SelectedIndex = -1;
 
-
-
                 cbTipo.DataSource = new ComboItem[]
                 {
                     new ComboItem{ IDTipo = 1, Tipo = "Alumno" },
@@ -69,7 +70,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             txtEmail.Text = PersonaActual.Email;
             txtTelefono.Text = PersonaActual.Telefono;
             txtLegajo.Text = PersonaActual.Legajo.ToString();
-            cbTipo.SelectedValue = PersonaActual.Tipo;
+            cbTipo.Text = PersonaActual.Tipo;
             dtNac.Value = PersonaActual.FechaNacimiento;
             cbIdPlan.SelectedValue = PersonaActual.Plan.ID;
 
@@ -153,12 +154,18 @@ namespace UI.Desktop.Forms.FormsPersonas
         {
             bool esValido = true;
 
-            if (cbIdPlan.SelectedItem == null || txtNombre.Text == "" || txtApellido.Text == "" || txtDireccion.Text == "" ||
-                txtEmail.Text == "" || txtLegajo.Text == "" || cbTipo.SelectedItem == null || dtNac.Value == null || txtTelefono.Text == "")
-
+            if (cbIdPlan.SelectedItem == null || txtNombre.Text == string.Empty || txtApellido.Text == string.Empty || txtDireccion.Text == string.Empty ||
+                txtEmail.Text == string.Empty || txtLegajo.Text == string.Empty ||
+                cbTipo.SelectedItem == null || dtNac.Value == null || txtTelefono.Text == string.Empty)
             {
                 esValido = false;
                 this.Notificar("Todos los campos son obligatorios", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (!(Validaciones.EsMailValido(this.txtEmail.Text)))
+            {
+                esValido = false;
+                this.Notificar("Ingrese un formato válido de email", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return esValido;

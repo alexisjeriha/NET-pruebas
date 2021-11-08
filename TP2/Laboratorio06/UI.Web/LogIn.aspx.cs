@@ -31,5 +31,6 @@ namespace UI.Web
         {
             Response.Write("Lo lamentamos, usted será dado de baja de la academia :(");
         }
+
     }
 }

@@ -22,7 +22,11 @@ namespace Business.Entities
 
         public Persona Alumno { get; set; }
 
-        public Curso Curso { get; set; }
+        public Curso Curso 
+        { 
+            get { return curso; }
+            set { curso = value; }
+        }
 
         public int Nota { get; set; }
 
@@ -33,7 +37,7 @@ namespace Business.Entities
 
         public string DescMateria
         {
-            get { return Curso.Materia.Descripcion; }
+            get { return Curso.DescMateria; }
         }
 
         public int AnioCurso
