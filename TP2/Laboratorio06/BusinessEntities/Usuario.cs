@@ -4,10 +4,10 @@ namespace Business.Entities
 {
     public class Usuario : BusinessEntity
     {
-
+        private Persona persona;
         public Usuario()
         {
-            new Persona();
+            persona = new Persona();
         }
 
         public Persona Persona { get; set; }

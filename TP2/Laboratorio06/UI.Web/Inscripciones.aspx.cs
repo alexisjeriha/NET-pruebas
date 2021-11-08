@@ -110,8 +110,7 @@ namespace UI.Web
 
         private void LoadGridInscripciones()
         {
-
-                gridView.DataSource = Logic.GetAll(UsuarioActual.Persona.ID);
+                gridView.DataSource = Logic.GetAll(((Usuario)Session["UsuarioActual"]).Persona.ID);
                 gridView.DataBind();
         }
 
@@ -231,6 +230,7 @@ namespace UI.Web
             formPanel.Visible = true;
             gridActionsPanel.Visible = false;
             GridViewMaterias.Visible = true;
+
             LoadGridMaterias();
             ClearForm();
             EnableForm(true);

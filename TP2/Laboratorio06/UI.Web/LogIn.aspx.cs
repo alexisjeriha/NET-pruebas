@@ -21,7 +21,7 @@ namespace UI.Web
         protected void BtnAceptar_Click(object sender, EventArgs e)
         {
 
-                Usuario usr = usuario.GetUsuarioForLogin(tbUsuario.Text, tbPasswd.Text);
+            Usuario usr = usuario.GetUsuarioForLogin(tbUsuario.Text, tbPasswd.Text);
             Session["UsuarioActual"] = usr;
             Page.Response.Redirect("~/Default.aspx");
 
