@@ -99,29 +99,36 @@ namespace UI.Desktop
         }
         public override bool Validar()
         {
-            bool EsValido = true;
-            foreach (Control oControls in Controls)
+            bool esValido = true;
+
+            if (txtNombre.Text == string.Empty || txtApellido.Text == string.Empty || txtUsuario.Text == string.Empty ||
+                txtClave.Text == string.Empty || txtConfirmarClave.Text == string.Empty ||
+                txtEMail.Text == null)
+
             {
-                if (oControls is TextBox && oControls.Text == String.Empty && oControls != txtID)
-                {
-                    EsValido = false;
-                    break;
-                }
-            }
-            if (EsValido == false)
-                Notificar("Todos los campos son obligatorios", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            if (txtClave.Text != txtConfirmarClave.Text)
-            {
-                EsValido = false;
-                Notificar("La clave no coincide con la confirmacion de la misma", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            if (txtClave.Text.Length < 8)
-            {
-                EsValido = false;
-                Notificar("La clave debe tener al menos 8 caracteres", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                esValido = false;
+                this.Notificar("Todos los campos son obligatorios", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            return EsValido;
+            if (!(Validaciones.EsMailValido(this.txtEMail.Text)))
+            {
+                esValido = false;
+                this.Notificar("Ingrese un formato válido de email", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (!(Validaciones.ValidaPass(txtClave.Text, txtConfirmarClave.Text)))
+            {
+                esValido = false;
+                this.Notificar("Las contraseñas no coiciden", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (txtClave.Text.Length < 8 || !(Validaciones.EsAlfanumerico(txtClave.Text)))
+            {
+                esValido = false;
+                this.Notificar("La contraseña debe contener al menos 8 caracteres y poseer caracteres alfanuméricos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return esValido;
         }
 
         private void btnAceptar_Click(object sender, System.EventArgs e)

@@ -80,6 +80,8 @@
                         </div> 
                         <div>                        
                             <asp:DropDownList ID="tipoDropDownList" runat="server" DataValueField="IDTipo" DataTextField="Tipo">
+                                <asp:ListItem>Alumno</asp:ListItem>
+                                <asp:ListItem>Docente</asp:ListItem>
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator InitialValue="-1" ID="rqTipo" runat="server" ControlToValidate="TipoDropDownList" ErrorMessage="* Seleccione el tipo" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                         </div>
@@ -87,7 +89,7 @@
                             <asp:Label ID="planLabel" runat="server" Text="ID Plan: "></asp:Label>
                         </div> 
                         <div>  
-                            <asp:DropDownList ID="iDPlanDropDownList" runat="server" DataValueField="Id" DataTextField="Descripcion">
+                            <asp:DropDownList ID="iDPlanDropDownList" runat="server" DataValueField="ID" DataTextField="Descripcion">
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator InitialValue="-1" ID="rqEspecialidad" runat="server" ControlToValidate="iDPlanDropDownList" ErrorMessage="* Seleccione el plan" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                         </div>

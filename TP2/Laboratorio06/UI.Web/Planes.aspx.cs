@@ -43,7 +43,7 @@ namespace UI.Web
         {
             Entity = Logic.GetOne(id);
             descripcionTextBox.Text = Entity.Descripcion;
-
+            DropDownListEspecialidades.SelectedValue = Entity.Especialidad.ID.ToString();
         }
 
         private void DDLEspecialidadesLoad()

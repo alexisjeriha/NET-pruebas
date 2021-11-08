@@ -256,6 +256,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="SqlServerTypes\x64\" />
+    <Folder Include="SqlServerTypes\x86\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business.Logic\Business.Logic.csproj">

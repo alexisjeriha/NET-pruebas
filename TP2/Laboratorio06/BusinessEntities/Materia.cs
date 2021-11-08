@@ -8,15 +8,19 @@ namespace Business.Entities
 {
     public class Materia : BusinessEntity
     {
-
+        private string descripcion;
         private Plan plan;
 
         public Materia()
         {
-            Plan = new Plan();
+            plan = new Plan();
         }
 
-        public string Descripcion { get; set; }
+        public string Descripcion
+        {
+            get { return descripcion; }
+            set { descripcion = value; }
+        }
         public int HSSemanales { get; set; }
         public int HSTotales { get; set; }
 

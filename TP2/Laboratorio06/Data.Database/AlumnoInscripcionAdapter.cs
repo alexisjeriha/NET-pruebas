@@ -18,7 +18,8 @@ namespace Data.Database
             {
                 OpenConnection();
                 SqlCommand cmdInscripciones = new SqlCommand("select * from alumnos_inscripciones a INNER JOIN personas p on a.id_alumno=p.id_persona "
-                    + "INNER JOIN cursos c on c.id_curso=a.id_curso INNER JOIN planes pl on pl.id_plan=p.id_plan where tipo_persona=1", SqlConn);
+                    + "INNER JOIN cursos c on c.id_curso=a.id_curso INNER JOIN planes pl on pl.id_plan=p.id_plan INNER JOIN materias m on m.id_materia = c.id_materia " +
+                    "INNER JOIN comisiones com on com.id_comision = c.id_comision where p.tipo_persona=1", SqlConn);
                 SqlDataReader drInscripciones = cmdInscripciones.ExecuteReader();
 
                 while (drInscripciones.Read())
@@ -54,6 +55,14 @@ namespace Data.Database
                     cur.ID = (int)drInscripciones["id_curso"];
                     cur.AnioCalendario = (int)drInscripciones["anio_calendario"];
 
+                    Materia mat = new Materia();
+                    mat.Descripcion = (string)drInscripciones["desc_materia"];
+                    cur.Materia = mat;
+
+                    Comision com = new Comision();
+                    com.DescComision = (string)drInscripciones["desc_comision"];
+                    cur.Comision = com;
+
                     ins.Alumno = per;
                     ins.Curso = cur;
 
@@ -74,6 +83,24 @@ namespace Data.Database
             return inscripciones;
         }
 
+        public List<AlumnoInscripcion> GetRegulares()
+        {
+            List<AlumnoInscripcion> inscriptos = GetAll();
+            List<AlumnoInscripcion> regulares = inscriptos.FindAll(i => i.Condicion == "Regular");
+            return regulares;
+        }
+        public List<AlumnoInscripcion> GetAprobados()
+        {
+            List<AlumnoInscripcion> inscriptos = GetAll();
+            List<AlumnoInscripcion> aprobado = inscriptos.FindAll(i => i.Condicion == "Aprobado");
+            return aprobado;
+        }
+        public List<AlumnoInscripcion> GetLibres()
+        {
+            List<AlumnoInscripcion> inscriptos = GetAll();
+            List<AlumnoInscripcion> libre = inscriptos.FindAll(i => i.Condicion == "Libre");
+            return libre;
+        }
         public List<AlumnoInscripcion> GetAll(int IDAlumno)
         {
             List<AlumnoInscripcion> inscripciones = new List<AlumnoInscripcion>();
