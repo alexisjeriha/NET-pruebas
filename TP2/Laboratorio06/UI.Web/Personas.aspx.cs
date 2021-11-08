@@ -41,6 +41,11 @@ namespace UI.Web
 
         private void LoadForm(int id)
         {
+            tipoDropDownList.DataSource = new DropItem[]
+            {
+                  new DropItem{ IDTipo = "Alumno", Tipo = "Alumno" },
+                  new DropItem{ IDTipo = "Docente", Tipo = "Docente" },
+            };
             Entity = Logic.GetOne(id);
             nombreTextBox.Text = Entity.Nombre;
             apellidoTextBox.Text = Entity.Apellido;

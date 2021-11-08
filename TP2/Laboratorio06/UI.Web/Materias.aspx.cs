@@ -44,6 +44,9 @@ namespace UI.Web
         {
             Entity = Logic.GetOne(id);
             descripcionTextBox.Text = Entity.Descripcion;
+            DropDownListPlanes.SelectedValue = Entity.Plan.ID.ToString();
+            hssemanalesTextBox.Text = Entity.HSSemanales.ToString();
+            hstotalesTextBox.Text = Entity.HSTotales.ToString();
 
         }
         

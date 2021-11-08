@@ -17,7 +17,7 @@
         }
     </style>
 </head>
-<body>
+<body style="height: 647px">
     <form id="form1" runat="server">
         <div class="auto-style2" display="center">
             <asp:Label ID="Label4" runat="server" Text="Inicio de Sesión" BackColor="#1C639C" BorderStyle="Solid" BorderWidth="1px" ForeColor="White" Width="100%"></asp:Label>

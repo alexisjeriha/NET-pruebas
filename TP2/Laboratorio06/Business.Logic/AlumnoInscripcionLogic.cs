@@ -32,17 +32,26 @@ namespace Business.Logic
         {
             return alumnoInscripcionData.ExisteInscripcion(idAlu, idCur);
         }
-
         public List<AlumnoInscripcion> GetAll(int IDAlumno)
         {
             return alumnoInscripcionData.GetAll(IDAlumno);
         }
-
         public List<AlumnoInscripcion> GetAll()
         {
             return alumnoInscripcionData.GetAll();
         }
-
+        public List<AlumnoInscripcion> GetRegulares()
+        {
+            return alumnoInscripcionData.GetRegulares();
+        }
+        public List<AlumnoInscripcion> GetAprobados()
+        {
+            return alumnoInscripcionData.GetAprobados();
+        }
+        public List<AlumnoInscripcion> GetLibres()
+        {
+            return alumnoInscripcionData.GetLibres();
+        }
         public void Save(AlumnoInscripcion inscripcion)
         {
             alumnoInscripcionData.Save(inscripcion);

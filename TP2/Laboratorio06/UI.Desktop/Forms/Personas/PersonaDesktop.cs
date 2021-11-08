@@ -13,6 +13,7 @@ namespace UI.Desktop.Forms.FormsPersonas
         {
             InitializeComponent();
         }
+        
         class ComboItem
         {
             public int IDTipo { get; set; }

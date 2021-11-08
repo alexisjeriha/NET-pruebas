@@ -43,7 +43,8 @@ namespace UI.Web
             Entity = Logic.GetOne(id);
             descripcionTextBox.Text = Entity.DescComision;
             anioEspecialidadTextBox.Text = Entity.AnioEspecialidad.ToString();
-
+            DropDownListPlanes.SelectedValue = Entity.Plan.ID.ToString();
+            
         }
 
         private void DDLPlanesLoad()
