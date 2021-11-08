@@ -74,9 +74,9 @@ namespace UI.Desktop.Forms.Forms_Especialidades
 
             }
 
-            if (Modo == ModoForm.Modificacion) 
-            { 
-                EspecialidadActual.ID = int.Parse(txtID.Text); 
+            if (Modo == ModoForm.Modificacion)
+            {
+                EspecialidadActual.ID = int.Parse(txtID.Text);
             }
             EspecialidadActual.Descripcion = txtDescripcion.Text;
 
@@ -100,24 +100,19 @@ namespace UI.Desktop.Forms.Forms_Especialidades
         }
         public override bool Validar()
         {
-            bool EsValido = true;
-            foreach (Control oControls in Controls)
+            Boolean valido = true;
+            if (txtDescripcion.Text == String.Empty)
             {
-                if (oControls is TextBox && oControls.Text == String.Empty && oControls != txtID)
-                {
-                    EsValido = false;
-                    break;
-                }
-            }
-            if (EsValido == false)
+                valido = false;
                 Notificar("Todos los campos son obligatorios", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-            return EsValido;
+            return valido;
         }
 
-        
 
-        
+
+
 
         private void btnAceptar_Click(object sender, System.EventArgs e)
         {
@@ -140,4 +135,3 @@ namespace UI.Desktop.Forms.Forms_Especialidades
         }
     }
 }
-
