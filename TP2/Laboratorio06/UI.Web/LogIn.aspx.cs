@@ -20,16 +20,20 @@ namespace UI.Web
 
         protected void BtnAceptar_Click(object sender, EventArgs e)
         {
-
+            try { 
             Usuario usr = usuario.GetUsuarioForLogin(tbUsuario.Text, tbPasswd.Text);
-            Session["UsuarioActual"] = usr;
-            Page.Response.Redirect("~/Default.aspx");
-
-        }
-
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
-            Response.Write("Lo lamentamos, usted será dado de baja de la academia :(");
+            if (usr.ID != 0)
+            {
+                Session["UsuarioActual"] = usr;
+                Page.Response.Redirect("~/Default.aspx");
+            }
+        
+                else lblError.Visible = true;
+            }
+            catch (Exception)
+            {
+                lblError.Visible = true;
+            }
         }
 
     }

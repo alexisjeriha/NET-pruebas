@@ -34,7 +34,7 @@ namespace UI.Web
         }
         class DropItem
         {
-            public int IDTipo { get; set; }
+            public string IDTipo { get; set; }
             public string Tipo { get; set; }
         }
 
@@ -78,8 +78,8 @@ namespace UI.Web
 
             tipoDropDownList.DataSource = new DropItem[]
             {
-                  new DropItem{ IDTipo = 1, Tipo = "Alumno" },
-                  new DropItem{ IDTipo = 2, Tipo = "Docente" },
+                  new DropItem{ IDTipo = "Alumno", Tipo = "Alumno" },
+                  new DropItem{ IDTipo = "Docente", Tipo = "Docente" },
             };
 
             ListItem ini = new ListItem();

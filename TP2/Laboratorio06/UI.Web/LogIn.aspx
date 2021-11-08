@@ -10,8 +10,8 @@
             width: 69px;
         }
         .auto-style2 {
-            width: 336px;
-            height: 129px;
+            width: 349px;
+            height: 136px;
             position: fixed;
         }
         .auto-style3 {
@@ -29,7 +29,7 @@
 
 <body>
     <form id="form1" runat="server" class="auto-style4">
-        <div class="auto-style2" display="center" dir="ltr" style="border-style: solid;">
+        <div class="auto-style2" display="center" dir="ltr" style="border-style: solid; top: 15px; left: 10px;">
             <asp:Label ID="Label4" runat="server" Text="Inicio de Sesión" BackColor="#1C639C" BorderStyle="None" BorderWidth="1px" ForeColor="White" Width="100%"></asp:Label>
             <div>
                 <table class="auto-style3">

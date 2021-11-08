@@ -213,6 +213,7 @@ namespace UI.Web
         protected void GridViewComisiones_SelectedIndexChanged(object sender, EventArgs e)
         {
             SelectedIDComisiones = (int)GridViewComisiones.SelectedValue;
+            GridViewComisiones.Visible = true;
         }
 
         protected void eliminarLinkButton_Click(object sender, EventArgs e)
@@ -230,6 +231,8 @@ namespace UI.Web
             formPanel.Visible = true;
             gridActionsPanel.Visible = false;
             GridViewMaterias.Visible = true;
+            GridViewComisiones.Visible = true;
+            gridConfirmPanel.Visible = true;
 
             LoadGridMaterias();
             ClearForm();
@@ -262,6 +265,7 @@ namespace UI.Web
             formPanel.Visible = false;
             gridActionsPanel.Visible = true;
             eliminarLinkButton.Visible = false;
+            gridConfirmPanel.Visible = false;
             LoadGridInscripciones();
         }
 
@@ -271,6 +275,7 @@ namespace UI.Web
             formPanel.Visible = false;
             gridActionsPanel.Visible = true;
             eliminarLinkButton.Visible = false;
+            gridConfirmPanel.Visible = false;
         }
 
         public class Modes : Page
