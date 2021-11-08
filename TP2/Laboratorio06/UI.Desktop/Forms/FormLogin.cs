@@ -21,8 +21,7 @@ namespace UI.Desktop
                 Usuario usr = new Usuario();
                 usr = usuario.GetUsuarioYClave(txtUsuario.Text);
 
-                if (true) //txtUsuario.Text == usr.NombreUsuario && txtPass.Text == usr.Clave
-                {
+                if (usr.ID!=0) // Ver
                     MessageBox.Show("Usted ha ingresado al sistema correctamente.", "Ingreso");
                     DialogResult = DialogResult.OK;
                 }

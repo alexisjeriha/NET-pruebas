@@ -227,6 +227,67 @@ namespace Data.Database
             return usr;
         }
 
+        public Usuario GetUsuarioForLogin(string user, string pass)
+        {
+            Usuario usr = new Usuario();
+            try
+            {
+                OpenConnection();
+                SqlCommand cmdGetUsuario = new SqlCommand("Select * from usuarios u INNER JOIN personas p on u.id_persona=p.id_persona "
+                    + "INNER JOIN planes pl on pl.id_plan=p.id_plan INNER JOIN especialidades e on pl.id_especialidad=e.id_especialidad where nombre_usuario=@user and clave=@pass", SqlConn);
+                cmdGetUsuario.Parameters.Add("@user", SqlDbType.VarChar).Value = user;
+                cmdGetUsuario.Parameters.Add("@pass", SqlDbType.VarChar).Value = pass;
+                SqlDataReader drUsuarios = cmdGetUsuario.ExecuteReader();
+                if (drUsuarios.Read())
+                {
+                    usr.ID = (int)drUsuarios["id_usuario"];
+                    usr.NombreUsuario = (string)drUsuarios["nombre_usuario"];
+                    usr.Clave = (string)drUsuarios["clave"];
+                    usr.Habilitado = (bool)drUsuarios["habilitado"];
+
+                    Persona per = new Persona();
+                    per.ID = (int)drUsuarios["id_persona"];
+                    per.Nombre = (string)drUsuarios["nombre"];
+                    per.Apellido = (string)drUsuarios["apellido"];
+                    per.Email = (string)drUsuarios["email"];
+                    per.Direccion = (string)drUsuarios["direccion"];
+                    per.Telefono = (string)drUsuarios["telefono"];
+                    per.FechaNacimiento = (DateTime)drUsuarios["fecha_nac"];
+                    per.Legajo = (int)drUsuarios["legajo"];
+                    switch ((int)drUsuarios["tipo_persona"])
+                    {
+                        case 1:
+                            per.Tipo = "Alumno";
+                            break;
+                        case 2:
+                            per.Tipo = "Docente";
+                            break;
+
+                    }
+                    Plan pla = new Plan();
+                    pla.ID = (int)drUsuarios["id_plan"];
+                    pla.Descripcion = (string)drUsuarios["desc_plan"];
+                    Especialidad esp = new Especialidad();
+                    esp.ID = (int)drUsuarios["id_especialidad"];
+                    esp.Descripcion = (string)drUsuarios["desc_especialidad"];
+                    pla.Especialidad = esp;
+                    per.Plan = pla;
+                    usr.Persona = per;
+                }
+                drUsuarios.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al recuperar datos del usuario", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+            return usr;
+        }
 
     }
 }

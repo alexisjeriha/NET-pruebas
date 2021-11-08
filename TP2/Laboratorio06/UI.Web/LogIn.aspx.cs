@@ -20,28 +20,16 @@ namespace UI.Web
 
         protected void BtnAceptar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Usuario usr = new Usuario();
-                usr = usuario.GetUsuarioYClave(tbUsuario.Text);
 
-                if (tbUsuario.Text == usr.NombreUsuario && tbPasswd.Text == usr.Clave)
-                {
-                    Session["NombreUsuario"] = usr.Nombre;
-                    Response.Redirect("~/Default.aspx");
-                }
-                else lblError.Visible = true;
-            }
-            catch (Exception)
-            {
-                lblError.Visible = true;
-            }
+                Usuario usr = usuario.GetUsuarioForLogin(tbUsuario.Text, tbPasswd.Text);
+            Session["UsuarioActual"] = usr;
+            Page.Response.Redirect("~/Default.aspx");
 
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
-            Response.Write("Usted es idiota");
+            Response.Write("Lo lamentamos, usted será dado de baja de la academia :(");
         }
     }
 }

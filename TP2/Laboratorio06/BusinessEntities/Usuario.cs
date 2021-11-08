@@ -4,6 +4,13 @@ namespace Business.Entities
 {
     public class Usuario : BusinessEntity
     {
+
+        public Usuario()
+        {
+            new Persona();
+        }
+
+        public Persona Persona { get; set; }
         public String NombreUsuario { get; set; }
 
         public String Clave { get; set; }
@@ -15,6 +22,9 @@ namespace Business.Entities
         public String EMail { get; set; }
 
         public bool Habilitado { get; set; }
+
+        
+
 
     }
 }
