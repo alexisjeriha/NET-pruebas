@@ -19,7 +19,7 @@ namespace Business.Entities
         public String Telefono { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public int Legajo { get; set; }
-        public int Tipo { get; set; }
+        public String Tipo { get; set; }
 
         //Plan asociado a la persona
         public Plan Plan

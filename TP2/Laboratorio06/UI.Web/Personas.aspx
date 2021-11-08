@@ -104,7 +104,6 @@
                     <div>
                         <asp:Button ID="aceptarLinkButton" runat="server" OnClick="aceptarLinkButton_Click" Style="margin-top: 10px" Text="Aceptar" CssClass="btn-sm btn-lg btn-primary" />
                         <asp:Button ID="cancelarLinkButton" runat="server" OnClick="cancelarLinkButton_Click" Style="margin-top: 10px" CausesValidation="false" Text="Cancelar" CssClass="btn-sm btn-secondary btn-lg" />
-
                     </div>
                 </asp:Panel>
             </div>

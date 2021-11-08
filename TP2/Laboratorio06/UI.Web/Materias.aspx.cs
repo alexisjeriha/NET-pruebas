@@ -1,16 +1,17 @@
-﻿using System;
+﻿using Business.Logic;
+using Business.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Business.Logic;
-using Business.Entities;
 
 namespace UI.Web
 {
-    public partial class Planes : Page
+    public partial class Materias : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -19,14 +20,14 @@ namespace UI.Web
             }
         }
 
-        PlanLogic _logic;
-        private PlanLogic Logic
+        MateriaLogic _logic;
+        private MateriaLogic Logic
         {
             get
             {
                 if (_logic == null)
                 {
-                    _logic = new PlanLogic();
+                    _logic = new MateriaLogic();
                 }
                 return _logic;
             }
@@ -38,47 +39,54 @@ namespace UI.Web
             gridView.DataBind();
 
         }
-
+        
         private void LoadForm(int id)
         {
             Entity = Logic.GetOne(id);
             descripcionTextBox.Text = Entity.Descripcion;
 
         }
-
-        private void DDLEspecialidadesLoad()
+        
+        private void DDLPlanesLoad()
         {
-                EspecialidadLogic el = new EspecialidadLogic();
-                DropDownListEspecialidades.DataSource = el.GetAll();
-                DropDownListEspecialidades.DataTextField = "Descripcion";
-                DropDownListEspecialidades.DataValueField = "ID";
-                DropDownListEspecialidades.DataBind();
-                ListItem init = new ListItem();
-                init.Text = "--Seleccionar Especialidad--";
-                init.Value = "-1";
-                DropDownListEspecialidades.Items.Add(init);
-                DropDownListEspecialidades.SelectedValue = "-1";
+            PlanLogic el = new PlanLogic();
+            DropDownListPlanes.DataSource = el.GetAll();
+            DropDownListPlanes.DataTextField = "Descripcion";
+            DropDownListPlanes.DataValueField = "ID";
+            DropDownListPlanes.DataBind();
+            ListItem init = new ListItem();
+            init.Text = "--Seleccionar Plan--";
+            init.Value = "-1";
+            DropDownListPlanes.Items.Add(init);
+            DropDownListPlanes.SelectedValue = "-1";
         }
+        
         private void EnableForm(bool enable)
         {
             descripcionTextBox.Enabled = enable;
-            DropDownListEspecialidades.Enabled = enable;
+            hssemanalesTextBox.Enabled = enable;
+            hstotalesTextBox.Enabled = enable;
+            DropDownListPlanes.Enabled = enable;
         }
 
         private void ClearForm()
         {
             descripcionTextBox.Text = string.Empty;
-
+            hssemanalesTextBox.Text = string.Empty;
+            hstotalesTextBox.Text = string.Empty;
         }
-
-        private void LoadEntity(Plan plan)
+        
+        private void LoadEntity(Materia materia)
         {
-            plan.Descripcion = descripcionTextBox.Text;
-            plan.Especialidad.Id = Convert.ToInt32(DropDownListEspecialidades.SelectedItem.Value); //Checkear
+            materia.Descripcion = descripcionTextBox.Text;
+            materia.HSSemanales = Convert.ToInt32(hssemanalesTextBox.Text);
+            materia.HSTotales = Convert.ToInt32(hstotalesTextBox.Text);
+            materia.Plan.Id = Convert.ToInt32(DropDownListPlanes.SelectedItem.Value); //Checkear
         }
-        private void SaveEntity(Plan plan)
+        
+        private void SaveEntity(Materia materia)
         {
-            Logic.Save(plan);
+            Logic.Save(materia);
         }
 
         private void DeleteEntity(int id)
@@ -86,13 +94,13 @@ namespace UI.Web
             Logic.Delete(id);
         }
 
-
         #region Event Handlers
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
             SelectedID = (int)gridView.SelectedValue;
         }
 
+        
         protected void eliminarLinkButton_Click(object sender, EventArgs e)
         {
             if (IsEntitySelected)
@@ -104,12 +112,12 @@ namespace UI.Web
                 LoadForm(SelectedID);
             }
         }
-
+        
         protected void editarLinkButton_Click(object sender, EventArgs e)
         {
             if (IsEntitySelected)
             {
-                DDLEspecialidadesLoad();
+                DDLPlanesLoad();
                 formPanel.Visible = true;
                 gridConfirmPanel.Visible = true; // Agregado
                 gridActionsPanel.Visible = false;// Agregado
@@ -119,6 +127,7 @@ namespace UI.Web
 
             }
         }
+        
         protected void aceptarLinkButton_Click(object sender, EventArgs e)
         {
 
@@ -126,7 +135,7 @@ namespace UI.Web
             {
 
                 case FormModes.Alta:
-                    Entity = new Plan();
+                    Entity = new Materia();
                     Entity.State = BusinessEntity.States.New;
                     LoadEntity(Entity);
                     SaveEntity(Entity);
@@ -138,8 +147,8 @@ namespace UI.Web
                     LoadGrid();
                     break;
                 case FormModes.Modificacion:
-                    Entity = new Plan();
-                    Entity.Id = SelectedID;
+                    Entity = new Materia();
+                    Entity.ID = SelectedID;
                     Entity.State = BusinessEntity.States.Modified;
                     LoadEntity(Entity);
                     SaveEntity(Entity);
@@ -153,7 +162,7 @@ namespace UI.Web
             gridActionsPanel.Visible = true; 
 
         }
-
+        
         protected void cancelarLinkButton_Click(object sender, EventArgs e)
         {
             LoadGrid();
@@ -161,10 +170,10 @@ namespace UI.Web
             gridConfirmPanel.Visible = false;
             gridActionsPanel.Visible = true;
         }
-
+        
         protected void nuevoLinkButton_Click(object sender, EventArgs e)
         {
-            DDLEspecialidadesLoad();
+            DDLPlanesLoad();
             formPanel.Visible = true;
             gridConfirmPanel.Visible = true;
             gridActionsPanel.Visible = false; 
@@ -174,14 +183,15 @@ namespace UI.Web
         }
 
         #endregion
-
+        
         #region Properties
 
-        private Plan Entity
+        private Materia Entity
         {
             get;
             set;
         }
+        
         private int SelectedID
         {
             get
@@ -194,7 +204,7 @@ namespace UI.Web
                 ViewState["SelectedID"] = value;
             }
         }
-
+        
         private bool IsEntitySelected
         {
             get { return (SelectedID != 0); }
@@ -205,7 +215,7 @@ namespace UI.Web
             Baja,
             Modificacion
         }
-
+        
         public FormModes FormMode
         {
             get { return (FormModes)ViewState["FormMode"]; }

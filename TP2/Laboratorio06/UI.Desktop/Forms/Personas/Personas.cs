@@ -25,27 +25,33 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.Dispose();
         }
 
-        public void Listar()
-        {
-            PersonaLogic pl = new PersonaLogic();
-            dgvPersonas.DataSource = pl.GetAll();
-        }
+            public void Listar(string tipo)
+            {
+                    PersonaLogic pl = new PersonaLogic();
+                    if (tipo == "Todos")
+                        dgvPersonas.DataSource = pl.GetAll();
+                    else if (tipo == "Alumnos")
+                        dgvPersonas.DataSource = pl.GetAlumnos();
+                    else if (tipo == "Docentes")
+                        dgvPersonas.DataSource = pl.GetDocentes();
+            }
+        
 
         private void Personas_Load(object sender, EventArgs e)
         {
-            Listar();
+            Listar("Todos");
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            Listar();
+            Listar("Todos");
         }
 
         private void tsbAgregar_Click(object sender, EventArgs e)
         {
             PersonaDesktop personaDesktop = new PersonaDesktop(ApplicationForm.ModoForm.Alta);
             personaDesktop.ShowDialog();
-            Listar();
+            Listar("Todos");
         }
 
         private void tsbEditar_Click(object sender, EventArgs e)
@@ -57,7 +63,7 @@ namespace UI.Desktop.Forms.FormsPersonas
                 PersonaDesktop formPersona = new PersonaDesktop(ID, ApplicationForm.ModoForm.Modificacion);
                 formPersona.ShowDialog();
 
-                Listar();
+                Listar("Todos");
             }
         }
 
@@ -71,13 +77,28 @@ namespace UI.Desktop.Forms.FormsPersonas
                     int ID = ((Persona)this.dgvPersonas.SelectedRows[0].DataBoundItem).IdPersona;
                     PersonaDesktop formPer = new PersonaDesktop(ID, ApplicationForm.ModoForm.Baja);
                     formPer.ShowDialog();
-                    Listar();
+                    Listar("Todos");
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void todosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Listar("Todos");
+        }
+
+        private void alumnosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Listar("Alumnos");
+        }
+
+        private void docentesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Listar("Docentes");
         }
     }
 }

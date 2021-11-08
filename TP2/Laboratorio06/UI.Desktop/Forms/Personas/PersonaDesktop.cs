@@ -1,13 +1,6 @@
 ﻿using Business.Entities;
 using Business.Logic;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI.Desktop.Forms.FormsPersonas
@@ -128,8 +121,10 @@ namespace UI.Desktop.Forms.FormsPersonas
                 PersonaActual.Direccion = txtDireccion.Text;
                 PersonaActual.Email = txtEmail.Text;
                 PersonaActual.Legajo = int.Parse(txtLegajo.Text);
-                PersonaActual.Tipo = Convert.ToInt32(cbTipo.SelectedValue);
+
+                PersonaActual.Tipo = int.Parse(cbTipo.SelectedValue); //Puede dar error, comprobar
                 PersonaActual.FechaNacimiento = dtNac.Value;
+
                 PersonaActual.Telefono = txtTelefono.Text;
                 PersonaActual.Plan.Id = Convert.ToInt32(cbIdPlan.SelectedValue);
             }
@@ -159,6 +154,7 @@ namespace UI.Desktop.Forms.FormsPersonas
 
             if (cbIdPlan.SelectedItem == null || txtNombre.Text == "" || txtApellido.Text == "" || txtDireccion.Text == "" ||
                 txtEmail.Text == "" || txtLegajo.Text == "" || cbTipo.SelectedItem == null || dtNac.Value == null || txtTelefono.Text == "")
+
             {
                 esValido = false;
                 this.Notificar("Todos los campos son obligatorios", MessageBoxButtons.OK, MessageBoxIcon.Error);
