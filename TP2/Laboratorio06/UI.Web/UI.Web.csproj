@@ -121,25 +121,13 @@
     <Content Include="Materias.aspx" />
     <Content Include="Comisiones.aspx" />
     <Content Include="Inscripciones.aspx" />
+    <Content Include="Personas.aspx" />
     <Content Include="Planes.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Personas.aspx" />
     <Content Include="LogIn.aspx" />
     <Content Include="ReportAlumnos.aspx" />
     <Content Include="ReportMaterias.aspx" />
     <Content Include="SqlServerTypes\readme.htm" />
-    <Content Include="SqlServerTypes\x64\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Usuarios.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -158,7 +146,6 @@
     <Compile Include="Especialidades.aspx.designer.cs">
       <DependentUpon>Especialidades.aspx</DependentUpon>
     </Compile>
-
     <Compile Include="Materias.aspx.cs">
       <DependentUpon>Materias.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -180,6 +167,13 @@
     <Compile Include="Inscripciones.aspx.designer.cs">
       <DependentUpon>Inscripciones.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Personas.aspx.cs">
+      <DependentUpon>Personas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Personas.aspx.designer.cs">
+      <DependentUpon>Personas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Planes.aspx.cs">
       <DependentUpon>Planes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -189,13 +183,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Personas.aspx.cs">
-      <DependentUpon>Personas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Personas.aspx.designer.cs">
-      <DependentUpon>Personas.aspx</DependentUpon>
     </Compile>
     <Compile Include="LogIn.aspx.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>

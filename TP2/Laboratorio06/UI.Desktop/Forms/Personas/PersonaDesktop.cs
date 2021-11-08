@@ -5,18 +5,18 @@ using System.Windows.Forms;
 
 namespace UI.Desktop.Forms.FormsPersonas
 {
-    class ComboItem
-    {
-        public int IDTipo { get; set; }
-        public string Tipo { get; set; }
-    }
+
     public partial class PersonaDesktop : ApplicationForm
     {
         public PersonaDesktop()
         {
             InitializeComponent();
         }
-
+        class ComboItem
+        {
+            public int IDTipo { get; set; }
+            public string Tipo { get; set; }
+        }
         public Persona PersonaActual { get; set; }
 
         public PersonaDesktop(ModoForm modo) : this()
@@ -43,8 +43,6 @@ namespace UI.Desktop.Forms.FormsPersonas
                 cbIdPlan.DisplayMember = "Descripcion";
                 cbIdPlan.SelectedIndex = -1;
 
-
-
                 cbTipo.DataSource = new ComboItem[]
                 {
                     new ComboItem{ IDTipo = 1, Tipo = "Alumno" },
@@ -69,7 +67,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             txtEmail.Text = PersonaActual.Email;
             txtTelefono.Text = PersonaActual.Telefono;
             txtLegajo.Text = PersonaActual.Legajo.ToString();
-            cbTipo.SelectedValue = PersonaActual.Tipo;
+            cbTipo.Text = PersonaActual.Tipo;
             dtNac.Value = PersonaActual.FechaNacimiento;
             cbIdPlan.SelectedValue = PersonaActual.Plan.ID;
 
