@@ -32,5 +32,10 @@ namespace Business.Entities
         {
             get { return Plan.Id; }
         }
+
+        public string DescPlan
+        {
+            get { return Plan.Descripcion; }
+        }
     }
 }

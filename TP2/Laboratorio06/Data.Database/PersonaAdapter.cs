@@ -37,6 +37,7 @@ namespace Data.Database
 
                     Plan plan = new Plan();
                     plan.Id = (int)drPersonas["id_plan"];
+                    plan.Descripcion = (string)drPersonas["desc_plan"];
                     per.Plan = plan;
 
                     personas.Add(per);
@@ -80,7 +81,8 @@ namespace Data.Database
                     per.Legajo = (int)drPersonas["legajo"];
                     per.Tipo = (int)drPersonas["tipo_persona"];
                     per.Direccion = (string)drPersonas["telefono"];
-                    per.Plan.Id = (int)drPersonas["id_plan"]; 
+                    per.Plan.Id = (int)drPersonas["id_plan"];
+
                 }
                 drPersonas.Close();
             }
