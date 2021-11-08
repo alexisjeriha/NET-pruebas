@@ -44,6 +44,14 @@ namespace Business.Logic
         {
             return alumnoInscripcionData.GetRegulares();
         }
+        public List<AlumnoInscripcion> GetAprobados()
+        {
+            return alumnoInscripcionData.GetAprobados();
+        }
+        public List<AlumnoInscripcion> GetLibres()
+        {
+            return alumnoInscripcionData.GetLibres();
+        }
         public void Save(AlumnoInscripcion inscripcion)
         {
             alumnoInscripcionData.Save(inscripcion);
