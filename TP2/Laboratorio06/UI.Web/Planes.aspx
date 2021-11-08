@@ -1,10 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Planes.aspx.cs" Inherits="UI.Web.Planes" %>
 <asp:Content ID="ContentPlanes" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
-    <div class="col" style="margin-top: 50px">
-        <div class="row">
+    <div class="container" style="margin-top: 50px">
+        <div class="row row mx-auto">
             <h2>Planes</h2>
         </div>
-        <div class="row">
+        <div class="row row mx-auto">
             <div class="col">
                 <asp:Panel ID="gridPanel" runat="server">
 

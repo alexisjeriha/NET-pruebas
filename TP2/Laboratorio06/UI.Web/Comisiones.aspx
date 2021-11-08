@@ -1,10 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Comisiones.aspx.cs" Inherits="UI.Web.Comisiones" %>
 <asp:Content ID="ContentComisiones" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
-    <div class="col">
+    <div class="container">
         <div class="row">
             <h2>Comisiones</h2>
         </div>
-        <div class="row">
+        <div class="row mx-auto">
             <div class="col">
                 <asp:Panel ID="gridPanel" runat="server">
 
