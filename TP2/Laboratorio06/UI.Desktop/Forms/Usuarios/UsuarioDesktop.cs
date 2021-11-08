@@ -122,10 +122,10 @@ namespace UI.Desktop
                 this.Notificar("Las contraseñas no coiciden", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            if (txtClave.Text.Length < 8)
+            if (txtClave.Text.Length < 8 || !(Validaciones.EsAlfanumerico(txtClave.Text)))
             {
                 esValido = false;
-                this.Notificar("La contraseña debe de ser de por lo menos 8 caracteres", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Notificar("La contraseña debe contener al menos 8 caracteres y poseer caracteres alfanuméricos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return esValido;

@@ -49,14 +49,13 @@ namespace Business.Logic
             return val;
         }
 
-        public static bool EsDomicilioValido(string direccion)
+        public static bool EsAlfanumerico(string password)
         {
             Boolean val = true;
-            String expresion;
-            expresion = @"[A-Za-z0-9'\.\-\s\,]";
-            if (Regex.IsMatch(direccion, expresion))
+            Regex r = new Regex("^[a-zA-Z0-9]*$");
+            if (r.IsMatch(password))
             {
-                if (Regex.Replace(direccion, expresion, String.Empty).Length == 0)
+                if (r.Replace(password, String.Empty).Length == 0)
                 {
                     val = true;
                 }

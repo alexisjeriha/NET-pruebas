@@ -169,12 +169,6 @@ namespace UI.Desktop.Forms.FormsPersonas
                 this.Notificar("Ingrese un formato válido de email", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            if (!(Validaciones.EsDomicilioValido(this.txtDireccion.Text)))
-            {
-                esValido = false;
-                this.Notificar("Ingrese un formato válido de domicilio", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
             return esValido;
         }
 
