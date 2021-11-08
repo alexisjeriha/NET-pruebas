@@ -78,7 +78,7 @@ namespace UI.Web
         {
             comision.DescComision = descripcionTextBox.Text;
             comision.AnioEspecialidad = Convert.ToInt32(anioEspecialidadTextBox.Text);
-            comision.Plan.Id = Convert.ToInt32(DropDownListPlanes.SelectedItem.Value);
+            comision.Plan.ID = Convert.ToInt32(DropDownListPlanes.SelectedItem.Value);
         }
 
         private void SaveEntity(Comision comision)
@@ -144,7 +144,7 @@ namespace UI.Web
                     break;
                 case FormModes.Modificacion:
                     Entity = new Comision();
-                    Entity.IdComision = SelectedID;
+                    Entity.ID = SelectedID;
                     Entity.State = BusinessEntity.States.Modified;
                     LoadEntity(Entity);
                     SaveEntity(Entity);

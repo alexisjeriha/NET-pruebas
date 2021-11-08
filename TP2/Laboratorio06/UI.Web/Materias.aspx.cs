@@ -81,7 +81,7 @@ namespace UI.Web
             materia.Descripcion = descripcionTextBox.Text;
             materia.HSSemanales = Convert.ToInt32(hssemanalesTextBox.Text);
             materia.HSTotales = Convert.ToInt32(hstotalesTextBox.Text);
-            materia.Plan.Id = Convert.ToInt32(DropDownListPlanes.SelectedItem.Value); //Checkear
+            materia.Plan.ID = Convert.ToInt32(DropDownListPlanes.SelectedItem.Value); //Checkear
         }
         
         private void SaveEntity(Materia materia)

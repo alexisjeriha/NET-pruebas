@@ -125,7 +125,7 @@ namespace UI.Web
             pers.FechaNacimiento = DateTime.Parse(fechaNacTextBox.Text);
             pers.Legajo = int.Parse(legajoTextBox.Text);
             pers.Tipo = tipoDropDownList.SelectedItem.Value;
-            pers.Plan.Id = Convert.ToInt32(iDPlanDropDownList.SelectedItem.Value); //Checkear
+            pers.Plan.ID = Convert.ToInt32(iDPlanDropDownList.SelectedItem.Value); //Checkear
         }
 
         private void SaveEntity(Persona pers)
@@ -189,7 +189,7 @@ namespace UI.Web
                     break;
                 case FormModes.Modificacion:
                     Entity = new Persona();
-                    Entity.IdPersona = SelectedID;
+                    Entity.ID = SelectedID;
                     Entity.State = BusinessEntity.States.Modified;
                     LoadEntity(Entity);
                     SaveEntity(Entity);

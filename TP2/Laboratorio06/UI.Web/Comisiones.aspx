@@ -8,12 +8,12 @@
             <div class="col">
                 <asp:Panel ID="gridPanel" runat="server">
 
-                    <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="false" DataKeyNames="IdComision" OnSelectedIndexChanged="gridView_SelectedIndexChanged" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White" CssClass="table table-striped">
+                    <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="false" DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White" CssClass="table table-striped">
                         <Columns>
-                            <asp:BoundField DataField="IdComision" HeaderText="ID" />
+                            <asp:BoundField DataField="ID" HeaderText="ID" />
                             <asp:BoundField DataField="DescComision" HeaderText="Descripción" />
                             <asp:BoundField DataField="AnioEspecialidad" HeaderText="Año Especialidad" />
-                            <asp:BoundField DataField="IdPlan" HeaderText="ID Plan" />
+                            <asp:BoundField DataField="ID" HeaderText="ID Plan" />
                             <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
                         </Columns>
                         <HeaderStyle BackColor="#CF7500" BorderColor="Black" Font-Bold="True" ForeColor="White" />

@@ -32,11 +32,11 @@ namespace Data.Database
                     mat.HSTotales = (int)drCursos["hs_totales"];
 
                     Plan pla = new Plan();
-                    pla.Id = (int)drCursos["id_plan"];
+                    pla.ID = (int)drCursos["id_plan"];
                     mat.Plan = pla;
 
                     Comision com = new Comision();
-                    com.IdComision = (int)drCursos["id_comision"];
+                    com.ID = (int)drCursos["id_comision"];
                     com.DescComision = (string)drCursos["desc_comision"];
                     com.AnioEspecialidad = (int)drCursos["anio_especialidad"];
                     com.Plan = pla;

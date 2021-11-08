@@ -29,7 +29,7 @@ namespace Data.Database
                     ins.Nota = (int)drInscripciones["nota"];
 
                     Persona per = new Persona();
-                    per.IdPersona = (int)drInscripciones["id_persona"];
+                    per.ID = (int)drInscripciones["id_persona"];
                     per.Nombre = (string)drInscripciones["nombre"];
                     per.Apellido = (string)drInscripciones["apellido"];
                     per.Email = (string)drInscripciones["email"];
@@ -95,7 +95,7 @@ namespace Data.Database
                     ins.Nota = (int)drInscripciones["nota"];
 
                     Persona per = new Persona();
-                    per.IdPersona = (int)drInscripciones["id_persona"];
+                    per.ID = (int)drInscripciones["id_persona"];
                     per.Nombre = (string)drInscripciones["nombre"];
                     per.Apellido = (string)drInscripciones["apellido"];
                     per.Email = (string)drInscripciones["email"];
@@ -164,7 +164,7 @@ namespace Data.Database
                     ins.Condicion = (string)drInscripciones["condicion"];
 
                     Persona per = new Persona();
-                    per.IdPersona = (int)drInscripciones["id_persona"];
+                    per.ID = (int)drInscripciones["id_persona"];
                     per.Nombre = (string)drInscripciones["nombre"];
                     per.Apellido = (string)drInscripciones["apellido"];
                     per.Email = (string)drInscripciones["email"];

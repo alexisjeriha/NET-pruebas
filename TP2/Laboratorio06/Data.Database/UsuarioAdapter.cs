@@ -68,7 +68,7 @@ namespace Data.Database
                     usr.Apellido = (string)drUsuarios["apellido"];
                     usr.EMail = (string)drUsuarios["email"];
                 }
-                drUsuarios.Close(); // ?
+                drUsuarios.Close();
             }
             catch (Exception)
             {

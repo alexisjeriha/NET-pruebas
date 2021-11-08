@@ -9,9 +9,9 @@
             <div class="col">
                 <asp:Panel ID="gridPanel" runat="server">
 
-                    <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="false" DataKeyNames="IdPersona" OnSelectedIndexChanged="gridView_SelectedIndexChanged" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White" CssClass="table table-striped">
+                    <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="false" DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White" CssClass="table table-striped">
                         <Columns>
-                            <asp:BoundField DataField="IdPersona" HeaderText="ID" />
+                            <asp:BoundField DataField="ID" HeaderText="ID" />
                             <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
                             <asp:BoundField DataField="Apellido" HeaderText="Apellido" />
                             <asp:BoundField DataField="Direccion" HeaderText="Direccion" />
