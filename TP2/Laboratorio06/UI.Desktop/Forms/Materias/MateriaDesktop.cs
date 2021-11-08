@@ -138,14 +138,13 @@ namespace UI.Desktop.Forms.FormsMaterias
         }
         public override bool Validar()
         {
-            Boolean EsValido = true;
-            if (cmbIDPlan.SelectedItem == null)
-                EsValido = false;
-            if (txtDesc.Text == String.Empty || txtHSSem.Text == String.Empty || txtHSTot.Text == String.Empty)
-                EsValido = false;
-            if (EsValido == false)
+            Boolean valido = true;
+            if (txtDesc.Text == String.Empty || txtHSSem.Text == string.Empty || txtHSTot.Text == string.Empty || cmbIDPlan.SelectedItem == null)
+            {
+                valido = false;
                 Notificar("Todos los campos son obligatorios", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return EsValido;
+            }
+            return valido;
         }
         private void btnAceptar_Click(object sender, EventArgs e)
         {

@@ -128,7 +128,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.txtDireccion.Location = new System.Drawing.Point(105, 99);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(199, 20);
-            this.txtDireccion.TabIndex = 6;
+            this.txtDireccion.TabIndex = 3;
             // 
             // label4
             // 
@@ -153,7 +153,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.txtTelefono.Location = new System.Drawing.Point(105, 147);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(199, 20);
-            this.txtTelefono.TabIndex = 11;
+            this.txtTelefono.TabIndex = 4;
             // 
             // label8
             // 
@@ -178,7 +178,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.txtNombre.Location = new System.Drawing.Point(424, 3);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(199, 20);
-            this.txtNombre.TabIndex = 3;
+            this.txtNombre.TabIndex = 6;
             // 
             // label3
             // 
@@ -203,7 +203,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.txtEmail.Location = new System.Drawing.Point(424, 51);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(199, 20);
-            this.txtEmail.TabIndex = 8;
+            this.txtEmail.TabIndex = 7;
             // 
             // label7
             // 
@@ -219,14 +219,14 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.txtLegajo.Location = new System.Drawing.Point(424, 99);
             this.txtLegajo.Name = "txtLegajo";
             this.txtLegajo.Size = new System.Drawing.Size(199, 20);
-            this.txtLegajo.TabIndex = 13;
+            this.txtLegajo.TabIndex = 8;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(322, 144);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(28, 13);
+            this.label9.Size = new System.Drawing.Size(39, 13);
             this.label9.TabIndex = 16;
             this.label9.Text = "IDPlan";
             // 
@@ -234,6 +234,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             // 
             this.cbIdPlan.FormattingEnabled = true;
             this.cbIdPlan.Location = new System.Drawing.Point(424, 147);
+            this.cbIdPlan.MaxDropDownItems = 9;
             this.cbIdPlan.Name = "cbIdPlan";
             this.cbIdPlan.Size = new System.Drawing.Size(199, 21);
             this.cbIdPlan.TabIndex = 17;
@@ -251,7 +252,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.txtApellido.Location = new System.Drawing.Point(105, 51);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(199, 20);
-            this.txtApellido.TabIndex = 4;
+            this.txtApellido.TabIndex = 1;
             // 
             // btnAceptar
             // 
@@ -282,7 +283,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.cbTipo.Location = new System.Drawing.Point(105, 195);
             this.cbTipo.Name = "cbTipo";
             this.cbTipo.Size = new System.Drawing.Size(199, 21);
-            this.cbTipo.TabIndex = 22;
+            this.cbTipo.TabIndex = 5;
             // 
             // PersonaDesktop
             // 
@@ -293,7 +294,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.ClientSize = new System.Drawing.Size(640, 290);
             this.Controls.Add(this.tlPersonaDesktop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.Margin = new System.Windows.Forms.Padding(3);
             this.Name = "PersonaDesktop";
             this.Text = "PersonaDesktop";
             this.tlPersonaDesktop.ResumeLayout(false);

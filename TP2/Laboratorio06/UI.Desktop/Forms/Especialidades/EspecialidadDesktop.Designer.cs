@@ -54,7 +54,7 @@ namespace UI.Desktop.Forms.Forms_Especialidades
             this.tlEspecialidadDesktop.Controls.Add(this.txtDescripcion, 3, 0);
             this.tlEspecialidadDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlEspecialidadDesktop.Location = new System.Drawing.Point(0, 0);
-            this.tlEspecialidadDesktop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tlEspecialidadDesktop.Margin = new System.Windows.Forms.Padding(2);
             this.tlEspecialidadDesktop.Name = "tlEspecialidadDesktop";
             this.tlEspecialidadDesktop.RowCount = 2;
             this.tlEspecialidadDesktop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -67,11 +67,11 @@ namespace UI.Desktop.Forms.Forms_Especialidades
             this.txtID.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtID.Location = new System.Drawing.Point(32, 63);
-            this.txtID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtID.Margin = new System.Windows.Forms.Padding(2);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(38, 26);
-            this.txtID.TabIndex = 0;
+            this.txtID.TabIndex = 5;
             // 
             // lblId
             // 
@@ -104,7 +104,7 @@ namespace UI.Desktop.Forms.Forms_Especialidades
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnAceptar.Location = new System.Drawing.Point(74, 155);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(92, 30);
             this.btnAceptar.TabIndex = 2;
@@ -120,7 +120,7 @@ namespace UI.Desktop.Forms.Forms_Especialidades
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnCancelar.Location = new System.Drawing.Point(372, 155);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(92, 30);
             this.btnCancelar.TabIndex = 3;
@@ -133,10 +133,10 @@ namespace UI.Desktop.Forms.Forms_Especialidades
             this.txtDescripcion.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcion.Location = new System.Drawing.Point(170, 63);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(294, 26);
-            this.txtDescripcion.TabIndex = 0;
+            this.txtDescripcion.TabIndex = 1;
             // 
             // EspecialidadDesktop
             // 
