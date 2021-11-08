@@ -11,51 +11,75 @@ namespace Data.Database
 {
     public class PersonaAdapter : Adapter
     {
-        public List<Persona> GetAll()
+        public List<Persona> GetAll(int tipo)
         {
             List<Persona> personas = new List<Persona>();
             try
             {
-                OpenConnection();
-                SqlCommand cmdPersonas = new SqlCommand("select * from personas per " +
-                    "INNER JOIN planes p on per.id_plan = p.id_plan", SqlConn);
+                this.OpenConnection();
+                SqlCommand cmdPersonas = new SqlCommand();
+                cmdPersonas.Connection = SqlConn;
+                if (tipo != 0)
+                {
+                    cmdPersonas.CommandText = "select * from personas pe INNER JOIN planes p on p.id_plan=pe.id_plan"
+                   + " INNER JOIN especialidades e on e.id_especialidad = p.id_especialidad WHERE tipo_persona=@tipo";
+                    cmdPersonas.Parameters.Add("@tipo", SqlDbType.Int).Value = tipo;
+                }
+                else
+                {
+                    cmdPersonas.CommandText = "select * from personas pe INNER JOIN planes p on p.id_plan=pe.id_plan"
+                   + " INNER JOIN especialidades e on e.id_especialidad = p.id_especialidad";
+                }
                 SqlDataReader drPersonas = cmdPersonas.ExecuteReader();
 
                 while (drPersonas.Read())
                 {
-                    Persona per = new Persona();
+                    Persona pers = new Persona();
+                    pers.IdPersona = (int)drPersonas["id_persona"];
+                    pers.Nombre = (string)drPersonas["nombre"];
+                    pers.Apellido = (string)drPersonas["apellido"];
+                    pers.Email = (string)drPersonas["email"];
+                    pers.Direccion = (string)drPersonas["direccion"];
+                    pers.Telefono = (string)drPersonas["telefono"];
+                    pers.FechaNacimiento = (DateTime)drPersonas["fecha_nac"];
+                    pers.Legajo = (int)drPersonas["legajo"];
+                    switch ((int)drPersonas["tipo_persona"])
+                    {
+                        case 1:
+                            pers.Tipo = "Alumno";
+                            break;
+                        case 2:
+                            pers.Tipo = "Docente";
+                            break;
+                    }
 
-                    per.IdPersona = (int)drPersonas["id_persona"];
-                    per.Nombre = (string)drPersonas["nombre"];
-                    per.Apellido = (string)drPersonas["apellido"];
-                    per.Email = (string)drPersonas["email"];
-                    per.Telefono = (string)drPersonas["telefono"];
-                    per.FechaNacimiento = (DateTime)drPersonas["fecha_nac"];
-                    per.Legajo = (int)drPersonas["legajo"];
-                    per.Tipo = (int)drPersonas["tipo_persona"];
-                    per.Direccion = (string)drPersonas["direccion"];
+                    Plan pla = new Plan();
+                    pla.Id = (int)drPersonas["id_plan"];
+                    pla.Descripcion = (string)drPersonas["desc_plan"];
 
-                    Plan plan = new Plan();
-                    plan.Id = (int)drPersonas["id_plan"];
-                    per.Plan = plan;
+                    Especialidad esp = new Especialidad();
+                    esp.ID = (int)drPersonas["id_especialidad"];
+                    esp.Descripcion = (string)drPersonas["desc_especialidad"];
 
-                    personas.Add(per);
+                    pla.Especialidad = esp;
+                    pers.Plan = pla;
+                    personas.Add(pers);
                 }
                 drPersonas.Close();
             }
             catch (Exception Ex)
             {
                 Exception ExcepcionManejada =
-                    new Exception("Error al recuperar lista de planes", Ex);
+                    new Exception("Error al recuperar lista de personas", Ex);
                 throw ExcepcionManejada;
             }
             finally
             {
-                CloseConnection();
+                this.CloseConnection();
             }
-
             return personas;
         }
+
 
         public Persona GetOne(int ID)
         {
@@ -78,9 +102,9 @@ namespace Data.Database
                     per.Telefono = (string)drPersonas["telefono"];
                     per.FechaNacimiento = (DateTime)drPersonas["fecha_nac"];
                     per.Legajo = (int)drPersonas["legajo"];
-                    per.Tipo = (int)drPersonas["tipo_persona"];
+                    per.Tipo = (string)drPersonas["tipo_persona"];
                     per.Direccion = (string)drPersonas["telefono"];
-                    per.Plan.Id = (int)drPersonas["id_plan"]; 
+                    per.Plan.Id = (int)drPersonas["id_plan"];
                 }
                 drPersonas.Close();
             }
@@ -239,3 +263,4 @@ namespace Data.Database
 
     }
 }
+

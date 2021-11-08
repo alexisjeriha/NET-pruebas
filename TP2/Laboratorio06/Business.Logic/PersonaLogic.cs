@@ -25,9 +25,17 @@ namespace Business.Logic
 
         public List<Persona> GetAll()
         {
-            return PersonaData.GetAll();
+            return PersonaData.GetAll(0);
+        }
+        public List<Persona> GetAlumnos()
+        {
+            return PersonaData.GetAll(1);
         }
 
+        public List<Persona> GetDocentes()
+        {
+            return PersonaData.GetAll(2);
+        }
         public Persona GetOne(int id)
         {
             return PersonaData.GetOne(id);

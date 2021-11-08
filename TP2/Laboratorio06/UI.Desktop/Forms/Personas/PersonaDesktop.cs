@@ -1,13 +1,6 @@
 ﻿using Business.Entities;
 using Business.Logic;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI.Desktop.Forms.FormsPersonas
@@ -62,7 +55,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             txtTelefono.Text = PersonaActual.Telefono;
             txtLegajo.Text = PersonaActual.Legajo.ToString();
             txtTipo.Text = PersonaActual.Tipo.ToString();
-            dtNac.Value = PersonaActual.FechaNacimiento;                      
+            dtNac.Value = PersonaActual.FechaNacimiento;
             cbIdPlan.SelectedValue = PersonaActual.Plan.Id;
 
             switch (Modo)
@@ -101,21 +94,21 @@ namespace UI.Desktop.Forms.FormsPersonas
 
             }
 
-            if (Modo == ModoForm.Alta || Modo == ModoForm.Modificacion) 
-            { 
-                if(Modo == ModoForm.Modificacion)
+            if (Modo == ModoForm.Alta || Modo == ModoForm.Modificacion)
+            {
+                if (Modo == ModoForm.Modificacion)
                 {
                     PersonaActual.IdPersona = int.Parse(txtID.Text);
                 }
-                
+
                 PersonaActual.Nombre = txtNombre.Text;
                 PersonaActual.Apellido = txtApellido.Text;
                 PersonaActual.Direccion = txtDireccion.Text;
                 PersonaActual.Email = txtEmail.Text;
                 PersonaActual.Legajo = int.Parse(txtLegajo.Text);
-                PersonaActual.Tipo = int.Parse(txtTipo.Text);
+                PersonaActual.Tipo = txtTipo.Text;
                 PersonaActual.FechaNacimiento = dtNac.Value;
-                
+
                 PersonaActual.Telefono = txtTelefono.Text;
                 PersonaActual.Plan.Id = Convert.ToInt32(cbIdPlan.SelectedValue);
             }
@@ -142,7 +135,7 @@ namespace UI.Desktop.Forms.FormsPersonas
         public override bool Validar()
         {
             bool esValido = true;
-            
+
             if (this.cbIdPlan.SelectedItem == null)
             {
                 esValido = false;

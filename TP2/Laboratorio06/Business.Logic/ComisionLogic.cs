@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Business.Logic
 {
-    public class ComisionLogic:BusinessLogic
+    public class ComisionLogic : BusinessLogic
     {
         private ComisionAdapter comisionData;
 

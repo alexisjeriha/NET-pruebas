@@ -2,11 +2,11 @@
 
 <asp:Content ID="ContentUsuarios" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
 
-    <div class="col">
-        <div class="row">
+    <div class="container">
+        <div class="row mx-auto">
             <h2>Usuarios</h2>
         </div>
-        <div class="row">
+        <div class="row mx-auto">
             <div class="col">
                 <asp:Panel ID="gridPanel" runat="server">
 

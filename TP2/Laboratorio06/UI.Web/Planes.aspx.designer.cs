@@ -69,16 +69,7 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqDescripcion;
 
         /// <summary>
-        /// especialidadLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label especialidadLabel;
-
-        /// <summary>
-        /// DropDownListEspecialidades control.
+        /// Control DropDownListEspecialidades.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.

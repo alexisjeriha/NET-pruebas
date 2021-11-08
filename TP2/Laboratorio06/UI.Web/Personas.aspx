@@ -9,31 +9,31 @@
 <body>
     <form id="form1" runat="server">
         <div>
- <asp:Panel ID="gridPanel" runat="server">
+            <asp:Panel ID="gridPanel" runat="server">
 
-                    <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="false" DataKeyNames="ID" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White" CssClass="table table-striped">
-                        <Columns>
-                            <asp:BoundField DataField="IdPersona" HeaderText="ID" />
-                            <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
-                            <asp:BoundField DataField="Apellido" HeaderText="Apellido" />
-                            <asp:BoundField DataField="Direccion" HeaderText="Direccion" />
-                            <asp:BoundField DataField="Email" HeaderText="Email" />
-                            <asp:BoundField DataField="Telefono" HeaderText="Telefono" />
-                            <asp:BoundField DataField="FechaNacimiento" HeaderText="Fecha de Nacimiento" />
-                            <asp:BoundField DataField="Legajo" HeaderText="Legajo" />
-                            <asp:BoundField DataField="Tipo" HeaderText="Tipo Persona" />
-                            <asp:BoundField DataField="IDPlan" HeaderText="ID Plan" />
-                            <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
-                        </Columns>
-                        <HeaderStyle BackColor="#CF7500" BorderColor="Black" Font-Bold="True" ForeColor="White" />
-                        <RowStyle BackColor="#F4F4F4" BorderColor="Black" />
-                        <SelectedRowStyle BackColor="#F0A500" ForeColor="White" />
-                    </asp:GridView>
-                </asp:Panel>
-            </div>
-            <div class="col">
-                <div class="row">
-                    <asp:Panel ID="formPanel" Visible="false" runat="server">
+                <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="false" DataKeyNames="ID" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White" CssClass="table table-striped">
+                    <Columns>
+                        <asp:BoundField DataField="IdPersona" HeaderText="ID" />
+                        <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                        <asp:BoundField DataField="Apellido" HeaderText="Apellido" />
+                        <asp:BoundField DataField="Direccion" HeaderText="Direccion" />
+                        <asp:BoundField DataField="Email" HeaderText="Email" />
+                        <asp:BoundField DataField="Telefono" HeaderText="Telefono" />
+                        <asp:BoundField DataField="FechaNacimiento" HeaderText="Fecha de Nacimiento" />
+                        <asp:BoundField DataField="Legajo" HeaderText="Legajo" />
+                        <asp:BoundField DataField="Tipo" HeaderText="Tipo Persona" />
+                        <asp:BoundField DataField="IDPlan" HeaderText="ID Plan" />
+                        <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
+                    </Columns>
+                    <HeaderStyle BackColor="#CF7500" BorderColor="Black" Font-Bold="True" ForeColor="White" />
+                    <RowStyle BackColor="#F4F4F4" BorderColor="Black" />
+                    <SelectedRowStyle BackColor="#F0A500" ForeColor="White" />
+                </asp:GridView>
+            </asp:Panel>
+        </div>
+        <div class="col">
+            <div class="row">
+                <asp:Panel ID="formPanel" Visible="false" runat="server">
                     <asp:Panel ID="Panel1" Visible="false" runat="server">
                         <div class="row">
                             <asp:Label ID="nombreLabel" runat="server" Text="Nombre: "></asp:Label>
@@ -75,8 +75,8 @@
                             <asp:RequiredFieldValidator ID="rqLegajo" runat="server" ControlToValidate="legajoTextBox" ErrorMessage="* El legajo no puede estar vacío" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                         </div>
                     </asp:Panel>
-            </asp:Panel>
-        </div>
+                </asp:Panel>
+            </div>
         </div>
         <asp:DropDownList ID="iDPlanDropDownList" runat="server">
         </asp:DropDownList>
