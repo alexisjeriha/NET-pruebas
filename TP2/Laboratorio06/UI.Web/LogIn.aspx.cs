@@ -2,7 +2,6 @@
 using Business.Logic;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Providers.Entities;
 using System.Web.UI;
@@ -19,14 +18,14 @@ namespace UI.Web
             usuario = new UsuarioLogic();
         }
 
-        protected void btnAceptar_Click(object sender, EventArgs e)
+        protected void BtnAceptar_Click(object sender, EventArgs e)
         {
             try
             {
                 Usuario usr = new Usuario();
                 usr = usuario.GetUsuarioYClave(tbUsuario.Text);
 
-                if (tbUsuario.Text == usr.NombreUsuario && tbPasswd.Text == usr.Clave) //tbUsuario.Text == usr.NombreUsuario && tbPass.Text == usr.Clave
+                if (tbUsuario.Text == usr.NombreUsuario && tbPasswd.Text == usr.Clave)
                 {
                     Session["NombreUsuario"] = usr.Nombre;
                     Response.Redirect("~/Default.aspx");
