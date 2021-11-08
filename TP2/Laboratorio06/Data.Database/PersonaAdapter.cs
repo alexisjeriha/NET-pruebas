@@ -105,6 +105,7 @@ namespace Data.Database
                     per.Tipo = (string)drPersonas["tipo_persona"];
                     per.Direccion = (string)drPersonas["telefono"];
                     per.Plan.Id = (int)drPersonas["id_plan"];
+
                 }
                 drPersonas.Close();
             }
