@@ -62,7 +62,7 @@ namespace UI.Desktop.Forms.FormsComisiones
             this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 3, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.75F));
@@ -77,7 +77,7 @@ namespace UI.Desktop.Forms.FormsComisiones
             // 
             this.txtIdComision.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtIdComision.Location = new System.Drawing.Point(169, 11);
-            this.txtIdComision.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIdComision.Margin = new System.Windows.Forms.Padding(4);
             this.txtIdComision.Name = "txtIdComision";
             this.txtIdComision.ReadOnly = true;
             this.txtIdComision.Size = new System.Drawing.Size(129, 22);
@@ -88,7 +88,7 @@ namespace UI.Desktop.Forms.FormsComisiones
             this.txtDescComision.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tableLayoutPanel1.SetColumnSpan(this.txtDescComision, 2);
             this.txtDescComision.Location = new System.Drawing.Point(169, 55);
-            this.txtDescComision.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescComision.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescComision.Name = "txtDescComision";
             this.txtDescComision.Size = new System.Drawing.Size(269, 22);
             this.txtDescComision.TabIndex = 1;
@@ -97,7 +97,7 @@ namespace UI.Desktop.Forms.FormsComisiones
             // 
             this.txtAnio.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtAnio.Location = new System.Drawing.Point(169, 99);
-            this.txtAnio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAnio.Margin = new System.Windows.Forms.Padding(4);
             this.txtAnio.Name = "txtAnio";
             this.txtAnio.Size = new System.Drawing.Size(129, 22);
             this.txtAnio.TabIndex = 2;
@@ -106,8 +106,8 @@ namespace UI.Desktop.Forms.FormsComisiones
             // 
             this.cbIdPlan.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbIdPlan.FormattingEnabled = true;
-            this.cbIdPlan.Location = new System.Drawing.Point(169, 142);
-            this.cbIdPlan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbIdPlan.Location = new System.Drawing.Point(169, 141);
+            this.cbIdPlan.Margin = new System.Windows.Forms.Padding(4);
             this.cbIdPlan.Name = "cbIdPlan";
             this.cbIdPlan.Size = new System.Drawing.Size(129, 24);
             this.cbIdPlan.TabIndex = 3;
@@ -162,7 +162,7 @@ namespace UI.Desktop.Forms.FormsComisiones
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAceptar.Location = new System.Drawing.Point(169, 180);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(130, 52);
             this.btnAceptar.TabIndex = 8;
@@ -177,7 +177,7 @@ namespace UI.Desktop.Forms.FormsComisiones
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Location = new System.Drawing.Point(307, 180);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(133, 52);
             this.btnCancelar.TabIndex = 9;
@@ -193,7 +193,7 @@ namespace UI.Desktop.Forms.FormsComisiones
             this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(444, 236);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ComisionDesktop";
             this.Text = "ComisionDesktop";
             this.Load += new System.EventHandler(this.ComisionDesktop_Load);

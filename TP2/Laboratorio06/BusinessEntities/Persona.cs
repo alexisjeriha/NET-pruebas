@@ -11,6 +11,7 @@ namespace Business.Entities
         }
 
         // Datos particulares de la persona
+
         //public int ID { get; set; }
         public String Nombre { get; set; }
         public String Apellido { get; set; }
@@ -19,7 +20,7 @@ namespace Business.Entities
         public String Telefono { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public int Legajo { get; set; }
-        public int Tipo { get; set; }
+        public string Tipo { get; set; }
 
         //Plan asociado a la persona
         public Plan Plan
@@ -31,6 +32,11 @@ namespace Business.Entities
         public int IDPlan
         {
             get { return Plan.ID; }
+        }
+
+        public string DescPlan
+        {
+            get { return Plan.Descripcion; }
         }
     }
 }

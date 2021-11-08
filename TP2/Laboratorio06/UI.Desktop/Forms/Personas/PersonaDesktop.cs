@@ -1,17 +1,15 @@
 ﻿using Business.Entities;
 using Business.Logic;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI.Desktop.Forms.FormsPersonas
 {
+    class ComboItem
+    {
+        public int IDTipo { get; set; }
+        public string Tipo { get; set; }
+    }
     public partial class PersonaDesktop : ApplicationForm
     {
         public PersonaDesktop()
@@ -42,9 +40,19 @@ namespace UI.Desktop.Forms.FormsPersonas
                 PlanLogic planNegocio = new PlanLogic();
                 cbIdPlan.DataSource = planNegocio.GetAll();
                 cbIdPlan.ValueMember = "ID";
+                cbIdPlan.DisplayMember = "Descripcion";
                 cbIdPlan.SelectedIndex = -1;
 
 
+
+                cbTipo.DataSource = new ComboItem[]
+                {
+                    new ComboItem{ IDTipo = 1, Tipo = "Alumno" },
+                    new ComboItem{ IDTipo = 2, Tipo = "Docente" },
+                };
+                cbTipo.ValueMember = "IDTipo";
+                cbTipo.DisplayMember = "Tipo";
+                cbTipo.SelectedIndex = -1;
             }
             catch (Exception ex)
             {
@@ -61,9 +69,10 @@ namespace UI.Desktop.Forms.FormsPersonas
             txtEmail.Text = PersonaActual.Email;
             txtTelefono.Text = PersonaActual.Telefono;
             txtLegajo.Text = PersonaActual.Legajo.ToString();
-            txtTipo.Text = PersonaActual.Tipo.ToString();
-            dtNac.Value = PersonaActual.FechaNacimiento;                      
+            cbTipo.SelectedValue = PersonaActual.Tipo;
+            dtNac.Value = PersonaActual.FechaNacimiento;
             cbIdPlan.SelectedValue = PersonaActual.Plan.ID;
+
 
             switch (Modo)
             {
@@ -101,21 +110,22 @@ namespace UI.Desktop.Forms.FormsPersonas
 
             }
 
-            if (Modo == ModoForm.Alta || Modo == ModoForm.Modificacion) 
-            { 
-                if(Modo == ModoForm.Modificacion)
+            if (Modo == ModoForm.Alta || Modo == ModoForm.Modificacion)
+            {
+                if (Modo == ModoForm.Modificacion)
                 {
                     PersonaActual.ID = int.Parse(txtID.Text);
                 }
-                
+
                 PersonaActual.Nombre = txtNombre.Text;
                 PersonaActual.Apellido = txtApellido.Text;
                 PersonaActual.Direccion = txtDireccion.Text;
                 PersonaActual.Email = txtEmail.Text;
                 PersonaActual.Legajo = int.Parse(txtLegajo.Text);
-                PersonaActual.Tipo = int.Parse(txtTipo.Text);
+
+                PersonaActual.Tipo = cbTipo.SelectedValue.ToString(); //Puede dar error, comprobar
                 PersonaActual.FechaNacimiento = dtNac.Value;
-                
+
                 PersonaActual.Telefono = txtTelefono.Text;
                 PersonaActual.Plan.ID = Convert.ToInt32(cbIdPlan.SelectedValue);
             }
@@ -142,8 +152,10 @@ namespace UI.Desktop.Forms.FormsPersonas
         public override bool Validar()
         {
             bool esValido = true;
-            
-            if (this.cbIdPlan.SelectedItem == null)
+
+            if (cbIdPlan.SelectedItem == null || txtNombre.Text == "" || txtApellido.Text == "" || txtDireccion.Text == "" ||
+                txtEmail.Text == "" || txtLegajo.Text == "" || cbTipo.SelectedItem == null || dtNac.Value == null || txtTelefono.Text == "")
+
             {
                 esValido = false;
                 this.Notificar("Todos los campos son obligatorios", MessageBoxButtons.OK, MessageBoxIcon.Error);

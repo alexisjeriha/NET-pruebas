@@ -9,7 +9,7 @@ using Business.Entities;
 
 namespace UI.Web
 {
-    public partial class Planes : Page
+    public partial class Comisiones : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,21 +19,20 @@ namespace UI.Web
             }
         }
 
-        PlanLogic _logic;
-        private PlanLogic Logic
+        ComisionLogic _logic;
+        private ComisionLogic Logic
         {
             get
             {
                 if (_logic == null)
                 {
-                    _logic = new PlanLogic();
+                    _logic = new ComisionLogic();
                 }
                 return _logic;
             }
         }
         private void LoadGrid()
         {
-            
             gridView.DataSource = Logic.GetAll();
             gridView.DataBind();
 
@@ -42,43 +41,49 @@ namespace UI.Web
         private void LoadForm(int id)
         {
             Entity = Logic.GetOne(id);
-            descripcionTextBox.Text = Entity.Descripcion;
+            descripcionTextBox.Text = Entity.DescComision;
+            anioEspecialidadTextBox.Text = Entity.AnioEspecialidad.ToString();
 
         }
 
-        private void DDLEspecialidadesLoad()
+        private void DDLPlanesLoad()
         {
-                EspecialidadLogic el = new EspecialidadLogic();
-                DropDownListEspecialidades.DataSource = el.GetAll();
-                DropDownListEspecialidades.DataTextField = "Descripcion";
-                DropDownListEspecialidades.DataValueField = "ID";
-                DropDownListEspecialidades.DataBind();
-                ListItem init = new ListItem();
-                init.Text = "--Seleccionar Especialidad--";
-                init.Value = "-1";
-                DropDownListEspecialidades.Items.Add(init);
-                DropDownListEspecialidades.SelectedValue = "-1";
+            PlanLogic el = new PlanLogic();
+            DropDownListPlanes.DataSource = el.GetAll();
+            DropDownListPlanes.DataTextField = "Descripcion";
+            DropDownListPlanes.DataValueField = "Id";
+            DropDownListPlanes.DataBind();
+            ListItem init = new ListItem();
+            init.Text = "--Seleccionar Plan--";
+            init.Value = "-1";
+            DropDownListPlanes.Items.Add(init);
+            DropDownListPlanes.SelectedValue = "-1";
         }
+
         private void EnableForm(bool enable)
         {
             descripcionTextBox.Enabled = enable;
-            DropDownListEspecialidades.Enabled = enable;
+            anioEspecialidadTextBox.Enabled = enable;
+            descripcionTextBox.Enabled = enable;
+            DropDownListPlanes.Enabled = enable;
         }
 
         private void ClearForm()
         {
             descripcionTextBox.Text = string.Empty;
-
+            anioEspecialidadTextBox.Text = string.Empty;
         }
 
-        private void LoadEntity(Plan plan)
+        private void LoadEntity(Comision comision)
         {
-            plan.Descripcion = descripcionTextBox.Text;
-            plan.Especialidad.ID = Convert.ToInt32(DropDownListEspecialidades.SelectedItem.Value); //Checkear
+            comision.DescComision = descripcionTextBox.Text;
+            comision.AnioEspecialidad = Convert.ToInt32(anioEspecialidadTextBox.Text);
+            comision.Plan.Id = Convert.ToInt32(DropDownListPlanes.SelectedItem.Value);
         }
-        private void SaveEntity(Plan plan)
+
+        private void SaveEntity(Comision comision)
         {
-            Logic.Save(plan);
+            Logic.Save(comision);
         }
 
         private void DeleteEntity(int id)
@@ -109,10 +114,10 @@ namespace UI.Web
         {
             if (IsEntitySelected)
             {
-                DDLEspecialidadesLoad();
+                DDLPlanesLoad();
                 formPanel.Visible = true;
-                gridConfirmPanel.Visible = true; // Agregado
-                gridActionsPanel.Visible = false;// Agregado
+                gridConfirmPanel.Visible = true; 
+                gridActionsPanel.Visible = false;
                 FormMode = FormModes.Modificacion;
                 LoadForm(SelectedID);
                 EnableForm(true);
@@ -126,7 +131,7 @@ namespace UI.Web
             {
 
                 case FormModes.Alta:
-                    Entity = new Plan();
+                    Entity = new Comision();
                     Entity.State = BusinessEntity.States.New;
                     LoadEntity(Entity);
                     SaveEntity(Entity);
@@ -138,8 +143,8 @@ namespace UI.Web
                     LoadGrid();
                     break;
                 case FormModes.Modificacion:
-                    Entity = new Plan();
-                    Entity.ID = SelectedID;
+                    Entity = new Comision();
+                    Entity.IdComision = SelectedID;
                     Entity.State = BusinessEntity.States.Modified;
                     LoadEntity(Entity);
                     SaveEntity(Entity);
@@ -149,8 +154,8 @@ namespace UI.Web
                     break;
             }
             formPanel.Visible = false;
-            gridConfirmPanel.Visible = false; 
-            gridActionsPanel.Visible = true; 
+            gridConfirmPanel.Visible = false; // Agregado
+            gridActionsPanel.Visible = true; // Agregado
 
         }
 
@@ -164,10 +169,10 @@ namespace UI.Web
 
         protected void nuevoLinkButton_Click(object sender, EventArgs e)
         {
-            DDLEspecialidadesLoad();
+            DDLPlanesLoad();
             formPanel.Visible = true;
-            gridConfirmPanel.Visible = true;
-            gridActionsPanel.Visible = false; 
+            gridConfirmPanel.Visible = true; // Agregado
+            gridActionsPanel.Visible = false; // Agregado
             FormMode = FormModes.Alta;
             ClearForm();
             EnableForm(true);
@@ -177,7 +182,7 @@ namespace UI.Web
 
         #region Properties
 
-        private Plan Entity
+        private Comision Entity
         {
             get;
             set;

@@ -15,7 +15,7 @@ namespace Data.Database
             List<Materia> materias = new List<Materia>();
             try
             {
-                this.OpenConnection();
+                OpenConnection();
                 SqlCommand cmdMaterias = new SqlCommand("select * from materias m INNER JOIN planes p on m.id_plan = p.id_plan "
                    + " INNER JOIN especialidades e on p.id_especialidad = e.id_especialidad", SqlConn);
                 SqlDataReader drMaterias = cmdMaterias.ExecuteReader();
@@ -50,7 +50,7 @@ namespace Data.Database
             }
             finally
             {
-                this.CloseConnection();
+                CloseConnection();
             }
             return materias;
         }

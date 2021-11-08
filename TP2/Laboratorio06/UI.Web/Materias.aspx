@@ -1,10 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Planes.aspx.cs" Inherits="UI.Web.Planes" %>
-<asp:Content ID="ContentPlanes" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
-    <div class="container" style="margin-top: 50px">
-        <div class="row row mx-auto">
-            <h2>Planes</h2>
+﻿<%@ Page Theme="Theme" Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Materias.aspx.cs" Inherits="UI.Web.Materias" %>
+
+<asp:Content ID="ContentMaterias" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
+
+<div class="col" style="margin-top: 50px">
+        <div class="row">
+            <h2>Materias</h2>
         </div>
-        <div class="row row mx-auto">
+        <div class="row">
             <div class="col">
                 <asp:Panel ID="gridPanel" runat="server">
 
@@ -12,7 +14,9 @@
                         <Columns>
                             <asp:BoundField DataField="ID" HeaderText="ID" />
                             <asp:BoundField DataField="Descripcion" HeaderText="Descripción" />
-                            <asp:BoundField DataField="IDespecialidad" HeaderText="Especialidad" />
+                            <asp:BoundField DataField="HSSemanales" HeaderText="Horas Semanales" />
+                            <asp:BoundField DataField="HSTotales" HeaderText="Horas Totales" />
+                            <asp:BoundField DataField="IDPlan" HeaderText="Plan" />
                             <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
                         </Columns>
                         <HeaderStyle BackColor="#CF7500" BorderColor="Black" Font-Bold="True" ForeColor="White" />
@@ -29,11 +33,23 @@
                             <asp:TextBox ID="descripcionTextBox" runat="server" Width="300px"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rqDescripcion" runat="server" ControlToValidate="descripcionTextBox" ErrorMessage="* La descripción no puede estar vacía" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                         </div>
+                            <div class="row">
+                            <asp:Label ID="hssemanalesLabel" runat="server" Text="Horas Semanales: "></asp:Label>
+                            <asp:TextBox ID="hssemanalesTextBox" runat="server" Width="300px"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rqHSSemanales" runat="server" ControlToValidate="hssemanalesTextBox" ErrorMessage="* La cantidad de horas a la semana no puede ser nula" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                        </div>
+                            <div class="row">
+                            <asp:Label ID="hstotalesLabel" runat="server" Text="Horas Totales: "></asp:Label>
+                            <asp:TextBox ID="hstotalesTextBox" runat="server" Width="300px"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rqHSTotales" runat="server" ControlToValidate="hstotalesTextBox" ErrorMessage="* La cantidad de horas totales no puede ser nula" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                        </div>
                         <div>
-                            <asp:DropDownList ID="DropDownListEspecialidades" runat="server" DataValueField="Id" DataTextField="Descripcion">
+                            <asp:Label ID="planLabel" runat="server" Text="Plan ID: "></asp:Label>
+                        </div>
+                        <div>
+                            <asp:DropDownList ID="DropDownListPlanes" runat="server" DataValueField="Id" DataTextField="Descripcion">
                             </asp:DropDownList>
-                            <br />
-                            <asp:RequiredFieldValidator InitialValue="-1" ID="rqEspecialidad"  runat="server" ControlToValidate="DropDownListEspecialidades" ErrorMessage="* Debe seleccionar una especialidad" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator InitialValue="-1" ID="rqPlan" runat="server" ControlToValidate="DropDownListPlanes" ErrorMessage="* Seleccione el Plan" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                         </div>
                     </asp:Panel>
                 </div>
