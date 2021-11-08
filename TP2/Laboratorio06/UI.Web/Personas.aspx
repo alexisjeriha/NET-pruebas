@@ -17,7 +17,7 @@
                             <asp:BoundField DataField="Direccion" HeaderText="Direccion" />
                             <asp:BoundField DataField="Email" HeaderText="Email" />
                             <asp:BoundField DataField="Telefono" HeaderText="Telefono" />
-                            <asp:BoundField DataField="FechaNacimiento" HeaderText="Fecha de nacimiento" />
+                            <asp:BoundField DataField='FechaNacimiento' HeaderText="Fecha de nacimiento" />
                             <asp:BoundField DataField="Legajo" HeaderText="Legajo" />
                             <asp:BoundField DataField="Tipo" HeaderText="Tipo Persona" />
                             <asp:BoundField DataField="IDPlan" HeaderText="ID Plan" />
@@ -65,7 +65,7 @@
                         <div class="row">
                             <asp:Label ID="fechaNacLabel" runat="server" Text="Fecha de Nacimiento: "></asp:Label>
                             <asp:TextBox ID="fechaNacTextBox" runat="server" Width="300px" TextMode="Date"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="rqFechaNac" runat="server" ControlToValidate="fechaNacTextBox" ErrorMessage="* la fecha no puede estar vacía" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="rqFechaNac" runat="server" ControlToValidate="fechaNacTextBox" ErrorMessage="* La fecha no puede estar vacía" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                         </div>
 
                         <div class="row">
@@ -74,43 +74,44 @@
                             <asp:RequiredFieldValidator ID="rqLegajo" runat="server" ControlToValidate="legajoTextBox" ErrorMessage="* El legajo no puede estar vacío" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                         </div>
 
+
                         <div class="row">
-                            <asp:Label ID="tipoLabel" runat="server" Text="Tipo: "></asp:Label>
-                            <asp:TextBox ID="tipoTextBox" runat="server" Width="300px"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="rqTipo" runat="server" ControlToValidate="tipoTextBox" ErrorMessage="* El legajo no puede estar vacío" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                            <asp:Label ID="TipoLabel" runat="server" Text="Tipo: "></asp:Label>
+                            <asp:DropDownList ID="tipoDropDownList" runat="server" DataValueField="Id" DataTextField="Descripcion">
+                            </asp:DropDownList>
+                            <asp:RequiredFieldValidator InitialValue="-1" ID="rqTipo" runat="server" ControlToValidate="TipoDropDownList" ErrorMessage="* Seleccione el tipo" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                         </div>
 
-                        <div>
+                        <div class="row">
                             <asp:Label ID="planLabel" runat="server" Text="ID Plan: "></asp:Label>
                         </div>
-                        <div>
-                            <asp:DropDownList ID="iDPlanDropDownList" runat="server" DataValueField="Id" DataTextField="Descripcion">
-                            </asp:DropDownList>
-                            <asp:RequiredFieldValidator InitialValue="-1" ID="rqEspecialidad" runat="server" ControlToValidate="iDPlanDropDownList" ErrorMessage="* Seleccione el plan" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                        </div>
-                    </asp:Panel>
+                        <asp:DropDownList ID="iDPlanDropDownList" runat="server" DataValueField="Id" DataTextField="Descripcion">
+                        </asp:DropDownList>
+                        <asp:RequiredFieldValidator InitialValue="-1" ID="rqEspecialidad" runat="server" ControlToValidate="iDPlanDropDownList" ErrorMessage="* Seleccione el plan" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                 </div>
+                </asp:Panel>
+            </div>
 
-                <br />
-                <div class="row">
-                </div>
-                <div class="row">
-                    <asp:Panel ID="gridActionsPanel" runat="server">
-                        <asp:Button ID="nuevoLinkButton" runat="server" Style="margin-right: 5px" OnClick="nuevoLinkButton_Click" Text="Nuevo" CssClass="btn-sm btn-success" />
-                        <asp:Button ID="editarLinkButton" runat="server" Style="margin-right: 5px" OnClick="editarLinkButton_Click" Text="Editar" CssClass="btn-sm btn-warning" />
-                        <asp:Button ID="eliminarLinkButton" runat="server" OnClick="eliminarLinkButton_Click" Text="Eliminar" CssClass="btn-sm btn-danger" />
-                    </asp:Panel>
-                    <asp:Panel ID="gridConfirmPanel" Visible="false" runat="server">
-                        <div>
-                            <asp:Button ID="aceptarLinkButton" runat="server" OnClick="aceptarLinkButton_Click" Style="margin-top: 10px" Text="Aceptar" CssClass="btn-sm btn-lg btn-primary" />
-                            <asp:Button ID="cancelarLinkButton" runat="server" OnClick="cancelarLinkButton_Click" Style="margin-top: 10px" CausesValidation="false" Text="Cancelar" CssClass="btn-sm btn-secondary btn-lg" />
+            <br />
+            <div class="row">
+            </div>
+            <div class="row">
+                <asp:Panel ID="gridActionsPanel" runat="server">
+                    <asp:Button ID="nuevoLinkButton" runat="server" Style="margin-right: 5px" OnClick="nuevoLinkButton_Click" Text="Nuevo" CssClass="btn-sm btn-success" />
+                    <asp:Button ID="editarLinkButton" runat="server" Style="margin-right: 5px" OnClick="editarLinkButton_Click" Text="Editar" CssClass="btn-sm btn-warning" />
+                    <asp:Button ID="eliminarLinkButton" runat="server" OnClick="eliminarLinkButton_Click" Text="Eliminar" CssClass="btn-sm btn-danger" />
+                </asp:Panel>
+                <asp:Panel ID="gridConfirmPanel" Visible="false" runat="server">
+                    <div>
+                        <asp:Button ID="aceptarLinkButton" runat="server" OnClick="aceptarLinkButton_Click" Style="margin-top: 10px" Text="Aceptar" CssClass="btn-sm btn-lg btn-primary" />
+                        <asp:Button ID="cancelarLinkButton" runat="server" OnClick="cancelarLinkButton_Click" Style="margin-top: 10px" CausesValidation="false" Text="Cancelar" CssClass="btn-sm btn-secondary btn-lg" />
 
-                        </div>
-                    </asp:Panel>
-                </div>
-
+                    </div>
+                </asp:Panel>
             </div>
 
         </div>
+
+    </div>
     </div>
 </asp:Content>

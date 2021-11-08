@@ -9,6 +9,12 @@ using System.Web.UI.WebControls;
 
 namespace UI.Web
 {
+    class DropItem
+    {
+        public int IDTipo { get; set; }
+        public string Tipo { get; set; }
+    }
+
     public partial class Personas : System.Web.UI.Page
     {
         PersonaLogic _logic;
@@ -41,9 +47,9 @@ namespace UI.Web
             direccionTextBox.Text = Entity.Direccion;
             emailTextBox.Text = Entity.Email;
             telefonoTextBox.Text = Entity.Telefono;
-            fechaNacTextBox.Text = Entity.FechaNacimiento.ToString();
+            fechaNacTextBox.Text = Entity.FechaNacimiento.ToString("yyyy-MM-dd");
             legajoTextBox.Text = Entity.Legajo.ToString();
-            tipoTextBox.Text = Entity.Tipo.ToString();
+            tipoDropDownList.SelectedValue = Entity.Tipo.ToString();
             iDPlanDropDownList.SelectedValue = Entity.Plan.Descripcion;
         }
         private void LoadGrid()
@@ -64,6 +70,23 @@ namespace UI.Web
             init.Value = "-1";
             iDPlanDropDownList.Items.Add(init);
             iDPlanDropDownList.SelectedValue = "-1";
+
+
+            tipoDropDownList.DataSource = new DropItem[]
+            {
+                  new DropItem{ IDTipo = 1, Tipo = "Alumno" },
+                  new DropItem{ IDTipo = 2, Tipo = "Docente" },
+            };
+
+            ListItem ini = new ListItem();
+
+            tipoDropDownList.DataTextField = "Tipo";
+            tipoDropDownList.DataValueField = "IDTipo";
+            ini.Text = "--Seleccionar Tipo--";
+            ini.Value = "-1";
+            tipoDropDownList.SelectedValue = "-1";
+
+
         }
 
 
@@ -76,7 +99,7 @@ namespace UI.Web
             telefonoTextBox.Enabled = enable;
             fechaNacTextBox.Enabled = enable;
             legajoTextBox.Enabled = enable;
-            tipoTextBox.Enabled = enable;
+            tipoDropDownList.Enabled = enable;
         }
 
         private void ClearForm()
@@ -88,7 +111,6 @@ namespace UI.Web
             telefonoTextBox.Text = string.Empty;
             fechaNacTextBox.Text = string.Empty;
             legajoTextBox.Text = string.Empty;
-            tipoTextBox.Text = string.Empty;
 
         }
 
@@ -101,7 +123,7 @@ namespace UI.Web
             pers.Telefono = telefonoTextBox.Text;
             pers.FechaNacimiento = DateTime.Parse(fechaNacTextBox.Text);
             pers.Legajo = int.Parse(legajoTextBox.Text);
-            pers.Tipo = int.Parse(tipoTextBox.Text);
+            pers.Tipo = int.Parse(tipoDropDownList.SelectedItem.Value);
             pers.Plan.Id = Convert.ToInt32(iDPlanDropDownList.SelectedItem.Value); //Checkear
         }
 

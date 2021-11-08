@@ -157,7 +157,8 @@ namespace UI.Desktop.Forms.FormsPersonas
         {
             bool esValido = true;
 
-            if (this.cbIdPlan.SelectedItem == null)
+            if (cbIdPlan.SelectedItem == null || txtNombre.Text == "" || txtApellido.Text == "" || txtDireccion.Text == "" ||
+                txtEmail.Text == "" || txtLegajo.Text == "" || cbTipo.SelectedItem == null || dtNac.Value == null || txtTelefono.Text == "")
             {
                 esValido = false;
                 this.Notificar("Todos los campos son obligatorios", MessageBoxButtons.OK, MessageBoxIcon.Error);

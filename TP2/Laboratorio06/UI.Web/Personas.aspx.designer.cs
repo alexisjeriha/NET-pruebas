@@ -231,22 +231,22 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqLegajo;
 
         /// <summary>
-        /// tipoLabel control.
+        /// TipoLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tipoLabel;
+        protected global::System.Web.UI.WebControls.Label TipoLabel;
 
         /// <summary>
-        /// tipoTextBox control.
+        /// tipoDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tipoTextBox;
+        protected global::System.Web.UI.WebControls.DropDownList tipoDropDownList;
 
         /// <summary>
         /// rqTipo control.
