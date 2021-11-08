@@ -38,10 +38,5 @@ namespace UI.Web
             }
 
         }
-
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
-            Response.Write("Usted es idiota");
-        }
     }
 }

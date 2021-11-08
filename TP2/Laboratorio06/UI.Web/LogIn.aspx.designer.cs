@@ -78,6 +78,7 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.Button BtnAceptar;
 
         /// <summary>
+        /// lblError control.
         /// Control LinkButton1.
         /// </summary>
         /// <remarks>

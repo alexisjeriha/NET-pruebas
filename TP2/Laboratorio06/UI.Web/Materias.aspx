@@ -2,11 +2,11 @@
 
 <asp:Content ID="ContentMaterias" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
 
-<div class="col" style="margin-top: 50px">
-        <div class="row">
+<div class="container" style="margin-top: 50px">
+        <div class="row mx-auto">
             <h2>Materias</h2>
         </div>
-        <div class="row">
+        <div class="row mx-auto">
             <div class="col">
                 <asp:Panel ID="gridPanel" runat="server">
 

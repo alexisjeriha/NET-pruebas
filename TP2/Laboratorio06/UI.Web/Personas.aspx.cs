@@ -9,12 +9,6 @@ using System.Web.UI.WebControls;
 
 namespace UI.Web
 {
-    class DropItem
-    {
-        public string IDTipo { get; set; }
-        public string Tipo { get; set; }
-    }
-
     public partial class Personas : System.Web.UI.Page
     {
         PersonaLogic _logic;
@@ -37,6 +31,11 @@ namespace UI.Web
             {
                 LoadGrid();
             }
+        }
+        class DropItem
+        {
+            public int IDTipo { get; set; }
+            public string Tipo { get; set; }
         }
 
         private void LoadForm(int id)
@@ -77,11 +76,10 @@ namespace UI.Web
             iDPlanDropDownList.Items.Add(init);
             iDPlanDropDownList.SelectedValue = "-1";
 
-
             tipoDropDownList.DataSource = new DropItem[]
             {
-                  new DropItem{ IDTipo = "Alumno", Tipo = "Alumno" },
-                  new DropItem{ IDTipo = "Docente", Tipo = "Docente" },
+                  new DropItem{ IDTipo = 1, Tipo = "Alumno" },
+                  new DropItem{ IDTipo = 2, Tipo = "Docente" },
             };
 
             ListItem ini = new ListItem();
