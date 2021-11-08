@@ -18,7 +18,7 @@ namespace Data.Database
             {
                 OpenConnection();
                 SqlCommand cmdInscripciones = new SqlCommand("select * from alumnos_inscripciones a INNER JOIN personas p on a.id_alumno=p.id_persona "
-                    + "INNER JOIN cursos c on c.id_curso=a.id_curso INNER JOIN planes pl on pl.id_plan=p.id_plan where tipo_persona=1", SqlConn);
+                    + "INNER JOIN cursos c on c.id_curso=a.id_curso INNER JOIN planes pl on pl.id_plan=p.id_plan where p.tipo_persona=1", SqlConn);
                 SqlDataReader drInscripciones = cmdInscripciones.ExecuteReader();
 
                 while (drInscripciones.Read())
@@ -54,6 +54,7 @@ namespace Data.Database
                     cur.ID = (int)drInscripciones["id_curso"];
                     cur.AnioCalendario = (int)drInscripciones["anio_calendario"];
 
+
                     ins.Alumno = per;
                     ins.Curso = cur;
 
@@ -73,7 +74,87 @@ namespace Data.Database
             }
             return inscripciones;
         }
+        /*public List<AlumnoInscripcion> GetRegulares(string condicion)
+        {
+            List<AlumnoInscripcion> inscripciones = new List<AlumnoInscripcion>();
+            try
+            {
+                OpenConnection();
+                SqlCommand cmdInscripciones = new SqlCommand("select * from alumnos_inscripciones a INNER JOIN personas p on a.id_alumno=p.id_persona "
+                    + "INNER JOIN cursos c on c.id_curso=a.id_curso INNER JOIN planes pl on pl.id_plan=p.id_plan where p.tipo_persona=1", SqlConn);
+                SqlDataReader drInscripciones = cmdInscripciones.ExecuteReader();
 
+                while (drInscripciones.Read())
+                {
+                    AlumnoInscripcion ins = new AlumnoInscripcion();
+                    ins.ID = (int)drInscripciones["id_inscripcion"];
+                    ins.Condicion = (string)drInscripciones["condicion"];
+                    switch ((string)drInscripciones["condicion"])
+                    {
+                        case 1:
+                            ins.Condicion = "Regular";
+                            break;
+                        case 2:
+                            ins.Condicion = "Aprobado";
+                            break;
+                        case 3:
+                            ins.Condicion = "Libre";
+                            break;
+                    }
+                    ins.Nota = (int)drInscripciones["nota"];
+
+                    Persona per = new Persona();
+                    per.ID = (int)drInscripciones["id_persona"];
+                    per.Nombre = (string)drInscripciones["nombre"];
+                    per.Apellido = (string)drInscripciones["apellido"];
+                    per.Email = (string)drInscripciones["email"];
+                    per.Direccion = (string)drInscripciones["direccion"];
+                    per.Telefono = (string)drInscripciones["telefono"];
+                    per.FechaNacimiento = (DateTime)drInscripciones["fecha_nac"];
+                    per.Legajo = (int)drInscripciones["legajo"];
+                    switch ((int)drInscripciones["tipo_persona"])
+                    {
+                        case 1:
+                            per.Tipo = "Alumno";
+                            break;
+                        case 2:
+                            per.Tipo = "Docente";
+                            break;
+                    }
+                    Plan pla = new Plan();
+                    pla.ID = (int)drInscripciones["id_plan"];
+                    per.Plan = pla;
+
+                    Curso cur = new Curso();
+                    cur.ID = (int)drInscripciones["id_curso"];
+                    cur.AnioCalendario = (int)drInscripciones["anio_calendario"];
+
+
+                    ins.Alumno = per;
+                    ins.Curso = cur;
+
+                    inscripciones.Add(ins);
+                }
+                drInscripciones.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al recuperar datos de las inscripciones de alumnos", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+            return inscripciones;
+        }*/
+        public List<AlumnoInscripcion> GetRegulares()
+        {
+            List<AlumnoInscripcion> inscriptos = GetAll();
+            List<AlumnoInscripcion> regulares = inscriptos.FindAll(i => i.Condicion == "Regular");
+            return regulares;
+        }
         public List<AlumnoInscripcion> GetAll(int IDAlumno)
         {
             List<AlumnoInscripcion> inscripciones = new List<AlumnoInscripcion>();

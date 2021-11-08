@@ -5,18 +5,18 @@ using System.Windows.Forms;
 
 namespace UI.Desktop.Forms.FormsPersonas
 {
-    class ComboItem
-    {
-        public int IDTipo { get; set; }
-        public string Tipo { get; set; }
-    }
+
     public partial class PersonaDesktop : ApplicationForm
     {
         public PersonaDesktop()
         {
             InitializeComponent();
         }
-
+    class ComboItem
+    {
+        public int IDTipo { get; set; }
+        public string Tipo { get; set; }
+    }
         public Persona PersonaActual { get; set; }
 
         public PersonaDesktop(ModoForm modo) : this()

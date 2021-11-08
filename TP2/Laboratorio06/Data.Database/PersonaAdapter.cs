@@ -152,7 +152,25 @@ namespace Data.Database
                 cmdExistePersona.Parameters.Add("@tel", SqlDbType.VarChar, 50).Value = per.Telefono;
                 cmdExistePersona.Parameters.Add("@fecnac", SqlDbType.DateTime).Value = per.FechaNacimiento;
                 cmdExistePersona.Parameters.Add("@leg", SqlDbType.Int).Value = per.Legajo;
-                cmdExistePersona.Parameters.Add("@tipo", SqlDbType.Int).Value = per.Tipo;
+                switch (per.Tipo)
+                {
+                    case "Alumno":
+                        cmdExistePersona.Parameters.Add("@tipo", SqlDbType.Int).Value = 1;
+                        break;
+                    case "Docente":
+                        cmdExistePersona.Parameters.Add("@tipo", SqlDbType.Int).Value = 2;
+                        break;
+                }
+                /*switch ((int)drPersonas["tipo_persona"])
+                {
+                    case 1:
+                        per.Tipo = "Alumno";
+                        break;
+                    case 2:
+                        per.Tipo = "Docente";
+                        break;
+                }
+                cmdExistePersona.Parameters.Add("@tipo", SqlDbType.Int).Value = per.Tipo;*/
                 cmdExistePersona.Parameters.Add("@idplan", SqlDbType.Int).Value = per.Plan.ID;
                 existePersona = Convert.ToBoolean(cmdExistePersona.ExecuteScalar());
             }
@@ -205,7 +223,15 @@ namespace Data.Database
                 cmdUpdate.Parameters.Add("@tel", SqlDbType.VarChar, 50).Value = per.Telefono;
                 cmdUpdate.Parameters.Add("@fecnac", SqlDbType.DateTime).Value = per.FechaNacimiento;
                 cmdUpdate.Parameters.Add("@leg", SqlDbType.Int).Value = per.Legajo;
-                cmdUpdate.Parameters.Add("@tipo", SqlDbType.Int).Value = per.Tipo;
+                switch (per.Tipo)
+                {
+                    case "Alumno":
+                        cmdUpdate.Parameters.Add("@tipo", SqlDbType.Int).Value = 1;
+                        break;
+                    case "Docente":
+                        cmdUpdate.Parameters.Add("@tipo", SqlDbType.Int).Value = 2;
+                        break;
+                }
                 cmdUpdate.Parameters.Add("@idplan", SqlDbType.Int).Value = per.Plan.ID;
                 cmdUpdate.ExecuteNonQuery();
             }
@@ -238,8 +264,16 @@ namespace Data.Database
                 cmdInsert.Parameters.Add("@tel", SqlDbType.VarChar, 50).Value = per.Telefono;
                 cmdInsert.Parameters.Add("@fecnac", SqlDbType.DateTime).Value = per.FechaNacimiento;
                 cmdInsert.Parameters.Add("@leg", SqlDbType.Int).Value = per.Legajo;
-                cmdInsert.Parameters.Add("@tipo", SqlDbType.Int).Value = per.Tipo;
-                cmdInsert.Parameters.Add("@idplan", SqlDbType.Int).Value = per.Plan.ID;
+                switch (per.Tipo)
+                {
+                    case "Alumno":
+                        cmdInsert.Parameters.Add("@tipo", SqlDbType.Int).Value = 1;
+                        break;
+                    case "Docente":
+                        cmdInsert.Parameters.Add("@tipo", SqlDbType.Int).Value = 2;
+                        break;
+                }
+                cmdInsert.Parameters.Add("@idplan", SqlDbType.Int).Value = per.IDPlan;
                 per.ID = Decimal.ToInt32((decimal)cmdInsert.ExecuteScalar());
 
             }
