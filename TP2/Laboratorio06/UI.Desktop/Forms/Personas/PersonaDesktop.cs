@@ -62,7 +62,7 @@ namespace UI.Desktop.Forms.FormsPersonas
 
         public override void MapearDeDatos()
         {
-            txtID.Text = PersonaActual.IdPersona.ToString();
+            txtID.Text = PersonaActual.ID.ToString();
             txtNombre.Text = PersonaActual.Nombre;
             txtApellido.Text = PersonaActual.Apellido;
             txtDireccion.Text = PersonaActual.Direccion;
@@ -71,7 +71,8 @@ namespace UI.Desktop.Forms.FormsPersonas
             txtLegajo.Text = PersonaActual.Legajo.ToString();
             cbTipo.SelectedValue = PersonaActual.Tipo;
             dtNac.Value = PersonaActual.FechaNacimiento;
-            cbIdPlan.SelectedValue = PersonaActual.Plan.Id;
+            cbIdPlan.SelectedValue = PersonaActual.Plan.ID;
+
 
             switch (Modo)
             {
@@ -113,7 +114,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             {
                 if (Modo == ModoForm.Modificacion)
                 {
-                    PersonaActual.IdPersona = int.Parse(txtID.Text);
+                    PersonaActual.ID = int.Parse(txtID.Text);
                 }
 
                 PersonaActual.Nombre = txtNombre.Text;
@@ -126,7 +127,7 @@ namespace UI.Desktop.Forms.FormsPersonas
                 PersonaActual.FechaNacimiento = dtNac.Value;
 
                 PersonaActual.Telefono = txtTelefono.Text;
-                PersonaActual.Plan.Id = Convert.ToInt32(cbIdPlan.SelectedValue);
+                PersonaActual.Plan.ID = Convert.ToInt32(cbIdPlan.SelectedValue);
             }
         }
 

@@ -21,16 +21,16 @@ namespace Data.Database
                 while (drComisiones.Read())
                 {
                     Comision com = new Comision();
-                    com.IdComision = (int)drComisiones["id_comision"];
+                    com.ID = (int)drComisiones["id_comision"];
                     com.DescComision = (string)drComisiones["desc_comision"];
                     com.AnioEspecialidad = (int)drComisiones["anio_especialidad"];
 
                     Plan pla = new Plan();
-                    pla.Id = (int)drComisiones["id_plan"];
+                    pla.ID = (int)drComisiones["id_plan"];
                     pla.Descripcion = (string)drComisiones["desc_plan"];
 
                     Especialidad esp = new Especialidad();
-                    esp.Id = (int)drComisiones["id_especialidad"];
+                    esp.ID = (int)drComisiones["id_especialidad"];
                     esp.Descripcion = (string)drComisiones["desc_especialidad"];
 
                     pla.Especialidad = esp;
@@ -64,16 +64,16 @@ namespace Data.Database
                 SqlDataReader drComision = cmdComision.ExecuteReader();
                 if (drComision.Read())
                 {
-                    com.IdComision = (int)drComision["id_comision"];
+                    com.ID = (int)drComision["id_comision"];
                     com.DescComision = (string)drComision["desc_comision"];
                     com.AnioEspecialidad = (int)drComision["anio_especialidad"];
 
                     Plan pla = new Plan();
-                    pla.Id = (int)drComision["id_plan"];
+                    pla.ID = (int)drComision["id_plan"];
                     pla.Descripcion = (string)drComision["desc_plan"];
 
                     Especialidad esp = new Especialidad();
-                    esp.Id = (int)drComision["id_especialidad"];
+                    esp.ID = (int)drComision["id_especialidad"];
                     esp.Descripcion = (string)drComision["desc_especialidad"];
 
                     pla.Especialidad = esp;
@@ -150,11 +150,11 @@ namespace Data.Database
                     "UPDATE comisiones SET desc_comision=@desc, anio_especialidad=@anio, id_plan=@idplan " +
                     "WHERE id_comision=@id", SqlConn);
 
-                cmdUpdate.Parameters.Add("@id", SqlDbType.Int).Value = com.IdComision;
+                cmdUpdate.Parameters.Add("@id", SqlDbType.Int).Value = com.ID;
                 cmdUpdate.Parameters.Add("@desc", SqlDbType.VarChar, 50).Value = com.DescComision;
                 cmdUpdate.Parameters.Add("@anio", SqlDbType.Int).Value = com.AnioEspecialidad;
-                cmdUpdate.Parameters.Add("@idplan", SqlDbType.Int).Value = com.Plan.Id;
-                //cmdUpdate.Parameters.Add("@planid", SqlDbType.Int).Value = com.Plan.Id;
+                cmdUpdate.Parameters.Add("@idplan", SqlDbType.Int).Value = com.Plan.ID;
+                //cmdUpdate.Parameters.Add("@planid", SqlDbType.Int).Value = com.Plan.ID;
                 cmdUpdate.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -181,8 +181,8 @@ namespace Data.Database
 
                 cmdInsert.Parameters.Add("@desc", SqlDbType.VarChar, 50).Value = com.DescComision;
                 cmdInsert.Parameters.Add("@anio", SqlDbType.Int).Value = com.AnioEspecialidad;
-                cmdInsert.Parameters.Add("@idplan", SqlDbType.Int).Value = com.Plan.Id;
-                com.IdComision = Decimal.ToInt32((decimal)cmdInsert.ExecuteScalar());
+                cmdInsert.Parameters.Add("@idplan", SqlDbType.Int).Value = com.Plan.ID;
+                com.ID = Decimal.ToInt32((decimal)cmdInsert.ExecuteScalar());
             }
             catch (Exception Ex)
             {
@@ -200,7 +200,7 @@ namespace Data.Database
         {
             if (com.State == BusinessEntity.States.Deleted)
             {
-                Delete(com.IdComision);
+                Delete(com.ID);
             }
             else if (com.State == BusinessEntity.States.New)
             {
@@ -228,7 +228,7 @@ namespace Data.Database
                 while (drComisiones.Read())
                 {
                     Comision com = new Comision();
-                    com.IdComision = (int)drComisiones["id_comision"];
+                    com.ID = (int)drComisiones["id_comision"];
                     com.DescComision = (string)drComisiones["desc_comision"];
                     com.AnioEspecialidad = (int)drComisiones["anio_especialidad"];
 

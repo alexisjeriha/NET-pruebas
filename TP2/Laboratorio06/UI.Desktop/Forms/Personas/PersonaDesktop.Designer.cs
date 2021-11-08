@@ -228,7 +228,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(28, 13);
             this.label9.TabIndex = 16;
-            this.label9.Text = "Plan";
+            this.label9.Text = "IDPlan";
             // 
             // cbIdPlan
             // 

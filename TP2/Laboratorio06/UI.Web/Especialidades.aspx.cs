@@ -122,7 +122,7 @@ namespace UI.Web
                     break;
                 case FormModes.Modificacion:
                     Entity = new Especialidad();
-                    Entity.Id = SelectedID;
+                    Entity.ID = SelectedID;
                     Entity.State = BusinessEntity.States.Modified;
                     LoadEntity(Entity);
                     SaveEntity(Entity);

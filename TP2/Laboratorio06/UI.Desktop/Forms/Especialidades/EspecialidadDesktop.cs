@@ -35,7 +35,7 @@ namespace UI.Desktop.Forms.Forms_Especialidades
         }
         public override void MapearDeDatos()
         {
-            txtID.Text = EspecialidadActual.Id.ToString();
+            txtID.Text = EspecialidadActual.ID.ToString();
             txtDescripcion.Text = EspecialidadActual.Descripcion;
 
             switch (Modo)

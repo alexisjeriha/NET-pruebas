@@ -22,12 +22,12 @@ namespace Data.Database
                 while (drPlanes.Read())
                 {
                     Plan pla = new Plan();
-                    pla.Id = (int)drPlanes["id_plan"];
+                    pla.ID = (int)drPlanes["id_plan"];
                     pla.Descripcion = (string)drPlanes["desc_plan"];
 
                     Especialidad esp = new Especialidad();
-                    esp.Id = (int)drPlanes["id_especialidad"];
-                    //esp.Descripcion = (string)drPlanes["desc_especialidad"];
+                    esp.ID = (int)drPlanes["id_especialidad"];
+                    esp.Descripcion = (string)drPlanes["desc_especialidad"];
                     pla.Especialidad = esp;
                     planes.Add(pla);
 
@@ -58,9 +58,9 @@ namespace Data.Database
                 SqlDataReader drPlanes = cmdPlanes.ExecuteReader();
                 if (drPlanes.Read())
                 {
-                    plan.Id = (int)drPlanes["id_plan"];
+                    plan.ID = (int)drPlanes["id_plan"];
                     plan.Descripcion = (string)drPlanes["desc_plan"];
-                    plan.Especialidad.Id = (int)drPlanes["id_especialidad"];
+                    plan.Especialidad.ID = (int)drPlanes["id_especialidad"];
                 }
                 drPlanes.Close();
             }
@@ -128,9 +128,9 @@ namespace Data.Database
             {
                 OpenConnection();
                 SqlCommand cmdUpdate = new SqlCommand("UPDATE planes SET desc_plan=@desc, id_especialidad=@idEsp WHERE id_plan=@id", SqlConn);
-                cmdUpdate.Parameters.Add("@id", SqlDbType.Int).Value = plan.Id;
+                cmdUpdate.Parameters.Add("@id", SqlDbType.Int).Value = plan.ID;
                 cmdUpdate.Parameters.Add("@desc", SqlDbType.VarChar, 50).Value = plan.Descripcion;
-                cmdUpdate.Parameters.Add("@idEsp", SqlDbType.Int).Value = plan.Especialidad.Id;
+                cmdUpdate.Parameters.Add("@idEsp", SqlDbType.Int).Value = plan.Especialidad.ID;
                 cmdUpdate.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -155,8 +155,8 @@ namespace Data.Database
                 "values(@desc, @idEsp) " +
                 "select @@identity", SqlConn);
                 cmdInsert.Parameters.Add("@desc", SqlDbType.VarChar, 50).Value = plan.Descripcion;
-                cmdInsert.Parameters.Add("@idEsp", SqlDbType.Int).Value = plan.Especialidad.Id;
-                plan.Id = Decimal.ToInt32((decimal)cmdInsert.ExecuteScalar());
+                cmdInsert.Parameters.Add("@idEsp", SqlDbType.Int).Value = plan.Especialidad.ID;
+                plan.ID = Decimal.ToInt32((decimal)cmdInsert.ExecuteScalar());
             }
             catch (Exception Ex)
             {
@@ -173,7 +173,7 @@ namespace Data.Database
         {
             if (plan.State == BusinessEntity.States.Deleted)
             {
-                Delete(plan.Id);
+                Delete(plan.ID);
             }
             else if (plan.State == BusinessEntity.States.New)
             {

@@ -51,7 +51,7 @@ namespace UI.Desktop.Forms.Forms_Especialdades
         {
             try
             {
-                int ID = ((Especialidad)dgvEspecialidades.SelectedRows[0].DataBoundItem).Id;
+                int ID = ((Especialidad)dgvEspecialidades.SelectedRows[0].DataBoundItem).ID;
                 EspecialidadDesktop formEsp = new EspecialidadDesktop(ID, ApplicationForm.ModoForm.Baja);
                 formEsp.ShowDialog();
                 
@@ -65,7 +65,7 @@ namespace UI.Desktop.Forms.Forms_Especialdades
         private void tsbEditar_Click(object sender, EventArgs e)
         {
 
-            int ID = ((Especialidad)dgvEspecialidades.SelectedRows[0].DataBoundItem).Id;
+            int ID = ((Especialidad)dgvEspecialidades.SelectedRows[0].DataBoundItem).ID;
             EspecialidadDesktop formEsp = new EspecialidadDesktop(ID, ApplicationForm.ModoForm.Modificacion);
             formEsp.ShowDialog();
             Listar();

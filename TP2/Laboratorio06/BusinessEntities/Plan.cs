@@ -9,7 +9,7 @@
         }
 
         // Datos asociados al plan
-        public int Id { get; set; }
+        //public int ID { get; set; }
         public string Descripcion { get; set; }
 
         // Especialidad asociada al plan
@@ -20,7 +20,11 @@
         }
         public int IDespecialidad
         {
-            get { return Especialidad.Id; }
+            get { return Especialidad.ID; }
+        }
+        public string DescEspecialidad
+        {
+            get { return Especialidad.Descripcion; }
         }
     }
 }

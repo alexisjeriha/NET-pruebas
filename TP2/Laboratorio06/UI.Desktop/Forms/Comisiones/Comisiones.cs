@@ -53,7 +53,7 @@ namespace UI.Desktop.Forms.FormsComisiones
             
             if (dgvComisiones.SelectedRows != null)
             {
-                int ID = ((Comision)dgvComisiones.SelectedRows[0].DataBoundItem).IdComision;
+                int ID = ((Comision)dgvComisiones.SelectedRows[0].DataBoundItem).ID;
                 ComisionDesktop formComision = new ComisionDesktop(ID, ApplicationForm.ModoForm.Modificacion);
                 formComision.ShowDialog();
                 Listar();
@@ -69,7 +69,7 @@ namespace UI.Desktop.Forms.FormsComisiones
             {
                 try
                 {
-                    int ID = ((Comision)dgvComisiones.SelectedRows[0].DataBoundItem).IdComision;
+                    int ID = ((Comision)dgvComisiones.SelectedRows[0].DataBoundItem).ID;
                     ComisionDesktop formComision = new ComisionDesktop(ID, ApplicationForm.ModoForm.Baja);
                     formComision.ShowDialog();
                     Listar();

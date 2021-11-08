@@ -67,10 +67,10 @@ namespace UI.Desktop.Forms.FormsComisiones
         }
         public override void MapearDeDatos()
         {
-            txtIdComision.Text = ComisionActual.IdComision.ToString();
+            txtIdComision.Text = ComisionActual.ID.ToString();
             txtDescComision.Text = ComisionActual.DescComision;
             txtAnio.Text = ComisionActual.AnioEspecialidad.ToString();
-            cbIdPlan.SelectedValue = ComisionActual.Plan.Id;
+            cbIdPlan.SelectedValue = ComisionActual.Plan.ID;
 
             switch (Modo)
             {
@@ -110,11 +110,11 @@ namespace UI.Desktop.Forms.FormsComisiones
             {
                 if (Modo == ModoForm.Modificacion)
                 {
-                    ComisionActual.IdComision = int.Parse(txtIdComision.Text);
+                    ComisionActual.ID = int.Parse(txtIdComision.Text);
                 }
                 ComisionActual.DescComision = txtDescComision.Text;
                 ComisionActual.AnioEspecialidad = int.Parse(txtAnio.Text);
-                ComisionActual.Plan.Id = Convert.ToInt32(cbIdPlan.SelectedValue);
+                ComisionActual.Plan.ID = Convert.ToInt32(cbIdPlan.SelectedValue);
             }
         }
         public override void GuardarCambios()
@@ -123,7 +123,7 @@ namespace UI.Desktop.Forms.FormsComisiones
             {
                 MapearADatos();
                 ComisionLogic comisionLogic = new ComisionLogic();
-                if (Modo != ModoForm.Alta || !comisionLogic.Existe(ComisionActual.IdComision, ComisionActual.DescComision, ComisionActual.AnioEspecialidad))
+                if (Modo != ModoForm.Alta || !comisionLogic.Existe(ComisionActual.ID, ComisionActual.DescComision, ComisionActual.AnioEspecialidad))
                 {
                     comisionLogic.Save(ComisionActual);
                 }

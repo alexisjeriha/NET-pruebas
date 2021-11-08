@@ -74,7 +74,7 @@ namespace UI.Web
         private void LoadEntity(Plan plan)
         {
             plan.Descripcion = descripcionTextBox.Text;
-            plan.Especialidad.Id = Convert.ToInt32(DropDownListEspecialidades.SelectedItem.Value); //Checkear
+            plan.Especialidad.ID = Convert.ToInt32(DropDownListEspecialidades.SelectedItem.Value); //Checkear
         }
         private void SaveEntity(Plan plan)
         {
@@ -139,7 +139,7 @@ namespace UI.Web
                     break;
                 case FormModes.Modificacion:
                     Entity = new Plan();
-                    Entity.Id = SelectedID;
+                    Entity.ID = SelectedID;
                     Entity.State = BusinessEntity.States.Modified;
                     LoadEntity(Entity);
                     SaveEntity(Entity);

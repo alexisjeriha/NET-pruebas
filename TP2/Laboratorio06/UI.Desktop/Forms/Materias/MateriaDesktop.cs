@@ -71,7 +71,7 @@ namespace UI.Desktop.Forms.FormsMaterias
             txtDesc.Text = MateriaActual.Descripcion;
             txtHSSem.Text = MateriaActual.HSSemanales.ToString();
             txtHSTot.Text = MateriaActual.HSTotales.ToString();
-            cmbIDPlan.SelectedValue = MateriaActual.Plan.Id;
+            cmbIDPlan.SelectedValue = MateriaActual.Plan.ID;
 
             switch (Modo)
             {
@@ -115,7 +115,7 @@ namespace UI.Desktop.Forms.FormsMaterias
                 MateriaActual.Descripcion = txtDesc.Text;
                 MateriaActual.HSSemanales = int.Parse(txtHSSem.Text);
                 MateriaActual.HSTotales = int.Parse(txtHSTot.Text);
-                MateriaActual.Plan.Id = Convert.ToInt32(cmbIDPlan.SelectedValue);
+                MateriaActual.Plan.ID = Convert.ToInt32(cmbIDPlan.SelectedValue);
             }
         }
 
@@ -125,7 +125,7 @@ namespace UI.Desktop.Forms.FormsMaterias
             {
                 MapearADatos();
                 MateriaLogic MateriaLogic = new MateriaLogic();
-                if (Modo != ModoForm.Alta || !MateriaLogic.Existe(MateriaActual.Plan.Id, MateriaActual.Descripcion))
+                if (Modo != ModoForm.Alta || !MateriaLogic.Existe(MateriaActual.Plan.ID, MateriaActual.Descripcion))
                 {
                     MateriaLogic.Save(MateriaActual);
                 }

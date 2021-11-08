@@ -38,17 +38,20 @@ namespace UI.Desktop
             this.rvPlanes.Location = new System.Drawing.Point(0, 0);
             this.rvPlanes.Name = "rvPlanes";
             this.rvPlanes.ServerReport.BearerToken = null;
-            this.rvPlanes.Size = new System.Drawing.Size(800, 450);
+            this.rvPlanes.Size = new System.Drawing.Size(1077, 653);
             this.rvPlanes.TabIndex = 0;
             // 
             // ReportePlanes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1077, 653);
             this.Controls.Add(this.rvPlanes);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "ReportePlanes";
-            this.Text = "ReportePlanes";
+            this.Text = "Reporte Planes";
             this.Load += new System.EventHandler(this.ReportePlanes_Load);
             this.ResumeLayout(false);
 
