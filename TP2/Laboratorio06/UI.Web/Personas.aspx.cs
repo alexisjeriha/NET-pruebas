@@ -11,7 +11,7 @@ namespace UI.Web
 {
     class DropItem
     {
-        public int IDTipo { get; set; }
+        public string IDTipo { get; set; }
         public string Tipo { get; set; }
     }
 
@@ -49,7 +49,7 @@ namespace UI.Web
             telefonoTextBox.Text = Entity.Telefono;
             fechaNacTextBox.Text = Entity.FechaNacimiento.ToString("yyyy-MM-dd");
             legajoTextBox.Text = Entity.Legajo.ToString();
-            tipoDropDownList.SelectedValue = Entity.Tipo.ToString();
+            tipoDropDownList.SelectedValue = Entity.Tipo;
             iDPlanDropDownList.SelectedValue = Entity.Plan.Descripcion;
         }
         private void LoadGrid()
@@ -74,8 +74,8 @@ namespace UI.Web
 
             tipoDropDownList.DataSource = new DropItem[]
             {
-                  new DropItem{ IDTipo = 1, Tipo = "Alumno" },
-                  new DropItem{ IDTipo = 2, Tipo = "Docente" },
+                  new DropItem{ IDTipo = "Alumno", Tipo = "Alumno" },
+                  new DropItem{ IDTipo = "Docente", Tipo = "Docente" },
             };
 
             ListItem ini = new ListItem();
@@ -84,6 +84,7 @@ namespace UI.Web
             tipoDropDownList.DataValueField = "IDTipo";
             ini.Text = "--Seleccionar Tipo--";
             ini.Value = "-1";
+            tipoDropDownList.Items.Add(ini);
             tipoDropDownList.SelectedValue = "-1";
 
 
@@ -123,7 +124,7 @@ namespace UI.Web
             pers.Telefono = telefonoTextBox.Text;
             pers.FechaNacimiento = DateTime.Parse(fechaNacTextBox.Text);
             pers.Legajo = int.Parse(legajoTextBox.Text);
-            pers.Tipo = int.Parse(tipoDropDownList.SelectedItem.Value);
+            pers.Tipo = tipoDropDownList.SelectedItem.Value;
             pers.Plan.Id = Convert.ToInt32(iDPlanDropDownList.SelectedItem.Value); //Checkear
         }
 

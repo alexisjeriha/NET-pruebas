@@ -49,7 +49,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.LegajoPersona = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoPersona = new System.Windows.Forms.DataGridViewTextBoxColumn();
 
-            this.Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
 
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.todosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -123,7 +123,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.FechaNacimiento,
             this.LegajoPersona,
             this.TipoPersona,
-            this.Plan});
+            this.IDPlan});
             this.tlPersonas.SetColumnSpan(this.dgvPersonas, 2);
             this.dgvPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
 
@@ -294,14 +294,14 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.tsbAgregar.Click += new System.EventHandler(this.tsbAgregar_Click);
 
             // 
-            // Plan
+            // IDPlan
             // 
-            this.Plan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Plan.DataPropertyName = "DescPlan";
-            this.Plan.HeaderText = "Plan";
-            this.Plan.MinimumWidth = 6;
-            this.Plan.Name = "Plan";
-            this.Plan.ReadOnly = true;
+            this.IDPlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.IDPlan.DataPropertyName = "DescPlan";
+            this.IDPlan.HeaderText = "Plan";
+            this.IDPlan.MinimumWidth = 6;
+            this.IDPlan.Name = "Plan";
+            this.IDPlan.ReadOnly = true;
             // 
             // toolStripDropDownButton1
             // 

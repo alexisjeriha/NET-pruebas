@@ -122,7 +122,7 @@ namespace UI.Desktop.Forms.FormsPersonas
                 PersonaActual.Email = txtEmail.Text;
                 PersonaActual.Legajo = int.Parse(txtLegajo.Text);
 
-                PersonaActual.Tipo = int.Parse(cbTipo.SelectedValue); //Puede dar error, comprobar
+                PersonaActual.Tipo = cbTipo.SelectedValue.ToString(); //Puede dar error, comprobar
                 PersonaActual.FechaNacimiento = dtNac.Value;
 
                 PersonaActual.Telefono = txtTelefono.Text;

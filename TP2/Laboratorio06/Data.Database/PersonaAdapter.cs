@@ -102,7 +102,17 @@ namespace Data.Database
                     per.Telefono = (string)drPersonas["telefono"];
                     per.FechaNacimiento = (DateTime)drPersonas["fecha_nac"];
                     per.Legajo = (int)drPersonas["legajo"];
-                    per.Tipo = (string)drPersonas["tipo_persona"];
+
+                    switch ((int)drPersonas["tipo_persona"])
+                    {
+                        case 1:
+                            per.Tipo = "Alumno";
+                            break;
+                        case 2:
+                            per.Tipo = "Docente";
+                            break;
+                    }
+
                     per.Direccion = (string)drPersonas["telefono"];
                     per.Plan.Id = (int)drPersonas["id_plan"];
 
