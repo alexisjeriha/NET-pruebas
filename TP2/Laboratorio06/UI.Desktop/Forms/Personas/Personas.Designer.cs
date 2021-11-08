@@ -33,12 +33,6 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.tcPersonas = new System.Windows.Forms.ToolStripContainer();
             this.tlPersonas = new System.Windows.Forms.TableLayoutPanel();
             this.dgvPersonas = new System.Windows.Forms.DataGridView();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.tsPersonas = new System.Windows.Forms.ToolStrip();
-            this.tsbAgregar = new System.Windows.Forms.ToolStripButton();
-            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
-            this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.IdPers = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombrePersona = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ApellidoPersona = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,14 +42,17 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.FechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LegajoPersona = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoPersona = new System.Windows.Forms.DataGridViewTextBoxColumn();
-
-            this.IDPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-
+            this.Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.tsPersonas = new System.Windows.Forms.ToolStrip();
+            this.tsbAgregar = new System.Windows.Forms.ToolStripButton();
+            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
+            this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.todosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alumnosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.docentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-
             this.tcPersonas.ContentPanel.SuspendLayout();
             this.tcPersonas.TopToolStripPanel.SuspendLayout();
             this.tcPersonas.SuspendLayout();
@@ -70,14 +67,13 @@ namespace UI.Desktop.Forms.FormsPersonas
             // tcPersonas.ContentPanel
             // 
             this.tcPersonas.ContentPanel.Controls.Add(this.tlPersonas);
-            this.tcPersonas.ContentPanel.Margin = new System.Windows.Forms.Padding(4);
-            this.tcPersonas.ContentPanel.Size = new System.Drawing.Size(1264, 643);
+            this.tcPersonas.ContentPanel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tcPersonas.ContentPanel.Size = new System.Drawing.Size(1264, 664);
             this.tcPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcPersonas.Location = new System.Drawing.Point(0, 0);
-            this.tcPersonas.Margin = new System.Windows.Forms.Padding(4);
-
+            this.tcPersonas.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.tcPersonas.Name = "tcPersonas";
-            this.tcPersonas.Size = new System.Drawing.Size(948, 565);
+            this.tcPersonas.Size = new System.Drawing.Size(1264, 695);
             this.tcPersonas.TabIndex = 0;
             this.tcPersonas.Text = "toolStripContainer1";
             // 
@@ -89,18 +85,18 @@ namespace UI.Desktop.Forms.FormsPersonas
             // 
             this.tlPersonas.ColumnCount = 2;
             this.tlPersonas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlPersonas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 103F));
+            this.tlPersonas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
             this.tlPersonas.Controls.Add(this.dgvPersonas, 0, 0);
             this.tlPersonas.Controls.Add(this.btnSalir, 1, 1);
             this.tlPersonas.Controls.Add(this.btnActualizar, 0, 1);
             this.tlPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlPersonas.Location = new System.Drawing.Point(0, 0);
-            this.tlPersonas.Margin = new System.Windows.Forms.Padding(4);
+            this.tlPersonas.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.tlPersonas.Name = "tlPersonas";
             this.tlPersonas.RowCount = 2;
             this.tlPersonas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.85185F));
             this.tlPersonas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.148149F));
-            this.tlPersonas.Size = new System.Drawing.Size(1264, 643);
+            this.tlPersonas.Size = new System.Drawing.Size(1264, 664);
             this.tlPersonas.TabIndex = 0;
             // 
             // dgvPersonas
@@ -118,39 +114,18 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.FechaNacimiento,
             this.LegajoPersona,
             this.TipoPersona,
-            this.IDPlan});
+            this.Plan});
             this.tlPersonas.SetColumnSpan(this.dgvPersonas, 2);
             this.dgvPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
-
-            this.dgvPersonas.Location = new System.Drawing.Point(4, 4);
-            this.dgvPersonas.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvPersonas.Location = new System.Drawing.Point(5, 5);
+            this.dgvPersonas.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.dgvPersonas.MultiSelect = false;
             this.dgvPersonas.Name = "dgvPersonas";
             this.dgvPersonas.ReadOnly = true;
             this.dgvPersonas.RowHeadersWidth = 51;
             this.dgvPersonas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPersonas.Size = new System.Drawing.Size(1256, 582);
+            this.dgvPersonas.Size = new System.Drawing.Size(1254, 599);
             this.dgvPersonas.TabIndex = 0;
-            // 
-            // tsbEditar
-            // 
-            this.tsbEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbEditar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEditar.Image")));
-            this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEditar.Name = "tsbEditar";
-            this.tsbEditar.Size = new System.Drawing.Size(24, 24);
-            this.tsbEditar.Text = "Editar Persona";
-            this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
-            // 
-            // tsbEliminar
-            // 
-            this.tsbEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbEliminar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEliminar.Image")));
-            this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEliminar.Name = "tsbEliminar";
-            this.tsbEliminar.Size = new System.Drawing.Size(24, 24);
-            this.tsbEliminar.Text = "Eliminar Persona";
-            this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
             // IdPers
             // 
@@ -205,7 +180,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.TelefonoPersona.MinimumWidth = 6;
             this.TelefonoPersona.Name = "TelefonoPersona";
             this.TelefonoPersona.ReadOnly = true;
-            this.TelefonoPersona.Width = 74;
+            this.TelefonoPersona.Width = 93;
             // 
             // FechaNacimiento
             // 
@@ -233,8 +208,15 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.TipoPersona.MinimumWidth = 6;
             this.TipoPersona.Name = "TipoPersona";
             this.TipoPersona.ReadOnly = true;
-            this.TipoPersona.Width = 125;
-
+            // 
+            // Plan
+            // 
+            this.Plan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Plan.DataPropertyName = "DescPlan";
+            this.Plan.HeaderText = "Plan";
+            this.Plan.MinimumWidth = 6;
+            this.Plan.Name = "Plan";
+            this.Plan.ReadOnly = true;
             // 
             // btnSalir
             // 
@@ -243,10 +225,10 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             this.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSalir.Location = new System.Drawing.Point(1139, 628);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSalir.Location = new System.Drawing.Point(1132, 614);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(121, 36);
+            this.btnSalir.Size = new System.Drawing.Size(127, 44);
             this.btnSalir.TabIndex = 1;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
@@ -258,10 +240,10 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(160)))), ((int)(((byte)(237)))));
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             this.btnActualizar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnActualizar.Location = new System.Drawing.Point(1010, 628);
-            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnActualizar.Location = new System.Drawing.Point(961, 614);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(121, 36);
+            this.btnActualizar.Size = new System.Drawing.Size(161, 44);
             this.btnActualizar.TabIndex = 2;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = false;
@@ -278,7 +260,7 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.toolStripDropDownButton1});
             this.tsPersonas.Location = new System.Drawing.Point(4, 0);
             this.tsPersonas.Name = "tsPersonas";
-            this.tsPersonas.Size = new System.Drawing.Size(134, 27);
+            this.tsPersonas.Size = new System.Drawing.Size(134, 31);
             this.tsPersonas.TabIndex = 0;
             // 
             // tsbAgregar
@@ -287,19 +269,29 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.tsbAgregar.Image = ((System.Drawing.Image)(resources.GetObject("tsbAgregar.Image")));
             this.tsbAgregar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAgregar.Name = "tsbAgregar";
-            this.tsbAgregar.Size = new System.Drawing.Size(29, 24);
+            this.tsbAgregar.Size = new System.Drawing.Size(29, 28);
             this.tsbAgregar.Text = "Agregar Persona";
             this.tsbAgregar.Click += new System.EventHandler(this.tsbAgregar_Click);
-
             // 
-            // IDPlan
+            // tsbEditar
             // 
-            this.IDPlan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.IDPlan.DataPropertyName = "DescPlan";
-            this.IDPlan.HeaderText = "Plan";
-            this.IDPlan.MinimumWidth = 6;
-            this.IDPlan.Name = "Plan";
-            this.IDPlan.ReadOnly = true;
+            this.tsbEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbEditar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEditar.Image")));
+            this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEditar.Name = "tsbEditar";
+            this.tsbEditar.Size = new System.Drawing.Size(29, 28);
+            this.tsbEditar.Text = "Editar Persona";
+            this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
+            // 
+            // tsbEliminar
+            // 
+            this.tsbEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbEliminar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEliminar.Image")));
+            this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEliminar.Name = "tsbEliminar";
+            this.tsbEliminar.Size = new System.Drawing.Size(29, 28);
+            this.tsbEliminar.Text = "Eliminar Persona";
+            this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
             // toolStripDropDownButton1
             // 
@@ -311,40 +303,40 @@ namespace UI.Desktop.Forms.FormsPersonas
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(34, 24);
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(34, 28);
             this.toolStripDropDownButton1.Text = "tsFiltro";
             // 
             // todosToolStripMenuItem
             // 
             this.todosToolStripMenuItem.Name = "todosToolStripMenuItem";
-            this.todosToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.todosToolStripMenuItem.Size = new System.Drawing.Size(165, 28);
             this.todosToolStripMenuItem.Text = "Todos";
             this.todosToolStripMenuItem.Click += new System.EventHandler(this.todosToolStripMenuItem_Click);
             // 
             // alumnosToolStripMenuItem
             // 
             this.alumnosToolStripMenuItem.Name = "alumnosToolStripMenuItem";
-            this.alumnosToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.alumnosToolStripMenuItem.Size = new System.Drawing.Size(165, 28);
             this.alumnosToolStripMenuItem.Text = "Alumnos";
             this.alumnosToolStripMenuItem.Click += new System.EventHandler(this.alumnosToolStripMenuItem_Click);
             // 
             // docentesToolStripMenuItem
             // 
             this.docentesToolStripMenuItem.Name = "docentesToolStripMenuItem";
-            this.docentesToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.docentesToolStripMenuItem.Size = new System.Drawing.Size(165, 28);
             this.docentesToolStripMenuItem.Text = "Docentes";
             this.docentesToolStripMenuItem.Click += new System.EventHandler(this.docentesToolStripMenuItem_Click);
             // 
             // Personas
             // 
             this.AcceptButton = this.btnActualizar;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnSalir;
-            this.ClientSize = new System.Drawing.Size(948, 565);
+            this.ClientSize = new System.Drawing.Size(1264, 695);
             this.Controls.Add(this.tcPersonas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "Personas";
             this.Text = "Personas";
             this.Load += new System.EventHandler(this.Personas_Load);
@@ -387,6 +379,6 @@ namespace UI.Desktop.Forms.FormsPersonas
         private System.Windows.Forms.ToolStripMenuItem todosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alumnosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem docentesToolStripMenuItem;
-
+        private System.Windows.Forms.DataGridViewTextBoxColumn Plan;
     }
 }

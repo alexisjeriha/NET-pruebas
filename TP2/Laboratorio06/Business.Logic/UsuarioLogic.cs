@@ -36,5 +36,11 @@ namespace Business.Logic
             return UsuarioData.GetUsuarioYClave(nombreUsuario);
 
         }
+
+        public Usuario GetUsuarioForLogin(string user, string pass)
+        {
+            return UsuarioData.GetUsuarioForLogin(user, pass);
+        }
+
     }
 }
