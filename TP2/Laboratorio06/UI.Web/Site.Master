@@ -1,4 +1,4 @@
-﻿﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="UI.Web.SiteMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="UI.Web.SiteMaster" %>
 
 <!DOCTYPE html>
 <html lang="es">    
@@ -60,7 +60,7 @@
             <div >
             <strong> 
             <asp:ContentPlaceHolder ID="Header" runat="server">
-            <asp:Menu runat="server" ID="menu" DataSourceID="SiteMapDataSource" DynamicMenuItemStyle-Font-Bold="true" StaticSubMenuIndent="10px">
+            <asp:Menu runat="server" ID="menu" DataSourceID="SiteMapDataSource" DynamicMenuItemStyle-Font-Bold="true" StaticSubMenuIndent="10px" OnMenuItemDataBound="menu_MenuItemDataBound">
                 <LevelMenuItemStyles>
                     <asp:MenuItemStyle CssClass="mainmenu" />
                     <asp:MenuItemStyle CssClass="submenu" />

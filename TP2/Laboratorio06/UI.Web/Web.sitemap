@@ -1,17 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
-	<siteMapNode url="~/Default.aspx" title="Home"  description="Home page">
-		<siteMapNode url="~/Usuarios.aspx" title="Usuarios"  description="ABM de Usuarios" />
-		<siteMapNode url="~/Especialidades.aspx" title="Especialidades"  description="ABM de Especialidades" />
-		<siteMapNode url="~/Planes.aspx" title="Planes"  description="ABM de Planes" />
-		<siteMapNode url="~/Personas.aspx" title="Personas"  description="ABM de Personas" />
-		<siteMapNode url="~/Materias.aspx" title="Materias"  description="ABM de Materias" >
-			<siteMapNode url="~/ReportMaterias.aspx" title="Reporte Materias"  description="Reporte de Materias" />
+	<siteMapNode title="Menú"  description="Menú" roles="D,A">
+		<siteMapNode url="~/Default.aspx" title="Home"  description="Home page" roles="D,A">
+
 		</siteMapNode>
-		<siteMapNode url="~/Comisiones.aspx" title="Comisiones"  description="ABM de Comisiones" />
-		<siteMapNode url="~/Inscripciones.aspx" title="Inscripciones"  description="ABM de Inscripciones" >
-			<siteMapNode url="~/ReportAlumnos.aspx" title="Reporte Alumnos"  description="Reporte de Alumnos" />
+		<siteMapNode title="Docentes"  description="Menú Docentes" roles="D">
+			<siteMapNode url="~/Usuarios.aspx" title="Usuarios"  description="ABM de Usuarios" roles="D"/>
+			<siteMapNode url="~/Especialidades.aspx" title="Especialidades"  description="ABM de Especialidades" roles="D"/>
+			<siteMapNode url="~/Planes.aspx" title="Planes"  description="ABM de Planes" roles="D"/>
+			<siteMapNode url="~/Personas.aspx" title="Personas"  description="ABM de Personas" roles="D"/>
+			<siteMapNode url="~/Materias.aspx" title="Materias"  description="ABM de Materias" roles="D">
+				<siteMapNode url="~/ReportMaterias.aspx" title="Reporte Materias"  description="Reporte de Materias" roles="D" />
+			</siteMapNode>
+			<siteMapNode url="~/Comisiones.aspx" title="Comisiones"  description="ABM de Comisiones" roles="D"/>
+		</siteMapNode>
+		<siteMapNode title="Alumnos"  description="Menú Alumnos" roles="A">
+			<siteMapNode url="~/Inscripciones.aspx" title="Inscripciones"  description="ABM de Inscripciones" roles="A">
+				<siteMapNode url="~/ReportAlumnos.aspx" title="Reporte Alumnos"  description="Reporte de Alumnos" roles="A"/>
+			</siteMapNode>
+		</siteMapNode>
+		<siteMapNode url="~/LogIn.aspx" title="Cerrar Sesión"  description="Cerrar Sesión" roles="D,A">
+
 		</siteMapNode>
 	</siteMapNode>
+
 </siteMap>
- 

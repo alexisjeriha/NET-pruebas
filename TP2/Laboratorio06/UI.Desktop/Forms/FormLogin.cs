@@ -2,6 +2,7 @@
 using Business.Logic;
 using System;
 using System.Windows.Forms;
+using UI.Desktop.Forms;
 
 namespace UI.Desktop
 {
@@ -18,13 +19,32 @@ namespace UI.Desktop
         {
             try
             {
-                Usuario usr = new Usuario();
-                usr = usuario.GetUsuarioYClave(txtUsuario.Text);
+                Usuario usr = usuario.GetUsuarioForLogin(txtUsuario.Text, txtPass.Text);
 
-                if (txtUsuario.Text == usr.NombreUsuario && txtPass.Text == usr.Clave) 
+                if (usr.ID != 0)
                 {
                     MessageBox.Show("Usted ha ingresado al sistema correctamente.", "Ingreso");
                     DialogResult = DialogResult.OK;
+                    
+                    switch (usr.Persona.Tipo)
+                    {
+                        case "Alumno":
+                            FormAlumnos formAlumnos = new FormAlumnos();
+                            formAlumnos.Alumno = usr;
+                            formAlumnos.ShowDialog();
+                            break;
+                        case "Docente":
+         
+                            formDocentes formDocentes = new formDocentes();
+                            formDocentes.Docente = usr;
+                            formDocentes.ShowDialog();
+                            break;
+
+                        default:
+                            break;
+                    }
+
+
                 }
 
                 else
