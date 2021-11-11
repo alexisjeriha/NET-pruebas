@@ -60,7 +60,7 @@
             <div >
             <strong> 
             <asp:ContentPlaceHolder ID="Header" runat="server">
-            <asp:Menu runat="server" ID="menu" DataSourceID="SiteMapDataSource" DynamicMenuItemStyle-Font-Bold="true" StaticSubMenuIndent="10px" OnMenuItemDataBound="menu_MenuItemDataBound">
+            <asp:Menu runat="server" ID="menu" DataSourceID="SiteMapDataSource" DynamicMenuItemStyle-Font-Bold="true" StaticSubMenuIndent="10px" OnMenuItemDataBound="menu_MenuItemDataBound" CssClass="dropdown-menu-dark">
                 <LevelMenuItemStyles>
                     <asp:MenuItemStyle CssClass="mainmenu" />
                     <asp:MenuItemStyle CssClass="submenu" />
