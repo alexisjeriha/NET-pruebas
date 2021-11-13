@@ -11,7 +11,7 @@
         </style>
         <title>Academia</title>
     </head>
-    <body>
+    <body class="bg-light">
         <form id="bodyForm" runat="server" class="form">
             <div >
             <strong> 

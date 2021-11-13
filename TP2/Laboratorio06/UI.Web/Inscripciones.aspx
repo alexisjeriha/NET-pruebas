@@ -9,7 +9,7 @@
             <div class="col">
                 <asp:Panel ID="gridPanel" runat="server">
 
-                    <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="false" DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White" CssClass="table table-striped">
+                    <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="false" DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="Black" CssClass="table table-light table-stripped table-hover">
                         <Columns>
                             <asp:BoundField DataField="ID" HeaderText="ID" />
                             <asp:BoundField DataField="DescMateria" HeaderText="Materia" />
@@ -19,9 +19,7 @@
                             <asp:BoundField DataField="Nota" HeaderText="Nota" />
                             <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
                         </Columns>
-                        <HeaderStyle BackColor="#CF7500" BorderColor="Black" Font-Bold="True" ForeColor="White" />
-                        <RowStyle BackColor="#F4F4F4" BorderColor="Black" />
-                        <SelectedRowStyle BackColor="#F0A500" ForeColor="White" />
+                        
                     </asp:GridView>
                 </asp:Panel>
             </div>
@@ -30,7 +28,7 @@
                     <asp:Panel ID="formPanel" Visible="false" runat="server">
                         <div class="row">
                             <asp:Label ID="lblMaterias" Font-Size="Medium" Font-Bold="true" runat="server">Materias:</asp:Label>
-                            <asp:GridView ID="GridViewMaterias" runat="server" AutoGenerateColumns="False"
+                            <asp:GridView ID="GridViewMaterias" runat="server" AutoGenerateColumns="False" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="Black" CssClass="table table-light table-stripped table-hover"
                                 DataKeyNames="ID"
                                 OnSelectedIndexChanged="GridViewMaterias_SelectedIndexChanged">
                                 <Columns>
@@ -39,15 +37,13 @@
                                     <asp:BoundField DataField="HsTotales" HeaderText="Hs Totales" />
                                     <asp:CommandField ShowSelectButton="True" />
                                 </Columns>
-                                <HeaderStyle BackColor="#CF7500" BorderColor="Black" Font-Bold="True" ForeColor="White" />
-                                <RowStyle BackColor="#F4F4F4" BorderColor="Black" />
-                                <SelectedRowStyle BackColor="#F0A500" ForeColor="White" />
+
                             </asp:GridView>
 
                         </div>
                         <div class="row">
                             <asp:Label ID="lblCom" Font-Size="Medium" Font-Bold="true" runat="server" Visible="false">Comisiones:</asp:Label>
-                            <asp:GridView ID="GridViewComisiones" runat="server"
+                            <asp:GridView ID="GridViewComisiones" runat="server"  SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="Black" CssClass="table table-light table-stripped table-hover"
                                 AutoGenerateColumns="False" DataKeyNames="ID"
                                 OnSelectedIndexChanged="GridViewComisiones_SelectedIndexChanged">
                                 <Columns>
@@ -55,9 +51,7 @@
                                     <asp:BoundField DataField="Descripcion" HeaderText="Comision" />
                                     <asp:CommandField ShowSelectButton="True" />
                                 </Columns>
-                                <HeaderStyle BackColor="#CF7500" BorderColor="Black" Font-Bold="True" ForeColor="White" />
-                                <RowStyle BackColor="#F4F4F4" BorderColor="Black" />
-                                <SelectedRowStyle BackColor="#F0A500" ForeColor="White" />
+                                
                             </asp:GridView>
 
                         </div>
