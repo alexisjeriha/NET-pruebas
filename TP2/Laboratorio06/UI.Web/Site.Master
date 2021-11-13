@@ -11,7 +11,7 @@
         background-color:#c4e1ff;
         text-align:left;
         font-size:20px;
-        font-family:Calibri;
+        font-family:'MS Reference Sans Serif';
         color:black;
         padding:20px;
         margin-left:30px;
@@ -21,7 +21,7 @@
     background-color:#c4e1ff;
         text-align:left;
         font-size:20px;
-        font-family:Calibri;
+        font-family:'MS Reference Sans Serif';
         color:black;
         padding:20px;
         align-items:normal;
@@ -30,7 +30,7 @@
     background-color:#c4e1ff;
         text-align:left;
         font-size:20px;
-        font-family:Calibri;
+        font-family:'MS Reference Sans Serif';
         color:black;
         padding:20px;
         align-items:normal;
@@ -45,7 +45,7 @@
     }
     .auto-style3 {
                 text-align: left;
-                font-family: calibri;
+                font-family: 'MS Reference Sans Serif';
                 width: 907px;
                 height: 31px;
     }
@@ -75,7 +75,7 @@
                 </asp:ContentPlaceHolder>
                 
             </div>
-            <div>
+            <div class="card-footer">
                 <asp:ContentPlaceHolder ID="Footer" runat="server">
 
                     <p class="auto-style3">

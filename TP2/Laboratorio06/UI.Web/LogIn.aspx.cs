@@ -18,16 +18,17 @@ namespace UI.Web
             usuario = new UsuarioLogic();
         }
 
-        protected void BtnAceptar_Click(object sender, EventArgs e)
+        protected void BtnAceptar_Click1(object sender, EventArgs e)
         {
-            try { 
-            Usuario usr = usuario.GetUsuarioForLogin(tbUsuario.Text, tbPasswd.Text);
-            if (usr.ID != 0)
+            try
             {
-                Session["UsuarioActual"] = usr;
-                Page.Response.Redirect("~/Default.aspx");
-            }
-        
+                Usuario usr = usuario.GetUsuarioForLogin(tbUsuario.Text, tbPasswd.Text);
+                if (usr.ID != 0)
+                {
+                    Session["UsuarioActual"] = usr;
+                    Page.Response.Redirect("~/Default.aspx");
+                }
+
                 else lblError.Visible = true;
             }
             catch (Exception)
@@ -35,6 +36,5 @@ namespace UI.Web
                 lblError.Visible = true;
             }
         }
-
     }
 }

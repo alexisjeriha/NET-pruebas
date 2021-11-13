@@ -25,7 +25,7 @@ namespace UI.Desktop
                 {
                     MessageBox.Show("Usted ha ingresado al sistema correctamente.", "Ingreso");
                     DialogResult = DialogResult.OK;
-                    
+                    txtPass.Text = String.Empty;
                     switch (usr.Persona.Tipo)
                     {
                         case "Alumno":

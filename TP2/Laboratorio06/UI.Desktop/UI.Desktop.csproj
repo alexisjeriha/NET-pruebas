@@ -76,6 +76,12 @@
     <Compile Include="Forms\Comisiones\Comisiones.Designer.cs">
       <DependentUpon>Comisiones.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormAlumnos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAlumnos.Designer.cs">
+      <DependentUpon>FormAlumnos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormDocentes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Comisiones\Comisiones.resx">
       <DependentUpon>Comisiones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormAlumnos.resx">
+      <DependentUpon>FormAlumnos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormDocentes.resx">
       <DependentUpon>FormDocentes.cs</DependentUpon>
