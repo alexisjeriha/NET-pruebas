@@ -25,27 +25,75 @@ namespace Business.Logic
 
         public Curso GetOne(int ID)
         {
-            return CursoData.GetOne(ID);
+            try
+            {
+                return CursoData.GetOne(ID);
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al recuperar datos del curso", Ex);
+                throw ExcepcionManejada;
+            }
+
         }
 
         public List<Curso> GetAll()
         {
-            return CursoData.GetAll();
+            try
+            {
+                return CursoData.GetAll();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al recuperar lista de cursos", Ex);
+                throw ExcepcionManejada;
+            }
+
         }
 
         public bool ExisteCurso(int idMat, int idCom, int anio)
         {
-            return CursoData.ExisteCurso(idMat, idCom, anio);
+            try
+            {
+                return CursoData.ExisteCurso(idMat, idCom, anio);
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al validar la existencia del curso", Ex);
+                throw ExcepcionManejada;
+            }
+
         }
 
         public void Save(Curso curso)
         {
-            CursoData.Save(curso);
+            try
+            {
+                CursoData.Save(curso);
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al guardar", Ex);
+                throw ExcepcionManejada;
+            }
         }
 
         public void Delete(int ID)
         {
-            CursoData.Delete(ID);
+            try
+            {
+                CursoData.Delete(ID);
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al eliminar el Curso", Ex);
+                throw ExcepcionManejada;
+            }
         }
     }
 }

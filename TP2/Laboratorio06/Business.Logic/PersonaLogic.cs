@@ -14,7 +14,7 @@ namespace Business.Logic
 
         public PersonaLogic()
         {
-            PersonaData = new PersonaAdapter(); 
+            PersonaData = new PersonaAdapter();
         }
 
         public PersonaAdapter PersonaData
@@ -25,40 +25,112 @@ namespace Business.Logic
 
         public List<Persona> GetAll()
         {
-            return PersonaData.GetAll(0);
+            try
+            {
+                return PersonaData.GetAll(0);
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al recuperar lista de personas", Ex);
+                throw ExcepcionManejada;
+            }
         }
         public List<Persona> GetAlumnos()
         {
-            return PersonaData.GetAll(1);
+            try
+            {
+                return PersonaData.GetAll(1);
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al recuperar lista de personas", Ex);
+                throw ExcepcionManejada;
+            }
         }
 
         public List<Persona> GetDocentes()
         {
-            return PersonaData.GetAll(2);
+            try
+            {
+                return PersonaData.GetAll(2);
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al recuperar lista de personas", Ex);
+                throw ExcepcionManejada;
+            }
         }
         public Persona GetOne(int id)
         {
-            return PersonaData.GetOne(id);
+            try
+            {
+                return PersonaData.GetOne(id);
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al recuperar datos de la persona", Ex);
+                throw ExcepcionManejada;
+            }
         }
 
         public bool ExistePersona(Persona per)
         {
-            return PersonaData.ExistePersona(per);
+            try
+            {
+                return PersonaData.ExistePersona(per);
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al validar la existencia de la persona", Ex);
+                throw ExcepcionManejada;
+            }
         }
 
         public void Update(Persona per)
         {
-            PersonaData.Update(per);
+            try
+            {
+                PersonaData.Update(per);
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al modificar datos de la persona", Ex);
+                throw ExcepcionManejada;
+            }
         }
 
         public void Save(Persona per)
         {
-            PersonaData.Save(per);
+            try
+            {
+                PersonaData.Save(per);
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                new Exception("Error al guardar persona", Ex);
+                throw ExcepcionManejada;
+            }
         }
 
         public void Delete(int id)
         {
-            PersonaData.Delete(id);
+            try
+            {
+                PersonaData.Delete(id);
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al eliminar la persona", Ex);
+                throw ExcepcionManejada;
+            }
         }
     }
 }

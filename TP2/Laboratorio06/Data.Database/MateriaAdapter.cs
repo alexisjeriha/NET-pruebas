@@ -67,7 +67,7 @@ namespace Data.Database
                 SqlDataReader drMaterias = cmdMateria.ExecuteReader();
                 if (drMaterias.Read())
                 {
-                    mat.ID= (int)drMaterias["id_materia"];
+                    mat.ID = (int)drMaterias["id_materia"];
                     mat.Descripcion = (string)drMaterias["desc_materia"];
                     mat.HSSemanales = (int)drMaterias["hs_semanales"];
                     mat.HSTotales = (int)drMaterias["hs_totales"];
@@ -203,19 +203,28 @@ namespace Data.Database
 
         public void Save(Materia mat)
         {
-            if (mat.State == BusinessEntity.States.Deleted)
+            try
             {
-                Delete(mat.ID);
+                if (mat.State == BusinessEntity.States.Deleted)
+                {
+                    Delete(mat.ID);
+                }
+                else if (mat.State == BusinessEntity.States.New)
+                {
+                    Insert(mat);
+                }
+                else if (mat.State == BusinessEntity.States.Modified)
+                {
+                    Update(mat);
+                }
+                mat.State = BusinessEntity.States.Unmodified;
             }
-            else if (mat.State == BusinessEntity.States.New)
+            catch (Exception Ex)
             {
-                Insert(mat);
+                Exception ExcepcionManejada =
+                    new Exception("Error al recuperar guardar la materia", Ex);
+                throw ExcepcionManejada;
             }
-            else if (mat.State == BusinessEntity.States.Modified)
-            {
-                Update(mat);
-            }
-            mat.State = BusinessEntity.States.Unmodified;
         }
 
         public List<Materia> GetMateriasParaInscripcion(int IDPlan, int IDAlumno)

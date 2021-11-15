@@ -4,73 +4,117 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <style type="text/css">
-        .auto-style1 {
-            width: 69px;
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background: linear-gradient(to right, #b92b27, #1565c0)
         }
-        .auto-style2 {
-            width: 349px;
-            height: 136px;
-            position: fixed;
+
+        .card {
+            margin-bottom: 20px;
+            border: none
         }
-        .auto-style3 {
-            width: 100%;
-            height: 109px;
+
+        .box {
+            width: 500px;
+            padding: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background: #191919;
+            
+            text-align: center;
+            transition: 0.25s;
+            margin-top: 100px
         }
-        .auto-style4 {
-            height: 624px;
+
+            .box input[type="text"],
+            .box input[type="password"] {
+                border: 0;
+                background: none;
+                display: block;
+                margin: 20px auto;
+                text-align: center;
+                border: 2px solid #3498db;
+                padding: 10px 10px;
+                width: 250px;
+                outline: none;
+                color: white;
+                border-radius: 24px;
+                transition: 0.25s
+            }
+
+            .box h1 {
+                color: white;
+                text-transform: uppercase;
+                font-weight: 500
+            }
+
+            .box input[type="text"]:focus,
+            .box input[type="password"]:focus {
+                width: 300px;
+                border-color: #2ecc71
+            }
+
+            .box input[type="submit"] {
+                border: 0;
+                background: none;
+                display: block;
+                margin: 20px auto;
+                text-align: center;
+                border: 2px solid #2ecc71;
+                padding: 14px 40px;
+                outline: none;
+                color: white;
+                border-radius: 24px;
+                transition: 0.25s;
+                cursor: pointer
+            }
+
+                .box input[type="submit"]:hover {
+                    background: #2ecc71
+                }
+
+        .forgot {
+            text-decoration: underline
         }
-        .auto-style5 {
-            width: 243px;
-        }
+
     </style>
 </head>
 
 <body>
-    <form id="form1" runat="server" class="auto-style4">
-        <div class="auto-style2" display="center" dir="ltr" style="border-style: solid; top: 15px; left: 10px;">
-            <asp:Label ID="Label4" runat="server" Text="Inicio de Sesión" BackColor="#1C639C" BorderStyle="None" BorderWidth="1px" ForeColor="White" Width="100%"></asp:Label>
-            <div>
-                <table class="auto-style3">
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td class="auto-style1">
-                            <asp:Label ID="Label1" runat="server" Text="Usuario"></asp:Label>
-                        </td>
-                        <td class="auto-style5">
-                            <asp:TextBox ID="tbUsuario" runat="server" Width="226px"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td class="auto-style1">
-                            <asp:Label ID="Label2" runat="server" Text="Contraseña"></asp:Label>
-                        </td>
-                        <td class="auto-style5">
-                            <asp:TextBox ID="tbPasswd" runat="server" style="margin-left: 0px" Width="225px" EnableViewState="False" TextMode="Password"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td class="auto-style1"></td>
-                        <td class="auto-style5">
-                            <asp:Button ID="BtnAceptar" runat="server" Text="Ingresar" OnClick="BtnAceptar_Click" />
-                        </td>
-                    </tr>
-                    <tr>
-                           <td>
-                             
-                           </td>
-                        <td class="auto-style1">&nbsp;</td>
-                        <td class="auto-style5">
-                            <asp:Label ID="lblError" runat="server" ForeColor="Red" Text="Error: usuario o contraseña incorrecto" Visible="False"></asp:Label>
-                        </td>
-                    </tr>
-                </table>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <form id="form1" runat="server" class="box">
+                        <h1>Academia</h1>
+                        <p class="text-muted">Por favor ingrese su usuario y contraseña</p>
+                        <div>
+                           <p class="text-muted">Usuario</p>
+
+                            <asp:TextBox ID="tbUsuario" runat="server"></asp:TextBox>
+
+                            <p class="text-muted">Contraseña</p>
+
+                            <asp:TextBox ID="tbPasswd" runat="server" TextMode="Password"></asp:TextBox>
+
+                            <asp:Button ID="BtnAceptar" runat="server" Text="Ingresar" OnClick="BtnAceptar_Click1"/>
+
+                            <asp:Label ID="lblError" runat="server" ForeColor="Red" Text="Error: usuario o contraseña incorrecto" Visible="False"></asp:Label>
+
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </form>
+    </div>
 </body>
 </html>

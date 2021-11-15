@@ -169,22 +169,30 @@ namespace Data.Database
         }
         public void Save(Usuario usuario)
         {
-
-            if (usuario.State == BusinessEntity.States.Deleted)
+            try
             {
-                Delete(usuario.ID);
-            }
 
-            else if (usuario.State == BusinessEntity.States.New)
-            {
-                Insert(usuario);
+                if (usuario.State == BusinessEntity.States.Deleted)
+                {
+                    Delete(usuario.ID);
+                }
 
+                else if (usuario.State == BusinessEntity.States.New)
+                {
+                    Insert(usuario);
+
+                }
+                else if (usuario.State == BusinessEntity.States.Modified)
+                {
+                    Update(usuario);
+                }
+                usuario.State = BusinessEntity.States.Unmodified;
             }
-            else if (usuario.State == BusinessEntity.States.Modified)
+            catch (Exception Ex)
             {
-                Update(usuario);
+                Exception ExcepcionManejada = new Exception("Error al guardar usuario", Ex);
+                throw ExcepcionManejada;
             }
-            usuario.State = BusinessEntity.States.Unmodified;
         }
 
 

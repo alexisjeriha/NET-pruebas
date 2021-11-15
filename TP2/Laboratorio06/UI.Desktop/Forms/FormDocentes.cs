@@ -4,30 +4,22 @@ using UI.Desktop.Forms.Forms_Especialdades;
 using UI.Desktop.Forms.FormsComisiones;
 using UI.Desktop.Forms.FormsPersonas;
 using UI.Desktop.FormsPlan;
+using Business.Entities;
 
 namespace UI.Desktop.Forms
 {
-    public partial class FormMain : Form
+    public partial class formDocentes : Form
     {
-        public FormMain()
+        public formDocentes()
         {
+          
             InitializeComponent();
         }
 
-        private void FormMain_Shown(object sender, EventArgs e)
-        {
-            FormLogin appLogin = new FormLogin();
-            if (appLogin.ShowDialog() != DialogResult.OK)
-            {
-
-                this.Dispose();
-
-            }
-        }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            Dispose();
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)
@@ -64,6 +56,12 @@ namespace UI.Desktop.Forms
         {
             Materias grilla = new Materias();
             grilla.ShowDialog();
+        }
+
+        public Usuario Docente { get; set; }
+        private void formDocentes_Load(object sender, EventArgs e)
+        {
+            lblBienvenida.Text = string.Format("Bienvenido Docente: {0}, {1}",Docente.Persona.Apellido,Docente.Persona.Nombre);
         }
     }
 }

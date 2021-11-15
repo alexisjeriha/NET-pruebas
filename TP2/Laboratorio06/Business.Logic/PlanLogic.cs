@@ -24,27 +24,72 @@ namespace Business.Logic
 
         public Plan GetOne(int ID)
         {
-            return PlanData.GetOne(ID);
+            try
+            {
+                return PlanData.GetOne(ID);
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al recuperar datos del plan", Ex);
+                throw ExcepcionManejada;
+            }
         }
 
         public List<Plan> GetAll()
         {
-            return PlanData.GetAll();
+            try
+            {
+                return PlanData.GetAll();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al recuperar lista de planes", Ex);
+                throw ExcepcionManejada;
+            }
         }
 
         public bool ExistePlan(string desc, int idEsp)
         {
-            return PlanData.ExistePlan(desc, idEsp);
+            try
+            {
+                return PlanData.ExistePlan(desc, idEsp);
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al validar la existencia del Plan", Ex);
+                throw ExcepcionManejada;
+            }
         }
 
         public void Save(Plan plan)
         {
-            PlanData.Save(plan);
+            try
+            {
+                PlanData.Save(plan);
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al guardar el Plan", Ex);
+                throw ExcepcionManejada;
+            }
         }
 
         public void Delete(int ID)
         {
-            PlanData.Delete(ID);
+            try
+            {
+                PlanData.Delete(ID);
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al eliminar el Plan", Ex);
+                throw ExcepcionManejada;
+            }
         }
     }
 }

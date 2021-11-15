@@ -171,19 +171,28 @@ namespace Data.Database
 
         public void Save(Plan plan)
         {
-            if (plan.State == BusinessEntity.States.Deleted)
+            try
             {
-                Delete(plan.ID);
+                if (plan.State == BusinessEntity.States.Deleted)
+                {
+                    Delete(plan.ID);
+                }
+                else if (plan.State == BusinessEntity.States.New)
+                {
+                    Insert(plan);
+                }
+                else if (plan.State == BusinessEntity.States.Modified)
+                {
+                    Update(plan);
+                }
+                plan.State = BusinessEntity.States.Unmodified;
             }
-            else if (plan.State == BusinessEntity.States.New)
+            catch (Exception Ex)
             {
-                Insert(plan);
+                Exception ExcepcionManejada =
+                    new Exception("Error al guardar el Plan", Ex);
+                throw ExcepcionManejada;
             }
-            else if (plan.State == BusinessEntity.States.Modified)
-            {
-                Update(plan);
-            }
-            plan.State = BusinessEntity.States.Unmodified;
         }
     }
 }

@@ -11,7 +11,6 @@ namespace Data.Database
     public class EspecialidadAdapter : Adapter
     {
 
-
         public List<Especialidad> GetAll()
         {
             List<Especialidad> especialidades = new List<Especialidad>();
@@ -151,22 +150,32 @@ namespace Data.Database
         }
         public void Save(Especialidad esp)
         {
-
-            if (esp.State == BusinessEntity.States.Deleted)
+            try
             {
-                Delete(esp.ID);
-            }
 
-            else if (esp.State == BusinessEntity.States.New)
-            {
-                Insert(esp);
+                if (esp.State == BusinessEntity.States.Deleted)
+                {
+                    Delete(esp.ID);
+                }
 
+                else if (esp.State == BusinessEntity.States.New)
+                {
+                    Insert(esp);
+
+                }
+                else if (esp.State == BusinessEntity.States.Modified)
+                {
+                    Update(esp);
+                }
+                esp.State = BusinessEntity.States.Unmodified;
             }
-            else if (esp.State == BusinessEntity.States.Modified)
+            catch (Exception Ex)
             {
-                Update(esp);
+
+                Exception ExcepcionManejada =
+                new Exception("Error al guardar especialidad", Ex);
+                throw ExcepcionManejada;
             }
-            esp.State = BusinessEntity.States.Unmodified;
         }
 
     }
