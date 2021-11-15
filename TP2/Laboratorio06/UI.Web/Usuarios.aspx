@@ -57,7 +57,8 @@
                         <div class="row">
                             <asp:Label ID="claveLabel" runat="server" Text="Clave: "></asp:Label>
                             <asp:TextBox ID="claveTextBox" runat="server" TextMode="Password" Width="300px"></asp:TextBox>
-                            <asp:RegularExpressionValidator ID="regexValClave" runat="server" ControlToValidate="claveTextBox" ErrorMessage="* La contraseña debe tener un minimo de 8 caracteres" ForeColor="#CC3300" ValidationExpression="^[\s\S]{6,}$"></asp:RegularExpressionValidator>
+                            <asp:RequiredFieldValidator ID="rqContraseña" runat="server" ControlToValidate="claveTextBox" ErrorMessage="* La contraseña no puede estar vacía" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="regexValClave" runat="server" ControlToValidate="claveTextBox" ErrorMessage="* La contraseña debe tener un minimo de 8 caracteres" ForeColor="#CC3300" ValidationExpression="^[\s\S]{6,}$"></asp:RegularExpressionValidator>                                                
                         </div>
 
 

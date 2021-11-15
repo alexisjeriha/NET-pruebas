@@ -70,9 +70,9 @@ namespace UI.Web
             usuario.Nombre = nombreTextBox.Text;
             usuario.Apellido = apellidoTextBox.Text;
             usuario.EMail = emailTextBox.Text;
-            usuario.NombreUsuario = nombreUsuarioTextBox.Text;
-            usuario.Clave = claveTextBox.Text;
+            usuario.NombreUsuario = nombreUsuarioTextBox.Text;            
             usuario.Habilitado = habilitadoCheckBox.Checked;
+            usuario.Clave = claveTextBox.Text;
         }
 
         private void SaveEntity(Usuario usuario)
@@ -114,7 +114,6 @@ namespace UI.Web
                 FormMode = FormModes.Modificacion;
                 LoadForm(SelectedID);
                 EnableForm(true);
-
             }
         }
 

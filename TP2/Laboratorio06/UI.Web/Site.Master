@@ -38,10 +38,55 @@
             <div class="card-footer">
                 <asp:ContentPlaceHolder ID="Footer" runat="server">
 
-                    <p class="auto-style3">
-                        &nbsp;<em>Sistema desarrollado para la asignatura &quot;<span class="auto-style4">Tecnologías de Desarrollo de Software IDE</span>&quot;</em></p>
+        .form {
+            background-color: #E4ECFE;
+            display: flex;
+            flex-direction: column;
+            height: 668px;
+            text-align: left;
+        }
+
+        .auto-style3 {
+            text-align: left;
+            font-family: calibri;
+            width: 907px;
+            height: 135px;
+        }
+
+        .auto-style4 {
+            text-decoration: underline;
+        }
+        
+    </style>
+    <title>Academia</title>
+</head>
+<body>
+    <form id="bodyForm" runat="server" class="form">
+        <div>
+            <strong>
+                <asp:ContentPlaceHolder ID="Header" runat="server">
+                    <asp:Menu runat="server" ID="menu" DataSourceID="SiteMapDataSource" DynamicMenuItemStyle-Font-Bold="true" StaticSubMenuIndent="10px">
+                        <LevelMenuItemStyles>
+                            <asp:MenuItemStyle CssClass="mainmenu" />
+                            <asp:MenuItemStyle CssClass="submenu" />
+                            <asp:MenuItemStyle CssClass="submenu1" />
+                        </LevelMenuItemStyles>
+                    </asp:Menu>
                 </asp:ContentPlaceHolder>
-            </div>
-        </form>
-    </body>
+            </strong>
+            <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />
+            <asp:ContentPlaceHolder ID="bodyContentPlaceHolder" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div>
+        </div>
+        <footer>
+            <asp:ContentPlaceHolder ID="Footer" runat="server">
+                <p class="auto-style3">
+                    &nbsp;<em>Sistema desarrollado para la asignatura &quot;<span class="auto-style4">Tecnologías de Desarrollo de Software IDE</span>&quot;</em>
+                </p>
+            </asp:ContentPlaceHolder>
+        </footer>
+    </form>
+</body>
 </html>
