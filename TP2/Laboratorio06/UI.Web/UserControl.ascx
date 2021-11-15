@@ -5,18 +5,7 @@
     <asp:ImageButton ID="btnCerrarSesion" runat="server" ImageUrl="~/Imagenes/logout-512.png" OnClick="btnCerrarsesion_Click" Height="41px" Width="42px" />
         <br />
     Cerrar Sesión<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+
 
 
 <link href="CSS/Main.css" rel="stylesheet" />

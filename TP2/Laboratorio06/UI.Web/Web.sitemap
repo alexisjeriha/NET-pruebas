@@ -20,9 +20,5 @@
 				<siteMapNode url="~/ReportAlumnos.aspx" title="Reporte Alumnos"  description="Reporte de Alumnos" roles="A"/>
 			</siteMapNode>
 		</siteMapNode>
-		<siteMapNode url="~/LogIn.aspx" title="Cerrar Sesión"  description="Cerrar Sesión" roles="D,A">
-
 		</siteMapNode>
-	</siteMapNode>
-
 </siteMap>

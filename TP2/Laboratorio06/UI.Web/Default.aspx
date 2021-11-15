@@ -5,10 +5,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
 
     <style type="text/css">
-h1 {text-align: center}
-h2 {text-align: right}
 h3 {text-align: right}
     </style>
+
     <h3 style="font-family: calibri">
            
                 <uc1:UserControl ID="UserControl1" runat="server" />
