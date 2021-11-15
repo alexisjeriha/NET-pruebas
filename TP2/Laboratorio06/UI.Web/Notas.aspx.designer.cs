@@ -11,7 +11,7 @@ namespace UI.Web
 {
 
 
-    public partial class Inscripciones
+    public partial class Notas
     {
 
         /// <summary>
@@ -42,69 +42,6 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.Panel formPanel;
 
         /// <summary>
-        /// lblMaterias control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMaterias;
-
-        /// <summary>
-        /// GridViewMaterias control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewMaterias;
-
-        /// <summary>
-        /// lblCom control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCom;
-
-        /// <summary>
-        /// GridViewComisiones control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewComisiones;
-
-        /// <summary>
-        /// anioCursoLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label anioCursoLabel;
-
-        /// <summary>
-        /// anioCursoTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox anioCursoTextBox;
-
-        /// <summary>
-        /// rqAnioCurso control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqAnioCurso;
-
-        /// <summary>
         /// notaLabel control.
         /// </summary>
         /// <remarks>
@@ -123,6 +60,15 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.TextBox notaTextBox;
 
         /// <summary>
+        /// rqNota control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqNota;
+
+        /// <summary>
         /// gridActionsPanel control.
         /// </summary>
         /// <remarks>
@@ -132,22 +78,13 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.Panel gridActionsPanel;
 
         /// <summary>
-        /// nuevoLinkButton control.
+        /// editarLinkButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button nuevoLinkButton;
-
-        /// <summary>
-        /// eliminarLinkButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button eliminarLinkButton;
+        protected global::System.Web.UI.WebControls.Button editarLinkButton;
 
         /// <summary>
         /// gridConfirmPanel control.

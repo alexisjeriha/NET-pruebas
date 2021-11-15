@@ -9,6 +9,7 @@
 			<siteMapNode url="~/Especialidades.aspx" title="Especialidades"  description="ABM de Especialidades" roles="D"/>
 			<siteMapNode url="~/Planes.aspx" title="Planes"  description="ABM de Planes" roles="D"/>
 			<siteMapNode url="~/Personas.aspx" title="Personas"  description="ABM de Personas" roles="D"/>
+			<siteMapNode url="~/Notas.aspx" title="Carga de Notas"  description="ABM de Notas" roles="D"/>
 			<siteMapNode url="~/Materias.aspx" title="Materias"  description="ABM de Materias" roles="D">
 				<siteMapNode url="~/ReportMaterias.aspx" title="Reporte Materias"  description="Reporte de Materias" roles="D" />
 			</siteMapNode>

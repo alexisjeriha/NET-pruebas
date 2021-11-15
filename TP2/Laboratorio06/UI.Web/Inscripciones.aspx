@@ -19,7 +19,7 @@
                             <asp:BoundField DataField="Nota" HeaderText="Nota" />
                             <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
                         </Columns>
-                        
+
                     </asp:GridView>
                 </asp:Panel>
             </div>
@@ -43,27 +43,27 @@
                         </div>
                         <div class="row">
                             <asp:Label ID="lblCom" Font-Size="Medium" Font-Bold="true" runat="server" Visible="false">Comisiones:</asp:Label>
-                            <asp:GridView ID="GridViewComisiones" runat="server"  SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="Black" CssClass="table table-light table-stripped table-hover"
+                            <asp:GridView ID="GridViewComisiones" runat="server" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="Black" CssClass="table table-light table-stripped table-hover"
                                 AutoGenerateColumns="False" DataKeyNames="ID"
                                 OnSelectedIndexChanged="GridViewComisiones_SelectedIndexChanged">
                                 <Columns>
                                     <asp:BoundField DataField="AnioEspecialidad" HeaderText="Año" />
-                                    <asp:BoundField DataField="Descripcion" HeaderText="Comision" />
+                                    <asp:BoundField DataField="DescComision" HeaderText="Comision" />
                                     <asp:CommandField ShowSelectButton="True" />
                                 </Columns>
-                                
+
                             </asp:GridView>
 
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                             <asp:Label ID="anioCursoLabel" runat="server" Text="Año de Cursado: "></asp:Label>
                             <asp:TextBox ID="anioCursoTextBox" runat="server" Width="300px"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rqAnioCurso" runat="server" ControlToValidate="anioCursoTextBox" ErrorMessage="* El año de cursado no puede estar vacío" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                         </div>
-                        <div class="row">
+                         <div class="row">
                             <asp:Label ID="notaLabel" runat="server" Text="Nota: "></asp:Label>
                             <asp:TextBox ID="notaTextBox" runat="server" Width="300px"></asp:TextBox>
-                        </div>
+                        </div>-->
                     </asp:Panel>
                 </div>
                 <br />
@@ -72,7 +72,7 @@
                 <div class="row">
                     <asp:Panel ID="gridActionsPanel" runat="server">
                         <asp:Button ID="nuevoLinkButton" runat="server" Style="margin-right: 5px" OnClick="nuevoLinkButton_Click" Text="Nuevo" CssClass="btn-sm btn-success" />
-                        
+
                         <asp:Button ID="eliminarLinkButton" runat="server" OnClick="eliminarLinkButton_Click" Text="Eliminar" CssClass="btn-sm btn-danger" />
                     </asp:Panel>
                     <asp:Panel ID="gridConfirmPanel" Visible="false" runat="server">

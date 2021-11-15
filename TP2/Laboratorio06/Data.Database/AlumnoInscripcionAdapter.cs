@@ -220,6 +220,7 @@ namespace Data.Database
                 {
                     ins.ID = (int)drInscripciones["id_inscripcion"];
                     ins.Condicion = (string)drInscripciones["condicion"];
+                    ins.Nota = (int)drInscripciones["nota"];
 
                     Persona per = new Persona();
                     per.ID = (int)drInscripciones["id_persona"];
