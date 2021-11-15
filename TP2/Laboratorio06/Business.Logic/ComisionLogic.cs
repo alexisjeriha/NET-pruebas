@@ -1,5 +1,6 @@
 ﻿using Business.Entities;
 using Data.Database;
+using System;
 using System.Collections.Generic;
 
 namespace Business.Logic
@@ -21,47 +22,116 @@ namespace Business.Logic
 
         public Comision GetOne(int ID)
         {
-            return ComisionData.GetOne(ID);
+            try
+            {
+                return ComisionData.GetOne(ID);
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al recuperar datos de la comision", Ex);
+                throw ExcepcionManejada;
+            }
+
         }
 
         public bool Existe(int idPlan, string desc, int anio)
         {
-            return ComisionData.ExisteComision(idPlan, desc, anio);
+            try
+            {
+                return ComisionData.ExisteComision(idPlan, desc, anio);
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al validar la existencia de la Comision", Ex);
+                throw ExcepcionManejada;
+            }
         }
 
         public List<Comision> GetAll()
         {
-            return ComisionData.GetAll();
+            try
+            {
+                return ComisionData.GetAll();
+            }
+
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al recuperar lista de comisiones", Ex);
+                throw ExcepcionManejada;
+            }
         }
 
         public void Save(Comision com)
         {
-            ComisionData.Save(com);
+            try
+            {
+                ComisionData.Save(com);
+            }
+
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al guardar la comision.", Ex);
+                throw ExcepcionManejada;
+            }
         }
 
         public void Delete(int ID)
         {
-            ComisionData.Delete(ID);
+            try
+            {
+                ComisionData.Delete(ID);
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al eliminar la comision.", Ex);
+                throw ExcepcionManejada;
+            }
         }
 
         public List<Comision> GetComisionesParaInscripcion(int IDPlan, int IDAlumno)
         {
-            return ComisionData.GetComisionesParaInscripcion(IDPlan, IDAlumno);
+            try
+            {
+                return ComisionData.GetComisionesParaInscripcion(IDPlan, IDAlumno);
+            }
+
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al recuperar las comisiones disponibles para el alumno.", Ex);
+                throw ExcepcionManejada;
+            }
         }
 
         // Devuelve las comisiones con cupo para la materia indicada
         public List<Comision> GetComisionesDisponibles(int IDMateria)
         {
-            List<Comision> comisiones = new List<Comision>();
-            CursoLogic curlog = new CursoLogic();
-            foreach (Curso c in curlog.GetAll())
+            try
             {
-                if (c.Materia.ID == IDMateria) // && c.Cupo > 0
+
+                List<Comision> comisiones = new List<Comision>();
+                CursoLogic curlog = new CursoLogic();
+                foreach (Curso c in curlog.GetAll())
                 {
-                    comisiones.Add(c.Comision);
+                    if (c.Materia.ID == IDMateria) // && c.Cupo > 0
+                    {
+                        comisiones.Add(c.Comision);
+                    }
                 }
+                return comisiones;
             }
-            return comisiones;
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al recuperar las comisiones disponibles.", Ex);
+                throw ExcepcionManejada;
+            }
+
         }
     }
 }

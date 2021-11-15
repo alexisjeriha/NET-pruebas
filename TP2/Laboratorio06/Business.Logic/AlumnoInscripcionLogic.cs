@@ -25,42 +25,132 @@ namespace Business.Logic
 
         public AlumnoInscripcion GetOne(int ID)
         {
-            return alumnoInscripcionData.GetOne(ID);
+            try
+            {
+                return alumnoInscripcionData.GetOne(ID);
+            }
+
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al recuperar datos de la inscripcion del alumno", Ex);
+                throw ExcepcionManejada;
+            }
+
         }
 
         public bool ExisteInscripcion(int idAlu, int idCur)
         {
-            return alumnoInscripcionData.ExisteInscripcion(idAlu, idCur);
+            try
+            {
+                return alumnoInscripcionData.ExisteInscripcion(idAlu, idCur);
+            }
+
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al validar la existencia de la Inscripcion", Ex);
+                throw ExcepcionManejada;
+            }
         }
         public List<AlumnoInscripcion> GetAll(int IDAlumno)
         {
-            return alumnoInscripcionData.GetAll(IDAlumno);
+            try
+            {
+                return alumnoInscripcionData.GetAll(IDAlumno);
+            }
+
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al recuperar datos de las inscripciones del alumno", Ex);
+                throw ExcepcionManejada;
+            }
         }
         public List<AlumnoInscripcion> GetAll()
         {
-            return alumnoInscripcionData.GetAll();
+            try
+            {
+                return alumnoInscripcionData.GetAll();
+            }
+
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al recuperar datos de las inscripciones del alumno", Ex);
+                throw ExcepcionManejada;
+            }
         }
         public List<AlumnoInscripcion> GetRegulares()
         {
-            return alumnoInscripcionData.GetRegulares();
+            try
+            {
+                return alumnoInscripcionData.GetRegulares();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                new Exception("Error al recuperar datos de los alumnos regulares", Ex);
+                throw ExcepcionManejada;
+            }
+
         }
         public List<AlumnoInscripcion> GetAprobados()
         {
-            return alumnoInscripcionData.GetAprobados();
+            try
+            {
+                return alumnoInscripcionData.GetAprobados();
+            }
+
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                new Exception("Error al recuperar datos de los alumnos aprobados", Ex);
+                throw ExcepcionManejada;
+            }
         }
         public List<AlumnoInscripcion> GetLibres()
         {
-            return alumnoInscripcionData.GetLibres();
+            try
+            {
+                return alumnoInscripcionData.GetLibres();
+            }
+
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                new Exception("Error al recuperar datos de los alumnos libres", Ex);
+                throw ExcepcionManejada;
+            }
         }
         public void Save(AlumnoInscripcion inscripcion)
         {
-            alumnoInscripcionData.Save(inscripcion);
+            try
+            {
+                alumnoInscripcionData.Save(inscripcion);
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al guardar la inscripcion del alumno", Ex);
+                throw ExcepcionManejada;
+            }
+
         }
 
         public void Delete(int ID)
         {
-            alumnoInscripcionData.Delete(ID);
+            try
+            {
+                alumnoInscripcionData.Delete(ID);
+            }
+
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al eliminar la inscripcion del alumno", Ex);
+                throw ExcepcionManejada;
+            }
         }
     }
 }
-

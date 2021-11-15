@@ -116,7 +116,7 @@ namespace Data.Database
 
                     per.Direccion = (string)drPersonas["telefono"];
 
-                    per.Plan.ID = (int)drPersonas["id_plan"]; 
+                    per.Plan.ID = (int)drPersonas["id_plan"];
 
                 }
                 drPersonas.Close();
@@ -291,23 +291,31 @@ namespace Data.Database
 
         public void Save(Persona per)
         {
-            if (per.State == BusinessEntity.States.Deleted)
+            try
             {
-                Delete(per.ID);
-            }
+                if (per.State == BusinessEntity.States.Deleted)
+                {
+                    Delete(per.ID);
+                }
 
-            else if (per.State == BusinessEntity.States.New)
-            {
-                Insert(per);
-            }
+                else if (per.State == BusinessEntity.States.New)
+                {
+                    Insert(per);
+                }
 
-            else if (per.State == BusinessEntity.States.Modified)
-            {
-                Update(per);
+                else if (per.State == BusinessEntity.States.Modified)
+                {
+                    Update(per);
+                }
+                per.State = BusinessEntity.States.Unmodified;
             }
-            per.State = BusinessEntity.States.Unmodified;
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                new Exception("Error al guardar persona", Ex);
+                throw ExcepcionManejada;
+            }
         }
 
     }
 }
-

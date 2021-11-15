@@ -198,19 +198,30 @@ namespace Data.Database
 
         public void Save(Comision com)
         {
-            if (com.State == BusinessEntity.States.Deleted)
+            try
             {
-                Delete(com.ID);
+                if (com.State == BusinessEntity.States.Deleted)
+                {
+                    Delete(com.ID);
+                }
+                else if (com.State == BusinessEntity.States.New)
+                {
+                    Insert(com);
+                }
+                else if (com.State == BusinessEntity.States.Modified)
+                {
+                    Update(com);
+                }
+                com.State = BusinessEntity.States.Unmodified;
             }
-            else if (com.State == BusinessEntity.States.New)
+
+            catch (Exception Ex)
             {
-                Insert(com);
+                Exception ExcepcionManejada =
+                    new Exception("Error al guardar las comisiones.", Ex);
+                throw ExcepcionManejada;
             }
-            else if (com.State == BusinessEntity.States.Modified)
-            {
-                Update(com);
-            }
-            com.State = BusinessEntity.States.Unmodified;
+
         }
 
         public List<Comision> GetComisionesParaInscripcion(int IDPlan, int IDAlumno)

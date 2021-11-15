@@ -85,21 +85,51 @@ namespace Data.Database
 
         public List<AlumnoInscripcion> GetRegulares()
         {
-            List<AlumnoInscripcion> inscriptos = GetAll();
-            List<AlumnoInscripcion> regulares = inscriptos.FindAll(i => i.Condicion == "Regular");
-            return regulares;
+            try
+            {
+                List<AlumnoInscripcion> inscriptos = GetAll();
+                List<AlumnoInscripcion> regulares = inscriptos.FindAll(i => i.Condicion == "Regular");
+                return regulares;
+            }
+
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                new Exception("Error al recuperar datos de los alumnos regulares", Ex);
+                throw ExcepcionManejada;
+            }
         }
         public List<AlumnoInscripcion> GetAprobados()
         {
-            List<AlumnoInscripcion> inscriptos = GetAll();
-            List<AlumnoInscripcion> aprobado = inscriptos.FindAll(i => i.Condicion == "Aprobado");
-            return aprobado;
+            try
+            {
+                List<AlumnoInscripcion> inscriptos = GetAll();
+                List<AlumnoInscripcion> aprobado = inscriptos.FindAll(i => i.Condicion == "Aprobado");
+                return aprobado;
+            }
+
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                new Exception("Error al recuperar datos de los alumnos aprobados", Ex);
+                throw ExcepcionManejada;
+            }
         }
         public List<AlumnoInscripcion> GetLibres()
         {
-            List<AlumnoInscripcion> inscriptos = GetAll();
-            List<AlumnoInscripcion> libre = inscriptos.FindAll(i => i.Condicion == "Libre");
-            return libre;
+            try
+            {
+                List<AlumnoInscripcion> inscriptos = GetAll();
+                List<AlumnoInscripcion> libre = inscriptos.FindAll(i => i.Condicion == "Libre");
+                return libre;
+            }
+
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                new Exception("Error al recuperar datos de los alumnos libres", Ex);
+                throw ExcepcionManejada;
+            }
         }
         public List<AlumnoInscripcion> GetAll(int IDAlumno)
         {

@@ -219,19 +219,30 @@ namespace Data.Database
 
         public void Save(Curso curso)
         {
-            if (curso.State == BusinessEntity.States.Deleted)
+            try
             {
-                Delete(curso.ID);
+
+                if (curso.State == BusinessEntity.States.Deleted)
+                {
+                    Delete(curso.ID);
+                }
+                else if (curso.State == BusinessEntity.States.New)
+                {
+                    Insert(curso);
+                }
+                else if (curso.State == BusinessEntity.States.Modified)
+                {
+                    Update(curso);
+                }
+                curso.State = BusinessEntity.States.Unmodified;
             }
-            else if (curso.State == BusinessEntity.States.New)
+
+            catch (Exception Ex)
             {
-                Insert(curso);
+                Exception ExcepcionManejada =
+                    new Exception("Error al guardar", Ex);
+                throw ExcepcionManejada;
             }
-            else if (curso.State == BusinessEntity.States.Modified)
-            {
-                Update(curso);
-            }
-            curso.State = BusinessEntity.States.Unmodified;
         }
     }
 }

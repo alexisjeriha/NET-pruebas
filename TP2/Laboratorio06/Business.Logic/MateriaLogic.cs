@@ -30,27 +30,75 @@ namespace Business.Logic
 
         public bool Existe(int idPlan, string desc)
         {
-            return MateriaData.ExisteMateria(idPlan, desc);
+            try
+            {
+                return MateriaData.ExisteMateria(idPlan, desc);
+            }
+
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al validar la existencia de la materia", Ex);
+                throw ExcepcionManejada;
+            }
         }
 
         public List<Materia> GetAll()
         {
-            return MateriaData.GetAll();
+            try
+            {
+                return MateriaData.GetAll();
+            }
+
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al recuperar lista de materias", Ex);
+                throw ExcepcionManejada;
+            }
         }
 
         public void Save(Materia mat)
         {
-            MateriaData.Save(mat);
+            try
+            {
+                MateriaData.Save(mat);
+            }
+
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al guardar datos de la materia", Ex);
+                throw ExcepcionManejada;
+            }
         }
 
         public void Delete(int ID)
         {
-            MateriaData.Delete(ID);
+            try
+            {
+                MateriaData.Delete(ID);
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al eliminar la materia", Ex);
+                throw ExcepcionManejada;
+            }
         }
 
         public List<Materia> GetMateriasParaInscripcion(int IDPlan, int IDAlumno)
         {
-            return MateriaData.GetMateriasParaInscripcion(IDPlan, IDAlumno);
+            try
+            {
+                return MateriaData.GetMateriasParaInscripcion(IDPlan, IDAlumno);
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al recuperar las materias disponibles para el alumno.", Ex);
+                throw ExcepcionManejada;
+            }
         }
     }
 }

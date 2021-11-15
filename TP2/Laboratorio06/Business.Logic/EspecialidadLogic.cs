@@ -1,5 +1,6 @@
 ﻿using Business.Entities;
 using Data.Database;
+using System;
 using System.Collections.Generic;
 
 namespace Business.Logic
@@ -14,22 +15,57 @@ namespace Business.Logic
 
         public List<Especialidad> GetAll()
         {
-            return EspecialidadData.GetAll();
+            try
+            {
+                return EspecialidadData.GetAll();
+            }
+
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                new Exception("Error al recuperar lista de especialidades", Ex);
+                throw ExcepcionManejada;
+            }
         }
 
         public Especialidad GetOne(int ID)
         {
-            return EspecialidadData.GetOne(ID);
+            try
+            {
+                return EspecialidadData.GetOne(ID);
+            }
+            catch (Exception)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos de la especialidad");
+                throw ExcepcionManejada;
+            }
         }
 
         public void Delete(int ID)
         {
-            EspecialidadData.Delete(ID);
+            try
+            {
+                EspecialidadData.Delete(ID);
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al eliminar especialidad", Ex);
+                throw ExcepcionManejada;
+            }
         }
 
         public void Save(Especialidad esp)
         {
-            EspecialidadData.Save(esp);
+            try
+            {
+                EspecialidadData.Save(esp);
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                new Exception("Error al guardar especialidad", Ex);
+                throw ExcepcionManejada;
+            }
         }
 
     }
